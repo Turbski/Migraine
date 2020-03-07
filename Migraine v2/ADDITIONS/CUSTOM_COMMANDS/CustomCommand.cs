@@ -10,15 +10,12 @@ namespace Migraine_v2.ADDITIONS.CUSTOM_COMMANDS
     {
         public string Name { get; set; }
 
-        public List<string> Alias = new List<string>();
-
         public string Response { get; set; }
 
-        public CustomCommand(string name, string response, List<string> alias = null)
+        public CustomCommand(string name, string response)
         {
             Name = name;
             Response = response;
-            if (Alias != null) Alias = alias;
         }
     }
 }

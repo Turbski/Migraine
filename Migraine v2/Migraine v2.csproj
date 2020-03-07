@@ -107,6 +107,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADDITIONS\CUSTOM_COMMANDS\CustomCommand.cs" />
+    <Compile Include="ADDITIONS\StorageSystem\Storage.cs" />
+    <Compile Include="ADDITIONS\StorageSystem\StorageHandler.cs" />
     <Compile Include="API\RandomDogImage.cs" />
     <Compile Include="API\RandomHentai.cs" />
     <Compile Include="API\RandomHug.cs" />

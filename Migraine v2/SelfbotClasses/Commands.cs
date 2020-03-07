@@ -14,6 +14,8 @@ using System.Threading;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Migraine_v2.ADDITIONS.CUSTOM_COMMANDS;
+using Migraine_v2.ADDITIONS.StorageSystem;
 
 namespace Migraine_v2.SelfbotClasses {
     public class Commands : ModuleBase
@@ -52,7 +54,24 @@ namespace Migraine_v2.SelfbotClasses {
                 Thread.Sleep(15000);
             }
         }
+        [Command("cmds")]
+        public async Task CustomCmds()
+        {
+            await Context.Message.DeleteAsync();
 
+            StorageHandler.LoadStorage();
+            EmbedBuilder embed = new EmbedBuilder();
+
+            embed.WithTitle("Custom User Defined Commands");
+            embed.WithDescription("Here's a list of all defined commands");
+            embed.WithColor(Color.Green);
+            foreach (var cmds in StorageHandler._Storage.CustomCmds)
+            {
+                await ReplyAsync(cmds.Name + ":" + cmds.Response);
+            }
+
+            await ReplyAsync("", false, embed.Build());
+        }
         [Command("8ball")]
         public async Task ball(string message = null)
         {
