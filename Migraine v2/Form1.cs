@@ -228,34 +228,34 @@ namespace Migraine_v2 {
             }
             Thread.Sleep(1);
         }
-        public void MassPingSpammer() {
-            bool flag = !Form1.Running;
-            if (flag)
-                Thread.CurrentThread.Abort();
-            bool flag2 = Form1._MsgsSent >= Form1._Msgstosend;
-            if (flag2)
-                Form1.Running = false;
-            bool running = Form1.Running;
-            if (running) {
-                try {
-                    string text;
-                    ConsoleLog.Log("[Console] Initializing...");
-                    Form1.ValidTokens.TryDequeue(out text);
-                    bool flag3 = text != null && text != "";
-                    if (!flag3) { return; }
-                    Form1.ValidTokens.Enqueue(text);
-                    string[] Members = rDiscord.GetMembers(Client.Create(false, null, text), this.ServerID.Text);
-                    int num = rDiscord.SendMassPingMessage(Client.Create(false, null, text), Form1._ChannelID, Members);
-                    ConsoleLog.Log("[Console] Started Task");
-                    bool flag4 = num == 1;
-                    if (flag4) {
-                        this.tmessagessent.Text = Form1._MsgsSent.ToString();
-                        Form1._MsgsSent++;
-                    } else {  Thread.Sleep(1000); }
-                } catch { }
-            }
-            Thread.Sleep(1);
-        }
+        //public void MassPingSpammer() {
+        //    bool flag = !Form1.Running;
+        //    if (flag)
+        //        Thread.CurrentThread.Abort();
+        //    bool flag2 = Form1._MsgsSent >= Form1._Msgstosend;
+        //    if (flag2)
+        //        Form1.Running = false;
+        //    bool running = Form1.Running;
+        //    if (running) {
+        //        try {
+        //            string text;
+        //            ConsoleLog.Log("[Console] Initializing...");
+        //            Form1.ValidTokens.TryDequeue(out text);
+        //            bool flag3 = text != null && text != "";
+        //            if (!flag3) { return; }
+        //            Form1.ValidTokens.Enqueue(text);
+        //            string[] Members = rDiscord.GetMembers(Client.Create(false, null, text), this.ServerID.Text);
+        //            //int num = rDiscord.SendMassPingMessage(Client.Create(false, null, text), Form1._ChannelID, Members);
+        //            ConsoleLog.Log("[Console] Started Task");
+        //            bool flag4 = num == 1;
+        //            if (flag4) {
+        //                this.tmessagessent.Text = Form1._MsgsSent.ToString();
+        //                Form1._MsgsSent++;
+        //            } else {  Thread.Sleep(1000); }
+        //        } catch { }
+        //    }
+        //    Thread.Sleep(1);
+        //}
         private void Stop_Click(object sender, EventArgs e) => Form1.Running = false;
         public void InviteThreaded() {
             try {
@@ -629,18 +629,31 @@ namespace Migraine_v2 {
         private void DmAllInGuild_Click_1(object sender, EventArgs e) => MessageBox.Show("Didnt have time to do this feature!", "Sorry");
         private void LoadTokens_Click_1(object sender, EventArgs e) {
             try {
-                OpenFileDialog openFileDialog = new OpenFileDialog {
+                OpenFileDialog openFileDialog = new OpenFileDialog
+                {
                     RestoreDirectory = true,
                     Multiselect = true,
                     Title = "Select Tokens...",
                     Filter = "Text|*.txt|All|*.*"
                 };
+                bool flag4 = Token.Count != 0 || !Token.IsEmpty;
+                if (flag4)
+                {
+                    while (Token.Count != 0)
+                    {
+                        string text;
+                        Token.TryDequeue(out text);
+                    }
+                }
                 openFileDialog.ShowDialog();
                 string[] array = File.ReadAllLines(openFileDialog.FileName);
                 Form1._LoadedTokens = array.Length;
                 this.LoadTokens.Text = Form1._LoadedTokens.ToString() + " Tokens";
-                foreach (string item in array) { Form1.ValidTokens.Enqueue(item); }
-            } catch { }
+                foreach (string item in array) {
+                    Form1.ValidTokens.Enqueue(item);
+                }
+            } catch {
+            }
         }
         private void ProxyButt_Click_1(object sender, EventArgs e) {
             bool flag = Form1.Proxy.Count > 0;
@@ -1457,7 +1470,5 @@ namespace Migraine_v2 {
         public static List<string> _ValidTokens = new List<string>();
         public static List<string> _MsgsSent2 = new List<string>();
         private DiscordSocketClient _client;
-
-
     }
 }

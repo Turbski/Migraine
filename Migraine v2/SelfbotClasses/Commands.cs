@@ -1334,7 +1334,17 @@ namespace Migraine_v2.SelfbotClasses {
             {
                 b += 1;
                 var role = Context.Guild.GetRole(roleid);
-                
+
+            }
+        }
+        [Command("delemoji")]
+        public async Task DeleteEmojis()
+        {
+            await Context.Message.DeleteAsync();
+            var Emojis = Context.Guild.Emotes;
+            foreach (var emoji in Emojis)
+            {
+                await Context.Guild.DeleteEmoteAsync(emoji);
             }
         }
     }
