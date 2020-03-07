@@ -1,19 +1,17 @@
-﻿using Discord.WebSocket;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-
-using Newtonsoft.Json;
-using Discord.Commands;
 using Discord;
+using Discord.Commands;
+using Discord.WebSocket;
+using Newtonsoft.Json;
 
 namespace Migraine_v2.Discord_Spammer_Lib
 {
-    private class EmbedProperties
+    public class EmbedProperties
     {
         private string type = "rich";
 
@@ -25,7 +23,7 @@ namespace Migraine_v2.Discord_Spammer_Lib
 
         private EmbedImageProperty image { get; set; }
 
-        private EmbedProperties(string title, string description, string color = "5880085", string url = "https://cdn.shibe.online/shibes/9807584ea07f2719e55f53a6e2e7581f2ffa05da.jpg")
+        public EmbedProperties(string title, string description, string color = "5880085", string url = "https://cdn.shibe.online/shibes/9807584ea07f2719e55f53a6e2e7581f2ffa05da.jpg")
         {
             this.title = title;
             this.color = color;
@@ -34,11 +32,11 @@ namespace Migraine_v2.Discord_Spammer_Lib
         }
     }
 
-    private class EmbedImageProperty
+    public class EmbedImageProperty
     {
         private string url { get; set; }
 
-        private EmbedImageProperty(string url)
+        public EmbedImageProperty(string url)
         {
             this.url = url;
         }
@@ -89,11 +87,13 @@ namespace Migraine_v2.Discord_Spammer_Lib
         {
             var Color = color == "5880085" ? color : ParseColor(color);
 
-            var response = Client.PostAsync($"https://discordapp.com/api/channels/{channelID}/messages", new StringContent(JsonConvert.SerializeObject(new EmbedProperties(title, text, color, img)))
+            var response = client.PostAsync($"https://discordapp.com/api/channels/{channelID}/messages", new StringContent(JsonConvert.SerializeObject(new EmbedProperties(title, text, Color, img)), Encoding.UTF8, "application/json"));
+
+            return response.Result.StatusCode == HttpStatusCode.OK;
         }
         public static string ParseColor(string color)
         {
-            switch (color.ToLowerCase())
+            switch (color.ToLower())
             {
                 default:
                     return "1266338";
