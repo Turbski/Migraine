@@ -14,8 +14,6 @@ using System.Threading;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using Migraine_v2.ADDITIONS.CUSTOM_COMMANDS;
-using Migraine_v2.ADDITIONS.StorageSystem;
 
 namespace Migraine_v2.SelfbotClasses {
     public class Commands : ModuleBase
@@ -54,24 +52,7 @@ namespace Migraine_v2.SelfbotClasses {
                 Thread.Sleep(15000);
             }
         }
-        [Command("cmds")]
-        public async Task CustomCmds()
-        {
-            await Context.Message.DeleteAsync();
 
-            StorageHandler.LoadStorage();
-            EmbedBuilder embed = new EmbedBuilder();
-
-            embed.WithTitle("Custom User Defined Commands");
-            embed.WithDescription("Here's a list of all defined commands");
-            embed.WithColor(Color.Green);
-            foreach (var cmds in StorageHandler._Storage.CustomCmds)
-            {
-                await ReplyAsync(cmds.Name + ":" + cmds.Response);
-            }
-
-            await ReplyAsync("", false, embed.Build());
-        }
         [Command("8ball")]
         public async Task ball(string message = null)
         {
@@ -230,9 +211,7 @@ namespace Migraine_v2.SelfbotClasses {
                 string price = args.DownloadString("https://bitpay.com/api/rates/usd");
                 dynamic json = JsonConvert.DeserializeObject(price);
                 var embed = new EmbedBuilder();
-
-                embed.WithThumbnailUrl("https://bitcoin.org/img/icons/opengraph.png");
-                embed.WithTitle("Bitcoin Price");
+                embed.WithAuthor("Bitcoin Price", "https://bitcoin.org/img/icons/opengraph.png", "https://migraine.best/");
                 embed.WithDescription("Displays bitcoin price");
                 embed.WithColor(new Color(242, 169, 0));
                 embed.AddField("Bitcoin Price:", double.Parse(Convert.ToString(json.rate)).ToString("C"));
@@ -297,8 +276,7 @@ namespace Migraine_v2.SelfbotClasses {
             var embed = new EmbedBuilder();
             Settings.getSettings();
             string bitcoin = Settings._Bitcoin;
-            embed.WithAuthor("Bitcoin Address");
-            embed.WithThumbnailUrl("https://cdn.discordapp.com/attachments/648668483814686732/652833384372109313/5b28dbe766917.png");
+            embed.WithAuthor("Bitcoin Address", "https://bitcoin.org/img/icons/opengraph.png", "https://migraine.best/");
             embed.WithDescription("``" + bitcoin + "``");
             embed.WithColor(Globals.EmbedHexColor);
             await Context.Channel.SendMessageAsync("", false, embed.Build());
@@ -1302,7 +1280,7 @@ namespace Migraine_v2.SelfbotClasses {
                     TimeTillEnd = Convert.ToInt32(GetEndTime[GetEndTime.Length - 1].Replace("h", ""));
                     info = info.Replace(GetEndTime[GetEndTime.Length - 1], "");
                 }
-                catch 
+                catch
                 {
                     num = 1;
                 }
@@ -1366,37 +1344,46 @@ namespace Migraine_v2.SelfbotClasses {
                 await Context.Guild.DeleteEmoteAsync(emoji);
             }
         }
+        [Command("masskick")]
+        public async Task MassKick()
+        {
+            await Context.Message.DeleteAsync();
+            var getmembers = await Context.Guild.GetUsersAsync();
+
+        }
+
+        [Command("oops")]
+        public async Task lmfao()
+        {
+            if (Context.User.Id.ToString() == Context.Client.CurrentUser.Id.ToString())
+            {
+                await Context.Message.DeleteAsync();
+
+                string mention = "";
+
+                var users = await Context.Guild.GetUsersAsync();
+
+                foreach (SocketGuildUser member in users)
+                {
+                    if (member.IsBot)
+                        continue;
+                    mention += member.Mention + " ";
+                    if (mention.Length >= 1977)
+                    {
+                        await Context.Channel.SendMessageAsync(mention);
+                        Thread.Sleep(500);
+                        await Context.Message.DeleteAsync();
+                        mention = "";
+                    }
+                    await Context.Channel.SendMessageAsync(mention);
+                    Thread.Sleep(500);
+                    await Context.Message.DeleteAsync();
+                }
+            }
+        }
     }
 }
 
-        //[Command("oops")]
-        //public async Task lmfao()
-        //{
-        //    //if (Context.User.Id.ToString() == Context.Client.CurrentUser.Id.ToString())
-        //    //{
-        //    //    await Context.Message.DeleteAsync();
-
-        //    //    string mention = "";
-
-        //    //    var users = await Context.Guild.Users;
-
-        //    //    foreach (SocketGuildUser member in users)
-        //    //    {
-        //    //        if (member.IsBot)
-        //    //            continue;
-        //    //        mention += member.Mention + " ";
-        //    //        if (mention.Length >= 1977)
-        //    //        {
-        //    //            await Context.Channel.SendMessageAsync(mention);
-        //    //            Thread.Sleep(500);
-        //    //            await Context.Message.DeleteAsync();
-        //    //            mention = "";
-        //    //        }
-        //    //        await Context.Channel.SendMessageAsync(mention);
-        //    //        Thread.Sleep(500);
-        //    //        await Context.Message.DeleteAsync();
-        //    //    }
-        //    }
             //==============================================Nuker====================================================//
 
 
