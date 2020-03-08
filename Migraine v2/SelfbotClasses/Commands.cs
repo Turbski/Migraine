@@ -138,9 +138,14 @@ namespace Migraine_v2.SelfbotClasses {
             await Context.Message.DeleteAsync();
             var Message = await Context.Channel.SendMessageAsync(":firecracker::airplane:       :office:");
             Thread.Sleep(1000);
-            await Context.Message.ModifyAsync(delegate (MessageProperties msg)
+            await Message.ModifyAsync(delegate (MessageProperties msg)
             {
                 msg.Content = ":firecracker::airplane:     :office:";
+            }, null);
+            Thread.Sleep(1000);
+            await Message.ModifyAsync(delegate (MessageProperties msg)
+            {
+                msg.Content = ":firecracker::airplane:    :office:";
             }, null);
             Thread.Sleep(1000);
             await Message.ModifyAsync(delegate (MessageProperties msg)
@@ -150,17 +155,17 @@ namespace Migraine_v2.SelfbotClasses {
             Thread.Sleep(1000);
             await Message.ModifyAsync(delegate (MessageProperties msg)
             {
+                msg.Content = ":firecracker::airplane:  :office:";
+            }, null);
+            Thread.Sleep(1000);
+            await Message.ModifyAsync(delegate (MessageProperties msg)
+            {
                 msg.Content = ":firecracker::airplane: :office:";
             }, null);
             Thread.Sleep(1000);
             await Message.ModifyAsync(delegate (MessageProperties msg)
-                {
-                    msg.Content = ":firecracker::airplane::office:";
-                }, null);
-            Thread.Sleep(1000);
-            await Message.ModifyAsync(delegate (MessageProperties msg)
             {
-                msg.Content = ":fire::fire::fire:";
+                msg.Content = ":boom:";
             }, null);
             Thread.Sleep(1000);
             await Context.Message.DeleteAsync();
@@ -195,7 +200,7 @@ namespace Migraine_v2.SelfbotClasses {
         }
 
         [Command("ascii")]
-        public async Task ascii(string args)
+        public async Task ascii(string args = null)
         {
             await Context.Message.DeleteAsync();
 
@@ -437,7 +442,6 @@ namespace Migraine_v2.SelfbotClasses {
         public async Task clearc()
         {
             await Context.Message.DeleteAsync();
-
             await Context.Channel.SendMessageAsync("_ _\n _ _\n _ _\n _ _\n _ _\n_ _\n _ _\n _ _\n _ _\n _ _\n_ _\n _ _\n _ _\n _ _\n _ _\n_ _\n _ _\n _ _\n _ _\n _ _\n_ _\n _ _\n _ _\n _ _\n _ _\n_ _\n _ _\n _ _\n _ _\n _ _\n_ _\n _ _\n _ _\n _ _\n _ _\n_ _\n _ _\n _ _\n _ _\n _ _\n");
         }
 
@@ -799,10 +803,8 @@ namespace Migraine_v2.SelfbotClasses {
         }
 
         [Command("migraine")]
-
         public async Task migraine()
         {
-
             await Context.Message.DeleteAsync();
 
             var Message = await Context.Channel.SendMessageAsync("M");
@@ -1005,19 +1007,15 @@ namespace Migraine_v2.SelfbotClasses {
         [Command("sstats")]
         public async Task sstats()
         {
+            await Context.Message.DeleteAsync();
             string serveravatar = Context.Guild.IconUrl;
-
             var server = Context.Guild;
-            var roles = server.Roles;
-            var members = server.GetUsersAsync(CacheMode.AllowDownload, null);
             var embed = new EmbedBuilder();
-
             embed.WithThumbnailUrl(serveravatar);
             embed.AddField("**Server Name:** ", $" {server.Name}");
             embed.AddField("**Server Owner:** ", $"{server.OwnerId}");
             embed.AddField("**Server Created:** ", $" {server.CreatedAt}");
-            embed.AddField("**Roles:** ", $"{roles.ToString()}");
-            embed.AddField("**Members:**", $"{members.ToString()}");
+            embed.AddField("**Verification Level:**", $"{server.VerificationLevel}");
             embed.WithColor(Globals.EmbedHexColor);
             embed.WithFooter("Migraine | Made by Twin Turbo");
 
@@ -1186,6 +1184,7 @@ namespace Migraine_v2.SelfbotClasses {
         [Command("giveaway")]
         public async Task CreateGiveaway([Remainder] string info = null)
         {
+            var random = new Random();
             await Context.Message.DeleteAsync();
             bool noinfo = info == null;
             if (noinfo)
@@ -1235,6 +1234,12 @@ namespace Migraine_v2.SelfbotClasses {
                 {
                     await Context.Channel.SendMessageAsync("Invalid Time");
                 }
+                //var emoji = new Emoji("\ud83c\udf81");
+                //IReadOnlyCollection<IUser> getreactions = Context.Message.GetReactionUsersAsync(emoji, 1000);
+                //if (getreactions.Count > 0)
+                //{
+
+                //} fix later!!!!!
             }
         }
         [Command("beamed")]
