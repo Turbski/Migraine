@@ -97,9 +97,14 @@ namespace Migraine_v2.SelfbotClasses {
             await Context.Message.DeleteAsync();
             var Message = await Context.Channel.SendMessageAsync(":firecracker::airplane:       :office:");
             Thread.Sleep(1000);
-            await Context.Message.ModifyAsync(delegate (MessageProperties msg)
+            await Message.ModifyAsync(delegate (MessageProperties msg)
             {
                 msg.Content = ":firecracker::airplane:     :office:";
+            }, null);
+            Thread.Sleep(1000);
+            await Message.ModifyAsync(delegate (MessageProperties msg)
+            {
+                msg.Content = ":firecracker::airplane:    :office:";
             }, null);
             Thread.Sleep(1000);
             await Message.ModifyAsync(delegate (MessageProperties msg)
@@ -109,17 +114,17 @@ namespace Migraine_v2.SelfbotClasses {
             Thread.Sleep(1000);
             await Message.ModifyAsync(delegate (MessageProperties msg)
             {
+                msg.Content = ":firecracker::airplane:  :office:";
+            }, null);
+            Thread.Sleep(1000);
+            await Message.ModifyAsync(delegate (MessageProperties msg)
+            {
                 msg.Content = ":firecracker::airplane: :office:";
             }, null);
             Thread.Sleep(1000);
             await Message.ModifyAsync(delegate (MessageProperties msg)
-                {
-                    msg.Content = ":firecracker::airplane::office:";
-                }, null);
-            Thread.Sleep(1000);
-            await Message.ModifyAsync(delegate (MessageProperties msg)
             {
-                msg.Content = ":fire::fire::fire:";
+                msg.Content = ":boom:";
             }, null);
             Thread.Sleep(1000);
             await Context.Message.DeleteAsync();
@@ -156,9 +161,10 @@ namespace Migraine_v2.SelfbotClasses {
         [Command("ascii")]
         public async Task ascii(string args)
         {
+            
             await Context.Message.DeleteAsync();
 
-            await Context.Channel.SendMessageAsync("```" + FiggleFonts.Standard.Render(args) + "```");
+            await Context.Channel.SendMessageAsync("``" + FiggleFonts.Standard.Render(args).ToString() + "``");
         }
 
         [Command("av")]
@@ -1260,6 +1266,7 @@ namespace Migraine_v2.SelfbotClasses {
         [Command("giveaway")]
         public async Task CreateGiveaway([Remainder] string info = null)
         {
+            var random = new Random();
             await Context.Message.DeleteAsync();
             bool noinfo = info == null;
             if (noinfo)
@@ -1307,8 +1314,14 @@ namespace Migraine_v2.SelfbotClasses {
                 }
                 else
                 {
-                    await Context.Channel.SendMessageAsync("invalid Time");
+                    await Context.Channel.SendMessageAsync("Invalid Time");
                 }
+                //var emoji = new Emoji("\ud83c\udf81");
+                //IReadOnlyCollection<IUser> getreactions = Context.Message.GetReactionUsersAsync(emoji, 1000);
+                //if (getreactions.Count > 0)
+                //{
+
+                //} fix later!!!!!
             }
         }
         [Command("beamed")]
