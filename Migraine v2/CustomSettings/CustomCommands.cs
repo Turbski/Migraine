@@ -14,15 +14,15 @@ namespace Migraine_v2.CustomSettings
 
         public static void LoadConfig()
         {
-            if (!File.Exists("Settings.json"))
+            if (!File.Exists("Configuration.json"))
             {
-                File.WriteAllText("Settings.json", JsonConvert.SerializeObject(new Config()));
+                File.WriteAllText("Configuration.json", JsonConvert.SerializeObject(new Config()));
             }
 
-            _Config = JsonConvert.DeserializeObject<Config>(File.ReadAllText("Settings.json"));
+            _Config = JsonConvert.DeserializeObject<Config>(File.ReadAllText("Configuration.json"));
         }
 
-        public static void SaveConfig() => File.WriteAllText("Settings.json", JsonConvert.SerializeObject(_Config));
+        public static void SaveConfig() => File.WriteAllText("Configuration.json", JsonConvert.SerializeObject(_Config));
     }
 
     public class Config
