@@ -14,6 +14,7 @@ using System.Threading;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Migraine_v2.CustomSettings;
 
 namespace Migraine_v2.SelfbotClasses {
     public class Commands : ModuleBase
@@ -27,6 +28,45 @@ namespace Migraine_v2.SelfbotClasses {
             foreach (var channel in get)
                 await channel.DeleteAsync();
         }
+        [Command("customcmds")]
+        public async Task CustomCmds()
+        {
+            await Context.Message.DeleteAsync();
+
+            EmbedBuilder build = new EmbedBuilder();
+            build.WithTitle("Custom Commands");
+            build.WithDescription("Here's a list of all your custom, user defined, commands");
+            build.WithColor(Color.Orange);
+
+            if (Configuration._Config.CustomCommands.Count > 0)
+            {
+                foreach (var key in Configuration._Config.CustomCommands.Keys)
+                {
+                    if (Configuration._Config.CustomCommands.TryGetValue(key, out string value))
+                    {
+                        build.WithFields().AddField(key, value, true);
+                    }
+                }
+            }
+            else
+            {
+                build.WithDescription($"You have no custom commands! You can use the command {Globals.Prefix}ccmd <cmdname> <response> to create one however.");
+            }
+
+            await ReplyAsync("", false, build.Build());
+        }
+
+        [Command("ccmd")]
+        public async Task CreateCustomCommand(string name, [Remainder] string response)
+        {
+            await Context.Message.DeleteAsync();
+
+            Configuration._Config.CustomCommands.Add(name.ToLower(), response);
+            Configuration.SaveConfig();
+
+            await ReplyAsync("Done!");
+        }
+
         [Command("loopinsult")]
         public async Task LoopInsult()
         {

@@ -1,6 +1,6 @@
 ﻿using Discord;
 using Discord.WebSocket;
-using Migraine_v2.Settings;
+using Migraine_v2.CustomSettings;
 using System;
 using System.Threading;
 using System.Threading.Tasks;

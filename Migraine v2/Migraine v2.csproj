@@ -107,15 +107,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ADDITIONS\CUSTOM_COMMANDS\CustomCommand.cs" />
-    <Compile Include="ADDITIONS\StorageSystem\Storage.cs" />
-    <Compile Include="ADDITIONS\StorageSystem\StorageHandler.cs" />
     <Compile Include="API\RandomDogImage.cs" />
     <Compile Include="API\RandomHentai.cs" />
     <Compile Include="API\RandomHug.cs" />
     <Compile Include="Classes\DiscordWebhook.cs" />
     <Compile Include="Classes\Usertoken.cs" />
     <Compile Include="CommandsList.cs" />
+    <Compile Include="CustomSettings\CustomCommands.cs" />
     <Compile Include="Discord_Spammer_Lib\rClient.cs" />
     <Compile Include="Discord_Spammer_Lib\rCommands.cs" />
     <Compile Include="Discord_Spammer_Lib\rHandler.cs" />
