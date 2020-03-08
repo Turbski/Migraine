@@ -159,12 +159,11 @@ namespace Migraine_v2.SelfbotClasses {
         }
 
         [Command("ascii")]
-        public async Task ascii(string args)
+        public async Task ascii(string args = null)
         {
-            
             await Context.Message.DeleteAsync();
 
-            await Context.Channel.SendMessageAsync("``" + FiggleFonts.Standard.Render(args).ToString() + "``");
+            await Context.Channel.SendMessageAsync("```" + FiggleFonts.Standard.Render(args) + "```");
         }
 
         [Command("av")]
@@ -402,7 +401,6 @@ namespace Migraine_v2.SelfbotClasses {
         public async Task clearc()
         {
             await Context.Message.DeleteAsync();
-
             await Context.Channel.SendMessageAsync("_ _\n _ _\n _ _\n _ _\n _ _\n_ _\n _ _\n _ _\n _ _\n _ _\n_ _\n _ _\n _ _\n _ _\n _ _\n_ _\n _ _\n _ _\n _ _\n _ _\n_ _\n _ _\n _ _\n _ _\n _ _\n_ _\n _ _\n _ _\n _ _\n _ _\n_ _\n _ _\n _ _\n _ _\n _ _\n_ _\n _ _\n _ _\n _ _\n _ _\n");
         }
 
@@ -879,10 +877,8 @@ namespace Migraine_v2.SelfbotClasses {
         }
 
         [Command("migraine")]
-
         public async Task migraine()
         {
-
             await Context.Message.DeleteAsync();
 
             var Message = await Context.Channel.SendMessageAsync("M");
@@ -1085,19 +1081,15 @@ namespace Migraine_v2.SelfbotClasses {
         [Command("sstats")]
         public async Task sstats()
         {
+            await Context.Message.DeleteAsync();
             string serveravatar = Context.Guild.IconUrl;
-
             var server = Context.Guild;
-            var roles = server.Roles;
-            var members = server.GetUsersAsync(CacheMode.AllowDownload, null);
             var embed = new EmbedBuilder();
-
             embed.WithThumbnailUrl(serveravatar);
             embed.AddField("**Server Name:** ", $" {server.Name}");
             embed.AddField("**Server Owner:** ", $"{server.OwnerId}");
             embed.AddField("**Server Created:** ", $" {server.CreatedAt}");
-            embed.AddField("**Roles:** ", $"{roles.ToString()}");
-            embed.AddField("**Members:**", $"{members.ToString()}");
+            embed.AddField("**Verification Level:**", $"{server.VerificationLevel}");
             embed.WithColor(Globals.EmbedHexColor);
             embed.WithFooter("Migraine | Made by Twin Turbo");
 
