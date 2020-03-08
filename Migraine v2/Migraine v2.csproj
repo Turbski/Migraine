@@ -113,6 +113,7 @@
     <Compile Include="API\RandomDogImage.cs" />
     <Compile Include="API\RandomHentai.cs" />
     <Compile Include="API\RandomHug.cs" />
+    <Compile Include="Classes\DiscordWebhook.cs" />
     <Compile Include="Classes\Usertoken.cs" />
     <Compile Include="CommandsList.cs" />
     <Compile Include="Discord_Spammer_Lib\rClient.cs" />

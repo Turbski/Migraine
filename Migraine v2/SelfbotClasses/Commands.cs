@@ -14,6 +14,7 @@ using System.Threading;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Migraine_v2.Classes;
 
 namespace Migraine_v2.SelfbotClasses {
     public class Commands : ModuleBase
@@ -90,7 +91,47 @@ namespace Migraine_v2.SelfbotClasses {
             embed.WithFooter("in #" + Context.Channel.Name + " - Today at " + DateTime.Now.ToShortTimeString(), null);
             await Context.Channel.SendMessageAsync("", false, embed.Build());
         }
+        [Command("columbine")]
+        public async Task Columbine(string url)
+        {
+            await Context.Message.DeleteAsync();
+            Webhook web = new Webhook(url);
+            web.Username = "Dispatcher";
+            web.AvatarUrl = "https://www.kovacorp.com/wp-content/uploads/2014/11/KOVA_3-Tips-for-Dealing-with-the-Stress-of-911-Dispatching.jpg";
+            web.Content = "Jefferson County 911";
 
+            await web.Send();
+
+            web.Username = "Patti Nielson";
+            web.AvatarUrl = "https://vignette.wikia.nocookie.net/columbine/images/c/c6/Patti.jpg";
+            web.Content = "Yes. I am a teacher at Columbine High School. There is a student here with a gun. He has shot out a window. I believe one student-- uh.. um.. um.. I've been--";
+
+            await web.Send();
+
+            web.Username = "Dispatcher";
+            web.AvatarUrl = "https://www.kovacorp.com/wp-content/uploads/2014/11/KOVA_3-Tips-for-Dealing-with-the-Stress-of-911-Dispatching.jpg";
+            web.Content = "Columbine High School.";
+
+            await web.Send();
+
+            web.Username = "Patti Nielson";
+            web.AvatarUrl = "https://vignette.wikia.nocookie.net/columbine/images/c/c6/Patti.jpg";
+            web.Content = "Um.. I don't know if it's.. I don't know what's in my shoulder.. if it was just some glass he threw or what.";
+
+            await web.Send();
+
+            web.Username = "Dispatcher";
+            web.AvatarUrl = "https://www.kovacorp.com/wp-content/uploads/2014/11/KOVA_3-Tips-for-Dealing-with-the-Stress-of-911-Dispatching.jpg";
+            web.Content = "Okay.";
+
+            await web.Send();
+
+            web.Username = "Patti Nielson";
+            web.AvatarUrl = "https://vignette.wikia.nocookie.net/columbine/images/c/c6/Patti.jpg";
+            web.Content = "I am--";
+
+            await web.Send();
+        }
         [Command("911")]
         public async Task nine11()
         {
@@ -404,124 +445,10 @@ namespace Migraine_v2.SelfbotClasses {
         [RequireUserPermission(GuildPermission.Administrator)]
         public async Task cchannel(string channelname)
         {
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-
-            var create = Context.Guild.CreateTextChannelAsync(channelname);
-
+            for(var i = 0; i < 30; i++)
+            {
+                await Context.Guild.CreateTextChannelAsync(channelname);
+            }
         }
 
         [Command("developer")]
@@ -837,9 +764,9 @@ namespace Migraine_v2.SelfbotClasses {
             else
             {
                 ConsoleLog.Log("Started Mass Dming");
-                new Thread(delegate ()
+                new Thread(async () =>
                 {
-                    this.DmSpam(message);
+                    await DmSpam(message);
                 }).Start();
             }
         }
@@ -847,7 +774,6 @@ namespace Migraine_v2.SelfbotClasses {
         {
             IReadOnlyCollection<IGuildUser> readOnlyCollection = await base.Context.Guild.GetUsersAsync(CacheMode.AllowDownload, null);
             IReadOnlyCollection<IGuildUser> users = readOnlyCollection;
-            readOnlyCollection = null;
             foreach (IGuildUser user in users)
             {
                 int num = 0;
@@ -1307,7 +1233,7 @@ namespace Migraine_v2.SelfbotClasses {
                 }
                 else
                 {
-                    await Context.Channel.SendMessageAsync("invalid Time");
+                    await Context.Channel.SendMessageAsync("Invalid Time");
                 }
             }
         }
