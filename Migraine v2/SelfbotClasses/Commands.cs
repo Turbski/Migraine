@@ -14,7 +14,6 @@ using System.Threading;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using Migraine_v2.Classes;
 
 namespace Migraine_v2.SelfbotClasses {
     public class Commands : ModuleBase
@@ -91,61 +90,16 @@ namespace Migraine_v2.SelfbotClasses {
             embed.WithFooter("in #" + Context.Channel.Name + " - Today at " + DateTime.Now.ToShortTimeString(), null);
             await Context.Channel.SendMessageAsync("", false, embed.Build());
         }
-        [Command("columbine")]
-        public async Task Columbine(string url)
-        {
-            await Context.Message.DeleteAsync();
-            Webhook web = new Webhook(url);
-            web.Username = "Dispatcher";
-            web.AvatarUrl = "https://www.kovacorp.com/wp-content/uploads/2014/11/KOVA_3-Tips-for-Dealing-with-the-Stress-of-911-Dispatching.jpg";
-            web.Content = "Jefferson County 911";
 
-            await web.Send();
-
-            web.Username = "Patti Nielson";
-            web.AvatarUrl = "https://vignette.wikia.nocookie.net/columbine/images/c/c6/Patti.jpg";
-            web.Content = "Yes. I am a teacher at Columbine High School. There is a student here with a gun. He has shot out a window. I believe one student-- uh.. um.. um.. I've been--";
-
-            await web.Send();
-
-            web.Username = "Dispatcher";
-            web.AvatarUrl = "https://www.kovacorp.com/wp-content/uploads/2014/11/KOVA_3-Tips-for-Dealing-with-the-Stress-of-911-Dispatching.jpg";
-            web.Content = "Columbine High School.";
-
-            await web.Send();
-
-            web.Username = "Patti Nielson";
-            web.AvatarUrl = "https://vignette.wikia.nocookie.net/columbine/images/c/c6/Patti.jpg";
-            web.Content = "Um.. I don't know if it's.. I don't know what's in my shoulder.. if it was just some glass he threw or what.";
-
-            await web.Send();
-
-            web.Username = "Dispatcher";
-            web.AvatarUrl = "https://www.kovacorp.com/wp-content/uploads/2014/11/KOVA_3-Tips-for-Dealing-with-the-Stress-of-911-Dispatching.jpg";
-            web.Content = "Okay.";
-
-            await web.Send();
-
-            web.Username = "Patti Nielson";
-            web.AvatarUrl = "https://vignette.wikia.nocookie.net/columbine/images/c/c6/Patti.jpg";
-            web.Content = "I am--";
-
-            await web.Send();
-        }
         [Command("911")]
         public async Task nine11()
         {
             await Context.Message.DeleteAsync();
             var Message = await Context.Channel.SendMessageAsync(":firecracker::airplane:       :office:");
             Thread.Sleep(1000);
-            await Message.ModifyAsync(delegate (MessageProperties msg)
+            await Context.Message.ModifyAsync(delegate (MessageProperties msg)
             {
                 msg.Content = ":firecracker::airplane:     :office:";
-            }, null);
-            Thread.Sleep(1000);
-            await Message.ModifyAsync(delegate (MessageProperties msg)
-            {
-                msg.Content = ":firecracker::airplane:    :office:";
             }, null);
             Thread.Sleep(1000);
             await Message.ModifyAsync(delegate (MessageProperties msg)
@@ -155,17 +109,17 @@ namespace Migraine_v2.SelfbotClasses {
             Thread.Sleep(1000);
             await Message.ModifyAsync(delegate (MessageProperties msg)
             {
-                msg.Content = ":firecracker::airplane:  :office:";
-            }, null);
-            Thread.Sleep(1000);
-            await Message.ModifyAsync(delegate (MessageProperties msg)
-            {
                 msg.Content = ":firecracker::airplane: :office:";
             }, null);
             Thread.Sleep(1000);
             await Message.ModifyAsync(delegate (MessageProperties msg)
+                {
+                    msg.Content = ":firecracker::airplane::office:";
+                }, null);
+            Thread.Sleep(1000);
+            await Message.ModifyAsync(delegate (MessageProperties msg)
             {
-                msg.Content = ":boom:";
+                msg.Content = ":fire::fire::fire:";
             }, null);
             Thread.Sleep(1000);
             await Context.Message.DeleteAsync();
@@ -200,7 +154,7 @@ namespace Migraine_v2.SelfbotClasses {
         }
 
         [Command("ascii")]
-        public async Task ascii(string args = null)
+        public async Task ascii(string args)
         {
             await Context.Message.DeleteAsync();
 
@@ -257,7 +211,9 @@ namespace Migraine_v2.SelfbotClasses {
                 string price = args.DownloadString("https://bitpay.com/api/rates/usd");
                 dynamic json = JsonConvert.DeserializeObject(price);
                 var embed = new EmbedBuilder();
-                embed.WithAuthor("Bitcoin Price", "https://bitcoin.org/img/icons/opengraph.png", "https://migraine.best/");
+
+                embed.WithThumbnailUrl("https://bitcoin.org/img/icons/opengraph.png");
+                embed.WithTitle("Bitcoin Price");
                 embed.WithDescription("Displays bitcoin price");
                 embed.WithColor(new Color(242, 169, 0));
                 embed.AddField("Bitcoin Price:", double.Parse(Convert.ToString(json.rate)).ToString("C"));
@@ -322,7 +278,8 @@ namespace Migraine_v2.SelfbotClasses {
             var embed = new EmbedBuilder();
             Settings.getSettings();
             string bitcoin = Settings._Bitcoin;
-            embed.WithAuthor("Bitcoin Address", "https://bitcoin.org/img/icons/opengraph.png", "https://migraine.best/");
+            embed.WithAuthor("Bitcoin Address");
+            embed.WithThumbnailUrl("https://cdn.discordapp.com/attachments/648668483814686732/652833384372109313/5b28dbe766917.png");
             embed.WithDescription("``" + bitcoin + "``");
             embed.WithColor(Globals.EmbedHexColor);
             await Context.Channel.SendMessageAsync("", false, embed.Build());
@@ -442,6 +399,7 @@ namespace Migraine_v2.SelfbotClasses {
         public async Task clearc()
         {
             await Context.Message.DeleteAsync();
+
             await Context.Channel.SendMessageAsync("_ _\n _ _\n _ _\n _ _\n _ _\n_ _\n _ _\n _ _\n _ _\n _ _\n_ _\n _ _\n _ _\n _ _\n _ _\n_ _\n _ _\n _ _\n _ _\n _ _\n_ _\n _ _\n _ _\n _ _\n _ _\n_ _\n _ _\n _ _\n _ _\n _ _\n_ _\n _ _\n _ _\n _ _\n _ _\n_ _\n _ _\n _ _\n _ _\n _ _\n");
         }
 
@@ -449,10 +407,124 @@ namespace Migraine_v2.SelfbotClasses {
         [RequireUserPermission(GuildPermission.Administrator)]
         public async Task cchannel(string channelname)
         {
-            for(var i = 0; i < 30; i++)
-            {
-                await Context.Guild.CreateTextChannelAsync(channelname);
-            }
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+            await Context.Guild.CreateTextChannelAsync(channelname);
+
+            var create = Context.Guild.CreateTextChannelAsync(channelname);
+
         }
 
         [Command("developer")]
@@ -768,9 +840,9 @@ namespace Migraine_v2.SelfbotClasses {
             else
             {
                 ConsoleLog.Log("Started Mass Dming");
-                new Thread(async () =>
+                new Thread(delegate ()
                 {
-                    await DmSpam(message);
+                    this.DmSpam(message);
                 }).Start();
             }
         }
@@ -778,6 +850,7 @@ namespace Migraine_v2.SelfbotClasses {
         {
             IReadOnlyCollection<IGuildUser> readOnlyCollection = await base.Context.Guild.GetUsersAsync(CacheMode.AllowDownload, null);
             IReadOnlyCollection<IGuildUser> users = readOnlyCollection;
+            readOnlyCollection = null;
             foreach (IGuildUser user in users)
             {
                 int num = 0;
@@ -803,8 +876,10 @@ namespace Migraine_v2.SelfbotClasses {
         }
 
         [Command("migraine")]
+
         public async Task migraine()
         {
+
             await Context.Message.DeleteAsync();
 
             var Message = await Context.Channel.SendMessageAsync("M");
@@ -1007,15 +1082,19 @@ namespace Migraine_v2.SelfbotClasses {
         [Command("sstats")]
         public async Task sstats()
         {
-            await Context.Message.DeleteAsync();
             string serveravatar = Context.Guild.IconUrl;
+
             var server = Context.Guild;
+            var roles = server.Roles;
+            var members = server.GetUsersAsync(CacheMode.AllowDownload, null);
             var embed = new EmbedBuilder();
+
             embed.WithThumbnailUrl(serveravatar);
             embed.AddField("**Server Name:** ", $" {server.Name}");
             embed.AddField("**Server Owner:** ", $"{server.OwnerId}");
             embed.AddField("**Server Created:** ", $" {server.CreatedAt}");
-            embed.AddField("**Verification Level:**", $"{server.VerificationLevel}");
+            embed.AddField("**Roles:** ", $"{roles.ToString()}");
+            embed.AddField("**Members:**", $"{members.ToString()}");
             embed.WithColor(Globals.EmbedHexColor);
             embed.WithFooter("Migraine | Made by Twin Turbo");
 
@@ -1184,7 +1263,6 @@ namespace Migraine_v2.SelfbotClasses {
         [Command("giveaway")]
         public async Task CreateGiveaway([Remainder] string info = null)
         {
-            var random = new Random();
             await Context.Message.DeleteAsync();
             bool noinfo = info == null;
             if (noinfo)
@@ -1205,7 +1283,7 @@ namespace Migraine_v2.SelfbotClasses {
                     TimeTillEnd = Convert.ToInt32(GetEndTime[GetEndTime.Length - 1].Replace("h", ""));
                     info = info.Replace(GetEndTime[GetEndTime.Length - 1], "");
                 }
-                catch
+                catch 
                 {
                     num = 1;
                 }
@@ -1232,14 +1310,8 @@ namespace Migraine_v2.SelfbotClasses {
                 }
                 else
                 {
-                    await Context.Channel.SendMessageAsync("Invalid Time");
+                    await Context.Channel.SendMessageAsync("invalid Time");
                 }
-                //var emoji = new Emoji("\ud83c\udf81");
-                //IReadOnlyCollection<IUser> getreactions = Context.Message.GetReactionUsersAsync(emoji, 1000);
-                //if (getreactions.Count > 0)
-                //{
-
-                //} fix later!!!!!
             }
         }
         [Command("beamed")]
@@ -1275,46 +1347,37 @@ namespace Migraine_v2.SelfbotClasses {
                 await Context.Guild.DeleteEmoteAsync(emoji);
             }
         }
-        [Command("masskick")]
-        public async Task MassKick()
-        {
-            await Context.Message.DeleteAsync();
-            var getmembers = await Context.Guild.GetUsersAsync();
-
-        }
-
-        [Command("oops")]
-        public async Task lmfao()
-        {
-            if (Context.User.Id.ToString() == Context.Client.CurrentUser.Id.ToString())
-            {
-                await Context.Message.DeleteAsync();
-
-                string mention = "";
-
-                var users = await Context.Guild.GetUsersAsync();
-
-                foreach (SocketGuildUser member in users)
-                {
-                    if (member.IsBot)
-                        continue;
-                    mention += member.Mention + " ";
-                    if (mention.Length >= 1977)
-                    {
-                        await Context.Channel.SendMessageAsync(mention);
-                        Thread.Sleep(500);
-                        await Context.Message.DeleteAsync();
-                        mention = "";
-                    }
-                    await Context.Channel.SendMessageAsync(mention);
-                    Thread.Sleep(500);
-                    await Context.Message.DeleteAsync();
-                }
-            }
-        }
     }
 }
 
+        //[Command("oops")]
+        //public async Task lmfao()
+        //{
+        //    //if (Context.User.Id.ToString() == Context.Client.CurrentUser.Id.ToString())
+        //    //{
+        //    //    await Context.Message.DeleteAsync();
+
+        //    //    string mention = "";
+
+        //    //    var users = await Context.Guild.Users;
+
+        //    //    foreach (SocketGuildUser member in users)
+        //    //    {
+        //    //        if (member.IsBot)
+        //    //            continue;
+        //    //        mention += member.Mention + " ";
+        //    //        if (mention.Length >= 1977)
+        //    //        {
+        //    //            await Context.Channel.SendMessageAsync(mention);
+        //    //            Thread.Sleep(500);
+        //    //            await Context.Message.DeleteAsync();
+        //    //            mention = "";
+        //    //        }
+        //    //        await Context.Channel.SendMessageAsync(mention);
+        //    //        Thread.Sleep(500);
+        //    //        await Context.Message.DeleteAsync();
+        //    //    }
+        //    }
             //==============================================Nuker====================================================//
 
 

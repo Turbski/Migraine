@@ -1,6 +1,6 @@
 ﻿using Discord;
 using Discord.WebSocket;
-
+using Migraine_v2.Settings;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -26,9 +26,9 @@ namespace Migraine_v2.SelfbotClasses {
         private async Task Client_Ready() {
             bool firstTime = FirstTime;
             if (firstTime) {
+                Configuration.LoadConfig();
                 ConsoleLog.Log(string.Format("[Console] Bot Started\n[Console] Welcome {0}\n[Console] Prefix: {1}", _Client.CurrentUser, Globals.Prefix));
                 Globals.SelfbotUser = _Client.CurrentUser.ToString();
-                
                 FirstTime = false;
             }
         }

@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Discord.Commands;
 using Discord.WebSocket;
+using Migraine_v2.CustomSettings;
 
 namespace Migraine_v2.SelfbotClasses {
     public class CommandHandler {
@@ -27,13 +28,22 @@ namespace Migraine_v2.SelfbotClasses {
                 Globals.RecentGuildID = context.Channel.Id;
                 bool haspref = msg.HasStringPrefix(prefix, ref argPos, StringComparison.Ordinal) && msg.Author.Id == this._client.CurrentUser.Id;
                 if (haspref) {
-                    var result2 = await this._cmds.ExecuteAsync(context, argPos, null, MultiMatchHandling.Exception);
-                    IResult result = result2;
-                    result2 = null;
-                    ConsoleLog.Log(string.Format("[Console] Executed CMD: {0}", context));
-                    ConsoleLog.Log(string.Format("[Error] {0}", result2));
-                    if (!result.IsSuccess) { ConsoleLog.Log(result.ToString());}
-                    result = null;
+                    if (Configuration._Config.CustomCommands.TryGetValue(context.Message.Content.ToString().ToLower(), out string value))
+                    {
+                        await context.Message.DeleteAsync();
+                        ConsoleLog.Log(string.Format("[Console] Executed Custom CMD: {0}", value));
+                        await context.Channel.SendMessageAsync(value);
+                    }
+                    else
+                    {
+                        var result2 = await this._cmds.ExecuteAsync(context, argPos, null, MultiMatchHandling.Exception);
+                        IResult result = result2;
+                        result2 = null;
+                        ConsoleLog.Log(string.Format("[Console] Executed CMD: {0}", context));
+                        ConsoleLog.Log(string.Format("[Error] {0}", result2));
+                        if (!result.IsSuccess) { ConsoleLog.Log(result.ToString()); }
+                        result = null;
+                    }
                 }
                 
             }
