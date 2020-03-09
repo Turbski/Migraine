@@ -14,7 +14,6 @@ using System.Threading;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using Migraine_v2.CustomSettings;
 
 namespace Migraine_v2.SelfbotClasses {
     public class Commands : ModuleBase
@@ -220,6 +219,7 @@ namespace Migraine_v2.SelfbotClasses {
             embed.WithColor(Globals.EmbedHexColor);
             await Context.Channel.SendMessageAsync("", false, embed.Build());
         }
+
         [Command("ban")]
         public async Task ban(SocketUser userName = null, string reason = null)
         {
@@ -1267,64 +1267,6 @@ namespace Migraine_v2.SelfbotClasses {
                     await Context.Message.DeleteAsync();
                 }
             }
-        }
-        [Command("ccmds")]
-        public async Task CustomCmds()
-        {
-            await Context.Message.DeleteAsync();
-
-            EmbedBuilder build = new EmbedBuilder();
-            build.WithTitle("Custom Commands");
-            build.WithDescription("Here's a list of all your custom, user defined, commands");
-            build.WithColor(Color.Orange);
-
-            if (Configuration._Config.CustomCommands.Count > 0)
-            {
-                foreach (var key in Configuration._Config.CustomCommands.Keys)
-                {
-                    if (Configuration._Config.CustomCommands.TryGetValue(key, out string value))
-                    {
-                        build.WithFields().AddField(key, value, true);
-                    }
-                }
-            }
-            else
-            {
-                build.WithDescription($"You have no custom commands! You can use the command {Globals.Prefix}ccmd <cmdname> <response> to create one however.");
-            }
-
-            await ReplyAsync("", false, build.Build());
-        }
-
-        [Command("ccmd")]
-        public async Task CreateCustomCommand(string name, [Remainder] string response)
-        {
-            await Context.Message.DeleteAsync();
-
-            EmbedBuilder build = new EmbedBuilder();
-            build.WithTitle("Custom Commands");
-            build.WithDescription("Successfully created your custom command.");
-            build.WithColor(Color.Green);
-            build.WithAuthor("Success!", "https://i.dlpng.com/static/png/6705921_preview.png");
-            Configuration._Config.CustomCommands.Add(Globals.Prefix + name.ToLower(), response);
-            Configuration.SaveConfig();
-
-            await ReplyAsync("", false, build.Build());
-        }
-        [Command("dcmd")]
-        public async Task DeleteCustomCommand(string name)
-        {
-            await Context.Message.DeleteAsync();
-
-            EmbedBuilder build = new EmbedBuilder();
-            build.WithTitle("Custom Commands");
-            build.WithDescription("Successfully deleted your custom command.");
-            build.WithColor(Color.Green);
-            Configuration._Config.CustomCommands.Remove(Globals.Prefix + name.ToLower());
-            Configuration.SaveConfig();
-            build.WithAuthor("Success!", "https://i.dlpng.com/static/png/6705921_preview.png");
-
-            await ReplyAsync("", false, build.Build());
         }
         [Command("sizepp")]
         public async Task SizePenis(SocketGuildUser user = null)
