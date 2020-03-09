@@ -29,6 +29,7 @@ namespace Migraine_v2.SelfbotClasses {
                 Configuration.LoadConfig();
                 ConsoleLog.Log(string.Format("[Console] Bot Started\n[Console] Welcome {0}\n[Console] Prefix: {1}", _Client.CurrentUser, Globals.Prefix));
                 Globals.SelfbotUser = _Client.CurrentUser.ToString();
+                Globals.Token = Token;
                 FirstTime = false;
             }
         }

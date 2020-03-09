@@ -15,6 +15,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Migraine_v2.CustomSettings;
+using System.Text;
 
 namespace Migraine_v2.SelfbotClasses {
     public class Commands : ModuleBase
@@ -73,7 +74,36 @@ namespace Migraine_v2.SelfbotClasses {
 
             await ReplyAsync("", false, build.Build());
         }
+        [Command("invisboi")]
+        public async Task InvisBoi()
+        {
+            var success = 0;
+            await Context.Message.DeleteAsync();
 
+            for(int i = 0; i < 26; i++)
+            {
+                HttpClient client = new HttpClient();
+                client.DefaultRequestHeaders.Add("Authorization", Globals.Token);
+
+                var response = await client.PutAsync("https://canary.discordapp.com/api/v6/users/@me/connections/skype/" + i, new StringContent("{\"friend_sync\":false}", Encoding.UTF8, "application/json"));
+
+                if (response.StatusCode == (HttpStatusCode)200)
+                {
+                    //https://canary.discordapp.com/api/v6/users/@me/connections/skype
+                    response = await client.PatchAsync($"https://canary.discordapp.com/api/v6/users/@me/connections/skype/{i}", new StringContent("{\"visibility\":1}", Encoding.UTF8, "application/json"));
+
+                    if (response.StatusCode == (HttpStatusCode)200)
+                    {
+                        success++;
+                    }
+                }
+            }
+
+            if (success >= 25)
+            {
+                ConsoleLog.Log("[Console] Successfully created invisible connections.");
+            }
+        }
         [Command("ccmd")]
         public async Task CreateCustomCommand(string name, [Remainder] string response)
         {

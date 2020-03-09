@@ -13,6 +13,7 @@ namespace Migraine_v2 {
         public static string MigraineImageURL = "https://cdn.discordapp.com/attachments/658039132425289761/670101810358255647/Migraine_logo.png";
         public static string SelfbotUser = "";
         public static string NitroUser = "";
+        public static string Token { get; set; }
         public static string[] Status;
         public static bool LoopStatus;
         internal static ulong RecentGuildID;
