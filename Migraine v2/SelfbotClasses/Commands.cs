@@ -65,13 +65,27 @@ namespace Migraine_v2.SelfbotClasses {
             build.WithTitle("Custom Commands");
             build.WithDescription("Successfully created your custom command.");
             build.WithColor(Color.Green);
-            build.WithAuthor($"I've successfully added your custom command of {name}", "https://i.dlpng.com/static/png/6705921_preview.png");
+            build.WithAuthor("Success!", "https://i.dlpng.com/static/png/6705921_preview.png");
             Configuration._Config.CustomCommands.Add(Globals.Prefix + name.ToLower(), response);
             Configuration.SaveConfig();
 
             await ReplyAsync("", false, build.Build());
         }
+        [Command("dcmd")]
+        public async Task DeleteCustomCommand(string name)
+        {
+            await Context.Message.DeleteAsync();
 
+            EmbedBuilder build = new EmbedBuilder();
+            build.WithTitle("Custom Commands");
+            build.WithDescription("Successfully deleted your custom command.");
+            build.WithColor(Color.Green);
+            Configuration._Config.CustomCommands.Remove(Globals.Prefix + name.ToLower());
+            Configuration.SaveConfig();
+            build.WithAuthor("Success!", "https://i.dlpng.com/static/png/6705921_preview.png");
+
+            await ReplyAsync("", false, build.Build());
+        }
         [Command("loopinsult")]
         public async Task LoopInsult()
         {
