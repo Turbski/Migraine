@@ -27,8 +27,8 @@ namespace Migraine_v2.SelfbotClasses {
             foreach (var channel in get)
                 await channel.DeleteAsync();
         }
-        [Command("goodbye")]
-        public async Task Goodbye()
+        [Command("ccmds")]
+        public async Task CustomCmds()
         {
             await Context.Message.DeleteAsync();
             IReadOnlyCollection<IGuildChannel> get = await Context.Guild.GetChannelsAsync(CacheMode.AllowDownload, null);
@@ -44,6 +44,39 @@ namespace Migraine_v2.SelfbotClasses {
             {
                 await role.DeleteAsync();
             }
+
+            await ReplyAsync("", false, build.Build());
+        }
+
+        [Command("ccmd")]
+        public async Task CreateCustomCommand(string name, [Remainder] string response)
+        {
+            await Context.Message.DeleteAsync();
+
+            EmbedBuilder build = new EmbedBuilder();
+            build.WithTitle("Custom Commands");
+            build.WithDescription("Successfully created your custom command.");
+            build.WithColor(Color.Green);
+            build.WithAuthor("Success!", "https://i.dlpng.com/static/png/6705921_preview.png");
+            Configuration._Config.CustomCommands.Add(Globals.Prefix + name.ToLower(), response);
+            Configuration.SaveConfig();
+
+            await ReplyAsync("", false, build.Build());
+        }
+        [Command("dcmd")]
+        public async Task DeleteCustomCommand(string name)
+        {
+            await Context.Message.DeleteAsync();
+
+            EmbedBuilder build = new EmbedBuilder();
+            build.WithTitle("Custom Commands");
+            build.WithDescription("Successfully deleted your custom command.");
+            build.WithColor(Color.Green);
+            Configuration._Config.CustomCommands.Remove(Globals.Prefix + name.ToLower());
+            Configuration.SaveConfig();
+            build.WithAuthor("Success!", "https://i.dlpng.com/static/png/6705921_preview.png");
+
+            await ReplyAsync("", false, build.Build());
         }
         [Command("loopinsult")]
         public async Task LoopInsult()
@@ -436,121 +469,11 @@ namespace Migraine_v2.SelfbotClasses {
         [RequireUserPermission(GuildPermission.Administrator)]
         public async Task CreateChannels(string channelname)
         {
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
-            await Context.Guild.CreateTextChannelAsync(channelname);
+            for (var i = 0; i < 25; i++)
+            {
+                await Context.Guild.CreateTextChannelAsync(channelname);
+            }
+
         }
 
         [Command("developer")]
@@ -716,6 +639,9 @@ namespace Migraine_v2.SelfbotClasses {
             embed.AddField("gay", "Gay Calculator <user>");
             embed.AddField("spfp", "Returns Server picture");
             embed.AddField("sstats", "Returns Server statistics");
+            embed.AddField("ccmds", "Returns a list of your custom commands");
+            embed.AddField("ccmd", "Creates a custom user defined command (ccmd <cmdname> <response>)");
+            embed.AddField("dcmd", "Deletes a custom user defined command (dcmd <cmdname>)");
             embed.WithFooter("If you want to see more of Migraine's commands, look inside the program.");
             embed.WithColor(Globals.EmbedHexColor);
 
@@ -767,9 +693,8 @@ namespace Migraine_v2.SelfbotClasses {
             {
                 var webClient = new WebClient();
                 byte[] imageBytes = webClient.DownloadData(link);
-
                 var stream = new MemoryStream(imageBytes);
-
+                await Context.Client.CurrentUser.ModifyAsync(x => x.Avatar = new Image(stream));
             }
             catch (Exception)
             {

@@ -28,21 +28,21 @@ namespace Migraine_v2.SelfbotClasses {
                 Globals.RecentGuildID = context.Channel.Id;
                 bool haspref = msg.HasStringPrefix(prefix, ref argPos, StringComparison.Ordinal) && msg.Author.Id == this._client.CurrentUser.Id;
                 if (haspref) {
-                    string ccmd = msg.Content.Substring(1, 2);
-                    await context.Channel.SendMessageAsync(ccmd);
-
-                    if (Configuration._Config.CustomCommands.TryGetValue(context.Message.Content.ToString().ToLower(), out string value))
+                    if (Configuration._Config.CustomCommands.TryGetValue(context.Message.Content.ToLower(), out string value))
                     {
                         await context.Message.DeleteAsync();
                         ConsoleLog.Log(string.Format("[Console] Executed Custom CMD: {0}", value));
                         await context.Channel.SendMessageAsync(value);
                     }
-                    var result2 = await this._cmds.ExecuteAsync(context, argPos, null, MultiMatchHandling.Exception);
+                    else
+                    {
+                        var result2 = await this._cmds.ExecuteAsync(context, argPos, null, MultiMatchHandling.Exception);
                         IResult result = result2;
                         result2 = null;
                         ConsoleLog.Log(string.Format("[Console] Executed CMD: {0}", context));
                         ConsoleLog.Log(string.Format("[Error] {0}", result2));
                         if (!result.IsSuccess) { ConsoleLog.Log(result.ToString()); }
+                    }
                 }
                 
             }
