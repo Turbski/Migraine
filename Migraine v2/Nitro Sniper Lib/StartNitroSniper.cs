@@ -32,8 +32,7 @@ namespace Migraine_v2.Nitro_Sniper_Lib {
         }
 
         private async Task _Client_Ready() {
-            bool firstTime = StartBot.FirstTime;
-            if (firstTime)
+            if (FirstTime)
                 ConsoleLog.Log(string.Format("[Console] Nitro Sniper Started\n[Console] Welcome {0}", _Client.CurrentUser));
                 FirstTime = false;
         }
@@ -67,11 +66,14 @@ namespace Migraine_v2.Nitro_Sniper_Lib {
                         ConsoleLog.Log("Error: " + e.Message.ToString());
                     }
                 }
+                else
+                {
+                    ConsoleLog.Log("[Console] Attempted Code, ignored.");
+                }
                 
             }
             return Task.CompletedTask;
         }
-
         public static bool FirstTime = true;
         public static DiscordSocketClient _Client;
         public static string Token;

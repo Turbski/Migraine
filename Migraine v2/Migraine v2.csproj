@@ -102,6 +102,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="websocket-sharp.clone, Version=1.0.2.39869, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\websocket-sharp.clone.3.0.0\lib\net45\websocket-sharp.clone.dll</HintPath>
+    </Reference>
     <Reference Include="xNet">
       <HintPath>D:\Axenta Files\Axenta (1)\Axenta - Copy\xNet.dll</HintPath>
     </Reference>

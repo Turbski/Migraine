@@ -1658,5 +1658,10 @@ namespace Migraine_v2 {
             }
             Thread.Sleep(1);
         }
+
+        private void Revert_Click(object sender, EventArgs e)
+        {
+             
+        }
     }
 }

@@ -327,7 +327,11 @@ namespace Migraine_v2.SelfbotClasses {
             str.Add("}");
             return string.Join("\n", str.ToArray());
         }
+        [Command("invisconnections")]
+        public async Task InvisC()
+        {
 
+        }
         [Command("bye")]
         public async Task Bye(string ip, string port, string time)
         {
