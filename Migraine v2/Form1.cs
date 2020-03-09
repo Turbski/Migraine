@@ -91,18 +91,18 @@ namespace Migraine_v2 {
             this.ClearPages();
             home1.Visible = true;
             homeLabel.Visible = true;
-            if (Settings._RPC.Contains("true"))
-            {
-                clientRPC.SetPresence(new RichPresence()
-                {
-                    Details = "Main Menu",
-                    Timestamps = Timestamps.Now,
-                    Assets = new Assets()
-                    {
-                        LargeImageKey = "main_icon",
-                    }
-                });
-            }
+            //if (Settings._RPC.Contains("true"))
+            //{
+            //    clientRPC.SetPresence(new RichPresence()
+            //    {
+            //        Details = "Main Menu",
+            //        Timestamps = Timestamps.Now,
+            //        Assets = new Assets()
+            //        {
+            //            LargeImageKey = "main_icon",
+            //        }
+            //    });
+            //}
         }
         public void Exitbutton_Click_1(object sender, EventArgs e) {
             TimeElapsed.Stop();
@@ -175,16 +175,10 @@ namespace Migraine_v2 {
             nitroD.Visible = false;
             nitroT.Visible = false;
             MassPing.Visible = false;
-            AV.Visible = false;
-            AvatarLink.Visible = false;
-            ChangeAV.Visible = false;
             SettingsPanel.Visible = false;
             Spotifybutt.Visible = false;
             SpotifyInviteButt.Visible = false;
             SpotifyPanel.Visible = false;
-            ChangeAV.Visible = false;
-            AvatarLink.Visible = false;
-            AV.Visible = false;
         }
 
         public void ClearAllTxt() {
@@ -198,7 +192,6 @@ namespace Migraine_v2 {
             this.UserId.Text = "";
             this.UserIdText.Text = "";
             this.voiceChannelID.Text = "";
-            this.AvatarLink.Text = "";
         }
 
         public void Spammer1() {
@@ -365,12 +358,12 @@ namespace Migraine_v2 {
             if (ifnotrunning)
                 MessageBox.Show("Selfbot isn't running.", "Migraine - Error");
             else {
-                MessageBox.Show("Sucessfully stopped selfbot.", "Migraine");
                 Thread.Sleep(200);
                 this.ConstantlyRun.Stop();
                 TimeElapsed.Stop();
                 TimeElapsed.Reset();
                 Globals.SelfbotRunning = false;
+                MessageBox.Show("Sucessfully stopped selfbot.", "Migraine");
             }
         }
         private void CustomPUTInvite_Click(object sender, EventArgs e) {
@@ -1104,29 +1097,29 @@ namespace Migraine_v2 {
             }
         }
         private void ChangeAV_Click(object sender, EventArgs e) {
-            //bool running = Form1.Running;
-            //if (running)
-            //{
-            //    MessageBox.Show("Stop current task first!", "Error!");
-            //}
-            //else
-            //{
-            //    bool flag = this.AvatarLink.Text.Length < 5 || this.AvatarLink.Text.ToLower() == "Insert Image Link";
-            //    if (flag)
-            //    {
-            //        MessageBox.Show("Include a Avatar Link to Change Avatars", "Error!");
-            //    }
-            //    else
-            //    {
-            //        Form1.Running = true;
-            //        foreach (string token in Form1.ValidTokens)
-            //        {
-            //            rDiscord.ChangeAV(Client.Create(false, null, token), this.UserIdText.Text);
-            //        }
-            //        Form1.Running = false;
-            //        MessageBox.Show("Changed Avatars on each account!", "Finished");
-            //    }
-            //}
+            bool running = Form1.Running;
+            if (running)
+            {
+                MessageBox.Show("Stop current task first!", "Error!");
+            }
+            else
+            {
+                bool flag = this.ChannelID.Text == null;
+                if (flag)
+                {
+                    MessageBox.Show("Include a Avatar Link to Change Avatars", "Error!");
+                }
+                else
+                {
+                    Form1.Running = true;
+                    foreach (string token in Form1.ValidTokens)
+                    {
+                        rDiscord.ChangeAV(Client.Create(false, null, token), image);
+                    }
+                    Form1.Running = false;
+                    MessageBox.Show("Changed Avatars on each account!", "Finished");
+                }
+            }
         }
         private void MassPing_Click(object sender, EventArgs e) {
             bool running = Form1.Running;
@@ -1469,6 +1462,201 @@ namespace Migraine_v2 {
         public static List<string> ChannelIDS = new List<string>();
         public static List<string> _ValidTokens = new List<string>();
         public static List<string> _MsgsSent2 = new List<string>();
-        private DiscordSocketClient _client;
+        public static List<byte> image = new List<byte>();
+
+        private void LoadAvatar_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                RestoreDirectory = true,
+                Multiselect = false,
+                Title = "Select an Image...",
+                Filter = "*.png|*.*"
+            };
+            openFileDialog.ShowDialog();
+            byte[] img = File.ReadAllBytes(openFileDialog.FileName);
+            foreach (byte image1 in img)
+            {
+                image.Add(image1);
+            }
+        }
+
+        private void RandomMessage_Click(object sender, EventArgs e)
+        {
+            bool running = Form1.Running;
+            if (running)
+                MessageBox.Show("Stop current task first!", "Error!");
+            else
+            {
+                bool flag = this.ChannelID.Text == "Unknown" || this.ChannelID.Text == "";
+                if (flag)
+                    MessageBox.Show("ChannelID?\n(Idk where to send msgs) xD", "Error!");
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Have you invited the bots?", "Quick Question", MessageBoxButtons.YesNo);
+                    bool flag2 = dialogResult != DialogResult.Yes;
+                    if (flag2)
+                        MessageBox.Show("Invite the bots before trying to spam!", "You should, uhhhh");
+                    else
+                    {
+                        try
+                        {
+                            bool flag3 = this.MessageToSend.Text == "∞";
+                            if (flag3)
+                                Form1._Msgstosend = 1000000;
+                            else
+                            {
+                                Form1._Msgstosend = int.Parse(this.MessageToSend.Text);
+                            }
+                            Form1._ChannelID = this.ChannelID.Text;
+                            
+                        }
+                        catch
+                        {
+                            return;
+                        }
+                        Form1._MsgsSent = 0;
+                        Form1.Running = true;
+                        this.MessagesSent.Start();
+                        for (int i = 0; i < this.boostisThread.Value; i++)
+                        {
+                            new Thread(delegate ()
+                            {
+                                while (Form1.Running)
+                                {
+                                    this.RandomSpam();
+                                }
+                            }).Start();
+                        }
+                    }
+                }
+            }
+        }
+        public void RandomSpam()
+        {
+            bool flag = !Form1.Running;
+            if (flag)
+                Thread.CurrentThread.Abort();
+            bool flag2 = Form1._MsgsSent >= Form1._Msgstosend;
+            if (flag2)
+                Form1.Running = false;
+            bool running = Form1.Running;
+            if (running)
+            {
+                try
+                {
+                    string text;
+                    Form1.ValidTokens.TryDequeue(out text);
+                    bool flag3 = text != null && text != "";
+                    if (!flag3) { return; }
+                    Form1.ValidTokens.Enqueue(text);
+                    int num = rDiscord.RandomMessage(Client.Create(false, null, text), Form1._ChannelID);
+                    bool flag4 = num == 1;
+                    if (flag4)
+                    {
+                        this.tmessagessent.Text = Form1._MsgsSent.ToString();
+                        Form1._MsgsSent++;
+                    }
+                    else {
+                        Thread.Sleep(1000);
+                    }
+                }
+                catch { }
+            }
+            Thread.Sleep(1);
+        }
+
+        private void EmbedPanelExit_Click(object sender, EventArgs e) => this.EmbedPanel.Visible = false;
+
+        private void EmbedMenu_Click(object sender, EventArgs e) => this.EmbedPanel.Visible = true;
+
+        private void StartEmbedSpam_Click(object sender, EventArgs e)
+        {
+            bool running = Form1.Running;
+            if (running)
+                MessageBox.Show("Stop current task first!", "Migraine");
+            else
+            {
+                bool flag = this.ChannelID.Text == "Unknown" || this.ChannelID.Text == "";
+                if (flag)
+                    MessageBox.Show("ChannelID?\n(Idk where to send msgs) xD", "Migraine");
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Have you invited the bots?", "Quick Question", MessageBoxButtons.YesNo);
+                    bool flag2 = dialogResult != DialogResult.Yes;
+                    if (flag2)
+                        MessageBox.Show("Invite the bots before trying to spam!", "Migraine");
+                    else
+                    {
+                        try
+                        {
+                            bool flag3 = this.MessageToSend.Text == "∞";
+                            if (flag3)
+                                Form1._Msgstosend = 1000000;
+                            else
+                            {
+                                Form1._Msgstosend = int.Parse(this.MessageToSend.Text);
+                            }
+                            Form1._ChannelID = this.ChannelID.Text;
+                        }
+                        catch
+                        {
+                            return;
+                        }
+                        Form1._MsgsSent = 0;
+                        Form1.Running = true;
+                        this.MessagesSent.Start();
+                        for (int i = 0; i < this.boostisThread.Value; i++)
+                        {
+                            new Thread(delegate ()
+                            {
+                                while (Form1.Running)
+                                {
+                                    this.EmbedSpam();
+                                }
+                            }).Start();
+                        }
+                    }
+                }
+            }
+        }
+        public void EmbedSpam()
+        {
+            bool flag = !Form1.Running;
+            if (flag)
+                Thread.CurrentThread.Abort();
+            bool flag2 = Form1._MsgsSent >= Form1._Msgstosend;
+            if (flag2)
+                Form1.Running = false;
+            bool running = Form1.Running;
+            if (running)
+            {
+                try
+                {
+                    string channel = Form1._ChannelID;
+                    ulong channelid = Convert.ToUInt64(channel);
+                    string text;
+                    Form1.ValidTokens.TryDequeue(out text);
+                    bool flag3 = text != null && text != "";
+                    if (!flag3) { return; }
+                    Form1.ValidTokens.Enqueue(text);
+                    int ready = 0;
+                    bool ready1 = Convert.ToBoolean(ready);
+                    ready1 = rDiscord.SpawnEmbed(Client.Create(false, null, text), channelid, EmbedTitle.Text, this.EmbedText.Text, null);
+                    bool flag4 = ready1;
+                    if (flag4)
+                    {
+                        this.tmessagessent.Text = Form1._MsgsSent.ToString();
+                        Form1._MsgsSent++;
+                    }
+                    else
+                    {
+                        Thread.Sleep(1000);
+                    }
+                }
+                catch { }
+            }
+            Thread.Sleep(1);
+        }
     }
 }

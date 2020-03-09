@@ -26,9 +26,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.nitrosnprBtn = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnDiscordRPC = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -119,6 +119,7 @@
             this.stopSelfbot = new Bunifu.Framework.UI.BunifuFlatButton();
             this.startSelfbot = new Bunifu.Framework.UI.BunifuFlatButton();
             this.spammer1 = new System.Windows.Forms.Panel();
+            this.LoadAvatar = new Bunifu.Framework.UI.BunifuFlatButton();
             this.ChannelID2 = new Guna.UI.WinForms.GunaTextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.MultiChannelButt = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -126,7 +127,6 @@
             this.label42 = new System.Windows.Forms.Label();
             this.Stream = new Bunifu.Framework.UI.BunifuFlatButton();
             this.Revert = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.AvatarLink = new Guna.UI.WinForms.GunaTextBox();
             this.voiceChannelID = new Guna.UI.WinForms.GunaTextBox();
             this.UserId = new Guna.UI.WinForms.GunaTextBox();
             this.UserIdText = new Guna.UI.WinForms.GunaTextBox();
@@ -242,6 +242,18 @@
             this.ConstantlyRun1 = new System.Windows.Forms.Timer(this.components);
             this.panel6 = new System.Windows.Forms.Panel();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.RandomMessage = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.EmbedMenu = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.EmbedPanel = new Guna.UI.WinForms.GunaElipsePanel();
+            this.label32 = new System.Windows.Forms.Label();
+            this.EmbedTitle = new Guna.UI.WinForms.GunaTextBox();
+            this.EmbedText = new Guna.UI.WinForms.GunaTextBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.EmbedImageURL = new Guna.UI.WinForms.GunaTextBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.StartEmbedSpam = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.gunaElipse2 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.EmbedPanelExit = new Guna.UI.WinForms.GunaCircleButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
@@ -262,6 +274,7 @@
             this.discordRPC1.SuspendLayout();
             this.SettingsPanel.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.EmbedPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -1449,33 +1462,33 @@
             // 
             // CommandsList
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.CommandsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.CommandsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.CommandsList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.CommandsList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.CommandsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CommandsList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.CommandsList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CommandsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CommandsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.CommandsList.ColumnHeadersHeight = 21;
             this.CommandsList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Commands,
             this.CommandInfo});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CommandsList.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CommandsList.DefaultCellStyle = dataGridViewCellStyle9;
             this.CommandsList.EnableHeadersVisualStyles = false;
             this.CommandsList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.CommandsList.Location = new System.Drawing.Point(224, 7);
@@ -1687,6 +1700,10 @@
             // 
             // spammer1
             // 
+            this.spammer1.Controls.Add(this.EmbedPanel);
+            this.spammer1.Controls.Add(this.EmbedMenu);
+            this.spammer1.Controls.Add(this.RandomMessage);
+            this.spammer1.Controls.Add(this.LoadAvatar);
             this.spammer1.Controls.Add(this.ChannelID2);
             this.spammer1.Controls.Add(this.label20);
             this.spammer1.Controls.Add(this.MultiChannelButt);
@@ -1694,7 +1711,6 @@
             this.spammer1.Controls.Add(this.label42);
             this.spammer1.Controls.Add(this.Stream);
             this.spammer1.Controls.Add(this.Revert);
-            this.spammer1.Controls.Add(this.AvatarLink);
             this.spammer1.Controls.Add(this.voiceChannelID);
             this.spammer1.Controls.Add(this.UserId);
             this.spammer1.Controls.Add(this.UserIdText);
@@ -1766,6 +1782,42 @@
             this.spammer1.Size = new System.Drawing.Size(738, 660);
             this.spammer1.TabIndex = 12;
             // 
+            // LoadAvatar
+            // 
+            this.LoadAvatar.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.LoadAvatar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.LoadAvatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.LoadAvatar.BorderRadius = -3;
+            this.LoadAvatar.ButtonText = "Load Image";
+            this.LoadAvatar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LoadAvatar.DisabledColor = System.Drawing.Color.Gray;
+            this.LoadAvatar.Iconcolor = System.Drawing.Color.Transparent;
+            this.LoadAvatar.Iconimage = null;
+            this.LoadAvatar.Iconimage_right = null;
+            this.LoadAvatar.Iconimage_right_Selected = null;
+            this.LoadAvatar.Iconimage_Selected = null;
+            this.LoadAvatar.IconMarginLeft = 0;
+            this.LoadAvatar.IconMarginRight = 0;
+            this.LoadAvatar.IconRightVisible = true;
+            this.LoadAvatar.IconRightZoom = 0D;
+            this.LoadAvatar.IconVisible = true;
+            this.LoadAvatar.IconZoom = 90D;
+            this.LoadAvatar.IsTab = false;
+            this.LoadAvatar.Location = new System.Drawing.Point(347, 278);
+            this.LoadAvatar.Margin = new System.Windows.Forms.Padding(4);
+            this.LoadAvatar.Name = "LoadAvatar";
+            this.LoadAvatar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.LoadAvatar.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
+            this.LoadAvatar.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
+            this.LoadAvatar.selected = false;
+            this.LoadAvatar.Size = new System.Drawing.Size(151, 30);
+            this.LoadAvatar.TabIndex = 192;
+            this.LoadAvatar.Text = "Load Image";
+            this.LoadAvatar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LoadAvatar.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
+            this.LoadAvatar.TextFont = new System.Drawing.Font("Helvetica-Normal", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoadAvatar.Click += new System.EventHandler(this.LoadAvatar_Click);
+            // 
             // ChannelID2
             // 
             this.ChannelID2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
@@ -1818,14 +1870,14 @@
             this.MultiChannelButt.IconVisible = true;
             this.MultiChannelButt.IconZoom = 90D;
             this.MultiChannelButt.IsTab = false;
-            this.MultiChannelButt.Location = new System.Drawing.Point(174, 436);
+            this.MultiChannelButt.Location = new System.Drawing.Point(170, 436);
             this.MultiChannelButt.Margin = new System.Windows.Forms.Padding(4);
             this.MultiChannelButt.Name = "MultiChannelButt";
             this.MultiChannelButt.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
             this.MultiChannelButt.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
             this.MultiChannelButt.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
             this.MultiChannelButt.selected = true;
-            this.MultiChannelButt.Size = new System.Drawing.Size(129, 31);
+            this.MultiChannelButt.Size = new System.Drawing.Size(166, 31);
             this.MultiChannelButt.TabIndex = 189;
             this.MultiChannelButt.Text = "Multi Channel";
             this.MultiChannelButt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1877,7 +1929,7 @@
             this.Stream.IconVisible = true;
             this.Stream.IconZoom = 90D;
             this.Stream.IsTab = false;
-            this.Stream.Location = new System.Drawing.Point(480, 374);
+            this.Stream.Location = new System.Drawing.Point(342, 333);
             this.Stream.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Stream.Name = "Stream";
             this.Stream.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
@@ -1926,25 +1978,6 @@
             this.Revert.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Revert.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
             this.Revert.TextFont = new System.Drawing.Font("Helvetica-Normal", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // AvatarLink
-            // 
-            this.AvatarLink.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.AvatarLink.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.AvatarLink.BorderSize = 1;
-            this.AvatarLink.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.AvatarLink.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.AvatarLink.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
-            this.AvatarLink.FocusedForeColor = System.Drawing.Color.White;
-            this.AvatarLink.Font = new System.Drawing.Font("Helvetica-Normal", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AvatarLink.ForeColor = System.Drawing.Color.White;
-            this.AvatarLink.Location = new System.Drawing.Point(347, 279);
-            this.AvatarLink.Name = "AvatarLink";
-            this.AvatarLink.PasswordChar = '\0';
-            this.AvatarLink.Size = new System.Drawing.Size(151, 28);
-            this.AvatarLink.TabIndex = 182;
-            this.AvatarLink.Text = "Insert Image Link";
-            this.AvatarLink.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // voiceChannelID
             // 
@@ -2162,7 +2195,7 @@
             this.SpotifyPanel.Controls.Add(this.label17);
             this.SpotifyPanel.Controls.Add(this.SessionID);
             this.SpotifyPanel.Controls.Add(this.label18);
-            this.SpotifyPanel.Location = new System.Drawing.Point(690, 370);
+            this.SpotifyPanel.Location = new System.Drawing.Point(690, 406);
             this.SpotifyPanel.Name = "SpotifyPanel";
             this.SpotifyPanel.Size = new System.Drawing.Size(23, 100);
             this.SpotifyPanel.TabIndex = 170;
@@ -2240,7 +2273,7 @@
             this.Spotifybutt.IconVisible = true;
             this.Spotifybutt.IconZoom = 90D;
             this.Spotifybutt.IsTab = false;
-            this.Spotifybutt.Location = new System.Drawing.Point(664, 447);
+            this.Spotifybutt.Location = new System.Drawing.Point(664, 494);
             this.Spotifybutt.Margin = new System.Windows.Forms.Padding(4);
             this.Spotifybutt.Name = "Spotifybutt";
             this.Spotifybutt.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
@@ -2276,14 +2309,14 @@
             this.SpotifyInviteButt.IconVisible = true;
             this.SpotifyInviteButt.IconZoom = 90D;
             this.SpotifyInviteButt.IsTab = false;
-            this.SpotifyInviteButt.Location = new System.Drawing.Point(480, 413);
+            this.SpotifyInviteButt.Location = new System.Drawing.Point(600, 595);
             this.SpotifyInviteButt.Margin = new System.Windows.Forms.Padding(4);
             this.SpotifyInviteButt.Name = "SpotifyInviteButt";
             this.SpotifyInviteButt.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
             this.SpotifyInviteButt.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
             this.SpotifyInviteButt.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
             this.SpotifyInviteButt.selected = true;
-            this.SpotifyInviteButt.Size = new System.Drawing.Size(123, 31);
+            this.SpotifyInviteButt.Size = new System.Drawing.Size(129, 31);
             this.SpotifyInviteButt.TabIndex = 168;
             this.SpotifyInviteButt.Text = "Spotify Invite";
             this.SpotifyInviteButt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2350,14 +2383,14 @@
             this.AuditSpam.IconVisible = true;
             this.AuditSpam.IconZoom = 90D;
             this.AuditSpam.IsTab = false;
-            this.AuditSpam.Location = new System.Drawing.Point(174, 402);
+            this.AuditSpam.Location = new System.Drawing.Point(170, 402);
             this.AuditSpam.Margin = new System.Windows.Forms.Padding(4);
             this.AuditSpam.Name = "AuditSpam";
             this.AuditSpam.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
             this.AuditSpam.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
             this.AuditSpam.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
             this.AuditSpam.selected = true;
-            this.AuditSpam.Size = new System.Drawing.Size(129, 31);
+            this.AuditSpam.Size = new System.Drawing.Size(166, 31);
             this.AuditSpam.TabIndex = 166;
             this.AuditSpam.Text = "Audit Spam";
             this.AuditSpam.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2398,14 +2431,14 @@
             this.React.IconVisible = true;
             this.React.IconZoom = 90D;
             this.React.IsTab = false;
-            this.React.Location = new System.Drawing.Point(174, 368);
+            this.React.Location = new System.Drawing.Point(170, 368);
             this.React.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.React.Name = "React";
             this.React.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
             this.React.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
             this.React.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
             this.React.selected = true;
-            this.React.Size = new System.Drawing.Size(129, 31);
+            this.React.Size = new System.Drawing.Size(166, 31);
             this.React.TabIndex = 163;
             this.React.Text = "React";
             this.React.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2446,14 +2479,14 @@
             this.TypingButt.IconVisible = true;
             this.TypingButt.IconZoom = 90D;
             this.TypingButt.IsTab = false;
-            this.TypingButt.Location = new System.Drawing.Point(174, 334);
+            this.TypingButt.Location = new System.Drawing.Point(170, 334);
             this.TypingButt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TypingButt.Name = "TypingButt";
             this.TypingButt.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
             this.TypingButt.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
             this.TypingButt.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
             this.TypingButt.selected = true;
-            this.TypingButt.Size = new System.Drawing.Size(129, 31);
+            this.TypingButt.Size = new System.Drawing.Size(166, 31);
             this.TypingButt.TabIndex = 160;
             this.TypingButt.Text = "Typing";
             this.TypingButt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2530,7 +2563,7 @@
             this.MassPing.IconVisible = true;
             this.MassPing.IconZoom = 90D;
             this.MassPing.IsTab = false;
-            this.MassPing.Location = new System.Drawing.Point(478, 448);
+            this.MassPing.Location = new System.Drawing.Point(342, 368);
             this.MassPing.Margin = new System.Windows.Forms.Padding(4);
             this.MassPing.Name = "MassPing";
             this.MassPing.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
@@ -2562,7 +2595,7 @@
             this.ClearChat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
             this.ClearChat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClearChat.BorderRadius = -3;
-            this.ClearChat.ButtonText = "Clear Chat";
+            this.ClearChat.ButtonText = "Clear Chat Spam";
             this.ClearChat.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ClearChat.DisabledColor = System.Drawing.Color.Gray;
             this.ClearChat.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2578,16 +2611,16 @@
             this.ClearChat.IconVisible = true;
             this.ClearChat.IconZoom = 90D;
             this.ClearChat.IsTab = false;
-            this.ClearChat.Location = new System.Drawing.Point(174, 300);
+            this.ClearChat.Location = new System.Drawing.Point(170, 300);
             this.ClearChat.Margin = new System.Windows.Forms.Padding(4);
             this.ClearChat.Name = "ClearChat";
             this.ClearChat.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
             this.ClearChat.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
             this.ClearChat.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
             this.ClearChat.selected = true;
-            this.ClearChat.Size = new System.Drawing.Size(129, 31);
+            this.ClearChat.Size = new System.Drawing.Size(166, 31);
             this.ClearChat.TabIndex = 154;
-            this.ClearChat.Text = "Clear Chat";
+            this.ClearChat.Text = "Clear Chat Spam";
             this.ClearChat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.ClearChat.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
             this.ClearChat.TextFont = new System.Drawing.Font("Helvetica-Normal", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2756,14 +2789,14 @@
             this.AddallButt.IconVisible = true;
             this.AddallButt.IconZoom = 90D;
             this.AddallButt.IsTab = false;
-            this.AddallButt.Location = new System.Drawing.Point(174, 266);
+            this.AddallButt.Location = new System.Drawing.Point(170, 266);
             this.AddallButt.Margin = new System.Windows.Forms.Padding(4);
             this.AddallButt.Name = "AddallButt";
             this.AddallButt.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
             this.AddallButt.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
             this.AddallButt.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
             this.AddallButt.selected = false;
-            this.AddallButt.Size = new System.Drawing.Size(129, 31);
+            this.AddallButt.Size = new System.Drawing.Size(166, 31);
             this.AddallButt.TabIndex = 144;
             this.AddallButt.Text = "Add All";
             this.AddallButt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2862,7 +2895,7 @@
             this.laggerButt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
             this.laggerButt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.laggerButt.BorderRadius = -3;
-            this.laggerButt.ButtonText = "Chat Lag";
+            this.laggerButt.ButtonText = "Chat Lag Spam";
             this.laggerButt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.laggerButt.DisabledColor = System.Drawing.Color.Gray;
             this.laggerButt.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2878,16 +2911,16 @@
             this.laggerButt.IconVisible = true;
             this.laggerButt.IconZoom = 90D;
             this.laggerButt.IsTab = false;
-            this.laggerButt.Location = new System.Drawing.Point(174, 198);
+            this.laggerButt.Location = new System.Drawing.Point(170, 198);
             this.laggerButt.Margin = new System.Windows.Forms.Padding(4);
             this.laggerButt.Name = "laggerButt";
             this.laggerButt.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
             this.laggerButt.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
             this.laggerButt.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
             this.laggerButt.selected = true;
-            this.laggerButt.Size = new System.Drawing.Size(129, 31);
+            this.laggerButt.Size = new System.Drawing.Size(166, 31);
             this.laggerButt.TabIndex = 140;
-            this.laggerButt.Text = "Chat Lag";
+            this.laggerButt.Text = "Chat Lag Spam";
             this.laggerButt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.laggerButt.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
             this.laggerButt.TextFont = new System.Drawing.Font("Helvetica-Normal", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2959,14 +2992,14 @@
             this.DmAllInGuild.IconVisible = true;
             this.DmAllInGuild.IconZoom = 90D;
             this.DmAllInGuild.IsTab = false;
-            this.DmAllInGuild.Location = new System.Drawing.Point(174, 232);
+            this.DmAllInGuild.Location = new System.Drawing.Point(170, 232);
             this.DmAllInGuild.Margin = new System.Windows.Forms.Padding(4);
             this.DmAllInGuild.Name = "DmAllInGuild";
             this.DmAllInGuild.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
             this.DmAllInGuild.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
             this.DmAllInGuild.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
             this.DmAllInGuild.selected = false;
-            this.DmAllInGuild.Size = new System.Drawing.Size(129, 31);
+            this.DmAllInGuild.Size = new System.Drawing.Size(166, 31);
             this.DmAllInGuild.TabIndex = 132;
             this.DmAllInGuild.Text = "DM All";
             this.DmAllInGuild.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -4167,6 +4200,253 @@
             // 
             this.gunaElipse1.TargetControl = this;
             // 
+            // RandomMessage
+            // 
+            this.RandomMessage.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.RandomMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.RandomMessage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.RandomMessage.BorderRadius = -3;
+            this.RandomMessage.ButtonText = "Random Message";
+            this.RandomMessage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RandomMessage.DisabledColor = System.Drawing.Color.Gray;
+            this.RandomMessage.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RandomMessage.Iconcolor = System.Drawing.Color.Transparent;
+            this.RandomMessage.Iconimage = null;
+            this.RandomMessage.Iconimage_right = null;
+            this.RandomMessage.Iconimage_right_Selected = null;
+            this.RandomMessage.Iconimage_Selected = null;
+            this.RandomMessage.IconMarginLeft = 0;
+            this.RandomMessage.IconMarginRight = 0;
+            this.RandomMessage.IconRightVisible = true;
+            this.RandomMessage.IconRightZoom = 0D;
+            this.RandomMessage.IconVisible = true;
+            this.RandomMessage.IconZoom = 90D;
+            this.RandomMessage.IsTab = false;
+            this.RandomMessage.Location = new System.Drawing.Point(170, 470);
+            this.RandomMessage.Margin = new System.Windows.Forms.Padding(4);
+            this.RandomMessage.Name = "RandomMessage";
+            this.RandomMessage.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.RandomMessage.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
+            this.RandomMessage.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
+            this.RandomMessage.selected = true;
+            this.RandomMessage.Size = new System.Drawing.Size(166, 31);
+            this.RandomMessage.TabIndex = 193;
+            this.RandomMessage.Text = "Random Message";
+            this.RandomMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.RandomMessage.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
+            this.RandomMessage.TextFont = new System.Drawing.Font("Helvetica-Normal", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RandomMessage.Click += new System.EventHandler(this.RandomMessage_Click);
+            // 
+            // EmbedMenu
+            // 
+            this.EmbedMenu.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.EmbedMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.EmbedMenu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.EmbedMenu.BorderRadius = -3;
+            this.EmbedMenu.ButtonText = "Embed";
+            this.EmbedMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EmbedMenu.DisabledColor = System.Drawing.Color.Gray;
+            this.EmbedMenu.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmbedMenu.Iconcolor = System.Drawing.Color.Transparent;
+            this.EmbedMenu.Iconimage = null;
+            this.EmbedMenu.Iconimage_right = null;
+            this.EmbedMenu.Iconimage_right_Selected = null;
+            this.EmbedMenu.Iconimage_Selected = null;
+            this.EmbedMenu.IconMarginLeft = 0;
+            this.EmbedMenu.IconMarginRight = 0;
+            this.EmbedMenu.IconRightVisible = true;
+            this.EmbedMenu.IconRightZoom = 0D;
+            this.EmbedMenu.IconVisible = true;
+            this.EmbedMenu.IconZoom = 90D;
+            this.EmbedMenu.IsTab = false;
+            this.EmbedMenu.Location = new System.Drawing.Point(342, 402);
+            this.EmbedMenu.Margin = new System.Windows.Forms.Padding(4);
+            this.EmbedMenu.Name = "EmbedMenu";
+            this.EmbedMenu.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.EmbedMenu.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
+            this.EmbedMenu.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
+            this.EmbedMenu.selected = true;
+            this.EmbedMenu.Size = new System.Drawing.Size(125, 31);
+            this.EmbedMenu.TabIndex = 194;
+            this.EmbedMenu.Text = "Embed";
+            this.EmbedMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.EmbedMenu.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
+            this.EmbedMenu.TextFont = new System.Drawing.Font("Helvetica-Normal", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmbedMenu.Click += new System.EventHandler(this.EmbedMenu_Click);
+            // 
+            // EmbedPanel
+            // 
+            this.EmbedPanel.BackColor = System.Drawing.Color.Transparent;
+            this.EmbedPanel.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
+            this.EmbedPanel.Controls.Add(this.EmbedPanelExit);
+            this.EmbedPanel.Controls.Add(this.StartEmbedSpam);
+            this.EmbedPanel.Controls.Add(this.EmbedImageURL);
+            this.EmbedPanel.Controls.Add(this.label47);
+            this.EmbedPanel.Controls.Add(this.EmbedText);
+            this.EmbedPanel.Controls.Add(this.label43);
+            this.EmbedPanel.Controls.Add(this.EmbedTitle);
+            this.EmbedPanel.Controls.Add(this.label32);
+            this.EmbedPanel.Location = new System.Drawing.Point(474, 313);
+            this.EmbedPanel.Name = "EmbedPanel";
+            this.EmbedPanel.Radius = 8;
+            this.EmbedPanel.Size = new System.Drawing.Size(210, 196);
+            this.EmbedPanel.TabIndex = 195;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Helvetica-Normal", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
+            this.label32.Location = new System.Drawing.Point(8, 7);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(73, 17);
+            this.label32.TabIndex = 159;
+            this.label32.Text = "Embed Title";
+            // 
+            // EmbedTitle
+            // 
+            this.EmbedTitle.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(44)))));
+            this.EmbedTitle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.EmbedTitle.BorderSize = 1;
+            this.EmbedTitle.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.EmbedTitle.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.EmbedTitle.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.EmbedTitle.FocusedForeColor = System.Drawing.Color.White;
+            this.EmbedTitle.Font = new System.Drawing.Font("Helvetica", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmbedTitle.ForeColor = System.Drawing.Color.White;
+            this.EmbedTitle.Location = new System.Drawing.Point(11, 26);
+            this.EmbedTitle.Name = "EmbedTitle";
+            this.EmbedTitle.PasswordChar = '\0';
+            this.EmbedTitle.Size = new System.Drawing.Size(189, 26);
+            this.EmbedTitle.TabIndex = 177;
+            this.EmbedTitle.Text = "Insert Title";
+            this.EmbedTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // EmbedText
+            // 
+            this.EmbedText.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(44)))));
+            this.EmbedText.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.EmbedText.BorderSize = 1;
+            this.EmbedText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.EmbedText.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.EmbedText.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.EmbedText.FocusedForeColor = System.Drawing.Color.White;
+            this.EmbedText.Font = new System.Drawing.Font("Helvetica", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmbedText.ForeColor = System.Drawing.Color.White;
+            this.EmbedText.Location = new System.Drawing.Point(11, 74);
+            this.EmbedText.Name = "EmbedText";
+            this.EmbedText.PasswordChar = '\0';
+            this.EmbedText.Size = new System.Drawing.Size(189, 26);
+            this.EmbedText.TabIndex = 179;
+            this.EmbedText.Text = "Insert Text";
+            this.EmbedText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Helvetica-Normal", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
+            this.label43.Location = new System.Drawing.Point(8, 55);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(73, 17);
+            this.label43.TabIndex = 178;
+            this.label43.Text = "Embed Text";
+            // 
+            // EmbedImageURL
+            // 
+            this.EmbedImageURL.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(44)))));
+            this.EmbedImageURL.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.EmbedImageURL.BorderSize = 1;
+            this.EmbedImageURL.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.EmbedImageURL.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.EmbedImageURL.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.EmbedImageURL.FocusedForeColor = System.Drawing.Color.White;
+            this.EmbedImageURL.Font = new System.Drawing.Font("Helvetica", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmbedImageURL.ForeColor = System.Drawing.Color.White;
+            this.EmbedImageURL.Location = new System.Drawing.Point(11, 126);
+            this.EmbedImageURL.Name = "EmbedImageURL";
+            this.EmbedImageURL.PasswordChar = '\0';
+            this.EmbedImageURL.Size = new System.Drawing.Size(189, 26);
+            this.EmbedImageURL.TabIndex = 181;
+            this.EmbedImageURL.Text = "Insert URL";
+            this.EmbedImageURL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Helvetica-Normal", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
+            this.label47.Location = new System.Drawing.Point(8, 107);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(112, 17);
+            this.label47.TabIndex = 180;
+            this.label47.Text = "Embed Image URL";
+            // 
+            // StartEmbedSpam
+            // 
+            this.StartEmbedSpam.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.StartEmbedSpam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.StartEmbedSpam.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.StartEmbedSpam.BorderRadius = -3;
+            this.StartEmbedSpam.ButtonText = "Start";
+            this.StartEmbedSpam.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StartEmbedSpam.DisabledColor = System.Drawing.Color.Gray;
+            this.StartEmbedSpam.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartEmbedSpam.Iconcolor = System.Drawing.Color.Transparent;
+            this.StartEmbedSpam.Iconimage = null;
+            this.StartEmbedSpam.Iconimage_right = null;
+            this.StartEmbedSpam.Iconimage_right_Selected = null;
+            this.StartEmbedSpam.Iconimage_Selected = null;
+            this.StartEmbedSpam.IconMarginLeft = 0;
+            this.StartEmbedSpam.IconMarginRight = 0;
+            this.StartEmbedSpam.IconRightVisible = true;
+            this.StartEmbedSpam.IconRightZoom = 0D;
+            this.StartEmbedSpam.IconVisible = true;
+            this.StartEmbedSpam.IconZoom = 90D;
+            this.StartEmbedSpam.IsTab = false;
+            this.StartEmbedSpam.Location = new System.Drawing.Point(11, 158);
+            this.StartEmbedSpam.Margin = new System.Windows.Forms.Padding(4);
+            this.StartEmbedSpam.Name = "StartEmbedSpam";
+            this.StartEmbedSpam.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.StartEmbedSpam.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
+            this.StartEmbedSpam.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
+            this.StartEmbedSpam.selected = true;
+            this.StartEmbedSpam.Size = new System.Drawing.Size(189, 32);
+            this.StartEmbedSpam.TabIndex = 196;
+            this.StartEmbedSpam.Text = "Start";
+            this.StartEmbedSpam.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.StartEmbedSpam.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.StartEmbedSpam.TextFont = new System.Drawing.Font("Helvetica-Normal", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartEmbedSpam.Click += new System.EventHandler(this.StartEmbedSpam_Click);
+            // 
+            // gunaElipse2
+            // 
+            this.gunaElipse2.TargetControl = this.EmbedTitle;
+            // 
+            // EmbedPanelExit
+            // 
+            this.EmbedPanelExit.AnimationHoverSpeed = 0.07F;
+            this.EmbedPanelExit.AnimationSpeed = 0.03F;
+            this.EmbedPanelExit.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(43)))), ((int)(((byte)(47)))));
+            this.EmbedPanelExit.BorderColor = System.Drawing.Color.Black;
+            this.EmbedPanelExit.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.EmbedPanelExit.FocusedColor = System.Drawing.Color.Empty;
+            this.EmbedPanelExit.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.EmbedPanelExit.ForeColor = System.Drawing.Color.White;
+            this.EmbedPanelExit.Image = null;
+            this.EmbedPanelExit.ImageSize = new System.Drawing.Size(52, 52);
+            this.EmbedPanelExit.Location = new System.Drawing.Point(187, -1);
+            this.EmbedPanelExit.Name = "EmbedPanelExit";
+            this.EmbedPanelExit.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(43)))), ((int)(((byte)(47)))));
+            this.EmbedPanelExit.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.EmbedPanelExit.OnHoverForeColor = System.Drawing.Color.Red;
+            this.EmbedPanelExit.OnHoverImage = null;
+            this.EmbedPanelExit.OnPressedColor = System.Drawing.Color.Beige;
+            this.EmbedPanelExit.Size = new System.Drawing.Size(24, 22);
+            this.EmbedPanelExit.TabIndex = 196;
+            this.EmbedPanelExit.Text = "X";
+            this.EmbedPanelExit.Click += new System.EventHandler(this.EmbedPanelExit_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4229,6 +4509,8 @@
             this.SettingsPanel.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.EmbedPanel.ResumeLayout(false);
+            this.EmbedPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -4430,7 +4712,6 @@
         private System.Windows.Forms.TextBox SessionID;
         private System.Windows.Forms.Label label18;
         private Guna.UI.WinForms.GunaTextBox richTextBox;
-        private Guna.UI.WinForms.GunaTextBox AvatarLink;
         private Guna.UI.WinForms.GunaTextBox voiceChannelID;
         private Guna.UI.WinForms.GunaTextBox UserId;
         private Guna.UI.WinForms.GunaTextBox UserIdText;
@@ -4449,6 +4730,19 @@
         private Guna.UI.WinForms.GunaTextBox ChannelID2;
         private System.Windows.Forms.Label label20;
         private Guna.UI.WinForms.GunaElipse gunaElipse1;
+        private Bunifu.Framework.UI.BunifuFlatButton LoadAvatar;
+        private Bunifu.Framework.UI.BunifuFlatButton RandomMessage;
+        private Guna.UI.WinForms.GunaElipsePanel EmbedPanel;
+        private System.Windows.Forms.Label label32;
+        private Bunifu.Framework.UI.BunifuFlatButton EmbedMenu;
+        private Bunifu.Framework.UI.BunifuFlatButton StartEmbedSpam;
+        private Guna.UI.WinForms.GunaTextBox EmbedImageURL;
+        private System.Windows.Forms.Label label47;
+        private Guna.UI.WinForms.GunaTextBox EmbedText;
+        private System.Windows.Forms.Label label43;
+        private Guna.UI.WinForms.GunaTextBox EmbedTitle;
+        private Guna.UI.WinForms.GunaElipse gunaElipse2;
+        private Guna.UI.WinForms.GunaCircleButton EmbedPanelExit;
     }
 }
 
