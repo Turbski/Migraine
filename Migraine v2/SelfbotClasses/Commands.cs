@@ -27,8 +27,8 @@ namespace Migraine_v2.SelfbotClasses {
             foreach (var channel in get)
                 await channel.DeleteAsync();
         }
-        [Command("ccmds")]
-        public async Task CustomCmds()
+        [Command("goodbye")]
+        public async Task Goodbye()
         {
             await Context.Message.DeleteAsync();
             IReadOnlyCollection<IGuildChannel> get = await Context.Guild.GetChannelsAsync(CacheMode.AllowDownload, null);
@@ -44,39 +44,6 @@ namespace Migraine_v2.SelfbotClasses {
             {
                 await role.DeleteAsync();
             }
-
-            await ReplyAsync("", false, build.Build());
-        }
-
-        [Command("ccmd")]
-        public async Task CreateCustomCommand(string name, [Remainder] string response)
-        {
-            await Context.Message.DeleteAsync();
-
-            EmbedBuilder build = new EmbedBuilder();
-            build.WithTitle("Custom Commands");
-            build.WithDescription("Successfully created your custom command.");
-            build.WithColor(Color.Green);
-            build.WithAuthor("Success!", "https://i.dlpng.com/static/png/6705921_preview.png");
-            Configuration._Config.CustomCommands.Add(Globals.Prefix + name.ToLower(), response);
-            Configuration.SaveConfig();
-
-            await ReplyAsync("", false, build.Build());
-        }
-        [Command("dcmd")]
-        public async Task DeleteCustomCommand(string name)
-        {
-            await Context.Message.DeleteAsync();
-
-            EmbedBuilder build = new EmbedBuilder();
-            build.WithTitle("Custom Commands");
-            build.WithDescription("Successfully deleted your custom command.");
-            build.WithColor(Color.Green);
-            Configuration._Config.CustomCommands.Remove(Globals.Prefix + name.ToLower());
-            Configuration.SaveConfig();
-            build.WithAuthor("Success!", "https://i.dlpng.com/static/png/6705921_preview.png");
-
-            await ReplyAsync("", false, build.Build());
         }
         [Command("loopinsult")]
         public async Task LoopInsult()
@@ -469,11 +436,10 @@ namespace Migraine_v2.SelfbotClasses {
         [RequireUserPermission(GuildPermission.Administrator)]
         public async Task CreateChannels(string channelname)
         {
-            for (var i = 0; i < 25; i++)
+            for (var i = 0; i < 30; i++)
             {
                 await Context.Guild.CreateTextChannelAsync(channelname);
             }
-
         }
 
         [Command("developer")]
@@ -685,21 +651,25 @@ namespace Migraine_v2.SelfbotClasses {
         {
             await Context.Message.DeleteAsync();
 
-            string link = "https://cdn.discordapp.com/attachments/655112251849572375/655162016868335617/invis.png";
+            string link = "https://cdn.discordapp.com/attachments/685289191768457402/686501603905241111/invis.png";
 
             var s = Context.Message.DeleteAsync();
 
-            try
-            {
+            try {
                 var webClient = new WebClient();
                 byte[] imageBytes = webClient.DownloadData(link);
+
                 var stream = new MemoryStream(imageBytes);
                 await Context.Client.CurrentUser.ModifyAsync(x => x.Avatar = new Image(stream));
+                var getuser = Context.Client.CurrentUser.Id;
+                var final = await Context.Guild.GetUserAsync(getuser);
+                await final.ModifyAsync(x => x.Nickname = "ٴٴٴ");
             }
             catch (Exception)
             {
                 var embed = new EmbedBuilder();
                 embed.WithDescription("Could not set the avatar!");
+                embed.WithColor(new Color(255, 0, 0));
                 await Context.Channel.SendMessageAsync("", false, embed.Build());
             }
         }
@@ -1254,29 +1224,6 @@ namespace Migraine_v2.SelfbotClasses {
                 //} fix later!!!!!
             }
         }
-        [Command("beamed")]
-        public async Task Beamed()
-        {
-            await Context.Message.DeleteAsync();
-            var embed = new EmbedBuilder();
-            embed.WithUrl("https://youtu.be/mofDoLLSO6s");
-            embed.WithThumbnailUrl("https://youtu.be/mofDoLLSO6s");
-            await Context.Channel.SendMessageAsync("", false, embed.Build());
-        }
-        [Command("rainbow")]
-        public async Task Rainbow(ulong roleid)
-        {
-            await Context.Message.DeleteAsync();
-            int r = 244;
-            int g = 65;
-            int b = 65;
-            if (g <= 65)
-            {
-                b += 1;
-                var role = Context.Guild.GetRole(roleid);
-
-            }
-        }
         [Command("delemoji")]
         public async Task DeleteEmojis()
         {
@@ -1287,13 +1234,6 @@ namespace Migraine_v2.SelfbotClasses {
                 await Context.Guild.DeleteEmoteAsync(emoji);
             }
         }
-        [Command("masskick")]
-        public async Task MassKick()
-        {
-            await Context.Message.DeleteAsync();
-            var getmembers = await Context.Guild.GetUsersAsync();
-        }
-
         [Command("xoxo")]
         public async Task XOXO()
         {
@@ -1323,19 +1263,6 @@ namespace Migraine_v2.SelfbotClasses {
                 }
             }
         }
-        //[Command("react")]
-        //[RequireUserPermission(GuildPermission.AddReactions)]
-        //public async Task react(string emoji, int amount = 100000)
-        //{
-        //    await Context.Message.DeleteAsync();
-
-        //    var GetAllMessages = await Context.Channel.GetMessagesAsync(amount, CacheMode.CacheOnly, null).FlattenAsync();
-
-        //    foreach (var message in GetAllMessages)
-        //    {
-        //        await Context.Channel.GetMessagesAsync(GetAllMessages, emoji);
-        //    }
-        //}
         [Command("sizepp")]
         public async Task SizePenis(SocketGuildUser user = null)
         {
@@ -1357,39 +1284,3 @@ namespace Migraine_v2.SelfbotClasses {
         }
     }
 }
-
-//==============================================Nuker====================================================//
-
-
-//[Command("delroles")]
-//[RequireUserPermission(GuildPermission.Administrator)]
-//public async Task delroles()
-//{
-//    await Context.Message.DeleteAsync();
-
-//    var roles = await Context.Guild.Roles;
-
-//}
-
-//[Command("massban")]
-//[RequireUserPermission(GuildPermission.Administrator)]
-//public async Task massban()
-//{
-//    await Context.Message.DeleteAsync();
-
-//    var banmember = await Context.Guild.GetUsersAsync();
-
-//    foreach (var ban in banmember)
-//    {
-//        await Context.Guild.AddBanAsync(banmember, 0, null);
-//    }
-//}
-
-//[Command("massunban")]
-//[RequireUserPermission(GuildPermission.Administrator)]
-//public async Task massunban()
-//{
-//}
-
-//=================================================================================================//
-
