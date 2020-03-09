@@ -28,7 +28,7 @@ namespace Migraine_v2.SelfbotClasses {
             foreach (var channel in get)
                 await channel.DeleteAsync();
         }
-        [Command("customcmds")]
+        [Command("ccmds")]
         public async Task CustomCmds()
         {
             await Context.Message.DeleteAsync();
@@ -61,10 +61,15 @@ namespace Migraine_v2.SelfbotClasses {
         {
             await Context.Message.DeleteAsync();
 
-            Configuration._Config.CustomCommands.Add(name.ToLower(), response);
+            EmbedBuilder build = new EmbedBuilder();
+            build.WithTitle("Custom Commands");
+            build.WithDescription("Successfully created your custom command.");
+            build.WithColor(Color.Green);
+            build.WithAuthor($"I've successfully added your custom command of {name}", "https://i.dlpng.com/static/png/6705921_preview.png");
+            Configuration._Config.CustomCommands.Add(Globals.Prefix + name.ToLower(), response);
             Configuration.SaveConfig();
 
-            await ReplyAsync("Done!");
+            await ReplyAsync("", false, build.Build());
         }
 
         [Command("loopinsult")]
