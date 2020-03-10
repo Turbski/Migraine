@@ -211,12 +211,15 @@ namespace Migraine_v2 {
                     if (!flag3) { return; }
                     Form1.ValidTokens.Enqueue(text);
                     int num = rDiscord.SendChannelMessage(Client.Create(false, null, text), Form1._ChannelID, Form1.MessageText);
-                    ConsoleLog.Log("[Console] Started Task");
+
                     bool flag4 = num == 1;
-                    if (flag4) {
+                    if (flag4)
+                    {
                         this.tmessagessent.Text = Form1._MsgsSent.ToString();
                         Form1._MsgsSent++;
-                    } else { Thread.Sleep(1000); }
+                    }
+                    else { Thread.Sleep(1000); }i 
+                    ConsoleLog.Log("[Console] Started Task");
                 } catch { }
             }
             Thread.Sleep(1);
@@ -268,6 +271,10 @@ namespace Migraine_v2 {
             string token;
             Form1.ValidTokens.TryDequeue(out token);
             try {
+                new Thread(() =>
+                {
+
+                }).Start();
                 rDiscord.LeaveServer(Client.Create(false, null, token), this.ServerID.Text);
                 Form1.UsersLeft++;
                 this._UsersLeft.Text = Form1.UsersLeft.ToString();
@@ -305,24 +312,36 @@ namespace Migraine_v2 {
         public void JoinVC(string voicechannelID) {
             int num = 0;
             string server = this.ServerID.Text;
-            foreach (string token in Form1.ValidTokens) {
-                try {
-                    rDiscord.JoinVC(Client.Create(false, null, token), voicechannelID, server);
-                    num++;
-                } catch { }
-            }
+            new Thread(() =>
+            {
+                foreach (string token in Form1.ValidTokens)
+                {
+                    try
+                    {
+                        rDiscord.JoinVC(Client.Create(false, null, token), voicechannelID, server);
+                    } catch { }
+                }
+                num++;
+            }).Start();
             MessageBox.Show(string.Format("Joined Voice Channel on {0} accounts!", num), "Done!");
         }
         public void ChangeNicknames(string ServerID, string nick) {
             int num = 0;
-            foreach (string token in Form1.ValidTokens) {
-                try {
-                    rDiscord.SetName(Client.Create(false, null, token), ServerID, nick);
-                    num++;
-                } catch { }
-            }
-            Form1.Running = false;
-            MessageBox.Show(string.Format("Changed nick to '{0}' on {1} accounts!", nick, num), "Done!");
+            new Thread(() =>
+            {
+                foreach (string token in Form1.ValidTokens)
+                {
+                    try
+                    {
+                        rDiscord.SetName(Client.Create(false, null, token), ServerID, nick);
+                        num++;
+                    }
+                    catch { }
+                }
+
+                Form1.Running = false;
+                MessageBox.Show(string.Format("Changed nick to '{0}' on {1} accounts!", nick, num), "Done!");
+            }).Start();
         }
         [Obsolete]
         private void StartSelfbot_Click_1(object sender, EventArgs e) {
