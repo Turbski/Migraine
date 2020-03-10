@@ -253,7 +253,6 @@
             this.ConstantlyRun1 = new System.Windows.Forms.Timer(this.components);
             this.panel6 = new System.Windows.Forms.Panel();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
-            this.gunaElipse2 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
@@ -1867,8 +1866,8 @@
             this.EmbedImageURL.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.EmbedImageURL.BorderSize = 1;
             this.EmbedImageURL.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.EmbedImageURL.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.EmbedImageURL.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.EmbedImageURL.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(44)))));
+            this.EmbedImageURL.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
             this.EmbedImageURL.FocusedForeColor = System.Drawing.Color.White;
             this.EmbedImageURL.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmbedImageURL.ForeColor = System.Drawing.Color.White;
@@ -1897,8 +1896,8 @@
             this.EmbedText.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.EmbedText.BorderSize = 1;
             this.EmbedText.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.EmbedText.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.EmbedText.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.EmbedText.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(44)))));
+            this.EmbedText.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
             this.EmbedText.FocusedForeColor = System.Drawing.Color.White;
             this.EmbedText.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmbedText.ForeColor = System.Drawing.Color.White;
@@ -1927,8 +1926,8 @@
             this.EmbedTitle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.EmbedTitle.BorderSize = 1;
             this.EmbedTitle.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.EmbedTitle.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.EmbedTitle.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.EmbedTitle.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(44)))));
+            this.EmbedTitle.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
             this.EmbedTitle.FocusedForeColor = System.Drawing.Color.White;
             this.EmbedTitle.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmbedTitle.ForeColor = System.Drawing.Color.White;
@@ -2935,7 +2934,7 @@
             this.LeaveVC.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
             this.LeaveVC.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
             this.LeaveVC.selected = false;
-            this.LeaveVC.Size = new System.Drawing.Size(108, 29);
+            this.LeaveVC.Size = new System.Drawing.Size(108, 30);
             this.LeaveVC.TabIndex = 152;
             this.LeaveVC.Text = "Leave VC";
             this.LeaveVC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3118,7 +3117,7 @@
             this.RemoveFR.IconVisible = true;
             this.RemoveFR.IconZoom = 90D;
             this.RemoveFR.IsTab = false;
-            this.RemoveFR.Location = new System.Drawing.Point(621, 134);
+            this.RemoveFR.Location = new System.Drawing.Point(621, 135);
             this.RemoveFR.Margin = new System.Windows.Forms.Padding(4);
             this.RemoveFR.Name = "RemoveFR";
             this.RemoveFR.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
@@ -3813,9 +3812,9 @@
             this.nitrosnprPanel.Controls.Add(this.StopNitro);
             this.nitrosnprPanel.Controls.Add(this.label60);
             this.nitrosnprPanel.Controls.Add(this.StartNitro);
-            this.nitrosnprPanel.Location = new System.Drawing.Point(271, 67);
+            this.nitrosnprPanel.Location = new System.Drawing.Point(922, 67);
             this.nitrosnprPanel.Name = "nitrosnprPanel";
-            this.nitrosnprPanel.Size = new System.Drawing.Size(738, 661);
+            this.nitrosnprPanel.Size = new System.Drawing.Size(87, 661);
             this.nitrosnprPanel.TabIndex = 80;
             // 
             // label19
@@ -4444,10 +4443,6 @@
             // 
             this.gunaElipse1.TargetControl = this;
             // 
-            // gunaElipse2
-            // 
-            this.gunaElipse2.TargetControl = this.EmbedTitle;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4742,7 +4737,6 @@
         private Guna.UI.WinForms.GunaTextBox EmbedText;
         private System.Windows.Forms.Label label43;
         private Guna.UI.WinForms.GunaTextBox EmbedTitle;
-        private Guna.UI.WinForms.GunaElipse gunaElipse2;
         private Guna.UI.WinForms.GunaCircleButton EmbedPanelExit;
     }
 }

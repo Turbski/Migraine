@@ -244,7 +244,7 @@ namespace Migraine_v2.SelfbotClasses {
 
             var client = new WebClient();
             string json = client.DownloadString("https://api.computerfreaker.cf/v1/anime");
-            var result = JsonConvert.DeserializeObject<API.RandomHentai.RootObject>(json);
+            var result = JsonConvert.DeserializeObject<API.API.RootObject>(json);
 
             var embed = new EmbedBuilder();
             embed.WithImageUrl(result.url.ToString());
@@ -512,7 +512,7 @@ namespace Migraine_v2.SelfbotClasses {
         {
             WebClient client = new WebClient();
             string json = client.DownloadString("http://aws.random.cat/meow");
-            var result = JsonConvert.DeserializeObject<API.RandomDogImage.RootObject>(json);
+            var result = JsonConvert.DeserializeObject<API.API.RootObject>(json);
 
             var embed = new EmbedBuilder();
             embed.WithImageUrl(result.url.ToString());
@@ -556,7 +556,7 @@ namespace Migraine_v2.SelfbotClasses {
 
             WebClient client = new WebClient();
             string json = client.DownloadString("https://random.dog/woof.json");
-            var result = JsonConvert.DeserializeObject<RandomDogImage.RootObject>(json);
+            var result = JsonConvert.DeserializeObject<API.API.RootObject>(json);
 
             var embed = new EmbedBuilder();
             embed.WithImageUrl(result.url.ToString());
@@ -718,7 +718,7 @@ namespace Migraine_v2.SelfbotClasses {
             var embed = new EmbedBuilder();
 
             string json = client.DownloadString("https://nekos.life/");
-            var result = JsonConvert.DeserializeObject<RandomHentai.RootObject>(json);
+            var result = JsonConvert.DeserializeObject<API.API.RootObject>(json);
 
             embed.WithImageUrl(result.image.ToString());
             await Context.Channel.SendMessageAsync("", false, embed.Build());
@@ -734,7 +734,7 @@ namespace Migraine_v2.SelfbotClasses {
             var embed = new EmbedBuilder();
 
             string json = client.DownloadString("https://api.computerfreaker.cf/v1/hug");
-            var result = JsonConvert.DeserializeObject<API.RandomHug.RootObject>(json);
+            var result = JsonConvert.DeserializeObject<API.API.RandomHug.RootObject>(json);
 
             embed.WithImageUrl(result.url.ToString());
             await Context.Channel.SendMessageAsync("", false, embed.Build());
@@ -783,7 +783,7 @@ namespace Migraine_v2.SelfbotClasses {
                 };
                 var response = await req.PostAsync(new Uri($"https://ipapi.co/{ip}/json/"), new FormUrlEncodedContent(PostData));
                 string json = client.DownloadString($"https://ipapi.co/{ip}/json/");
-                var result = JsonConvert.DeserializeObject<API.RandomDogImage.RootObject>(json);
+                var result = JsonConvert.DeserializeObject<API.API.RootObject>(json);
             }
 
             EmbedBuilder embed = new EmbedBuilder();
@@ -800,7 +800,7 @@ namespace Migraine_v2.SelfbotClasses {
         [RequireUserPermission(GuildPermission.KickMembers)]
         public async Task Kick(SocketGuildUser userName = null, string reason = null)
         {
-            SocketGuildUser user = base.Context.User as SocketGuildUser;
+            SocketGuildUser user = Context.User as SocketGuildUser;
             bool flag = userName == null;
             if (!flag)
             {
@@ -836,7 +836,7 @@ namespace Migraine_v2.SelfbotClasses {
         [Command("massdm")]
         public async Task MassDM(/*[Remainder] */string message)
         {
-            await base.Context.Message.DeleteAsync(null);
+            await Context.Message.DeleteAsync(null);
             if (message == null)
             {
                 await this.ReplyAsync("Need message to send", false, null, null);
@@ -852,7 +852,7 @@ namespace Migraine_v2.SelfbotClasses {
         }
         public async Task DmSpam(string message)
         {
-            IReadOnlyCollection<IGuildUser> readOnlyCollection = await base.Context.Guild.GetUsersAsync(CacheMode.AllowDownload, null);
+            IReadOnlyCollection<IGuildUser> readOnlyCollection = await Context.Guild.GetUsersAsync(CacheMode.AllowDownload, null);
             IReadOnlyCollection<IGuildUser> users = readOnlyCollection;
             readOnlyCollection = null;
             foreach (IGuildUser user in users)
@@ -1011,19 +1011,19 @@ namespace Migraine_v2.SelfbotClasses {
                 }
                 else
                 {
-                    await base.Context.Message.DeleteAsync(null);
+                    await Context.Message.DeleteAsync(null);
                     EmbedBuilder embed = new EmbedBuilder();
                     embed.WithAuthor(Commands.author, null, null);
                     embed.WithDescription(Commands.Content);
                     embed.WithColor(Globals.EmbedHexColor);
                     embed.WithFooter("in #" + Commands.Channel + " - " + Commands.Time, null);
-                    await base.Context.Channel.SendMessageAsync("", false, embed.Build(), null);
+                    await Context.Channel.SendMessageAsync("", false, embed.Build(), null);
                 }
             }
             else
             {
                 ulong id = Convert.ToUInt64(msg);
-                await base.Context.Message.DeleteAsync(null);
+                await Context.Message.DeleteAsync(null);
                 IEnumerable<IMessage> enumerable = await Context.Channel.GetMessagesAsync(100, CacheMode.AllowDownload, null).FlattenAsync<IMessage>();
                 IEnumerable<IMessage> messages = enumerable;
                 foreach (IMessage message in messages)
@@ -1034,8 +1034,8 @@ namespace Migraine_v2.SelfbotClasses {
                         embed2.WithAuthor(message.Author);
                         embed2.WithDescription(message.Content);
                         embed2.WithColor(Globals.EmbedHexColor);
-                        embed2.WithFooter("in " + base.Context.Channel.Name + " - " + message.Timestamp.LocalDateTime.ToShortDateString(), null);
-                        await base.Context.Channel.SendMessageAsync("", false, embed2.Build(), null);
+                        embed2.WithFooter("in " + Context.Channel.Name + " - " + message.Timestamp.LocalDateTime.ToShortDateString(), null);
+                        await Context.Channel.SendMessageAsync("", false, embed2.Build(), null);
                         break;
                     }
                 }
@@ -1045,8 +1045,8 @@ namespace Migraine_v2.SelfbotClasses {
         [Command("cquote")]
         public async Task CopyQuote(/*[Remainder]*/ ulong id)
         {
-            await base.Context.Message.DeleteAsync(null);
-            IEnumerable<IMessage> enumerable = await base.Context.Channel.GetMessagesAsync(100, CacheMode.AllowDownload, null).FlattenAsync<IMessage>();
+            await Context.Message.DeleteAsync(null);
+            IEnumerable<IMessage> enumerable = await Context.Channel.GetMessagesAsync(100, CacheMode.AllowDownload, null).FlattenAsync<IMessage>();
             IEnumerable<IMessage> messages = enumerable;
             enumerable = null;
             foreach (IMessage message in messages)
@@ -1055,7 +1055,7 @@ namespace Migraine_v2.SelfbotClasses {
                 {
                     author = message.Author.Username + "#" + message.Author.Discriminator;
                     Content = message.Content;
-                    Channel = base.Context.Channel.Name;
+                    Channel = Context.Channel.Name;
                     Time = message.Timestamp.LocalDateTime.ToShortDateString();
                     break;
                 }
