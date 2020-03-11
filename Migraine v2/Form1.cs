@@ -218,7 +218,7 @@ namespace Migraine_v2 {
                         this.tmessagessent.Text = Form1._MsgsSent.ToString();
                         Form1._MsgsSent++;
                     }
-                    else { Thread.Sleep(1000); }i 
+                    else { Thread.Sleep(1000); } 
                     ConsoleLog.Log("[Console] Started Task");
                 } catch { }
             }
@@ -1681,6 +1681,22 @@ namespace Migraine_v2 {
         private void Revert_Click(object sender, EventArgs e)
         {
              
+        }
+
+        private void DiscordButton_clicked(object sender, EventArgs e)
+        {
+            this.ClearPages();
+            DiscordPanel.Visible = true;
+        }
+
+        private void InjectLabel_Clicked(object sender, EventArgs e)
+        {
+            DiscordPanel.Visible = false;
+        }
+
+        private void InjectButton_Clicked(object sender, EventArgs e)
+        {
+            DiscordPanel.Visible = false;
         }
     }
 }
