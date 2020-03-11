@@ -8,7 +8,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Migraine_v2.Client
+namespace Migraine_v2.DClient
 {
     public class ClientInjector
     {

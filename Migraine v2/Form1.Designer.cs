@@ -30,6 +30,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.discordClientButton = new Bunifu.Framework.UI.BunifuFlatButton();
             this.nitrosnprBtn = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnDiscordRPC = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnSelfbot = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -119,6 +120,10 @@
             this.stopSelfbot = new Bunifu.Framework.UI.BunifuFlatButton();
             this.startSelfbot = new Bunifu.Framework.UI.BunifuFlatButton();
             this.spammer1 = new System.Windows.Forms.Panel();
+            this.DiscordPanel = new Guna.UI.WinForms.GunaPanel();
+            this.InjectButton = new Guna.UI.WinForms.GunaPanel();
+            this.InjectLabel = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.EmbedPanel = new Guna.UI.WinForms.GunaElipsePanel();
             this.EmbedPanelExit = new Guna.UI.WinForms.GunaCircleButton();
             this.StartEmbedSpam = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -254,11 +259,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.gunaElipse2 = new Guna.UI.WinForms.GunaElipse(this.components);
-            this.discordClientButton = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.DiscordPanel = new Guna.UI.WinForms.GunaPanel();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.InjectButton = new Guna.UI.WinForms.GunaPanel();
-            this.InjectLabel = new Guna.UI.WinForms.GunaLabel();
+            this.InjectionLabelText = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
@@ -274,14 +275,14 @@
             this.selfbot1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CommandsList)).BeginInit();
             this.spammer1.SuspendLayout();
+            this.DiscordPanel.SuspendLayout();
+            this.InjectButton.SuspendLayout();
             this.EmbedPanel.SuspendLayout();
             this.SpotifyPanel.SuspendLayout();
             this.nitrosnprPanel.SuspendLayout();
             this.discordRPC1.SuspendLayout();
             this.SettingsPanel.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.DiscordPanel.SuspendLayout();
-            this.InjectButton.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -298,6 +299,42 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(199, 616);
             this.panel1.TabIndex = 0;
+            // 
+            // discordClientButton
+            // 
+            this.discordClientButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
+            this.discordClientButton.BackColor = System.Drawing.Color.Transparent;
+            this.discordClientButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.discordClientButton.BorderRadius = -3;
+            this.discordClientButton.ButtonText = "    #   Discord Client";
+            this.discordClientButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.discordClientButton.DisabledColor = System.Drawing.Color.Gray;
+            this.discordClientButton.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discordClientButton.Iconcolor = System.Drawing.Color.Transparent;
+            this.discordClientButton.Iconimage = null;
+            this.discordClientButton.Iconimage_right = null;
+            this.discordClientButton.Iconimage_right_Selected = null;
+            this.discordClientButton.Iconimage_Selected = null;
+            this.discordClientButton.IconMarginLeft = 0;
+            this.discordClientButton.IconMarginRight = 0;
+            this.discordClientButton.IconRightVisible = true;
+            this.discordClientButton.IconRightZoom = 0D;
+            this.discordClientButton.IconVisible = true;
+            this.discordClientButton.IconZoom = 90D;
+            this.discordClientButton.IsTab = true;
+            this.discordClientButton.Location = new System.Drawing.Point(3, 230);
+            this.discordClientButton.Name = "discordClientButton";
+            this.discordClientButton.Normalcolor = System.Drawing.Color.Transparent;
+            this.discordClientButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
+            this.discordClientButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
+            this.discordClientButton.selected = false;
+            this.discordClientButton.Size = new System.Drawing.Size(194, 32);
+            this.discordClientButton.TabIndex = 8;
+            this.discordClientButton.Text = "    #   Discord Client";
+            this.discordClientButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.discordClientButton.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
+            this.discordClientButton.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discordClientButton.Click += new System.EventHandler(this.DiscordButton_clicked);
             // 
             // nitrosnprBtn
             // 
@@ -1790,6 +1827,49 @@
             this.spammer1.Name = "spammer1";
             this.spammer1.Size = new System.Drawing.Size(744, 660);
             this.spammer1.TabIndex = 12;
+            // 
+            // DiscordPanel
+            // 
+            this.DiscordPanel.Controls.Add(this.InjectionLabelText);
+            this.DiscordPanel.Controls.Add(this.InjectButton);
+            this.DiscordPanel.Controls.Add(this.gunaLabel1);
+            this.DiscordPanel.Location = new System.Drawing.Point(0, 0);
+            this.DiscordPanel.Name = "DiscordPanel";
+            this.DiscordPanel.Size = new System.Drawing.Size(744, 657);
+            this.DiscordPanel.TabIndex = 196;
+            // 
+            // InjectButton
+            // 
+            this.InjectButton.Controls.Add(this.InjectLabel);
+            this.InjectButton.Location = new System.Drawing.Point(11, 33);
+            this.InjectButton.Name = "InjectButton";
+            this.InjectButton.Size = new System.Drawing.Size(196, 37);
+            this.InjectButton.TabIndex = 1;
+            this.InjectButton.Click += new System.EventHandler(this.InjectButton_Clicked);
+            this.InjectButton.Paint += new System.Windows.Forms.PaintEventHandler(this.InjectButton_Paint);
+            // 
+            // InjectLabel
+            // 
+            this.InjectLabel.AutoSize = true;
+            this.InjectLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InjectLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.InjectLabel.Location = new System.Drawing.Point(64, 9);
+            this.InjectLabel.Name = "InjectLabel";
+            this.InjectLabel.Size = new System.Drawing.Size(47, 21);
+            this.InjectLabel.TabIndex = 0;
+            this.InjectLabel.Text = "Inject";
+            this.InjectLabel.Click += new System.EventHandler(this.InjectLabel_Clicked);
+            // 
+            // gunaLabel1
+            // 
+            this.gunaLabel1.AutoSize = true;
+            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel1.ForeColor = System.Drawing.SystemColors.Control;
+            this.gunaLabel1.Location = new System.Drawing.Point(10, 9);
+            this.gunaLabel1.Name = "gunaLabel1";
+            this.gunaLabel1.Size = new System.Drawing.Size(56, 15);
+            this.gunaLabel1.TabIndex = 0;
+            this.gunaLabel1.Text = "Overview";
             // 
             // EmbedPanel
             // 
@@ -4457,82 +4537,15 @@
             // 
             this.gunaElipse2.TargetControl = this.EmbedTitle;
             // 
-            // discordClientButton
+            // InjectionLabelText
             // 
-            this.discordClientButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.discordClientButton.BackColor = System.Drawing.Color.Transparent;
-            this.discordClientButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.discordClientButton.BorderRadius = -3;
-            this.discordClientButton.ButtonText = "    #   Discord Client";
-            this.discordClientButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.discordClientButton.DisabledColor = System.Drawing.Color.Gray;
-            this.discordClientButton.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.discordClientButton.Iconcolor = System.Drawing.Color.Transparent;
-            this.discordClientButton.Iconimage = null;
-            this.discordClientButton.Iconimage_right = null;
-            this.discordClientButton.Iconimage_right_Selected = null;
-            this.discordClientButton.Iconimage_Selected = null;
-            this.discordClientButton.IconMarginLeft = 0;
-            this.discordClientButton.IconMarginRight = 0;
-            this.discordClientButton.IconRightVisible = true;
-            this.discordClientButton.IconRightZoom = 0D;
-            this.discordClientButton.IconVisible = true;
-            this.discordClientButton.IconZoom = 90D;
-            this.discordClientButton.IsTab = true;
-            this.discordClientButton.Location = new System.Drawing.Point(3, 230);
-            this.discordClientButton.Name = "discordClientButton";
-            this.discordClientButton.Normalcolor = System.Drawing.Color.Transparent;
-            this.discordClientButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.discordClientButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.discordClientButton.selected = false;
-            this.discordClientButton.Size = new System.Drawing.Size(194, 32);
-            this.discordClientButton.TabIndex = 8;
-            this.discordClientButton.Text = "    #   Discord Client";
-            this.discordClientButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.discordClientButton.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.discordClientButton.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.discordClientButton.Click += new System.EventHandler(this.DiscordButton_clicked);
-            // 
-            // DiscordPanel
-            // 
-            this.DiscordPanel.Controls.Add(this.InjectButton);
-            this.DiscordPanel.Controls.Add(this.gunaLabel1);
-            this.DiscordPanel.Location = new System.Drawing.Point(0, 0);
-            this.DiscordPanel.Name = "DiscordPanel";
-            this.DiscordPanel.Size = new System.Drawing.Size(744, 657);
-            this.DiscordPanel.TabIndex = 196;
-            // 
-            // gunaLabel1
-            // 
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel1.ForeColor = System.Drawing.SystemColors.Control;
-            this.gunaLabel1.Location = new System.Drawing.Point(10, 9);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(56, 15);
-            this.gunaLabel1.TabIndex = 0;
-            this.gunaLabel1.Text = "Overview";
-            // 
-            // InjectButton
-            // 
-            this.InjectButton.Controls.Add(this.InjectLabel);
-            this.InjectButton.Location = new System.Drawing.Point(11, 33);
-            this.InjectButton.Name = "InjectButton";
-            this.InjectButton.Size = new System.Drawing.Size(196, 37);
-            this.InjectButton.TabIndex = 1;
-            this.InjectButton.Click += new System.EventHandler(this.InjectButton_Clicked);
-            // 
-            // InjectLabel
-            // 
-            this.InjectLabel.AutoSize = true;
-            this.InjectLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InjectLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.InjectLabel.Location = new System.Drawing.Point(64, 9);
-            this.InjectLabel.Name = "InjectLabel";
-            this.InjectLabel.Size = new System.Drawing.Size(47, 21);
-            this.InjectLabel.TabIndex = 0;
-            this.InjectLabel.Text = "Inject";
-            this.InjectLabel.Click += new System.EventHandler(this.InjectLabel_Clicked);
+            this.InjectionLabelText.AutoSize = true;
+            this.InjectionLabelText.ForeColor = System.Drawing.SystemColors.Control;
+            this.InjectionLabelText.Location = new System.Drawing.Point(5, 638);
+            this.InjectionLabelText.Name = "InjectionLabelText";
+            this.InjectionLabelText.Size = new System.Drawing.Size(104, 13);
+            this.InjectionLabelText.TabIndex = 2;
+            this.InjectionLabelText.Text = "Status: Not Injected.";
             // 
             // Form1
             // 
@@ -4586,6 +4599,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.CommandsList)).EndInit();
             this.spammer1.ResumeLayout(false);
             this.spammer1.PerformLayout();
+            this.DiscordPanel.ResumeLayout(false);
+            this.DiscordPanel.PerformLayout();
+            this.InjectButton.ResumeLayout(false);
+            this.InjectButton.PerformLayout();
             this.EmbedPanel.ResumeLayout(false);
             this.EmbedPanel.PerformLayout();
             this.SpotifyPanel.ResumeLayout(false);
@@ -4598,10 +4615,6 @@
             this.SettingsPanel.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.DiscordPanel.ResumeLayout(false);
-            this.DiscordPanel.PerformLayout();
-            this.InjectButton.ResumeLayout(false);
-            this.InjectButton.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -4839,6 +4852,7 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI.WinForms.GunaPanel InjectButton;
         private Guna.UI.WinForms.GunaLabel InjectLabel;
+        private System.Windows.Forms.Label InjectionLabelText;
     }
 }
 

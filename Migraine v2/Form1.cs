@@ -18,7 +18,6 @@ using Migraine_v2.Nitro_Sniper_Lib;
 using Migraine_v2.Discord_Spammer_Lib;
 using Migraine_v2;
 using DiscordRPC;
-
 namespace Migraine_v2 {
     public partial class Form1 : Form {
         public Form1() {
@@ -1691,12 +1690,17 @@ namespace Migraine_v2 {
 
         private void InjectLabel_Clicked(object sender, EventArgs e)
         {
-            DiscordPanel.Visible = false;
+
         }
 
         private void InjectButton_Clicked(object sender, EventArgs e)
         {
-            DiscordPanel.Visible = false;
+
+        }
+
+        private void InjectButton_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
