@@ -161,7 +161,7 @@ namespace Migraine_v2.SelfbotClasses {
         }
 
         [Command("8ball")]
-        public async Task ball(string message)
+        public async Task ball([Remainder] string message)
         {
             await Context.Message.DeleteAsync();
             var answers = new string[] {
@@ -259,6 +259,7 @@ namespace Migraine_v2.SelfbotClasses {
             {
                 Thread.Sleep(16000);
                 await Context.Channel.SendMessageAsync(args);
+                await Context.Message.DeleteAsync();
             }
             await Context.Channel.SendMessageAsync(args);
         }
@@ -272,7 +273,7 @@ namespace Migraine_v2.SelfbotClasses {
         }
 
         [Command("av")]
-        public async Task av(SocketUser user)
+        public async Task av([Remainder] SocketUser user)
         {
             if (user == null)
                 user = Context.Message.Author as SocketUser;
@@ -310,7 +311,7 @@ namespace Migraine_v2.SelfbotClasses {
         }
 
         [Command("ban")]
-        public async Task ban(SocketUser userName = null, string reason = null)
+        public async Task ban([Remainder] SocketUser userName = null, string reason = null)
         {
             SocketUser user = Context.User as SocketUser;
             bool flag = userName == null;
@@ -528,11 +529,12 @@ namespace Migraine_v2.SelfbotClasses {
 
         [Command("cchan")]
         [RequireUserPermission(GuildPermission.Administrator)]
-        public async Task CreateChannels(string channelname)
+        public async Task CreateChannels([Remainder] string channelname)
         {
             for (var i = 0; i < 30; i++)
             {
                 await Context.Guild.CreateTextChannelAsync(channelname);
+                await Context.Guild.CreateVoiceChannelAsync(channelname);
             }
         }
 
@@ -545,7 +547,7 @@ namespace Migraine_v2.SelfbotClasses {
             embed.WithUrl(Globals.DiscordURL);
             embed.WithDescription($"Migraine is developed by [Twin Turbo]\nTo purchase this tool go to https://migraine.best/");
             embed.WithColor(Globals.EmbedHexColor);
-            embed.WithFooter("Migraine - Made by Twin Turbo");
+            embed.WithFooter("Migraine");
             await Context.Channel.SendMessageAsync("", false, embed.Build());
         }
 
@@ -571,12 +573,12 @@ namespace Migraine_v2.SelfbotClasses {
             embed.WithAuthor("Support the Developer", Globals.MigraineImageURL);
             embed.WithDescription(string.Concat("Bitcoin: ``1NXC8dD7udv4Sghf5J4pSeNYmTvgpoiGtG``"));
             embed.WithColor(new Color(255, 153, 0));
-            embed.WithFooter("Made by Twin Turbo | Migraine");
+            embed.WithFooter("Migraine");
             await Context.Channel.SendMessageAsync("", false, embed.Build());
         }
 
         [Command("embed")]
-        public async Task Embed( string message)
+        public async Task Embed([Remainder] string message)
         {
             await Context.Message.DeleteAsync(null);
             EmbedBuilder embed = new EmbedBuilder();
@@ -618,7 +620,7 @@ namespace Migraine_v2.SelfbotClasses {
             embed.WithDescription("See's how gay the person is");
             embed.WithColor(Globals.EmbedHexColor);
             embed.WithDescription($"**{user}**, You are {randomNumber}% gay.");
-            embed.WithFooter("Migraine | Made by Twin Turbo");
+            embed.WithFooter("Migraine");
             await Context.Channel.SendMessageAsync("", false, embed.Build());
         }
 
@@ -695,7 +697,7 @@ namespace Migraine_v2.SelfbotClasses {
             embed.AddField("gp", "Makes the person your pinging clueless");
             embed.AddField("clearc", "Clears chat with invisible characters");
             embed.AddField("ascii", "Changes your text to ascii format <message>");
-            embed.AddField("bomb", "Bombs chat");
+            embed.AddField("bye", "Booter (Usage: bye <ip> <port> <timetoseconds>)");
             embed.AddField("gay", "Gay Calculator <user>");
             embed.AddField("spfp", "Returns Server picture");
             embed.AddField("sstats", "Returns Server statistics");
@@ -831,7 +833,11 @@ namespace Migraine_v2.SelfbotClasses {
         }
 
         [Command("lenny")]
-        public async Task Lenny() { await Context.Message.DeleteAsync(); await Context.Channel.SendMessageAsync("( ͡° ͜ʖ ͡°)"); }
+        public async Task Lenny()
+        {
+            await Context.Message.DeleteAsync();
+            await Context.Channel.SendMessageAsync("( ͡° ͜ʖ ͡°)");
+        }
 
         [Command("massdm")]
         public async Task MassDM(/*[Remainder] */string message)
@@ -975,6 +981,9 @@ namespace Migraine_v2.SelfbotClasses {
         public async Task poll([Remainder] string message)
         {
             await Context.Message.DeleteAsync();
+            if (message == null) {
+                await Context.Channel.SendMessageAsync("Please enter a message.");
+            }
             var check = new Emoji("✅");
             var exit = new Emoji("❌");
             EmbedBuilder embed = new EmbedBuilder();
@@ -993,9 +1002,19 @@ namespace Migraine_v2.SelfbotClasses {
         [Command("purge")]
         public async Task purge(int amount)
         {
-            var messages = await Context.Channel.GetMessagesAsync(amount + 1, CacheMode.AllowDownload, null).FlattenAsync();
-            foreach (var user in messages)
-                await Context.Channel.DeleteMessageAsync(user);
+            await Context.Message.DeleteAsync();
+            var messages = Context.Channel.GetMessagesAsync(amount);
+            var enumerator = messages.GetAsyncEnumerator();
+            while (enumerator.MoveNextAsync().Result)
+            {
+                foreach (var message in enumerator.Current)
+                {
+                    if (message.Author.Mention == StartBot._Client.CurrentUser.Mention && message.Source == MessageSource.User)
+                    {
+                        await message.DeleteAsync();
+                    }
+                }
+            }
         }
 
         [Command("quote")]
@@ -1011,7 +1030,7 @@ namespace Migraine_v2.SelfbotClasses {
                 }
                 else
                 {
-                    await Context.Message.DeleteAsync(null);
+                    await Context.Message.DeleteAsync();
                     EmbedBuilder embed = new EmbedBuilder();
                     embed.WithAuthor(Commands.author, null, null);
                     embed.WithDescription(Commands.Content);
@@ -1023,7 +1042,7 @@ namespace Migraine_v2.SelfbotClasses {
             else
             {
                 ulong id = Convert.ToUInt64(msg);
-                await Context.Message.DeleteAsync(null);
+                await Context.Message.DeleteAsync();
                 IEnumerable<IMessage> enumerable = await Context.Channel.GetMessagesAsync(100, CacheMode.AllowDownload, null).FlattenAsync<IMessage>();
                 IEnumerable<IMessage> messages = enumerable;
                 foreach (IMessage message in messages)
@@ -1091,21 +1110,24 @@ namespace Migraine_v2.SelfbotClasses {
             embed.AddField("**Server Name:** ", $" {server.Name}");
             embed.AddField("**Server Owner:** ", $"{server.OwnerId}");
             embed.AddField("**Server Created:** ", $" {server.CreatedAt}");
+            embed.AddField("**Server ID:**", $"{server.Id}");
             embed.AddField("**Verification Level:**", $"{server.VerificationLevel}");
+            embed.AddField("**Emotes:**", $"{server.Emotes.Count.ToString()}");
+            embed.AddField("**Roles:**", $"{server.Roles.Count.ToString()}");
             embed.WithColor(Globals.EmbedHexColor);
-            embed.WithFooter("Migraine | Made by Twin Turbo");
+            embed.WithFooter("Migraine");
 
             await Context.Channel.SendMessageAsync("", false, embed.Build());
         }
 
         [Command("spam")]
-        public async Task spam(string message)
+        public async Task spam(string message) // fix
         {
             bool nullable = message == null;
             if (nullable)
                 ConsoleLog.Log("Message null, try [message <amount>]");
             else
-                await Context.Message.DeleteAsync(null);
+                await Context.Message.DeleteAsync();
             string[] msgarr = message.Split(new char[] { ' ' });
             int i = Convert.ToInt32(msgarr[msgarr.Length - 1]);
             for (int j = 0; j < i; j++)
@@ -1169,9 +1191,8 @@ namespace Migraine_v2.SelfbotClasses {
             embed.WithAuthor("Migraine Selfbot Stats", Globals.MigraineImageURL);
             embed.WithColor(Globals.EmbedHexColor);
             embed.WithTimestamp(DateTimeOffset.UtcNow.UtcDateTime);
-            embed.WithFooter("Migraine Stats - By Twin Turbo");
             embed.WithThumbnailUrl(Context.User.GetAvatarUrl(ImageFormat.Auto, 128));
-            embed.WithFooter("Migraine Stats - By Twin Turbo");
+            embed.WithFooter("Migraine Selfbot Stats");
             embed.AddField("Memory Usage:", string.Format("```fix\n{0}Mb```", memory), true);
             embed.AddField("Up-time:", "```prolog\n" + upTime + "```", true);
             await Context.Channel.SendMessageAsync("", false, embed.Build());
@@ -1229,7 +1250,7 @@ namespace Migraine_v2.SelfbotClasses {
         }
 
         [Command("userinfo")]
-        public async Task UserInformation(SocketGuildUser user)
+        public async Task UserInformation(SocketGuildUser user = null)
         {
             await Context.Message.DeleteAsync();
             List<string> RolesString = new List<string>();
@@ -1358,9 +1379,11 @@ namespace Migraine_v2.SelfbotClasses {
             }
         }
         [Command("sizepp")]
-        public async Task SizePenis(SocketGuildUser user = null)
+        public async Task SizePenis([Remainder] SocketGuildUser user)
         {
             await Context.Message.DeleteAsync();
+            if (user == null)
+                user = (Context.Message.Author as SocketGuildUser);
             var random = new Random();
             string[] rand = new string[]
             {
