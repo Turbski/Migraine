@@ -44,7 +44,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.5.3">
-      <HintPath>D:\Migraine v2 - Copy\Migraine v2\bin\Debug\Bunifu_UI_v1.5.3.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
     <Reference Include="Discord.Net.Commands">
       <HintPath>G:\Discord.Net-dev\Discord.Net-dev\src\Discord.Net.Commands\bin\Debug\net461\Discord.Net.Commands.dll</HintPath>
@@ -110,9 +110,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API\API.cs" />
     <Compile Include="Classes\DiscordWebhook.cs" />
     <Compile Include="Classes\Usertoken.cs" />
+    <Compile Include="Client\Asar Extraction\AsarArchive.cs" />
+    <Compile Include="Client\Asar Extraction\AsarExceptions.cs" />
+    <Compile Include="Client\Asar Extraction\AsarExtractor.cs" />
+    <Compile Include="Client\Asar Extraction\Utilities.cs" />
+    <Compile Include="Client\ClientInjector.cs" />
     <Compile Include="CommandsList.cs" />
     <Compile Include="CustomSettings\CustomCommands.cs" />
     <Compile Include="Discord_Spammer_Lib\rClient.cs" />
