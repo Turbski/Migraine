@@ -218,7 +218,7 @@ namespace Migraine_v2 {
                         this.tmessagessent.Text = Form1._MsgsSent.ToString();
                         Form1._MsgsSent++;
                     }
-                    else { Thread.Sleep(1000); }i 
+                    else { Thread.Sleep(1000); }
                     ConsoleLog.Log("[Console] Started Task");
                 } catch { }
             }
