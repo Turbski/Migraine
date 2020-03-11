@@ -18,8 +18,12 @@ using Migraine_v2.Nitro_Sniper_Lib;
 using Migraine_v2.Discord_Spammer_Lib;
 using Migraine_v2;
 using DiscordRPC;
+using Migraine_v2.DClient;
+
 namespace Migraine_v2 {
     public partial class Form1 : Form {
+
+        public bool Injected = false;
         public Form1() {
             InitializeComponent();
             if (!clientRPC.IsInitialized) clientRPC.Initialize();
@@ -1690,17 +1694,47 @@ namespace Migraine_v2 {
 
         private void InjectLabel_Clicked(object sender, EventArgs e)
         {
-
+            if (Injected)
+            {
+                InjectionLabelText.Text = "Status: Already Injected.";
+            }
+            else
+            {
+                InjectThisShit();
+            }
         }
 
         private void InjectButton_Clicked(object sender, EventArgs e)
         {
-
+            if (Injected)
+            {
+                InjectionLabelText.Text = "Status: Already Injected.";
+            }
+            else
+            {
+                InjectThisShit();
+            }
         }
 
         private void InjectButton_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void InjectThisShit()
+        {
+            Injection inject = new Injection(true, InjectionCodeBox.Text.ToString(), true);
+            ClientInjector injector = new ClientInjector(inject, false);
+            if (injector.Inject())
+            {
+                InjectionLabelText.Text = "Status: Injected and Executed Successfully.";
+                Injected = true;
+            }
+            else
+            {
+                InjectionLabelText.Text = "Status: Failed to Inject and/or Execute. Contact Yaekith#1337 for more information.";
+                Injected = false;
+            }
         }
     }
 }

@@ -110,12 +110,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\IPInformation.cs" />
+    <Compile Include="API\RandomAnime.cs" />
+    <Compile Include="API\RandomCatImage.cs" />
+    <Compile Include="API\RandomDogImage.cs" />
+    <Compile Include="API\RandomHentai.cs" />
+    <Compile Include="API\RandomHug.cs" />
     <Compile Include="Classes\DiscordWebhook.cs" />
     <Compile Include="Classes\Usertoken.cs" />
-    <Compile Include="Client\Asar Extraction\AsarArchive.cs" />
-    <Compile Include="Client\Asar Extraction\AsarExceptions.cs" />
-    <Compile Include="Client\Asar Extraction\AsarExtractor.cs" />
-    <Compile Include="Client\Asar Extraction\Utilities.cs" />
     <Compile Include="Client\ClientInjector.cs" />
     <Compile Include="CommandsList.cs" />
     <Compile Include="CustomSettings\CustomCommands.cs" />

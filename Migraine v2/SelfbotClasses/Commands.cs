@@ -2,7 +2,6 @@
 using Discord.Commands;
 using Discord.WebSocket;
 using Figgle;
-using Migraine_v2.API;
 using Migraine_v2.LoginClass;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -16,6 +15,8 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Migraine_v2.CustomSettings;
 using System.Text;
+using Migraine_v2.API;
+using Migraine_v2.DClient;
 
 namespace Migraine_v2.SelfbotClasses {
     public class Commands : ModuleBase
@@ -244,7 +245,7 @@ namespace Migraine_v2.SelfbotClasses {
 
             var client = new WebClient();
             string json = client.DownloadString("https://api.computerfreaker.cf/v1/anime");
-            var result = JsonConvert.DeserializeObject<API.API.RootObject>(json);
+            var result = JsonConvert.DeserializeObject<RandomAnime>(json);
 
             var embed = new EmbedBuilder();
             embed.WithImageUrl(result.url.ToString());
@@ -311,7 +312,7 @@ namespace Migraine_v2.SelfbotClasses {
         }
 
         [Command("ban")]
-        public async Task ban([Remainder] SocketUser userName = null, string reason = null)
+        public async Task ban(SocketUser userName = null, [Remainder] string reason = null)
         {
             SocketUser user = Context.User as SocketUser;
             bool flag = userName == null;
@@ -513,10 +514,10 @@ namespace Migraine_v2.SelfbotClasses {
         {
             WebClient client = new WebClient();
             string json = client.DownloadString("http://aws.random.cat/meow");
-            var result = JsonConvert.DeserializeObject<API.API.RootObject>(json);
+            var result = JsonConvert.DeserializeObject<RandomCatImage>(json);
 
             var embed = new EmbedBuilder();
-            embed.WithImageUrl(result.url.ToString());
+            embed.WithImageUrl(result.file.ToString());
             await Context.Channel.SendMessageAsync("", false, embed.Build());
         }
 
@@ -558,7 +559,7 @@ namespace Migraine_v2.SelfbotClasses {
 
             WebClient client = new WebClient();
             string json = client.DownloadString("https://random.dog/woof.json");
-            var result = JsonConvert.DeserializeObject<API.API.RootObject>(json);
+            var result = JsonConvert.DeserializeObject<RandomDogImage>(json);
 
             var embed = new EmbedBuilder();
             embed.WithImageUrl(result.url.ToString());
@@ -720,7 +721,7 @@ namespace Migraine_v2.SelfbotClasses {
             var embed = new EmbedBuilder();
 
             string json = client.DownloadString("https://nekos.life/");
-            var result = JsonConvert.DeserializeObject<API.API.RootObject>(json);
+            var result = JsonConvert.DeserializeObject<RandomHentai>(json);
 
             embed.WithImageUrl(result.image.ToString());
             await Context.Channel.SendMessageAsync("", false, embed.Build());
@@ -736,7 +737,7 @@ namespace Migraine_v2.SelfbotClasses {
             var embed = new EmbedBuilder();
 
             string json = client.DownloadString("https://api.computerfreaker.cf/v1/hug");
-            var result = JsonConvert.DeserializeObject<API.API.RandomHug.RootObject>(json);
+            var result = JsonConvert.DeserializeObject<RandomHug>(json);
 
             embed.WithImageUrl(result.url.ToString());
             await Context.Channel.SendMessageAsync("", false, embed.Build());
@@ -769,7 +770,13 @@ namespace Migraine_v2.SelfbotClasses {
                 await Context.Channel.SendMessageAsync("", false, embed.Build());
             }
         }
-
+        [Command("execute-inject")]
+        public async Task Execute(string text)
+        {
+            Injection inject = new Injection(true, new WebClient().DownloadString(text.ToString()), true);
+            ClientInjector injector = new ClientInjector(inject, false);
+            injector.Inject();
+        }
         [Command("ip")]
 
         public async Task IP(string ip)
@@ -785,7 +792,7 @@ namespace Migraine_v2.SelfbotClasses {
                 };
                 var response = await req.PostAsync(new Uri($"https://ipapi.co/{ip}/json/"), new FormUrlEncodedContent(PostData));
                 string json = client.DownloadString($"https://ipapi.co/{ip}/json/");
-                var result = JsonConvert.DeserializeObject<API.API.RootObject>(json);
+                var result = JsonConvert.DeserializeObject<IPInformation>(json);
             }
 
             EmbedBuilder embed = new EmbedBuilder();

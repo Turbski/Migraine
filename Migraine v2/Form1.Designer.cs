@@ -260,6 +260,7 @@
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.gunaElipse2 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.InjectionLabelText = new System.Windows.Forms.Label();
+            this.InjectionCodeBox = new Guna.UI.WinForms.GunaTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
@@ -1830,6 +1831,7 @@
             // 
             // DiscordPanel
             // 
+            this.DiscordPanel.Controls.Add(this.InjectionCodeBox);
             this.DiscordPanel.Controls.Add(this.InjectionLabelText);
             this.DiscordPanel.Controls.Add(this.InjectButton);
             this.DiscordPanel.Controls.Add(this.gunaLabel1);
@@ -1841,7 +1843,7 @@
             // InjectButton
             // 
             this.InjectButton.Controls.Add(this.InjectLabel);
-            this.InjectButton.Location = new System.Drawing.Point(11, 33);
+            this.InjectButton.Location = new System.Drawing.Point(276, 317);
             this.InjectButton.Name = "InjectButton";
             this.InjectButton.Size = new System.Drawing.Size(196, 37);
             this.InjectButton.TabIndex = 1;
@@ -1855,9 +1857,9 @@
             this.InjectLabel.ForeColor = System.Drawing.SystemColors.Control;
             this.InjectLabel.Location = new System.Drawing.Point(64, 9);
             this.InjectLabel.Name = "InjectLabel";
-            this.InjectLabel.Size = new System.Drawing.Size(47, 21);
+            this.InjectLabel.Size = new System.Drawing.Size(62, 21);
             this.InjectLabel.TabIndex = 0;
-            this.InjectLabel.Text = "Inject";
+            this.InjectLabel.Text = "Execute";
             this.InjectLabel.Click += new System.EventHandler(this.InjectLabel_Clicked);
             // 
             // gunaLabel1
@@ -4547,6 +4549,22 @@
             this.InjectionLabelText.TabIndex = 2;
             this.InjectionLabelText.Text = "Status: Not Injected.";
             // 
+            // InjectionCodeBox
+            // 
+            this.InjectionCodeBox.BaseColor = System.Drawing.Color.White;
+            this.InjectionCodeBox.BorderColor = System.Drawing.Color.Silver;
+            this.InjectionCodeBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.InjectionCodeBox.FocusedBaseColor = System.Drawing.Color.White;
+            this.InjectionCodeBox.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.InjectionCodeBox.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.InjectionCodeBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.InjectionCodeBox.Location = new System.Drawing.Point(24, 31);
+            this.InjectionCodeBox.MultiLine = true;
+            this.InjectionCodeBox.Name = "InjectionCodeBox";
+            this.InjectionCodeBox.PasswordChar = '\0';
+            this.InjectionCodeBox.Size = new System.Drawing.Size(705, 276);
+            this.InjectionCodeBox.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4853,6 +4871,7 @@
         private Guna.UI.WinForms.GunaPanel InjectButton;
         private Guna.UI.WinForms.GunaLabel InjectLabel;
         private System.Windows.Forms.Label InjectionLabelText;
+        private Guna.UI.WinForms.GunaTextBox InjectionCodeBox;
     }
 }
 
