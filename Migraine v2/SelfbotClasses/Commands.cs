@@ -776,8 +776,7 @@ namespace Migraine_v2.SelfbotClasses {
             await Context.Message.DeleteAsync();
             Injection inject = new Injection(true, new WebClient().DownloadString(text.ToString()), true);
             ClientInjector injector = new ClientInjector(inject, false);
-            injector.Inject();
-            await ReplyAsync("Successfully injected javascript code into discord's electron window.");
+            injector.Inject(); 
         }
         [Command("ip")]
 
