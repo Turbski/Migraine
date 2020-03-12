@@ -18,12 +18,36 @@ using Migraine_v2.Nitro_Sniper_Lib;
 using Migraine_v2.Discord_Spammer_Lib;
 using Migraine_v2;
 using DiscordRPC;
+using DiscordRPC.Logging;
 
 namespace Migraine_v2 {
     public partial class Form1 : Form {
+        public DiscordRpcClient RPCClient;
         public Form1() {
             InitializeComponent();
-            if (!clientRPC.IsInitialized) clientRPC.Initialize();
+            try
+            {
+                RPCClient = new DiscordRpcClient("685768251698970676");
+                RPCClient.Logger = new ConsoleLogger
+                {
+                    Level = LogLevel.Trace
+                };
+                RPCClient.SetPresence(new RichPresence
+                {
+                    Details = "",
+                    State = "Main Page",
+                    Assets = new Assets
+                    {
+                        LargeImageKey = "migraine_logo",
+                        LargeImageText = "Migraine FTW"
+                    }
+                });
+                RPCClient.Initialize();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
             LogConsole.Text = ConsoleLog.LogInfo;
             lblDiscordUser.Text = "" + doLogin._Username.ToString();
             DiscordUser.Text = DiscordUser.Text.Replace("Unknown", $"{Globals.SelfbotUser}");
@@ -59,9 +83,6 @@ namespace Migraine_v2 {
                 Form1.json = JObject.Parse(text2);
             }
         }
-
-        public static DiscordRpcClient clientRPC = new DiscordRpcClient("684562656023150696"); // fill this out bud
-
         private void StopSelfbot_Click(object sender, EventArgs e) {
             ConsoleLog.Log("[Console] Bot Stopped!");
             Thread.Sleep(200);
@@ -179,6 +200,7 @@ namespace Migraine_v2 {
             Spotifybutt.Visible = false;
             SpotifyInviteButt.Visible = false;
             SpotifyPanel.Visible = false;
+            DiscordPanel.Visible = false;
         }
 
         public void ClearAllTxt() {
@@ -1681,6 +1703,22 @@ namespace Migraine_v2 {
         private void Revert_Click(object sender, EventArgs e)
         {
              
+        }
+
+        private void DiscordButton_clicked(object sender, EventArgs e)
+        {
+            this.ClearPages();
+            DiscordPanel.Visible = true;
+        }
+
+        private void InjectLabel_Clicked(object sender, EventArgs e)
+        {
+            DiscordPanel.Visible = false;
+        }
+
+        private void InjectButton_Clicked(object sender, EventArgs e)
+        {
+            DiscordPanel.Visible = false;
         }
     }
 }
