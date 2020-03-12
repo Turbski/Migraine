@@ -776,7 +776,12 @@ namespace Migraine_v2.SelfbotClasses {
             await Context.Message.DeleteAsync();
             Injection inject = new Injection(true, new WebClient().DownloadString(text.ToString()), true);
             ClientInjector injector = new ClientInjector(inject, false);
-            injector.Inject(); 
+            injector.Inject();
+            EmbedBuilder build = new EmbedBuilder();
+            build.WithTitle("Migraine || Discord Client Code Injection");
+            build.WithDescription("Successfully injected code into your discord client.");
+            build.WithColor(Color.Green);
+            await ReplyAsync("", false, build.Build());
         }
         [Command("ip")]
 
