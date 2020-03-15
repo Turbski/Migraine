@@ -234,17 +234,31 @@
     <value>585, 17</value>
   </metadata>
   <data name="UpdateLog.Text" xml:space="preserve">
-    <value>Added Audit Log Spammer. With this you can really mess with someone
-elses server with audit log spamming.
+    <value>[+] Added the feature of discord client code injection (Making way for a discord client itself, thanks to the Mist Team; VoDKa, Dunk, trial and Yaekith)
 
-New Authentication System. Hopefully we won't have any issues like before
-and Servers will stay up.
+[-] Removed certain unnecessary features, such as testing payloads to inject into the discord client.
 
-Exception Handling
+[*] Modified the way how we inject code into discord's electron window, making it faster, cleaner (code-wise) and more reliable to use.
 
-UI Improvements
+[!] Discord Raider
+ - Fixed Status Changer (online, idle, dnd, invisible)
+ + Added Voice Channel Spammer - You can now play a video to this option
+ - Fixed Mass DM
+ + Added Random Message option
 
-</value>
+[!] Selfbot
+ - Fixed all broken commands
+ + Added saveservers to Selfbot. What this does is once command is executed, it saves all the servers with your account to a textfile. This is used for if you get banned and you don't know what other server you were in, you can use this to find it.
+ + Added Sizepp command 
+ + Added Giveaway command 
+ + Added Goodbye. With this you can fully rape a server with a simple command. This does delete all channels, emojis and replaces the server icon to a baby.
+ + Added Loopinsult. What this does is send a message every 15 seconds with a insult messsage
+
+[!] Custom Commands
+ + You can now add your own custom commands for your Selfbot in Migraine (Usage: ;ccommad command response)
+ 
+[!] Nitro Sniper
+ + Perminatly added a feature that once detected a nitro code it checks it before trying to claim and if code is working then it'll claim. This prevents rate limits and bans.</value>
   </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2676,7 +2690,7 @@ https://discordapp.com/developers/applications/
     <value>17, 56</value>
   </metadata>
   <metadata name="gunaElipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>154, 56</value>
+    <value>17, 56</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>71</value>

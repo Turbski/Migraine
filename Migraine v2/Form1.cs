@@ -23,6 +23,8 @@ using DiscordRPC.Logging;
 namespace Migraine_v2 {
     public partial class Form1 : Form {
         public DiscordRpcClient RPCClient;
+
+        public bool Injected = false;
         public Form1() {
             InitializeComponent();
             try
@@ -135,36 +137,174 @@ namespace Migraine_v2 {
             this.ClearPages();
             home1.Visible = true;
             homeLabel.Visible = true;
+            try
+            {
+                RPCClient = new DiscordRpcClient("685768251698970676");
+                RPCClient.Logger = new ConsoleLogger
+                {
+                    Level = LogLevel.Trace
+                };
+                RPCClient.SetPresence(new RichPresence
+                {
+                    Details = "",
+                    State = "Main Page",
+                    Assets = new Assets
+                    {
+                        LargeImageKey = "migraine_logo",
+                        LargeImageText = "Migraine FTW"
+                    }
+                });
+                RPCClient.Initialize();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
         public void BtnTknChecker_Click(object sender, EventArgs e) {
             this.ClearPages();
             token1.Visible = true;
             tkncheckerLabel.Visible = true;
             tknlabel.Visible = true;
+            try
+            {
+                RPCClient = new DiscordRpcClient("685768251698970676");
+                RPCClient.Logger = new ConsoleLogger
+                {
+                    Level = LogLevel.Trace
+                };
+                RPCClient.SetPresence(new RichPresence
+                {
+                    Details = "",
+                    State = "Token Checker",
+                    Assets = new Assets
+                    {
+                        LargeImageKey = "migraine_logo",
+                        LargeImageText = "Migraine FTW"
+                    }
+                });
+                RPCClient.Initialize();
+            }
+            catch (Exception exx)
+            {
+                Console.WriteLine(exx);
+            }
         }
         public void BtnSpammer_Click(object sender, EventArgs e) {
             this.ClearPages();
             spammer1.Visible = true;
             spammerLabel.Visible = true;
             splabel.Visible = true;
+            try
+            {
+                RPCClient = new DiscordRpcClient("685768251698970676");
+                RPCClient.Logger = new ConsoleLogger
+                {
+                    Level = LogLevel.Trace
+                };
+                RPCClient.SetPresence(new RichPresence
+                {
+                    Details = "",
+                    State = "Discord Spammer",
+                    Assets = new Assets
+                    {
+                        LargeImageKey = "migraine_logo",
+                        LargeImageText = "Migraine FTW"
+                    }
+                });
+                RPCClient.Initialize();
+            }
+            catch (Exception eee)
+            {
+                Console.WriteLine(eee);
+            }
         }
         public void BtnSelfbot_Click(object sender, EventArgs e) {
             this.ClearPages();
             selfbot1.Visible = true;
             selfbotLabel.Visible = true;
             sbLabel.Visible = true;
+            try
+            {
+                RPCClient = new DiscordRpcClient("685768251698970676");
+                RPCClient.Logger = new ConsoleLogger
+                {
+                    Level = LogLevel.Trace
+                };
+                RPCClient.SetPresence(new RichPresence
+                {
+                    Details = "",
+                    State = "Selfbot",
+                    Assets = new Assets
+                    {
+                        LargeImageKey = "migraine_logo",
+                        LargeImageText = "Migraine FTW"
+                    }
+                });
+                RPCClient.Initialize();
+            }
+            catch (Exception ee)
+            {
+                Console.WriteLine(ee);
+            }
         }
         private void NitrosnprBtn_Click(object sender, EventArgs e) {
             this.ClearPages();
             nitrosnprPanel.Visible = true;
             nitroD.Visible = true;
             nitroT.Visible = true;
+            try
+            {
+                RPCClient = new DiscordRpcClient("685768251698970676");
+                RPCClient.Logger = new ConsoleLogger
+                {
+                    Level = LogLevel.Trace
+                };
+                RPCClient.SetPresence(new RichPresence
+                {
+                    Details = "",
+                    State = "Nitro Sniper",
+                    Assets = new Assets
+                    {
+                        LargeImageKey = "migraine_logo",
+                        LargeImageText = "Migraine FTW"
+                    }
+                });
+                RPCClient.Initialize();
+            }
+            catch (Exception eaa)
+            {
+                Console.WriteLine(eaa);
+            }
         }
         public void BtnDiscordRPC_Click(object sender, EventArgs e) {
             this.ClearPages();
             rpcdlabel.Visible = true;
             rpcLabel.Visible = true;
             discordRPC1.Visible = true;
+            try
+            {
+                RPCClient = new DiscordRpcClient("685768251698970676");
+                RPCClient.Logger = new ConsoleLogger
+                {
+                    Level = LogLevel.Trace
+                };
+                RPCClient.SetPresence(new RichPresence
+                {
+                    Details = "",
+                    State = "Discord Sniper",
+                    Assets = new Assets
+                    {
+                        LargeImageKey = "migraine_logo",
+                        LargeImageText = "Migraine FTW"
+                    }
+                });
+                RPCClient.Initialize();
+            }
+            catch (Exception eww)
+            {
+                Console.WriteLine(eww);
+            }
         }
         private void JoinDiscordButton_Click_1(object sender, EventArgs e) {
             Process.Start("https://discord.gg/JW5t7zV");
@@ -962,7 +1102,7 @@ namespace Migraine_v2 {
             this.Valids.Text = Form1._Valids.ToString();
             this.Invalids.Text = Form1._Invalids.ToString();
             this.Retries.Text = Form1._Retries.ToString();
-            try { this.valid.Text = string.Join("\n", Form1._ValidTokens); }
+            try { this.Valids.Text = string.Join("\n", Form1._ValidTokens); }
             catch { }
         }
         private void Threading() {
@@ -1716,12 +1856,47 @@ namespace Migraine_v2 {
 
         private void InjectLabel_Clicked(object sender, EventArgs e)
         {
-            DiscordPanel.Visible = false;
+            if (Injected)
+            {
+                InjectionLabelText.Text = "Status: Already Injected.";
+            }
+            else
+            {
+                //InjectThisShit();
+            }
         }
 
         private void InjectButton_Clicked(object sender, EventArgs e)
         {
-            DiscordPanel.Visible = false;
+            if (Injected)
+            {
+                InjectionLabelText.Text = "Status: Already Injected.";
+            }
+            else
+            {
+                //InjectThisShit();
+            }
         }
+
+        private void InjectButton_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        //private void InjectThisShit()
+        //{
+        //    Injection inject = new Injection(true, InjectionCodeBox.Text.ToString(), true);
+        //    ClientInjector injector = new ClientInjector(inject, false);
+        //    if (injector.Inject())
+        //    {
+        //        InjectionLabelText.Text = "Status: Injected and Executed Successfully.";
+        //        Injected = true;
+        //    }
+        //    else
+        //    {
+        //        InjectionLabelText.Text = "Status: Failed to Inject and/or Execute. Contact Yaekith#1337 for more information.";
+        //        Injected = false;
+        //    }
+        //}
     }
 }

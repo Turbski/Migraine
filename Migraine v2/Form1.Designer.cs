@@ -26,9 +26,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.discordClientButton = new Bunifu.Framework.UI.BunifuFlatButton();
             this.nitrosnprBtn = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -87,7 +87,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.token1 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
-            this.valid = new System.Windows.Forms.RichTextBox();
             this.SaveAllTkn = new Bunifu.Framework.UI.BunifuFlatButton();
             this.Retries = new System.Windows.Forms.Label();
             this.Invalids = new System.Windows.Forms.Label();
@@ -115,15 +114,10 @@
             this.TimeSinceStart = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.UserToken = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.stopSelfbot = new Bunifu.Framework.UI.BunifuFlatButton();
             this.startSelfbot = new Bunifu.Framework.UI.BunifuFlatButton();
             this.spammer1 = new System.Windows.Forms.Panel();
-            this.DiscordPanel = new Guna.UI.WinForms.GunaPanel();
-            this.InjectButton = new Guna.UI.WinForms.GunaPanel();
-            this.InjectLabel = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.EmbedPanel = new Guna.UI.WinForms.GunaElipsePanel();
             this.EmbedPanelExit = new Guna.UI.WinForms.GunaCircleButton();
             this.StartEmbedSpam = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -213,10 +207,15 @@
             this.label22 = new System.Windows.Forms.Label();
             this.proxyButt = new Bunifu.Framework.UI.BunifuFlatButton();
             this.LoadTokens = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.DiscordPanel = new Guna.UI.WinForms.GunaPanel();
+            this.InjectButton = new Guna.UI.WinForms.GunaPanel();
+            this.InjectLabel = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
+            this.InjectionCodeBox = new Guna.UI.WinForms.GunaTextBox();
+            this.InjectionLabelText = new System.Windows.Forms.Label();
             this.nitrosnprPanel = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
             this.TimeSinceStart1 = new System.Windows.Forms.Label();
-            this.NitroToken = new System.Windows.Forms.TextBox();
             this.label57 = new System.Windows.Forms.Label();
             this.InvalidNitro = new System.Windows.Forms.Label();
             this.ValidNitro = new System.Windows.Forms.Label();
@@ -231,27 +230,18 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.stopp = new Bunifu.Framework.UI.BunifuFlatButton();
             this.startt = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.PartyMax = new System.Windows.Forms.TextBox();
             this.label55 = new System.Windows.Forms.Label();
-            this.PartySize = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
-            this.ImageAsset = new System.Windows.Forms.TextBox();
             this.label53 = new System.Windows.Forms.Label();
-            this.ImageText = new System.Windows.Forms.TextBox();
             this.label54 = new System.Windows.Forms.Label();
-            this.Details = new System.Windows.Forms.TextBox();
             this.label51 = new System.Windows.Forms.Label();
-            this.State = new System.Windows.Forms.TextBox();
             this.label50 = new System.Windows.Forms.Label();
-            this.Client_ID = new System.Windows.Forms.TextBox();
             this.label49 = new System.Windows.Forms.Label();
             this.SettingsPanel = new System.Windows.Forms.Panel();
             this.ChangePrefHex = new Bunifu.Framework.UI.BunifuFlatButton();
             this.label35 = new System.Windows.Forms.Label();
-            this.EmbedColor = new System.Windows.Forms.TextBox();
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
-            this.Prefix = new System.Windows.Forms.TextBox();
             this.MessagesSent = new System.Windows.Forms.Timer(this.components);
             this.LabelUpdate = new System.Windows.Forms.Timer(this.components);
             this.NitroUpdate = new System.Windows.Forms.Timer(this.components);
@@ -259,6 +249,18 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.gunaElipse2 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.NitroToken = new Guna.UI.WinForms.GunaTextBox();
+            this.UserToken = new Guna.UI.WinForms.GunaTextBox();
+            this.PartyMax = new Guna.UI.WinForms.GunaTextBox();
+            this.PartySize = new Guna.UI.WinForms.GunaTextBox();
+            this.ImageAsset = new Guna.UI.WinForms.GunaTextBox();
+            this.ImageText = new Guna.UI.WinForms.GunaTextBox();
+            this.Details = new Guna.UI.WinForms.GunaTextBox();
+            this.State = new Guna.UI.WinForms.GunaTextBox();
+            this.Client_ID = new Guna.UI.WinForms.GunaTextBox();
+            this.gunaTextBox1 = new Guna.UI.WinForms.GunaTextBox();
+            this.EmbedColor = new Guna.UI.WinForms.GunaTextBox();
+            this.Prefix = new Guna.UI.WinForms.GunaTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
@@ -274,10 +276,10 @@
             this.selfbot1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CommandsList)).BeginInit();
             this.spammer1.SuspendLayout();
-            this.DiscordPanel.SuspendLayout();
-            this.InjectButton.SuspendLayout();
             this.EmbedPanel.SuspendLayout();
             this.SpotifyPanel.SuspendLayout();
+            this.DiscordPanel.SuspendLayout();
+            this.InjectButton.SuspendLayout();
             this.nitrosnprPanel.SuspendLayout();
             this.discordRPC1.SuspendLayout();
             this.SettingsPanel.SuspendLayout();
@@ -1099,8 +1101,8 @@
             // 
             // token1
             // 
+            this.token1.Controls.Add(this.gunaTextBox1);
             this.token1.Controls.Add(this.label15);
-            this.token1.Controls.Add(this.valid);
             this.token1.Controls.Add(this.SaveAllTkn);
             this.token1.Controls.Add(this.Retries);
             this.token1.Controls.Add(this.Invalids);
@@ -1135,19 +1137,6 @@
             this.label15.Size = new System.Drawing.Size(110, 15);
             this.label15.TabIndex = 63;
             this.label15.Text = "Valid Token Output";
-            // 
-            // valid
-            // 
-            this.valid.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
-            this.valid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.valid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.valid.ForeColor = System.Drawing.Color.White;
-            this.valid.Location = new System.Drawing.Point(245, 28);
-            this.valid.Name = "valid";
-            this.valid.ReadOnly = true;
-            this.valid.Size = new System.Drawing.Size(490, 623);
-            this.valid.TabIndex = 7;
-            this.valid.Text = "";
             // 
             // SaveAllTkn
             // 
@@ -1490,12 +1479,12 @@
             // 
             // selfbot1
             // 
+            this.selfbot1.Controls.Add(this.UserToken);
             this.selfbot1.Controls.Add(this.CommandsList);
             this.selfbot1.Controls.Add(this.GetToken);
             this.selfbot1.Controls.Add(this.TimeSinceStart);
             this.selfbot1.Controls.Add(this.label33);
             this.selfbot1.Controls.Add(this.label30);
-            this.selfbot1.Controls.Add(this.UserToken);
             this.selfbot1.Controls.Add(this.label29);
             this.selfbot1.Controls.Add(this.stopSelfbot);
             this.selfbot1.Controls.Add(this.startSelfbot);
@@ -1506,33 +1495,33 @@
             // 
             // CommandsList
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.CommandsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.CommandsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.CommandsList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.CommandsList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.CommandsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CommandsList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.CommandsList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CommandsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CommandsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.CommandsList.ColumnHeadersHeight = 21;
             this.CommandsList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Commands,
             this.CommandInfo});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CommandsList.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CommandsList.DefaultCellStyle = dataGridViewCellStyle3;
             this.CommandsList.EnableHeadersVisualStyles = false;
             this.CommandsList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.CommandsList.Location = new System.Drawing.Point(224, 7);
@@ -1644,20 +1633,6 @@
             this.label30.Size = new System.Drawing.Size(70, 15);
             this.label30.TabIndex = 55;
             this.label30.Text = "Finalization";
-            // 
-            // UserToken
-            // 
-            this.UserToken.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.UserToken.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.UserToken.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserToken.ForeColor = System.Drawing.Color.White;
-            this.UserToken.Location = new System.Drawing.Point(10, 36);
-            this.UserToken.Name = "UserToken";
-            this.UserToken.Size = new System.Drawing.Size(194, 26);
-            this.UserToken.TabIndex = 54;
-            this.UserToken.Text = "Insert Token";
-            this.UserToken.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.UserToken.WordWrap = false;
             // 
             // label29
             // 
@@ -1825,47 +1800,6 @@
             this.spammer1.Name = "spammer1";
             this.spammer1.Size = new System.Drawing.Size(744, 660);
             this.spammer1.TabIndex = 12;
-            // 
-            // DiscordPanel
-            // 
-            this.DiscordPanel.Controls.Add(this.InjectButton);
-            this.DiscordPanel.Controls.Add(this.gunaLabel1);
-            this.DiscordPanel.Location = new System.Drawing.Point(271, 662);
-            this.DiscordPanel.Name = "DiscordPanel";
-            this.DiscordPanel.Size = new System.Drawing.Size(744, 62);
-            this.DiscordPanel.TabIndex = 196;
-            // 
-            // InjectButton
-            // 
-            this.InjectButton.Controls.Add(this.InjectLabel);
-            this.InjectButton.Location = new System.Drawing.Point(11, 33);
-            this.InjectButton.Name = "InjectButton";
-            this.InjectButton.Size = new System.Drawing.Size(196, 37);
-            this.InjectButton.TabIndex = 1;
-            this.InjectButton.Click += new System.EventHandler(this.InjectButton_Clicked);
-            // 
-            // InjectLabel
-            // 
-            this.InjectLabel.AutoSize = true;
-            this.InjectLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InjectLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.InjectLabel.Location = new System.Drawing.Point(64, 9);
-            this.InjectLabel.Name = "InjectLabel";
-            this.InjectLabel.Size = new System.Drawing.Size(47, 21);
-            this.InjectLabel.TabIndex = 0;
-            this.InjectLabel.Text = "Inject";
-            this.InjectLabel.Click += new System.EventHandler(this.InjectLabel_Clicked);
-            // 
-            // gunaLabel1
-            // 
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel1.ForeColor = System.Drawing.SystemColors.Control;
-            this.gunaLabel1.Location = new System.Drawing.Point(10, 9);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(56, 15);
-            this.gunaLabel1.TabIndex = 0;
-            this.gunaLabel1.Text = "Overview";
             // 
             // EmbedPanel
             // 
@@ -3883,11 +3817,82 @@
             this.LoadTokens.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoadTokens.Click += new System.EventHandler(this.LoadTokens_Click_1);
             // 
+            // DiscordPanel
+            // 
+            this.DiscordPanel.Controls.Add(this.InjectionCodeBox);
+            this.DiscordPanel.Controls.Add(this.InjectionLabelText);
+            this.DiscordPanel.Controls.Add(this.InjectButton);
+            this.DiscordPanel.Controls.Add(this.gunaLabel1);
+            this.DiscordPanel.Location = new System.Drawing.Point(271, 67);
+            this.DiscordPanel.Name = "DiscordPanel";
+            this.DiscordPanel.Size = new System.Drawing.Size(744, 657);
+            this.DiscordPanel.TabIndex = 196;
+            // 
+            // InjectButton
+            // 
+            this.InjectButton.Controls.Add(this.InjectLabel);
+            this.InjectButton.Location = new System.Drawing.Point(276, 317);
+            this.InjectButton.Name = "InjectButton";
+            this.InjectButton.Size = new System.Drawing.Size(196, 37);
+            this.InjectButton.TabIndex = 1;
+            this.InjectButton.Click += new System.EventHandler(this.InjectButton_Clicked);
+            this.InjectButton.Paint += new System.Windows.Forms.PaintEventHandler(this.InjectButton_Paint);
+            // 
+            // InjectLabel
+            // 
+            this.InjectLabel.AutoSize = true;
+            this.InjectLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InjectLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.InjectLabel.Location = new System.Drawing.Point(64, 9);
+            this.InjectLabel.Name = "InjectLabel";
+            this.InjectLabel.Size = new System.Drawing.Size(62, 21);
+            this.InjectLabel.TabIndex = 0;
+            this.InjectLabel.Text = "Execute";
+            this.InjectLabel.Click += new System.EventHandler(this.InjectLabel_Clicked);
+            // 
+            // gunaLabel1
+            // 
+            this.gunaLabel1.AutoSize = true;
+            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel1.ForeColor = System.Drawing.SystemColors.Control;
+            this.gunaLabel1.Location = new System.Drawing.Point(10, 9);
+            this.gunaLabel1.Name = "gunaLabel1";
+            this.gunaLabel1.Size = new System.Drawing.Size(56, 15);
+            this.gunaLabel1.TabIndex = 0;
+            this.gunaLabel1.Text = "Overview";
+            // 
+            // InjectionCodeBox
+            // 
+            this.InjectionCodeBox.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.InjectionCodeBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.InjectionCodeBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.InjectionCodeBox.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.InjectionCodeBox.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.InjectionCodeBox.FocusedForeColor = System.Drawing.Color.White;
+            this.InjectionCodeBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.InjectionCodeBox.ForeColor = System.Drawing.Color.White;
+            this.InjectionCodeBox.Location = new System.Drawing.Point(24, 31);
+            this.InjectionCodeBox.MultiLine = true;
+            this.InjectionCodeBox.Name = "InjectionCodeBox";
+            this.InjectionCodeBox.PasswordChar = '\0';
+            this.InjectionCodeBox.Size = new System.Drawing.Size(705, 276);
+            this.InjectionCodeBox.TabIndex = 3;
+            // 
+            // InjectionLabelText
+            // 
+            this.InjectionLabelText.AutoSize = true;
+            this.InjectionLabelText.ForeColor = System.Drawing.SystemColors.Control;
+            this.InjectionLabelText.Location = new System.Drawing.Point(5, 638);
+            this.InjectionLabelText.Name = "InjectionLabelText";
+            this.InjectionLabelText.Size = new System.Drawing.Size(104, 13);
+            this.InjectionLabelText.TabIndex = 2;
+            this.InjectionLabelText.Text = "Status: Not Injected.";
+            // 
             // nitrosnprPanel
             // 
+            this.nitrosnprPanel.Controls.Add(this.NitroToken);
             this.nitrosnprPanel.Controls.Add(this.label19);
             this.nitrosnprPanel.Controls.Add(this.TimeSinceStart1);
-            this.nitrosnprPanel.Controls.Add(this.NitroToken);
             this.nitrosnprPanel.Controls.Add(this.label57);
             this.nitrosnprPanel.Controls.Add(this.InvalidNitro);
             this.nitrosnprPanel.Controls.Add(this.ValidNitro);
@@ -3898,9 +3903,9 @@
             this.nitrosnprPanel.Controls.Add(this.StopNitro);
             this.nitrosnprPanel.Controls.Add(this.label60);
             this.nitrosnprPanel.Controls.Add(this.StartNitro);
-            this.nitrosnprPanel.Location = new System.Drawing.Point(271, 67);
+            this.nitrosnprPanel.Location = new System.Drawing.Point(271, 69);
             this.nitrosnprPanel.Name = "nitrosnprPanel";
-            this.nitrosnprPanel.Size = new System.Drawing.Size(738, 661);
+            this.nitrosnprPanel.Size = new System.Drawing.Size(738, 659);
             this.nitrosnprPanel.TabIndex = 80;
             // 
             // label19
@@ -3924,21 +3929,6 @@
             this.TimeSinceStart1.Size = new System.Drawing.Size(88, 20);
             this.TimeSinceStart1.TabIndex = 98;
             this.TimeSinceStart1.Text = "0 Minute(s)";
-            // 
-            // NitroToken
-            // 
-            this.NitroToken.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.NitroToken.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.NitroToken.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NitroToken.ForeColor = System.Drawing.Color.White;
-            this.NitroToken.Location = new System.Drawing.Point(16, 29);
-            this.NitroToken.Multiline = true;
-            this.NitroToken.Name = "NitroToken";
-            this.NitroToken.Size = new System.Drawing.Size(194, 28);
-            this.NitroToken.TabIndex = 97;
-            this.NitroToken.Text = "Insert Token";
-            this.NitroToken.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.NitroToken.WordWrap = false;
             // 
             // label57
             // 
@@ -4104,26 +4094,26 @@
             // 
             // discordRPC1
             // 
+            this.discordRPC1.Controls.Add(this.Client_ID);
+            this.discordRPC1.Controls.Add(this.State);
+            this.discordRPC1.Controls.Add(this.Details);
+            this.discordRPC1.Controls.Add(this.ImageText);
+            this.discordRPC1.Controls.Add(this.ImageAsset);
+            this.discordRPC1.Controls.Add(this.PartySize);
+            this.discordRPC1.Controls.Add(this.PartyMax);
             this.discordRPC1.Controls.Add(this.richTextBox1);
             this.discordRPC1.Controls.Add(this.stopp);
             this.discordRPC1.Controls.Add(this.startt);
-            this.discordRPC1.Controls.Add(this.PartyMax);
             this.discordRPC1.Controls.Add(this.label55);
-            this.discordRPC1.Controls.Add(this.PartySize);
             this.discordRPC1.Controls.Add(this.label52);
-            this.discordRPC1.Controls.Add(this.ImageAsset);
             this.discordRPC1.Controls.Add(this.label53);
-            this.discordRPC1.Controls.Add(this.ImageText);
             this.discordRPC1.Controls.Add(this.label54);
-            this.discordRPC1.Controls.Add(this.Details);
             this.discordRPC1.Controls.Add(this.label51);
-            this.discordRPC1.Controls.Add(this.State);
             this.discordRPC1.Controls.Add(this.label50);
-            this.discordRPC1.Controls.Add(this.Client_ID);
             this.discordRPC1.Controls.Add(this.label49);
-            this.discordRPC1.Location = new System.Drawing.Point(274, 67);
+            this.discordRPC1.Location = new System.Drawing.Point(271, 67);
             this.discordRPC1.Name = "discordRPC1";
-            this.discordRPC1.Size = new System.Drawing.Size(738, 662);
+            this.discordRPC1.Size = new System.Drawing.Size(741, 662);
             this.discordRPC1.TabIndex = 13;
             // 
             // richTextBox1
@@ -4212,20 +4202,6 @@
             this.startt.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startt.Click += new System.EventHandler(this.Startt_Click_1);
             // 
-            // PartyMax
-            // 
-            this.PartyMax.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.PartyMax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PartyMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PartyMax.ForeColor = System.Drawing.Color.White;
-            this.PartyMax.Location = new System.Drawing.Point(168, 311);
-            this.PartyMax.Name = "PartyMax";
-            this.PartyMax.Size = new System.Drawing.Size(99, 26);
-            this.PartyMax.TabIndex = 74;
-            this.PartyMax.Text = "0";
-            this.PartyMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.PartyMax.WordWrap = false;
-            // 
             // label55
             // 
             this.label55.AutoSize = true;
@@ -4236,20 +4212,6 @@
             this.label55.Size = new System.Drawing.Size(61, 15);
             this.label55.TabIndex = 73;
             this.label55.Text = "Party Max";
-            // 
-            // PartySize
-            // 
-            this.PartySize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.PartySize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PartySize.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PartySize.ForeColor = System.Drawing.Color.White;
-            this.PartySize.Location = new System.Drawing.Point(19, 311);
-            this.PartySize.Name = "PartySize";
-            this.PartySize.Size = new System.Drawing.Size(99, 26);
-            this.PartySize.TabIndex = 72;
-            this.PartySize.Text = "0";
-            this.PartySize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.PartySize.WordWrap = false;
             // 
             // label52
             // 
@@ -4262,21 +4224,6 @@
             this.label52.TabIndex = 71;
             this.label52.Text = "Party Size";
             // 
-            // ImageAsset
-            // 
-            this.ImageAsset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.ImageAsset.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ImageAsset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ImageAsset.ForeColor = System.Drawing.Color.White;
-            this.ImageAsset.Location = new System.Drawing.Point(20, 256);
-            this.ImageAsset.Multiline = true;
-            this.ImageAsset.Name = "ImageAsset";
-            this.ImageAsset.Size = new System.Drawing.Size(247, 28);
-            this.ImageAsset.TabIndex = 70;
-            this.ImageAsset.Text = "Unknown";
-            this.ImageAsset.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ImageAsset.WordWrap = false;
-            // 
             // label53
             // 
             this.label53.AutoSize = true;
@@ -4287,21 +4234,6 @@
             this.label53.Size = new System.Drawing.Size(74, 15);
             this.label53.TabIndex = 69;
             this.label53.Text = "Image Asset";
-            // 
-            // ImageText
-            // 
-            this.ImageText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.ImageText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ImageText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ImageText.ForeColor = System.Drawing.Color.White;
-            this.ImageText.Location = new System.Drawing.Point(19, 197);
-            this.ImageText.Multiline = true;
-            this.ImageText.Name = "ImageText";
-            this.ImageText.Size = new System.Drawing.Size(248, 28);
-            this.ImageText.TabIndex = 68;
-            this.ImageText.Text = "Unknown";
-            this.ImageText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ImageText.WordWrap = false;
             // 
             // label54
             // 
@@ -4314,21 +4246,6 @@
             this.label54.TabIndex = 67;
             this.label54.Text = "Image Text";
             // 
-            // Details
-            // 
-            this.Details.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.Details.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Details.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Details.ForeColor = System.Drawing.Color.White;
-            this.Details.Location = new System.Drawing.Point(20, 144);
-            this.Details.Multiline = true;
-            this.Details.Name = "Details";
-            this.Details.Size = new System.Drawing.Size(247, 28);
-            this.Details.TabIndex = 66;
-            this.Details.Text = "Unknown";
-            this.Details.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Details.WordWrap = false;
-            // 
             // label51
             // 
             this.label51.AutoSize = true;
@@ -4340,21 +4257,6 @@
             this.label51.TabIndex = 65;
             this.label51.Text = "Details";
             // 
-            // State
-            // 
-            this.State.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.State.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.State.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.State.ForeColor = System.Drawing.Color.White;
-            this.State.Location = new System.Drawing.Point(20, 88);
-            this.State.Multiline = true;
-            this.State.Name = "State";
-            this.State.Size = new System.Drawing.Size(247, 28);
-            this.State.TabIndex = 64;
-            this.State.Text = "Unknown";
-            this.State.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.State.WordWrap = false;
-            // 
             // label50
             // 
             this.label50.AutoSize = true;
@@ -4365,21 +4267,6 @@
             this.label50.Size = new System.Drawing.Size(35, 15);
             this.label50.TabIndex = 63;
             this.label50.Text = "State";
-            // 
-            // Client_ID
-            // 
-            this.Client_ID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.Client_ID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Client_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Client_ID.ForeColor = System.Drawing.Color.White;
-            this.Client_ID.Location = new System.Drawing.Point(21, 30);
-            this.Client_ID.Multiline = true;
-            this.Client_ID.Name = "Client_ID";
-            this.Client_ID.Size = new System.Drawing.Size(246, 28);
-            this.Client_ID.TabIndex = 62;
-            this.Client_ID.Text = "Unknown";
-            this.Client_ID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Client_ID.WordWrap = false;
             // 
             // label49
             // 
@@ -4394,12 +4281,12 @@
             // 
             // SettingsPanel
             // 
+            this.SettingsPanel.Controls.Add(this.Prefix);
+            this.SettingsPanel.Controls.Add(this.EmbedColor);
             this.SettingsPanel.Controls.Add(this.ChangePrefHex);
             this.SettingsPanel.Controls.Add(this.label35);
-            this.SettingsPanel.Controls.Add(this.EmbedColor);
             this.SettingsPanel.Controls.Add(this.label36);
             this.SettingsPanel.Controls.Add(this.label37);
-            this.SettingsPanel.Controls.Add(this.Prefix);
             this.SettingsPanel.Location = new System.Drawing.Point(271, 67);
             this.SettingsPanel.Name = "SettingsPanel";
             this.SettingsPanel.Size = new System.Drawing.Size(738, 660);
@@ -4452,20 +4339,6 @@
             this.label35.TabIndex = 71;
             this.label35.Text = "Settings:";
             // 
-            // EmbedColor
-            // 
-            this.EmbedColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.EmbedColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EmbedColor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmbedColor.ForeColor = System.Drawing.Color.White;
-            this.EmbedColor.Location = new System.Drawing.Point(122, 60);
-            this.EmbedColor.Multiline = true;
-            this.EmbedColor.Name = "EmbedColor";
-            this.EmbedColor.Size = new System.Drawing.Size(78, 23);
-            this.EmbedColor.TabIndex = 75;
-            this.EmbedColor.Text = "255,0,0";
-            this.EmbedColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // label36
             // 
             this.label36.AutoSize = true;
@@ -4487,20 +4360,6 @@
             this.label37.Size = new System.Drawing.Size(100, 18);
             this.label37.TabIndex = 74;
             this.label37.Text = "Embed Color:";
-            // 
-            // Prefix
-            // 
-            this.Prefix.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.Prefix.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Prefix.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Prefix.ForeColor = System.Drawing.Color.White;
-            this.Prefix.Location = new System.Drawing.Point(122, 32);
-            this.Prefix.Multiline = true;
-            this.Prefix.Name = "Prefix";
-            this.Prefix.Size = new System.Drawing.Size(78, 23);
-            this.Prefix.TabIndex = 73;
-            this.Prefix.Text = ";";
-            this.Prefix.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // LabelUpdate
             // 
@@ -4532,6 +4391,234 @@
             // gunaElipse2
             // 
             this.gunaElipse2.TargetControl = this.EmbedTitle;
+            // 
+            // NitroToken
+            // 
+            this.NitroToken.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.NitroToken.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.NitroToken.BorderSize = 1;
+            this.NitroToken.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.NitroToken.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.NitroToken.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.NitroToken.FocusedForeColor = System.Drawing.Color.White;
+            this.NitroToken.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.NitroToken.ForeColor = System.Drawing.Color.White;
+            this.NitroToken.Location = new System.Drawing.Point(15, 27);
+            this.NitroToken.Name = "NitroToken";
+            this.NitroToken.PasswordChar = '\0';
+            this.NitroToken.Size = new System.Drawing.Size(194, 28);
+            this.NitroToken.TabIndex = 173;
+            this.NitroToken.Text = "Insert Token";
+            this.NitroToken.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // UserToken
+            // 
+            this.UserToken.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.UserToken.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.UserToken.BorderSize = 1;
+            this.UserToken.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.UserToken.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.UserToken.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.UserToken.FocusedForeColor = System.Drawing.Color.White;
+            this.UserToken.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.UserToken.ForeColor = System.Drawing.Color.White;
+            this.UserToken.Location = new System.Drawing.Point(13, 34);
+            this.UserToken.Name = "UserToken";
+            this.UserToken.PasswordChar = '\0';
+            this.UserToken.Size = new System.Drawing.Size(194, 28);
+            this.UserToken.TabIndex = 174;
+            this.UserToken.Text = "Insert Token";
+            this.UserToken.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // PartyMax
+            // 
+            this.PartyMax.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.PartyMax.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.PartyMax.BorderSize = 1;
+            this.PartyMax.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.PartyMax.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.PartyMax.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.PartyMax.FocusedForeColor = System.Drawing.Color.White;
+            this.PartyMax.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.PartyMax.ForeColor = System.Drawing.Color.White;
+            this.PartyMax.Location = new System.Drawing.Point(165, 311);
+            this.PartyMax.Name = "PartyMax";
+            this.PartyMax.PasswordChar = '\0';
+            this.PartyMax.Size = new System.Drawing.Size(99, 28);
+            this.PartyMax.TabIndex = 175;
+            this.PartyMax.Text = "0";
+            this.PartyMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // PartySize
+            // 
+            this.PartySize.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.PartySize.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.PartySize.BorderSize = 1;
+            this.PartySize.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.PartySize.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.PartySize.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.PartySize.FocusedForeColor = System.Drawing.Color.White;
+            this.PartySize.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.PartySize.ForeColor = System.Drawing.Color.White;
+            this.PartySize.Location = new System.Drawing.Point(20, 312);
+            this.PartySize.Name = "PartySize";
+            this.PartySize.PasswordChar = '\0';
+            this.PartySize.Size = new System.Drawing.Size(99, 28);
+            this.PartySize.TabIndex = 176;
+            this.PartySize.Text = "0";
+            this.PartySize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // ImageAsset
+            // 
+            this.ImageAsset.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.ImageAsset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.ImageAsset.BorderSize = 1;
+            this.ImageAsset.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ImageAsset.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.ImageAsset.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.ImageAsset.FocusedForeColor = System.Drawing.Color.White;
+            this.ImageAsset.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ImageAsset.ForeColor = System.Drawing.Color.White;
+            this.ImageAsset.Location = new System.Drawing.Point(19, 258);
+            this.ImageAsset.Name = "ImageAsset";
+            this.ImageAsset.PasswordChar = '\0';
+            this.ImageAsset.Size = new System.Drawing.Size(248, 28);
+            this.ImageAsset.TabIndex = 177;
+            this.ImageAsset.Text = "Unknown";
+            this.ImageAsset.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // ImageText
+            // 
+            this.ImageText.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.ImageText.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.ImageText.BorderSize = 1;
+            this.ImageText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ImageText.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.ImageText.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.ImageText.FocusedForeColor = System.Drawing.Color.White;
+            this.ImageText.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ImageText.ForeColor = System.Drawing.Color.White;
+            this.ImageText.Location = new System.Drawing.Point(20, 204);
+            this.ImageText.Name = "ImageText";
+            this.ImageText.PasswordChar = '\0';
+            this.ImageText.Size = new System.Drawing.Size(248, 28);
+            this.ImageText.TabIndex = 178;
+            this.ImageText.Text = "Unknown";
+            this.ImageText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Details
+            // 
+            this.Details.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.Details.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.Details.BorderSize = 1;
+            this.Details.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Details.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.Details.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.Details.FocusedForeColor = System.Drawing.Color.White;
+            this.Details.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Details.ForeColor = System.Drawing.Color.White;
+            this.Details.Location = new System.Drawing.Point(20, 146);
+            this.Details.Name = "Details";
+            this.Details.PasswordChar = '\0';
+            this.Details.Size = new System.Drawing.Size(248, 28);
+            this.Details.TabIndex = 179;
+            this.Details.Text = "Unknown";
+            this.Details.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // State
+            // 
+            this.State.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.State.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.State.BorderSize = 1;
+            this.State.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.State.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.State.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.State.FocusedForeColor = System.Drawing.Color.White;
+            this.State.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.State.ForeColor = System.Drawing.Color.White;
+            this.State.Location = new System.Drawing.Point(21, 92);
+            this.State.Name = "State";
+            this.State.PasswordChar = '\0';
+            this.State.Size = new System.Drawing.Size(248, 28);
+            this.State.TabIndex = 180;
+            this.State.Text = "Unknown";
+            this.State.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Client_ID
+            // 
+            this.Client_ID.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.Client_ID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.Client_ID.BorderSize = 1;
+            this.Client_ID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Client_ID.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.Client_ID.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.Client_ID.FocusedForeColor = System.Drawing.Color.White;
+            this.Client_ID.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Client_ID.ForeColor = System.Drawing.Color.White;
+            this.Client_ID.Location = new System.Drawing.Point(21, 32);
+            this.Client_ID.Name = "Client_ID";
+            this.Client_ID.PasswordChar = '\0';
+            this.Client_ID.Size = new System.Drawing.Size(248, 28);
+            this.Client_ID.TabIndex = 181;
+            this.Client_ID.Text = "Unknown";
+            this.Client_ID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // gunaTextBox1
+            // 
+            this.gunaTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.gunaTextBox1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.gunaTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.gunaTextBox1.BorderSize = 1;
+            this.gunaTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.gunaTextBox1.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.gunaTextBox1.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.gunaTextBox1.FocusedForeColor = System.Drawing.Color.White;
+            this.gunaTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaTextBox1.ForeColor = System.Drawing.Color.White;
+            this.gunaTextBox1.Location = new System.Drawing.Point(251, 30);
+            this.gunaTextBox1.MultiLine = true;
+            this.gunaTextBox1.Name = "gunaTextBox1";
+            this.gunaTextBox1.PasswordChar = '\0';
+            this.gunaTextBox1.Size = new System.Drawing.Size(478, 620);
+            this.gunaTextBox1.TabIndex = 182;
+            // 
+            // EmbedColor
+            // 
+            this.EmbedColor.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.EmbedColor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.EmbedColor.BorderSize = 1;
+            this.EmbedColor.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.EmbedColor.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.EmbedColor.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.EmbedColor.FocusedForeColor = System.Drawing.Color.White;
+            this.EmbedColor.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.EmbedColor.ForeColor = System.Drawing.Color.White;
+            this.EmbedColor.Location = new System.Drawing.Point(122, 59);
+            this.EmbedColor.Name = "EmbedColor";
+            this.EmbedColor.PasswordChar = '\0';
+            this.EmbedColor.Size = new System.Drawing.Size(78, 28);
+            this.EmbedColor.TabIndex = 182;
+            this.EmbedColor.Text = "255,0,0";
+            this.EmbedColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Prefix
+            // 
+            this.Prefix.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.Prefix.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.Prefix.BorderSize = 1;
+            this.Prefix.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Prefix.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.Prefix.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.Prefix.FocusedForeColor = System.Drawing.Color.White;
+            this.Prefix.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Prefix.ForeColor = System.Drawing.Color.White;
+            this.Prefix.Location = new System.Drawing.Point(122, 27);
+            this.Prefix.Name = "Prefix";
+            this.Prefix.PasswordChar = '\0';
+            this.Prefix.Size = new System.Drawing.Size(78, 28);
+            this.Prefix.TabIndex = 183;
+            this.Prefix.Text = ";";
+            this.Prefix.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Form1
             // 
@@ -4586,14 +4673,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.CommandsList)).EndInit();
             this.spammer1.ResumeLayout(false);
             this.spammer1.PerformLayout();
-            this.DiscordPanel.ResumeLayout(false);
-            this.DiscordPanel.PerformLayout();
-            this.InjectButton.ResumeLayout(false);
-            this.InjectButton.PerformLayout();
             this.EmbedPanel.ResumeLayout(false);
             this.EmbedPanel.PerformLayout();
             this.SpotifyPanel.ResumeLayout(false);
             this.SpotifyPanel.PerformLayout();
+            this.DiscordPanel.ResumeLayout(false);
+            this.DiscordPanel.PerformLayout();
+            this.InjectButton.ResumeLayout(false);
+            this.InjectButton.PerformLayout();
             this.nitrosnprPanel.ResumeLayout(false);
             this.nitrosnprPanel.PerformLayout();
             this.discordRPC1.ResumeLayout(false);
@@ -4684,7 +4771,6 @@
         public System.Windows.Forms.Label TimeSinceStart;
         public System.Windows.Forms.Label label33;
         public System.Windows.Forms.Label label30;
-        public System.Windows.Forms.TextBox UserToken;
         public System.Windows.Forms.Label label29;
         public Bunifu.Framework.UI.BunifuFlatButton stopSelfbot;
         public Bunifu.Framework.UI.BunifuFlatButton startSelfbot;
@@ -4726,19 +4812,12 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private Bunifu.Framework.UI.BunifuFlatButton stopp;
         private Bunifu.Framework.UI.BunifuFlatButton startt;
-        private System.Windows.Forms.TextBox PartyMax;
         private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.TextBox PartySize;
         private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.TextBox ImageAsset;
         private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.TextBox ImageText;
         private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.TextBox Details;
         private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.TextBox State;
         private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.TextBox Client_ID;
         private System.Windows.Forms.Label label49;
         private Bunifu.Framework.UI.BunifuFlatButton CustomPUTInvite;
         private System.Windows.Forms.Panel SettingsPanel;
@@ -4762,7 +4841,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton AddallButt;
         private System.Windows.Forms.Timer LabelUpdate;
         private System.Windows.Forms.Label label15;
-        public System.Windows.Forms.RichTextBox valid;
         private Bunifu.Framework.UI.BunifuFlatButton JoinVoiceChannelButton;
         private System.Windows.Forms.Label _UsersLeft;
         private System.Windows.Forms.Label UsersJoinedInt;
@@ -4776,7 +4854,6 @@
         private System.Windows.Forms.Label AV;
         private Bunifu.Framework.UI.BunifuFlatButton ChangeAV;
         private System.Windows.Forms.Timer NitroUpdate;
-        private System.Windows.Forms.TextBox NitroToken;
         public System.Windows.Forms.Label label19;
         public System.Windows.Forms.Label TimeSinceStart1;
         public System.Windows.Forms.Timer ConstantlyRun1;
@@ -4791,10 +4868,8 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton2;
         public Bunifu.Framework.UI.BunifuFlatButton ChangePrefHex;
         public System.Windows.Forms.Label label35;
-        public System.Windows.Forms.TextBox EmbedColor;
         public System.Windows.Forms.Label label36;
         public System.Windows.Forms.Label label37;
-        public System.Windows.Forms.TextBox Prefix;
         private Bunifu.Framework.UI.BunifuFlatButton SpotifyInviteButt;
         private System.Windows.Forms.Panel SpotifyPanel;
         private Bunifu.Framework.UI.BunifuFlatButton Spotifybutt;
@@ -4839,6 +4914,20 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI.WinForms.GunaPanel InjectButton;
         private Guna.UI.WinForms.GunaLabel InjectLabel;
+        private System.Windows.Forms.Label InjectionLabelText;
+        private Guna.UI.WinForms.GunaTextBox InjectionCodeBox;
+        private Guna.UI.WinForms.GunaTextBox NitroToken;
+        private Guna.UI.WinForms.GunaTextBox UserToken;
+        private Guna.UI.WinForms.GunaTextBox Client_ID;
+        private Guna.UI.WinForms.GunaTextBox State;
+        private Guna.UI.WinForms.GunaTextBox Details;
+        private Guna.UI.WinForms.GunaTextBox ImageText;
+        private Guna.UI.WinForms.GunaTextBox ImageAsset;
+        private Guna.UI.WinForms.GunaTextBox PartySize;
+        private Guna.UI.WinForms.GunaTextBox PartyMax;
+        private Guna.UI.WinForms.GunaTextBox gunaTextBox1;
+        private Guna.UI.WinForms.GunaTextBox Prefix;
+        private Guna.UI.WinForms.GunaTextBox EmbedColor;
     }
 }
 

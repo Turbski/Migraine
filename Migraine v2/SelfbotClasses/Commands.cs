@@ -1043,6 +1043,24 @@ namespace Migraine_v2.SelfbotClasses {
                 }
             }
         }
+        [Command("purge all")]
+        public async Task PurgeAll()
+        {
+            int amount = 192376;
+            await Context.Message.DeleteAsync();
+            var messages = Context.Channel.GetMessagesAsync(amount);
+            var enumerator = messages.GetAsyncEnumerator();
+            while (enumerator.MoveNextAsync().Result)
+            {
+                foreach (var message in enumerator.Current)
+                {
+                    if (message.Author.Mention == StartBot._Client.CurrentUser.Mention && message.Source == MessageSource.User)
+                    {
+                        await message.DeleteAsync();
+                    }
+                }
+            }
+        }
 
         [Command("quote")]
         public async Task quote(string msg)
@@ -1287,6 +1305,15 @@ namespace Migraine_v2.SelfbotClasses {
             await Context.Message.DeleteAsync();
             await (Context.Client as DiscordSocketClient).SetGameAsync(args, "https://twitch.tv/ninja", ActivityType.Streaming);
             await Context.Channel.SendMessageAsync($"Successfully changed status to '**{args}**'");
+        }
+        [Command("stop")]
+        public async Task Stop()
+        {
+            await Context.Message.DeleteAsync();
+            await (Context.Client as DiscordSocketClient).StopAsync();
+            await Context.Channel.SendMessageAsync($"stopped task");
+            Thread.Sleep(500);
+            await Context.Message.DeleteAsync();
         }
 
         [Command("tcolor")]

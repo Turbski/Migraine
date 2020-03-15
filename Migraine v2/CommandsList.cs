@@ -14,7 +14,7 @@ namespace Migraine_v2 {
                 "unban:Unban a User <user>",
                 "kick:Kick a User <user>",
                 "userinfo:Get info of User <user>",
-                "purge:Purge <int> Messages",
+                "purge:Purges your messages | Usage: purge <int> or all",
                 "massdm:Dm all Members (Risky On Main Account)",
                 "gp:Makes the person your pinging clueless",
                 "clearc:Clears chat with invisible characters",
