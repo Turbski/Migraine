@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
+using Migraine_v2.API.Gateway;
 using Migraine_v2.SelfbotClasses;
 using Newtonsoft.Json;
 
@@ -192,7 +193,12 @@ namespace Migraine_v2.Discord_Spammer_Lib
 
         private static void Socket_OnMessage(object sender, WebSocketSharp.MessageEventArgs e)
         {
-            GatewayResponse payload = e.Data.Deserialize<GatewayResponse>();
+            GatewayResponse payload = JsonConvert.DeserializeObject<GatewayResponse>(e.Data);
+
+            switch (payload.Opcode)
+            {
+
+            }
         }
 
         public static async void AuditLogSpam(HttpClient Client, string ServerID)
