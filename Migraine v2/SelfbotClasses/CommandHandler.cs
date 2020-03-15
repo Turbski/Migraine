@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Discord.Commands;
 using Discord.WebSocket;
+using Migraine_v2.API;
 using Migraine_v2.CustomSettings;
 
 namespace Migraine_v2.SelfbotClasses {
@@ -13,6 +14,7 @@ namespace Migraine_v2.SelfbotClasses {
         public async Task Install(DiscordSocketClient c) {
             this._client = c;
             this._cmds = new CommandService();
+            Utils.Service = _cmds;
             await this._cmds.AddModulesAsync(Assembly.GetEntryAssembly(), null);
             this._client.MessageReceived += this.HandleCommand;
         }

@@ -4,12 +4,14 @@ using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Net.WebSockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
+using Migraine_v2.SelfbotClasses;
 using Newtonsoft.Json;
 
 namespace Migraine_v2.Discord_Spammer_Lib
@@ -121,36 +123,6 @@ namespace Migraine_v2.Discord_Spammer_Lib
             Task<HttpResponseMessage> task = Client.SendAsync(request);
             return task.Result.StatusCode == HttpStatusCode.OK;
         }
-        public static bool SpawnEmbed(HttpClient client, ulong channelID, string title, string text, string color = "5880085", string img = null)
-        {
-            var Color = color == "5880085" ? color : ParseColor(color);
-
-            var response = client.PostAsync($"https://discordapp.com/api/channels/{channelID}/messages", new StringContent(JsonConvert.SerializeObject(new EmbedProperties(title, text, Color, img)), Encoding.UTF8, "application/json"));
-
-            return response.Result.StatusCode == HttpStatusCode.OK;
-        }
-        public static string ParseColor(string color)
-        {
-            switch (color.ToLower())
-            {
-                default:
-                    return "1266338";
-                case "blue":
-                    return "1266338";
-                case "red":
-                    return "13632027";
-                case "green":
-                    return "5880085";
-                case "yellow":
-                    return "16312092";
-                case "cyan":
-                    return "5301186";
-                case "white":
-                    return "16777215";
-                case "black":
-                    return "1";
-            }
-        }
         public static string[] GetMembers(HttpClient Client, string ServerID)
         {
             string get = Client.GetStringAsync("https://discordapp.com/api/v6/guilds/" + ServerID + "/members?limit=1000").Result;
@@ -200,6 +172,24 @@ namespace Migraine_v2.Discord_Spammer_Lib
             } catch
             {
             }
+        }
+        public static async void SetStatus(string token, rStatus Status)
+        {
+            ClientWebSocket socket = new ClientWebSocket();
+
+            await socket.ConnectAsync(new Uri("wss://gateway.discord.gg/?v=7&encoding=json"), CancellationToken.None);
+
+            while (socket.State != WebSocketState.Open)
+            {
+                ConsoleLog.Log("Connecting to Discord's websocket server..");
+                //await Receive(socket);
+            }
+
+            ConsoleLog.Log("Connected to Discord's websocket server.");
+        }
+        public static async void Receive(ClientWebSocket socket)
+        {
+            //ConsoleLog.Log()
         }
         public static async void AuditLogSpam(HttpClient Client, string ServerID)
         {

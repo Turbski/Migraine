@@ -26,9 +26,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.discordClientButton = new Bunifu.Framework.UI.BunifuFlatButton();
             this.nitrosnprBtn = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -121,6 +121,8 @@
             this.startSelfbot = new Bunifu.Framework.UI.BunifuFlatButton();
             this.spammer1 = new System.Windows.Forms.Panel();
             this.DiscordPanel = new Guna.UI.WinForms.GunaPanel();
+            this.InjectionCodeBox = new Guna.UI.WinForms.GunaTextBox();
+            this.InjectionLabelText = new System.Windows.Forms.Label();
             this.InjectButton = new Guna.UI.WinForms.GunaPanel();
             this.InjectLabel = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
@@ -259,8 +261,24 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.gunaElipse2 = new Guna.UI.WinForms.GunaElipse(this.components);
-            this.InjectionLabelText = new System.Windows.Forms.Label();
-            this.InjectionCodeBox = new Guna.UI.WinForms.GunaTextBox();
+            this.DiscordPanelTopWithConsole = new System.Windows.Forms.Panel();
+            this.DiscordPanelInfo = new System.Windows.Forms.Label();
+            this.DiscordPanelInfoText = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label68 = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
+            this.label71 = new System.Windows.Forms.Label();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.label72 = new System.Windows.Forms.Label();
+            this.label73 = new System.Windows.Forms.Label();
+            this.label74 = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
+            this.label76 = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.label77 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
@@ -284,6 +302,8 @@
             this.discordRPC1.SuspendLayout();
             this.SettingsPanel.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.DiscordPanelTopWithConsole.SuspendLayout();
+            this.panel16.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -812,6 +832,7 @@
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.panel9.Controls.Add(this.DiscordPanelTopWithConsole);
             this.panel9.Controls.Add(this.nitroD);
             this.panel9.Controls.Add(this.nitroT);
             this.panel9.Controls.Add(this.splabel);
@@ -1508,33 +1529,33 @@
             // 
             // CommandsList
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.CommandsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.CommandsList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.CommandsList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.CommandsList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.CommandsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CommandsList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.CommandsList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CommandsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CommandsList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.CommandsList.ColumnHeadersHeight = 21;
             this.CommandsList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Commands,
             this.CommandInfo});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CommandsList.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CommandsList.DefaultCellStyle = dataGridViewCellStyle9;
             this.CommandsList.EnableHeadersVisualStyles = false;
             this.CommandsList.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.CommandsList.Location = new System.Drawing.Point(224, 7);
@@ -1839,6 +1860,33 @@
             this.DiscordPanel.Name = "DiscordPanel";
             this.DiscordPanel.Size = new System.Drawing.Size(744, 657);
             this.DiscordPanel.TabIndex = 196;
+            // 
+            // InjectionCodeBox
+            // 
+            this.InjectionCodeBox.BaseColor = System.Drawing.Color.White;
+            this.InjectionCodeBox.BorderColor = System.Drawing.Color.Silver;
+            this.InjectionCodeBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.InjectionCodeBox.FocusedBaseColor = System.Drawing.Color.White;
+            this.InjectionCodeBox.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.InjectionCodeBox.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.InjectionCodeBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.InjectionCodeBox.Location = new System.Drawing.Point(24, 31);
+            this.InjectionCodeBox.MultiLine = true;
+            this.InjectionCodeBox.Name = "InjectionCodeBox";
+            this.InjectionCodeBox.PasswordChar = '\0';
+            this.InjectionCodeBox.Size = new System.Drawing.Size(705, 276);
+            this.InjectionCodeBox.TabIndex = 3;
+            this.InjectionCodeBox.TextChanged += new System.EventHandler(this.InjectionCodeBox_TextChanged);
+            // 
+            // InjectionLabelText
+            // 
+            this.InjectionLabelText.AutoSize = true;
+            this.InjectionLabelText.ForeColor = System.Drawing.SystemColors.Control;
+            this.InjectionLabelText.Location = new System.Drawing.Point(5, 638);
+            this.InjectionLabelText.Name = "InjectionLabelText";
+            this.InjectionLabelText.Size = new System.Drawing.Size(104, 13);
+            this.InjectionLabelText.TabIndex = 2;
+            this.InjectionLabelText.Text = "Status: Not Injected.";
             // 
             // InjectButton
             // 
@@ -4539,31 +4587,211 @@
             // 
             this.gunaElipse2.TargetControl = this.EmbedTitle;
             // 
-            // InjectionLabelText
+            // DiscordPanelTopWithConsole
             // 
-            this.InjectionLabelText.AutoSize = true;
-            this.InjectionLabelText.ForeColor = System.Drawing.SystemColors.Control;
-            this.InjectionLabelText.Location = new System.Drawing.Point(5, 638);
-            this.InjectionLabelText.Name = "InjectionLabelText";
-            this.InjectionLabelText.Size = new System.Drawing.Size(104, 13);
-            this.InjectionLabelText.TabIndex = 2;
-            this.InjectionLabelText.Text = "Status: Not Injected.";
+            this.DiscordPanelTopWithConsole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.DiscordPanelTopWithConsole.Controls.Add(this.DiscordPanelInfo);
+            this.DiscordPanelTopWithConsole.Controls.Add(this.DiscordPanelInfoText);
+            this.DiscordPanelTopWithConsole.Controls.Add(this.label61);
+            this.DiscordPanelTopWithConsole.Controls.Add(this.label62);
+            this.DiscordPanelTopWithConsole.Controls.Add(this.label64);
+            this.DiscordPanelTopWithConsole.Controls.Add(this.label65);
+            this.DiscordPanelTopWithConsole.Controls.Add(this.label68);
+            this.DiscordPanelTopWithConsole.Controls.Add(this.label70);
+            this.DiscordPanelTopWithConsole.Controls.Add(this.label71);
+            this.DiscordPanelTopWithConsole.Controls.Add(this.panel15);
+            this.DiscordPanelTopWithConsole.Controls.Add(this.label72);
+            this.DiscordPanelTopWithConsole.Controls.Add(this.label73);
+            this.DiscordPanelTopWithConsole.Controls.Add(this.label74);
+            this.DiscordPanelTopWithConsole.Controls.Add(this.label75);
+            this.DiscordPanelTopWithConsole.Controls.Add(this.label76);
+            this.DiscordPanelTopWithConsole.Controls.Add(this.panel16);
+            this.DiscordPanelTopWithConsole.Location = new System.Drawing.Point(8, 8);
+            this.DiscordPanelTopWithConsole.Name = "DiscordPanelTopWithConsole";
+            this.DiscordPanelTopWithConsole.Size = new System.Drawing.Size(967, 41);
+            this.DiscordPanelTopWithConsole.TabIndex = 22;
             // 
-            // InjectionCodeBox
+            // DiscordPanelInfo
             // 
-            this.InjectionCodeBox.BaseColor = System.Drawing.Color.White;
-            this.InjectionCodeBox.BorderColor = System.Drawing.Color.Silver;
-            this.InjectionCodeBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.InjectionCodeBox.FocusedBaseColor = System.Drawing.Color.White;
-            this.InjectionCodeBox.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.InjectionCodeBox.FocusedForeColor = System.Drawing.SystemColors.ControlText;
-            this.InjectionCodeBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.InjectionCodeBox.Location = new System.Drawing.Point(24, 31);
-            this.InjectionCodeBox.MultiLine = true;
-            this.InjectionCodeBox.Name = "InjectionCodeBox";
-            this.InjectionCodeBox.PasswordChar = '\0';
-            this.InjectionCodeBox.Size = new System.Drawing.Size(705, 276);
-            this.InjectionCodeBox.TabIndex = 3;
+            this.DiscordPanelInfo.AutoSize = true;
+            this.DiscordPanelInfo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DiscordPanelInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(187)))), ((int)(((byte)(190)))));
+            this.DiscordPanelInfo.Location = new System.Drawing.Point(183, 14);
+            this.DiscordPanelInfo.Name = "DiscordPanelInfo";
+            this.DiscordPanelInfo.Size = new System.Drawing.Size(386, 15);
+            this.DiscordPanelInfo.TabIndex = 21;
+            this.DiscordPanelInfo.Text = "A discord script executor, idk, i was bored ok, client coming soon tho :)";
+            // 
+            // DiscordPanelInfoText
+            // 
+            this.DiscordPanelInfoText.AutoSize = true;
+            this.DiscordPanelInfoText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DiscordPanelInfoText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.DiscordPanelInfoText.Location = new System.Drawing.Point(40, 12);
+            this.DiscordPanelInfoText.Name = "DiscordPanelInfoText";
+            this.DiscordPanelInfoText.Size = new System.Drawing.Size(117, 19);
+            this.DiscordPanelInfoText.TabIndex = 20;
+            this.DiscordPanelInfoText.Text = "Discord Client";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(187)))), ((int)(((byte)(190)))));
+            this.label61.Location = new System.Drawing.Point(183, 14);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(277, 16);
+            this.label61.TabIndex = 14;
+            this.label61.Text = "A tool that spams discord servers, friends, etc.";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label62.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(187)))), ((int)(((byte)(190)))));
+            this.label62.Location = new System.Drawing.Point(183, 14);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(256, 16);
+            this.label62.TabIndex = 19;
+            this.label62.Text = "Has options to change your Rich Presence";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label64.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(187)))), ((int)(((byte)(190)))));
+            this.label64.Location = new System.Drawing.Point(183, 14);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(301, 16);
+            this.label64.TabIndex = 15;
+            this.label64.Text = "Selfbot is a tool that gives you special permissions";
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label65.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label65.Location = new System.Drawing.Point(52, 12);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(108, 19);
+            this.label65.TabIndex = 18;
+            this.label65.Text = "Discord RPC";
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label68.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(187)))), ((int)(((byte)(190)))));
+            this.label68.Location = new System.Drawing.Point(183, 14);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(228, 16);
+            this.label68.TabIndex = 17;
+            this.label68.Text = "Has options to rape a server you\'d like";
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label70.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label70.Location = new System.Drawing.Point(49, 12);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(119, 19);
+            this.label70.TabIndex = 16;
+            this.label70.Text = "Discord Nuker";
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label71.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(187)))), ((int)(((byte)(190)))));
+            this.label71.Location = new System.Drawing.Point(183, 14);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(204, 16);
+            this.label71.TabIndex = 13;
+            this.label71.Text = "Checks Tokens if Invalid or Valids.";
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(69)))), ((int)(((byte)(74)))));
+            this.panel15.Location = new System.Drawing.Point(174, 8);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(2, 25);
+            this.panel15.TabIndex = 7;
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label72.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label72.Location = new System.Drawing.Point(55, 12);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(63, 19);
+            this.label72.TabIndex = 12;
+            this.label72.Text = "Selfbot";
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label73.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label73.Location = new System.Drawing.Point(51, 12);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(82, 19);
+            this.label73.TabIndex = 10;
+            this.label73.Text = "Spammer";
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label74.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label74.Location = new System.Drawing.Point(47, 12);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(124, 19);
+            this.label74.TabIndex = 9;
+            this.label74.Text = "Token Checker";
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label75.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label75.Location = new System.Drawing.Point(51, 12);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(54, 19);
+            this.label75.TabIndex = 8;
+            this.label75.Text = "Home";
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label76.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(118)))), ((int)(((byte)(125)))));
+            this.label76.Location = new System.Drawing.Point(17, 9);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(21, 22);
+            this.label76.TabIndex = 7;
+            this.label76.Text = "#";
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.panel16.Controls.Add(this.label77);
+            this.panel16.Location = new System.Drawing.Point(753, -1);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(222, 42);
+            this.panel16.TabIndex = 1;
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label77.ForeColor = System.Drawing.Color.White;
+            this.label77.Location = new System.Drawing.Point(12, 12);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(67, 18);
+            this.label77.TabIndex = 6;
+            this.label77.Text = "Console";
             // 
             // Form1
             // 
@@ -4633,6 +4861,10 @@
             this.SettingsPanel.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.DiscordPanelTopWithConsole.ResumeLayout(false);
+            this.DiscordPanelTopWithConsole.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -4872,6 +5104,24 @@
         private Guna.UI.WinForms.GunaLabel InjectLabel;
         private System.Windows.Forms.Label InjectionLabelText;
         private Guna.UI.WinForms.GunaTextBox InjectionCodeBox;
+        public System.Windows.Forms.Panel DiscordPanelTopWithConsole;
+        public System.Windows.Forms.Label DiscordPanelInfo;
+        public System.Windows.Forms.Label DiscordPanelInfoText;
+        public System.Windows.Forms.Label label61;
+        public System.Windows.Forms.Label label62;
+        public System.Windows.Forms.Label label64;
+        public System.Windows.Forms.Label label65;
+        public System.Windows.Forms.Label label68;
+        public System.Windows.Forms.Label label70;
+        public System.Windows.Forms.Label label71;
+        public System.Windows.Forms.Panel panel15;
+        public System.Windows.Forms.Label label72;
+        public System.Windows.Forms.Label label73;
+        public System.Windows.Forms.Label label74;
+        public System.Windows.Forms.Label label75;
+        public System.Windows.Forms.Label label76;
+        public System.Windows.Forms.Panel panel16;
+        public System.Windows.Forms.Label label77;
     }
 }
 

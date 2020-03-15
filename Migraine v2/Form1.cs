@@ -26,6 +26,8 @@ namespace Migraine_v2 {
         public bool Injected = false;
         public Form1() {
             InitializeComponent();
+            
+
             if (!clientRPC.IsInitialized) clientRPC.Initialize();
             LogConsole.Text = ConsoleLog.LogInfo;
             lblDiscordUser.Text = "" + doLogin._Username.ToString();
@@ -182,6 +184,12 @@ namespace Migraine_v2 {
             Spotifybutt.Visible = false;
             SpotifyInviteButt.Visible = false;
             SpotifyPanel.Visible = false;
+            DiscordPanel.Visible = false;
+            DiscordPanelInfo.Visible = false;
+            DiscordPanelInfoText.Visible = false;
+            DiscordPanel.Visible = false;
+            InjectionCodeBox.Visible = false;
+            InjectionLabelText.Visible = false;
         }
 
         public void ClearAllTxt() {
@@ -1664,7 +1672,7 @@ namespace Migraine_v2 {
                     Form1.ValidTokens.Enqueue(text);
                     int ready = 0;
                     bool ready1 = Convert.ToBoolean(ready);
-                    ready1 = rDiscord.SpawnEmbed(Client.Create(false, null, text), channelid, EmbedTitle.Text, this.EmbedText.Text, null);
+                    //ready1 = rDiscord.SpawnEmbed(Client.Create(false, null, text), channelid, EmbedTitle.Text, this.EmbedText.Text, null);
                     bool flag4 = ready1;
                     if (flag4)
                     {
@@ -1690,6 +1698,12 @@ namespace Migraine_v2 {
         {
             this.ClearPages();
             DiscordPanel.Visible = true;
+            DiscordPanelInfo.Visible = true;
+            DiscordPanelInfoText.Visible = true;
+            DiscordPanel.Visible = true;
+            InjectionCodeBox.Visible = true;
+            InjectionLabelText.Visible = true;
+            InjectionCodeBox.Text = "";
         }
 
         private void InjectLabel_Clicked(object sender, EventArgs e)
@@ -1735,6 +1749,11 @@ namespace Migraine_v2 {
                 InjectionLabelText.Text = "Status: Failed to Inject and/or Execute. Contact Yaekith#1337 for more information.";
                 Injected = false;
             }
+        }
+
+        private void InjectionCodeBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
