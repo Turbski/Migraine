@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading;
+using System.Net.WebSockets;
 using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
@@ -98,7 +99,8 @@ namespace Migraine_v2.Discord_Spammer_Lib
                 "I am always helping out - Kindness",
                 "I am a bit of a bright spark - Intelligence",
                 "I am usually the one to help them fix things",
-                "I like to make my friends laugh"
+                "I like to make my friends laugh",
+                "Did I hurt you?"
             };
             var req = new HttpRequestMessage
             {
@@ -121,13 +123,19 @@ namespace Migraine_v2.Discord_Spammer_Lib
             Task<HttpResponseMessage> task = Client.SendAsync(request);
             return task.Result.StatusCode == HttpStatusCode.OK;
         }
-        public static bool SpawnEmbed(HttpClient client, ulong channelID, string title, string text, string color = "5880085", string img = null)
+        public static int SpawnEmbed(HttpClient client, string channelID, string title, string text, string color = "5880085", string img = null)
         {
             var Color = color == "5880085" ? color : ParseColor(color);
 
-            var response = client.PostAsync($"https://discordapp.com/api/channels/{channelID}/messages", new StringContent(JsonConvert.SerializeObject(new EmbedProperties(title, text, Color, img)), Encoding.UTF8, "application/json"));
-
-            return response.Result.StatusCode == HttpStatusCode.OK;
+            var req = new HttpRequestMessage
+            {
+                Method = new HttpMethod("POST"),
+                RequestUri = new Uri($"https://discordapp.com/api/channels/{channelID}/messages"),
+                Content = new StringContent(JsonConvert.SerializeObject(new EmbedProperties(title, text, Color, img)), Encoding.UTF8, "application/json")
+            };
+            client.SendAsync(req);
+            int result = 0;
+            return result;
         }
         public static string ParseColor(string color)
         {
@@ -168,7 +176,7 @@ namespace Migraine_v2.Discord_Spammer_Lib
         }
 
         public static dynamic GetCurrentUser(HttpClient Client) => JsonConvert.DeserializeObject<object>(Client.GetStringAsync("https://discordapp.com/api/v6/users/@me").Result);
-        public static HttpResponseMessage JoinServer(HttpClient Client, string Invite) => Client.PostAsync("https://discordapp.com/api/v6/invites/" + Invite, new StringContent("", Encoding.UTF8, "application/json")).Result;
+        public static HttpResponseMessage JoinServer(HttpClient Client, string Invite) => Client.PostAsync("https://canary.discordapp.com/api/v6/invites/" + Invite, new StringContent("", Encoding.UTF8, "application/json")).Result;
         public static async void LeaveServer(HttpClient Client, string ServerID)
         {
             try
@@ -302,6 +310,7 @@ namespace Migraine_v2.Discord_Spammer_Lib
 
         public static async void SetStatusTokenIdle(HttpClient client)
         {
+            
             HttpRequestMessage req = new HttpRequestMessage
             {
                 Method = new HttpMethod("PATCH"),
@@ -322,6 +331,7 @@ namespace Migraine_v2.Discord_Spammer_Lib
         }
         public static async void SetStatusTokendnd(HttpClient client)
         {
+            
             var req = new HttpRequestMessage
             {
                 Method = new HttpMethod("PATCH"),
@@ -330,6 +340,7 @@ namespace Migraine_v2.Discord_Spammer_Lib
             };
             await client.SendAsync(req);
         }
+
         public static async void SetStatusTokenOffline(HttpClient client)
         {
             var req = new HttpRequestMessage

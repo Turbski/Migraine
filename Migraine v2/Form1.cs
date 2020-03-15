@@ -49,7 +49,7 @@ namespace Migraine_v2 {
                 Console.WriteLine(e);
             }
             LogConsole.Text = ConsoleLog.LogInfo;
-            lblDiscordUser.Text = "" + doLogin._Username.ToString();
+            //lblDiscordUser.Text = "" + doLogin._Username.ToString();
             DiscordUser.Text = DiscordUser.Text.Replace("Unknown", $"{Globals.SelfbotUser}");
             UserToken.Text = Token1;
             string[] array = Migraine_v2.CommandsList.Get();
@@ -201,6 +201,7 @@ namespace Migraine_v2 {
             SpotifyInviteButt.Visible = false;
             SpotifyPanel.Visible = false;
             DiscordPanel.Visible = false;
+            EmbedPanel.Visible = false;
         }
 
         public void ClearAllTxt() {
@@ -379,19 +380,26 @@ namespace Migraine_v2 {
                 MessageBox.Show("Invalid Token Format");
             else
             {
-                if (Settings._Username != this.UserToken.Text)
+                try
                 {
-                    //Settings._Settings["misc"]["token"] = this.UserToken.Text;
-                    string output = JsonConvert.SerializeObject(Settings._Settings, Formatting.Indented);
-                    File.WriteAllText("Settings.json", output);
+                    if (Settings._Username != this.UserToken.Text)
+                    {
+                        //Settings._Settings["misc"]["token"] = this.UserToken.Text;
+                        string output = JsonConvert.SerializeObject(Settings._Settings, Formatting.Indented);
+                        File.WriteAllText("Settings.json", output);
+                    }
+                    StartBot.Token = this.UserToken.Text;
+                    this.ConstantlyRun.Start();
+                    TimeElapsed.Start();
+                    ConsoleLog.Log("[Console] Bot Starting...");
+                    Globals.SelfbotRunning = true;
+                    StartBot.Init();
+                    Globals.SelfbotUser = this.DiscordUser.Text;
                 }
-                StartBot.Token = this.UserToken.Text;
-                this.ConstantlyRun.Start();
-                TimeElapsed.Start();
-                ConsoleLog.Log("[Console] Bot Starting...");
-                Globals.SelfbotRunning = true;
-                StartBot.Init();
-                Globals.SelfbotUser = this.DiscordUser.Text;
+                catch (Exception)
+                {
+                    MessageBox.Show("Invalid Token.", "Migraine - Error");
+                }
             }
         }
         private void StopSelfbot_Click_1(object sender, EventArgs e) {
@@ -399,12 +407,11 @@ namespace Migraine_v2 {
             if (ifnotrunning)
                 MessageBox.Show("Selfbot isn't running.", "Migraine - Error");
             else {
-                Thread.Sleep(200);
+                MessageBox.Show("Sucessfully stopped selfbot.", "Migraine");
                 this.ConstantlyRun.Stop();
                 TimeElapsed.Stop();
                 TimeElapsed.Reset();
                 Globals.SelfbotRunning = false;
-                MessageBox.Show("Sucessfully stopped selfbot.", "Migraine");
             }
         }
         private void CustomPUTInvite_Click(object sender, EventArgs e) {
@@ -1674,17 +1681,13 @@ namespace Migraine_v2 {
             {
                 try
                 {
-                    string channel = Form1._ChannelID;
-                    ulong channelid = Convert.ToUInt64(channel);
                     string text;
                     Form1.ValidTokens.TryDequeue(out text);
                     bool flag3 = text != null && text != "";
                     if (!flag3) { return; }
                     Form1.ValidTokens.Enqueue(text);
-                    int ready = 0;
-                    bool ready1 = Convert.ToBoolean(ready);
-                    ready1 = rDiscord.SpawnEmbed(Client.Create(false, null, text), channelid, EmbedTitle.Text, this.EmbedText.Text, null);
-                    bool flag4 = ready1;
+                    int num = rDiscord.SpawnEmbed(Client.Create(false, null, text), Form1._ChannelID, EmbedTitle.Text, this.EmbedText.Text, null);
+                    bool flag4 = num == 1;
                     if (flag4)
                     {
                         this.tmessagessent.Text = Form1._MsgsSent.ToString();
@@ -1695,7 +1698,7 @@ namespace Migraine_v2 {
                         Thread.Sleep(1000);
                     }
                 }
-                catch { }
+                catch (Exception e){ Console.WriteLine(e); }
             }
             Thread.Sleep(1);
         }

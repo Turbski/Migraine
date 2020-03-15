@@ -222,16 +222,16 @@
 </value>
   </data>
   <metadata name="bunifuDragControl1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>134, 17</value>
   </metadata>
   <metadata name="bunifuDragControl2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>157, 18</value>
+    <value>294, 17</value>
   </metadata>
   <metadata name="ConstantlyRun.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>303, 19</value>
+    <value>454, 17</value>
   </metadata>
   <metadata name="StatusUpdater.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>425, 18</value>
+    <value>585, 17</value>
   </metadata>
   <data name="UpdateLog.Text" xml:space="preserve">
     <value>Added Audit Log Spammer. With this you can really mess with someone
@@ -2664,19 +2664,19 @@ https://discordapp.com/developers/applications/
      &gt;Try adding RPC in discord [Game Activity]</value>
   </data>
   <metadata name="MessagesSent.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>536, 19</value>
+    <value>714, 17</value>
   </metadata>
   <metadata name="LabelUpdate.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>648, 20</value>
+    <value>843, 17</value>
   </metadata>
   <metadata name="NitroUpdate.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>751, 21</value>
+    <value>963, 17</value>
   </metadata>
   <metadata name="ConstantlyRun1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>862, 28</value>
+    <value>17, 56</value>
   </metadata>
   <metadata name="gunaElipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>996, 24</value>
+    <value>154, 56</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>71</value>
@@ -3139,4 +3139,7 @@ https://discordapp.com/developers/applications/
         AAD///////8AAP///////wAA
 </value>
   </data>
+  <metadata name="gunaElipse2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

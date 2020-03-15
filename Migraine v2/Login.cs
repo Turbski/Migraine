@@ -2,25 +2,39 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 using DiscordRPC;
+using DiscordRPC.Logging;
 
 namespace Migraine_v2 {
     public partial class Login : Form {
+        public static DiscordRpcClient RPCClient;
+
         public Login()
         {
-
             InitializeComponent();
-            if (!clientRPC.IsInitialized) clientRPC.Initialize();
-        }
-        public static DiscordRpcClient clientRPC = new DiscordRpcClient("684562656023150696"); // fill this out bud
-        private static RichPresence loginPresence = new RichPresence()
-        {
-            State = "Logging in...",
-            Timestamps = Timestamps.Now,
-            Assets = new Assets()
+            try
             {
-                LargeImageKey = "logo",
+                RPCClient = new DiscordRpcClient("685768251698970676");
+                RPCClient.Logger = new ConsoleLogger
+                {
+                    Level = LogLevel.Trace
+                };
+                RPCClient.SetPresence(new RichPresence
+                {
+                    Details = "",
+                    State = "Logging in...",
+                    Assets = new Assets
+                    {
+                        LargeImageKey = "migraine_logo",
+                        LargeImageText = "Migraine FTW"
+                    }
+                });
+                RPCClient.Initialize();
             }
-        };
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
         private void Exitbutton_Click(object sender, EventArgs e) => Application.Exit();
         private void Minimizebutton_Click(object sender, EventArgs e) => WindowState = FormWindowState.Minimized;
         private void CreateAccount_Click(object sender, EventArgs e) {
@@ -28,10 +42,31 @@ namespace Migraine_v2 {
                 register1.Visible = true;
                 doLogin1.Visible = false;
                 CreateAccount.Text = "Login";
-            } else {
+                RPCClient.SetPresence(new RichPresence
+                {
+                    Details = "",
+                    State = "Registering new account...",
+                    Assets = new Assets
+                    {
+                        LargeImageKey = "migraine_logo",
+                        LargeImageText = "Migraine FTW"
+                    }
+                });
+            }
+            else {
                 register1.Visible = false;
                 doLogin1.Visible = true;
                 CreateAccount.Text = "Register Account";
+                RPCClient.SetPresence(new RichPresence
+                {
+                    Details = "",
+                    State = "Logging in...",
+                    Assets = new Assets
+                    {
+                        LargeImageKey = "migraine_logo",
+                        LargeImageText = "Migraine FTW"
+                    }
+                });
             }
         }
         private void LinkButton_Click(object sender, EventArgs e) {

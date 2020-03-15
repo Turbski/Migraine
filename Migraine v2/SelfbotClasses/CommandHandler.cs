@@ -40,7 +40,6 @@ namespace Migraine_v2.SelfbotClasses {
                         IResult result = result2;
                         result2 = null;
                         ConsoleLog.Log(string.Format("[Console] Executed CMD: {0}", context));
-                        ConsoleLog.Log(string.Format("[Error] {0}", result2));
                         if (!result.IsSuccess) { ConsoleLog.Log(result.ToString()); }
                     }
                 }

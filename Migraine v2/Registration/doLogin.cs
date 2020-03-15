@@ -6,6 +6,7 @@ using Migraine_v2.LoginClass;
 using System.Net;
 using Newtonsoft.Json;
 using System.IO;
+using DiscordRPC;
 
 namespace Migraine_v2.Registration
 {
@@ -14,7 +15,7 @@ namespace Migraine_v2.Registration
         public const string ProgramId = "235";
         private const string Secret = "TOYEPUK47IR5";
         public static string _Username;
-
+        public DiscordRpcClient RPCClient;
         public doLogin() {
             InitializeComponent();
             Settings.getSettings();
@@ -29,7 +30,8 @@ namespace Migraine_v2.Registration
             string password = Password.Text;
             if (CheckFiddler._())
                 return;
-            try {
+            try
+            {
                 string HWID = AuthHow.HWID.Value();
                 string Resp = new WebClient().DownloadString($"http://www.auth.how/API/User/Login?User={username}&Pass={password}&Hwid={HWID}&challenge={GetChallenge(username, password, HWID)}&ProgramId={ProgramId}");
                 if (!Resp.Contains("Missing A Parameter") || !Resp.Contains("Failed To Solve Challenge!") || !Resp.Contains("Failed To Resolve Data!"))
@@ -40,6 +42,7 @@ namespace Migraine_v2.Registration
                     string output = JsonConvert.SerializeObject(Settings._Settings, Formatting.Indented);
                     File.WriteAllText("Settings.json", output);
                 }
+                Login.RPCClient.Deinitialize();
                 _Username = username;
                 Login.ActiveForm.Hide();
                 var frm = new Form1();

@@ -42,7 +42,7 @@ namespace Migraine_v2.LoginClass {
             str.Add("\"misc\":{");
             str.Add("\"bitcoin\":\"\",");
             str.Add("\"token\":\"\",");
-            str.Add("\"defaultRPC\":\"\"");
+            str.Add("\"defaultRPC\":false");
             str.Add("}");
             str.Add("}");
             return string.Join("\n", str.ToArray());

@@ -28,5 +28,16 @@ namespace Migraine_v2.API
                 public string url { get; set; }
             }
         }
+        public class IP
+        {
+            public string city { get; set; }
+            public string region { get; set; }
+            public string country { get; set; }
+            public string country_capital { get; set; }
+            public string country_name { get; set; }
+            public string currency { get; set; }
+            public string country_calling_code { get; set; }
+            public string timezone { get; set; }
+        }
     }
 }

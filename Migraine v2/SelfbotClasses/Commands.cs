@@ -20,7 +20,6 @@ using System.Text;
 namespace Migraine_v2.SelfbotClasses {
     public class Commands : ModuleBase
     {
-
         [Command("dchan")]
         public async Task DeleteChannels()
         {
@@ -80,7 +79,7 @@ namespace Migraine_v2.SelfbotClasses {
             var success = 0;
             await Context.Message.DeleteAsync();
 
-            for(int i = 0; i < 26; i++)
+            for (int i = 0; i < 26; i++)
             {
                 HttpClient client = new HttpClient();
                 client.DefaultRequestHeaders.Add("Authorization", Globals.Token);
@@ -273,7 +272,7 @@ namespace Migraine_v2.SelfbotClasses {
         }
 
         [Command("av")]
-        public async Task av([Remainder] SocketUser user)
+        public async Task av([Remainder] SocketUser user = null)
         {
             if (user == null)
                 user = Context.Message.Author as SocketUser;
@@ -290,7 +289,7 @@ namespace Migraine_v2.SelfbotClasses {
             await Context.Channel.SendMessageAsync("", false, embed.Build());
         }
 
-        [Command("save")]
+        [Command("saveservers")]
         public async Task SaveAll()
         {
             await Context.Message.DeleteAsync();
@@ -309,9 +308,13 @@ namespace Migraine_v2.SelfbotClasses {
             embed.WithColor(Globals.EmbedHexColor);
             await Context.Channel.SendMessageAsync("", false, embed.Build());
         }
-
+        [Command("savemessages")]
+        public async Task SaveMessages()
+        {
+            await Context.Message.DeleteAsync();
+        }
         [Command("ban")]
-        public async Task ban([Remainder] SocketUser userName = null, string reason = null)
+        public async Task ban(SocketUser userName = null, string reason = null)
         {
             SocketUser user = Context.User as SocketUser;
             bool flag = userName == null;
@@ -404,6 +407,7 @@ namespace Migraine_v2.SelfbotClasses {
             embed.WithDescription("``" + bitcoin + "``");
             embed.WithColor(Globals.EmbedHexColor);
             await Context.Channel.SendMessageAsync("", false, embed.Build());
+
         }
         public static JObject json;
 
@@ -417,11 +421,7 @@ namespace Migraine_v2.SelfbotClasses {
             str.Add("}");
             return string.Join("\n", str.ToArray());
         }
-        [Command("invisconnections")]
-        public async Task InvisC()
-        {
 
-        }
         [Command("bye")]
         public async Task Bye(string ip, string port, string time)
         {
@@ -604,7 +604,7 @@ namespace Migraine_v2.SelfbotClasses {
         }
 
         [Command("gay")]
-        public async Task Gay(SocketGuildUser user)
+        public async Task Gay([Remainder] SocketGuildUser user = null)
         {
             if (user == null)
                 user = Context.Message.Author as SocketGuildUser;
@@ -620,6 +620,26 @@ namespace Migraine_v2.SelfbotClasses {
             embed.WithDescription("See's how gay the person is");
             embed.WithColor(Globals.EmbedHexColor);
             embed.WithDescription($"**{user}**, You are {randomNumber}% gay.");
+            embed.WithFooter("Migraine");
+            await Context.Channel.SendMessageAsync("", false, embed.Build());
+        }
+        [Command("iq")]
+        public async Task IQ(SocketGuildUser user = null)
+        {
+            if (user == null)
+                user = Context.Message.Author as SocketGuildUser;
+
+            await Context.Message.DeleteAsync();
+
+            var embed = new EmbedBuilder();
+            Random random = new Random();
+
+            int randomNumber = random.Next(0, 1000);
+            embed.WithAuthor("");
+            embed.WithTitle("IQ Calculator");
+            embed.WithDescription("Checks mentioned user IQ");
+            embed.WithColor(Globals.EmbedHexColor);
+            embed.WithDescription($"**{user}**, you have {randomNumber} IQ.");
             embed.WithFooter("Migraine");
             await Context.Channel.SendMessageAsync("", false, embed.Build());
         }
@@ -771,11 +791,11 @@ namespace Migraine_v2.SelfbotClasses {
         }
 
         [Command("ip")]
-
         public async Task IP(string ip)
         {
             await Context.Message.DeleteAsync();
-            WebClient client = new WebClient();
+            var client = new WebClient();
+            var embed = new EmbedBuilder();
 
             var req = new HttpClient();
             {
@@ -784,14 +804,21 @@ namespace Migraine_v2.SelfbotClasses {
                     ["ip"] = ip
                 };
                 var response = await req.PostAsync(new Uri($"https://ipapi.co/{ip}/json/"), new FormUrlEncodedContent(PostData));
-                string json = client.DownloadString($"https://ipapi.co/{ip}/json/");
-                var result = JsonConvert.DeserializeObject<API.API.RootObject>(json);
-            }
 
-            EmbedBuilder embed = new EmbedBuilder();
+            }
+            string json = client.DownloadString($"https://ipapi.co/{ip}/json/");
+            var result = JsonConvert.DeserializeObject<API.API.IP>(json);
+            var city = double.Parse(Convert.ToString(result.city)).ToString();
+            var country = double.Parse(Convert.ToString(result.country)).ToString();
+            var callingcode = double.Parse(Convert.ToString(result.country_calling_code)).ToString();
+            var currency = double.Parse(Convert.ToString(result.currency)).ToString();
 
             embed.WithAuthor("IP Result. | Migraine");
-            embed.AddField("**IP:**", $"{ip}");
+            embed.AddField("**IP:**", $"{ip}", true);
+            embed.AddField("**City:**", $"{city}", true);
+            embed.AddField("**Country:**", $"{country}", true);
+            embed.AddField("**Area Code:**", $"{callingcode}", true);
+            embed.AddField("**Currency:**", $"{currency}", true);
             embed.WithColor(Globals.EmbedHexColor);
             embed.WithFooter("Migraine");
 
@@ -1094,6 +1121,7 @@ namespace Migraine_v2.SelfbotClasses {
             await Context.Message.DeleteAsync();
             string serveravatar = Context.Guild.IconUrl;
             var embed = new EmbedBuilder();
+            embed.WithAuthor(Context.Message.Author.Username, Context.Message.Author.GetAvatarUrl(ImageFormat.Auto));
             embed.WithImageUrl(serveravatar);
             embed.WithColor(Globals.EmbedHexColor);
             await Context.Channel.SendMessageAsync("", false, embed.Build());
@@ -1108,20 +1136,60 @@ namespace Migraine_v2.SelfbotClasses {
             var embed = new EmbedBuilder();
             embed.WithThumbnailUrl(serveravatar);
             embed.AddField("**Server Name:** ", $" {server.Name}");
+            embed.AddField("**Server ID:**", $" {server.Id}");
             embed.AddField("**Server Owner:** ", $"{server.OwnerId}");
             embed.AddField("**Server Created:** ", $" {server.CreatedAt}");
             embed.AddField("**Server ID:**", $"{server.Id}");
             embed.AddField("**Verification Level:**", $"{server.VerificationLevel}");
             embed.AddField("**Emotes:**", $"{server.Emotes.Count.ToString()}");
             embed.AddField("**Roles:**", $"{server.Roles.Count.ToString()}");
+            embed.AddField("**Channels:**", $" {server.GetChannelsAsync()}");
             embed.WithColor(Globals.EmbedHexColor);
             embed.WithFooter("Migraine");
 
             await Context.Channel.SendMessageAsync("", false, embed.Build());
         }
+        //[Command("saveemojis")]
+        //public async Task SaveEmojis()
+        //{
+        //    await Context.Message.DeleteAsync();
+
+        //    var emojis = Context.Guild.Emotes;
+        //    bool misc = !Directory.Exists("MISC");
+        //    if (misc)
+        //        Directory.CreateDirectory("MISC");
+        //    string saver = "MISC/Saved Emojis/Saved Emojis-" + DateTime.Now.ToString("hh-mm tt" + "/");
+        //    Directory.CreateDirectory(saver);
+        //    var embed = new EmbedBuilder();
+        //    embed.WithTitle("Success!");
+        //    embed.WithAuthor(Context.User.Username, Context.User.GetAvatarUrl(ImageFormat.Auto));
+        //    embed.WithDescription($"Successfully saved {emojis.Count.ToString()} servers to text file.");
+        //    embed.WithColor(Globals.EmbedHexColor);
+        //    await Context.Channel.SendMessageAsync("", false, embed.Build());
+
+        //}
+        //[Command("savemembers")]
+        //public async Task SaveMembers()
+        //{
+        //    await Context.Message.DeleteAsync();
+
+        //    var members = Context.Guild.DownloadUsersAsync().ToString();
+        //    var members1 = Context.Guild.GetUsersAsync();
+        //    bool misc = !Directory.Exists("MISC");
+        //    if (misc)
+        //        Directory.CreateDirectory("MISC");
+        //    string saver = "MISC/Saved Members/Saved Members-" + DateTime.Now.ToString("hh-mm tt" + "/");
+        //    Directory.CreateDirectory(saver);
+        //    var embed = new EmbedBuilder();
+        //    embed.WithTitle("Success!");
+        //    embed.WithAuthor(Context.User.Username, Context.User.GetAvatarUrl(ImageFormat.Auto));
+        //    embed.WithDescription($"Successfully saved {} members to text file.");
+        //    embed.WithColor(Globals.EmbedHexColor);
+        //    await Context.Channel.SendMessageAsync("", false, embed.Build());
+        //}
 
         [Command("spam")]
-        public async Task spam(string message) // fix
+        public async Task spam([Remainder] string message) // fix
         {
             bool nullable = message == null;
             if (nullable)
@@ -1253,8 +1321,8 @@ namespace Migraine_v2.SelfbotClasses {
         public async Task UserInformation(SocketGuildUser user = null)
         {
             await Context.Message.DeleteAsync();
-            List<string> RolesString = new List<string>();
-            EmbedBuilder embed = new EmbedBuilder();
+            var RolesString = new List<string>();
+            var embed = new EmbedBuilder();
 
             if (user == null)
                 user = (Context.Message.Author as SocketGuildUser);
@@ -1279,7 +1347,7 @@ namespace Migraine_v2.SelfbotClasses {
         }
 
         [Command("giveaway")]
-        public async Task CreateGiveaway(string info)
+        public async Task CreateGiveaway([Remainder] string info)
         {
             var random = new Random();
             await Context.Message.DeleteAsync();
@@ -1323,8 +1391,8 @@ namespace Migraine_v2.SelfbotClasses {
                     userMessage2 = null;
                     IUserMessage msg = userMessage;
                     await msg.AddReactionAsync(emoji);
-                    Globals.Giveawayname = info;
-                    Globals.GiveawayMessasge = Context.Message.Id;
+                    Globals.GiveawayName = info;
+                    Globals.GiveawayMessage = Context.Message.Id;
                     Globals.GiveawayChannel = Context.Message.Channel.Id;
                 }
                 else
@@ -1337,6 +1405,76 @@ namespace Migraine_v2.SelfbotClasses {
                 //{
 
                 //} fix later!!!!!
+            }
+        }
+        [Command("giveawayusers")]
+        public async Task GiveawayUsers()
+        {
+            await Context.Message.DeleteAsync();
+            bool flag = Globals.UsersEntered.Count == 0;
+            if (flag)
+            {
+                await this.ReplyAsync((Globals.GiveawayName != "") ? "**There is no current giveaway**" : ("**There are no current users entered in** " + Globals.GiveawayName), false, null, null);
+            }
+            else
+            {
+                string users = string.Join(Environment.NewLine, Globals.UsersEntered);
+                EmbedBuilder embed = new EmbedBuilder
+                {
+                    Title = "Users Entered In **" + Globals.GiveawayName + "**",
+                    Description = users + string.Format("\nUsers Entered **{0}**", Globals.UsersEntered.Count)
+                };
+                await this.ReplyAsync(string.Empty, false, embed.Build(), null);
+            }
+        }
+        [Command("choosewinner")]
+        public async Task Pick()
+        {
+            bool flag = Globals.UsersEntered.Count == 0;
+            if (flag)
+            {
+                await ReplyAsync((Globals.GiveawayName == "") ? "**There is no current giveaway**" : ("**There are no current users entered in** \"" + Globals.GiveawayName + "\""), false, null, null);
+            }
+            else
+            {
+                SocketGuildChannel Chan = StartBot._Client.GetChannel(Globals.GiveawayChannel) as SocketGuildChannel;
+                ulong serverid = Chan.Guild.Id;
+                Random random = new Random();
+                int choice = random.Next(0, Globals.UsersEntered.Count);
+                await StartBot._Client.GetGuild(serverid).GetTextChannel(Globals.GiveawayChannel).SendMessageAsync(string.Concat(new string[]
+                {
+                    "The winner for ",
+                    Globals.GiveawayName,
+                    " is \"",
+                    Globals.UsersEntered[choice],
+                    "\""
+                }), false, null, null);
+                Globals.UsersEntered.Clear();
+                Globals.GiveawayName = "";
+            }
+        }
+        [Command("cleargiveaway")]
+        public async Task Clear()
+        {
+            int num = 0;
+            try
+            {
+                var message = await Context.Channel.GetMessageAsync(Globals.GiveawayMessage, CacheMode.AllowDownload);
+                var msg = message;
+                message = null;
+                await msg.DeleteAsync(null);
+                await this.ReplyAsync("Closed Giveaway \"" + Globals.GiveawayName + "\"", false, null, null);
+                Globals.UsersEntered.Clear();
+                Globals.GiveawayName = "";
+                msg = null;
+            }
+            catch
+            {
+                num = 1;
+            }
+            if (num == 1)
+            {
+                await ReplyAsync("Giveaway not found...", false, null, null);
             }
         }
         [Command("delemoji")]
