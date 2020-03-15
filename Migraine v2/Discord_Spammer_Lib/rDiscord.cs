@@ -175,22 +175,26 @@ namespace Migraine_v2.Discord_Spammer_Lib
         }
         public static async void SetStatus(string token, rStatus Status)
         {
-            ClientWebSocket socket = new ClientWebSocket();
+            WebSocketSharp.WebSocket socket = new WebSocketSharp.WebSocket("wss://gateway.discord.gg/?v=7&encoding=json");
 
-            await socket.ConnectAsync(new Uri("wss://gateway.discord.gg/?v=7&encoding=json"), CancellationToken.None);
+            socket.Connect();
 
-            while (socket.State != WebSocketState.Open)
+            socket.OnClose += (sender, e) =>
             {
-                ConsoleLog.Log("Connecting to Discord's websocket server..");
-                //await Receive(socket);
-            }
+                SetStatus(token, Status);
 
+                return;
+            };
+
+            socket.OnMessage += Socket_OnMessage;
             ConsoleLog.Log("Connected to Discord's websocket server.");
         }
-        public static async void Receive(ClientWebSocket socket)
+
+        private static void Socket_OnMessage(object sender, WebSocketSharp.MessageEventArgs e)
         {
-            //ConsoleLog.Log()
+            GatewayResponse payload = e.Data.Deserialize<GatewayResponse>();
         }
+
         public static async void AuditLogSpam(HttpClient Client, string ServerID)
         {
             try
