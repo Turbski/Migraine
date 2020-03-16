@@ -1852,6 +1852,12 @@ namespace Migraine_v2 {
         {
             this.ClearPages();
             DiscordPanel.Visible = true;
+            DiscordPanelInfo.Visible = true;
+            DiscordPanelInfoText.Visible = true;
+            DiscordPanel.Visible = true;
+            InjectionCodeBox.Visible = true;
+            InjectionLabelText.Visible = true;
+            InjectionCodeBox.Text = "";
         }
 
         private void InjectLabel_Clicked(object sender, EventArgs e)

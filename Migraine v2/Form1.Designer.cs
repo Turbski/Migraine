@@ -284,6 +284,8 @@
             this.discordRPC1.SuspendLayout();
             this.SettingsPanel.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.DiscordPanelTopWithConsole.SuspendLayout();
+            this.panel16.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -812,6 +814,7 @@
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.panel9.Controls.Add(this.DiscordPanelTopWithConsole);
             this.panel9.Controls.Add(this.nitroD);
             this.panel9.Controls.Add(this.nitroT);
             this.panel9.Controls.Add(this.splabel);
@@ -4689,6 +4692,10 @@
             this.SettingsPanel.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.DiscordPanelTopWithConsole.ResumeLayout(false);
+            this.DiscordPanelTopWithConsole.PerformLayout();
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             this.ResumeLayout(false);
 
         }

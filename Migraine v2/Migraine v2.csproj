@@ -102,8 +102,8 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="websocket-sharp.clone, Version=1.0.2.39869, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\websocket-sharp.clone.3.0.0\lib\net45\websocket-sharp.clone.dll</HintPath>
+    <Reference Include="websocket-sharp">
+      <HintPath>..\websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="xNet">
       <HintPath>D:\Axenta Files\Axenta (1)\Axenta - Copy\xNet.dll</HintPath>
@@ -119,6 +119,7 @@
     <Compile Include="Discord_Spammer_Lib\rCommands.cs" />
     <Compile Include="Discord_Spammer_Lib\rHandler.cs" />
     <Compile Include="Discord_Spammer_Lib\rStart.cs" />
+    <Compile Include="Discord_Spammer_Lib\rStatus.cs" />
     <Compile Include="GlobalExtensions.cs" />
     <Compile Include="Loading.cs">
       <SubType>Form</SubType>

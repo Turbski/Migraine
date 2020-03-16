@@ -16,7 +16,6 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Migraine_v2.CustomSettings;
 using System.Text;
-
 namespace Migraine_v2.SelfbotClasses {
     public class Commands : ModuleBase
     {
@@ -702,6 +701,18 @@ namespace Migraine_v2.SelfbotClasses {
 
             embed.WithTitle("Migraine Selfbot Commands");
             embed.WithDescription("**View all the Commands you can execute below!**");
+            embed.WithColor(Globals.EmbedHexColor);
+
+            List<CommandInfo> commands = Utils.Service.Commands.ToList();
+            foreach (CommandInfo command in commands)
+            {
+                if (command.Summary != null)
+                {
+                    embed.AddField(command.Name, command.Summary);
+                }
+            }
+
+            /*
             embed.AddField("stats", "View selfbot statistics");
             embed.AddField("ping", "Check client's latency");
             embed.AddField("spam", "Spams Channel (spam <message> <amount>)");
@@ -725,9 +736,27 @@ namespace Migraine_v2.SelfbotClasses {
             embed.AddField("ccmd", "Creates a custom user defined command (ccmd <cmdname> <response>)");
             embed.AddField("dcmd", "Deletes a custom user defined command (dcmd <cmdname>)");
             embed.WithFooter("If you want to see more of Migraine's commands, look inside the program.");
-            embed.WithColor(Globals.EmbedHexColor);
+            */
 
             await Context.Channel.SendMessageAsync("", false, embed.Build());
+        }
+        [Command("online-test")]
+        public async Task OnlineTest(string token)
+        {
+            var Socket = new WebSocket("wss://gateway.discord.gg/?v=7&encoding=json");
+
+            Socket.OnMessage += Socket_OnMessage;
+            Socket.OnOpen += Socket_OnOpen;
+        }
+
+        private void Socket_OnOpen(object sender, EventArgs e)
+        {
+            ConsoleLog.Log("Open!!");
+        }
+
+        private void Socket_OnMessage(object sender, MessageEventArgs e)
+        {
+            ConsoleLog.Log(e.Data);
         }
 
         [Command("hentai")]

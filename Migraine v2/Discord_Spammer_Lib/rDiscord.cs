@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Net.WebSockets;
 using System.Text;
 using System.Threading;
 using System.Net.WebSockets;
@@ -11,6 +12,8 @@ using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
+using Migraine_v2.API.Gateway;
+using Migraine_v2.SelfbotClasses;
 using Newtonsoft.Json;
 
 namespace Migraine_v2.Discord_Spammer_Lib
@@ -209,6 +212,33 @@ namespace Migraine_v2.Discord_Spammer_Lib
             {
             }
         }
+        public static async void SetStatus(string token, rStatus Status)
+        {
+            WebSocketSharp.WebSocket socket = new WebSocketSharp.WebSocket("wss://gateway.discord.gg/?v=7&encoding=json");
+
+            socket.Connect();
+
+            socket.OnClose += (sender, e) =>
+            {
+                SetStatus(token, Status);
+
+                return;
+            };
+
+            socket.OnMessage += Socket_OnMessage;
+            ConsoleLog.Log("Connected to Discord's websocket server.");
+        }
+
+        private static void Socket_OnMessage(object sender, WebSocketSharp.MessageEventArgs e)
+        {
+            GatewayResponse payload = JsonConvert.DeserializeObject<GatewayResponse>(e.Data);
+
+            switch (payload.Opcode)
+            {
+
+            }
+        }
+
         public static async void AuditLogSpam(HttpClient Client, string ServerID)
         {
             try
