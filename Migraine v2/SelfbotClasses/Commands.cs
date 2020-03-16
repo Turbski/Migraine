@@ -791,7 +791,7 @@ namespace Migraine_v2.SelfbotClasses {
         }
 
         [Command("ip")]
-        public async Task IP(string ip)
+        public async Task IP([Remainder] string ip)
         {
             await Context.Message.DeleteAsync();
             var client = new WebClient();
@@ -804,25 +804,23 @@ namespace Migraine_v2.SelfbotClasses {
                     ["ip"] = ip
                 };
                 var response = await req.PostAsync(new Uri($"https://ipapi.co/{ip}/json/"), new FormUrlEncodedContent(PostData));
+                string json = client.DownloadString($"https://ipapi.co/{ip}/json/");
+                var result = JsonConvert.DeserializeObject<API.API.IPInformation>(json);
+                var city = double.Parse(Convert.ToString(result.city)).ToString();
+                //var country = double.Parse(Convert.ToString(result.country)).ToString();
+                //var callingcode = double.Parse(Convert.ToString(result.country_calling_code)).ToString();
+                //var currency = double.Parse(Convert.ToString(result.currency)).ToString();
+                embed.WithAuthor("IP Result. | Migraine");
+                embed.AddField("**IP:**", $"{ip}", true);
+                embed.AddField("**City:**", $"{city.ToString()}", true);
+                //embed.AddField("**Country:**", $"{country}", true);
+                //embed.AddField("**Area Code:**", $"{callingcode}", true);
+                //embed.AddField("**Currency:**", $"{currency.}", true);
+                embed.WithColor(Globals.EmbedHexColor);
+                embed.WithFooter("Migraine");
 
+                await Context.Channel.SendMessageAsync("", false, embed.Build());
             }
-            string json = client.DownloadString($"https://ipapi.co/{ip}/json/");
-            var result = JsonConvert.DeserializeObject<API.API.IP>(json);
-            var city = double.Parse(Convert.ToString(result.city)).ToString();
-            var country = double.Parse(Convert.ToString(result.country)).ToString();
-            var callingcode = double.Parse(Convert.ToString(result.country_calling_code)).ToString();
-            var currency = double.Parse(Convert.ToString(result.currency)).ToString();
-
-            embed.WithAuthor("IP Result. | Migraine");
-            embed.AddField("**IP:**", $"{ip}", true);
-            embed.AddField("**City:**", $"{city}", true);
-            embed.AddField("**Country:**", $"{country}", true);
-            embed.AddField("**Area Code:**", $"{callingcode}", true);
-            embed.AddField("**Currency:**", $"{currency}", true);
-            embed.WithColor(Globals.EmbedHexColor);
-            embed.WithFooter("Migraine");
-
-            await Context.Channel.SendMessageAsync("", false, embed.Build());
         }
 
         [Command("kick")]
@@ -1207,17 +1205,11 @@ namespace Migraine_v2.SelfbotClasses {
         //}
 
         [Command("spam")]
-        public async Task spam([Remainder] string message) // fix
+        public async Task spam([Remainder] string message, int amount) // fix
         {
-            bool nullable = message == null;
-            if (nullable)
-                ConsoleLog.Log("Message null, try [message <amount>]");
-            else
-                await Context.Message.DeleteAsync();
-            string[] msgarr = message.Split(new char[] { ' ' });
-            int i = Convert.ToInt32(msgarr[msgarr.Length - 1]);
-            for (int j = 0; j < i; j++)
-                await Context.Channel.SendMessageAsync(message.Replace(i.ToString(), ""), false, null);
+            await Context.Message.DeleteAsync();
+            for (int j = amount; amount > 11111; j++)
+                await Context.Channel.SendMessageAsync(message);
         }
 
         [Command("stats")]
@@ -1231,44 +1223,30 @@ namespace Migraine_v2.SelfbotClasses {
             {
                 bool Hour = time.Hours <= 0 || time.Minutes <= 0;
                 if (Hour)
-                {
                     upTime += string.Format("{0} Day(s) and ", time.Days);
-                }
                 else
-                {
                     upTime += string.Format("{0} Day(s),", time.Days);
-                }
             }
             bool Minute = time.Hours > 0;
             if (Minute)
             {
                 bool flag4 = time.Minutes > 0;
                 if (flag4)
-                {
                     upTime += string.Format(" {0} Hour(s), ", time.Hours);
-                }
                 else
-                {
-                    upTime += string.Format("{0} Hour(s) And ", time.Hours);
-                }
+                    upTime += string.Format("{0} Hour(s) and ", time.Hours);
             }
             bool Second = time.Minutes > 0;
             if (Second)
-            {
                 upTime += string.Format("{0} Minute(s)", time.Minutes);
-            }
             bool MilSec = time.Seconds >= 0;
             if (MilSec)
             {
                 bool flag7 = time.Hours > 0 || time.Minutes > 0;
                 if (flag7)
-                {
-                    upTime += string.Format(" And {0} Second(s)", time.Seconds);
-                }
+                    upTime += string.Format(" and {0} Second(s)", time.Seconds);
                 else
-                {
                     upTime += string.Format("{0} Second(s)", time.Seconds);
-                }
             }
             Process process = Process.GetCurrentProcess();
             long mem = process.PrivateMemorySize64;
@@ -1317,7 +1295,7 @@ namespace Migraine_v2.SelfbotClasses {
         }
 
         [Command("tcolor")]
-        public async Task TextColor(string message, string args)
+        public async Task TextColor(string message, [Remainder] string args)
         {
             await Context.Message.DeleteAsync();
             if (args.Length > 1)
@@ -1426,12 +1404,6 @@ namespace Migraine_v2.SelfbotClasses {
                 {
                     await Context.Channel.SendMessageAsync("Invalid Time");
                 }
-                //var emoji = new Emoji("\ud83c\udf81");
-                //IReadOnlyCollection<IUser> getreactions = Context.Message.GetReactionUsersAsync(emoji, 1000);
-                //if (getreactions.Count > 0)
-                //{
-
-                //} fix later!!!!!
             }
         }
         [Command("giveawayusers")]

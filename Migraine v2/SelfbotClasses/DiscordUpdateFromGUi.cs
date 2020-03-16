@@ -54,8 +54,8 @@ namespace Migraine_v2.SelfbotClasses {
                     await StartBot._Client.SetGameAsync(status, "https://www.twitch.tv/tfue", ActivityType.Streaming);
                 else
                     await StartBot._Client.SetGameAsync(status, null, ActivityType.Watching);
-            } catch { }
-            return;
+            } catch { 
+            } return;
         }
         public static async void UpdateActivity(UserStatus i) => await StartBot._Client.SetStatusAsync(i);
     }
