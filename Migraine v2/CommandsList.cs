@@ -29,6 +29,7 @@ namespace Migraine_v2 {
                 "av:Returns mentioned users avatar <user>",
                 "donate:Donate to the developer if you feel like supporting this tool.",
                 "pay btc:Returns your bitcoin address",
+                "pay pp:Returns your paypal email",
                 "dog:Returns a dog picture",
                 "8ball:8balled nigga <question>",
                 "coinflip:Flips coins",

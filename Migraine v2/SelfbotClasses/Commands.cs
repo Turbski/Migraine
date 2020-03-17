@@ -16,9 +16,52 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Migraine_v2.CustomSettings;
 using System.Text;
+using WebSocketSharp;
+
 namespace Migraine_v2.SelfbotClasses {
     public class Commands : ModuleBase
     {
+        //====================work in progress=======================/
+        //[Command("backup")]
+        //public async Task Backup()
+        //{
+        //    await Context.Message.DeleteAsync();
+        //    var channels = Context.Guild.GetChannelsAsync(CacheMode.AllowDownload);
+        //    var catagory = Context.Guild.GetCategoriesAsync(CacheMode.AllowDownload);
+        //    var servericon = Context.Guild.IconUrl;
+        //    var bannedmembers = Context.Guild.GetBansAsync();
+        //    var servername = Context.Guild.Name;
+        //    var roles = Context.Guild.Roles;
+        //    var emojis = Context.Guild.Emotes;
+        //    var serverid = Context.Guild.Id;
+        //    bool misc = !Directory.Exists("MISC");
+        //    if (misc)
+        //        Directory.CreateDirectory("MISC");
+        //    string saver = $"MISC/Backups/{serverid}-" + DateTime.Now.ToString("hh-mm tt" + "/");
+        //    Directory.CreateDirectory(saver);
+        //    string channel = string.Join("\n", channels);
+        //    string catagorys = string.Join("\n", catagory);
+        //    string servername1 = string.Join("\n", servername);
+
+        //    File.AppendAllText(saver + "Saved Channels.txt", contents);
+        //    File.AppendAllText(saver + "Saved Catagorys.txt", contents);
+        //    File.AppendAllText(saver + "Saved Server Name.txt", contents);
+        //    File.AppendAllText(saver + "Saved Servers.txt", contents);
+        //    File.AppendAllText(saver + "Saved Servers.txt", contents);
+
+        //    var embed = new EmbedBuilder();
+        //    embed.WithTitle("Success!");
+        //    embed.WithAuthor(Context.User.Username, Context.User.GetAvatarUrl(ImageFormat.Auto));
+        //    embed.WithDescription($"Successfully saved {getservers.Count.ToString()} servers to text file.");
+        //    embed.WithColor(Globals.EmbedHexColor);
+        //    await Context.Channel.SendMessageAsync("", false, embed.Build());
+        //}
+        [Command("pin")]
+        public async Task Pin(SocketUser user)
+        {
+            await Context.Message.DeleteAsync();
+
+        }
         [Command("dchan")]
         public async Task DeleteChannels()
         {
@@ -392,8 +435,6 @@ namespace Migraine_v2.SelfbotClasses {
             await Context.Message.DeleteAsync();
         }
 
-        public string bitcoin;
-
         [Command("pay btc")]
         public async Task Bitcoin()
         {
@@ -408,18 +449,20 @@ namespace Migraine_v2.SelfbotClasses {
             await Context.Channel.SendMessageAsync("", false, embed.Build());
 
         }
-        public static JObject json;
-
-        public static string getDefaults()
+        [Command("pay pp")]
+        public async Task Paypal()
         {
-            List<string> str = new List<string>();
-            str.Add("{");
-            str.Add("\"userInfo\":{");
-            str.Add("\"bitcoin\":\"\"");
-            str.Add("}");
-            str.Add("}");
-            return string.Join("\n", str.ToArray());
+            await Context.Message.DeleteAsync();
+
+            var embed = new EmbedBuilder();
+            Settings.getSettings();
+            string paypal = Settings._PayPal;
+            embed.WithAuthor("Paypal Email", "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/PayPal_Logo_Icon_2014.svg/887px-PayPal_Logo_Icon_2014.svg.png", "");
+            embed.WithDescription("``" + paypal + "``");
+            embed.WithColor(new Color(59, 123, 191));
+            await Context.Channel.SendMessageAsync("", false, embed.Build());
         }
+        public static JObject json;
 
         [Command("bye")]
         public async Task Bye(string ip, string port, string time)
@@ -697,20 +740,20 @@ namespace Migraine_v2.SelfbotClasses {
         {
             await Context.Message.DeleteAsync();
 
-            var embed = new EmbedBuilder();
+            //var embed = new EmbedBuilder();
 
-            embed.WithTitle("Migraine Selfbot Commands");
-            embed.WithDescription("**View all the Commands you can execute below!**");
-            embed.WithColor(Globals.EmbedHexColor);
+            //embed.WithTitle("Migraine Selfbot Commands");
+            //embed.WithDescription("**View all the Commands you can execute below!**");
+            //embed.WithColor(Globals.EmbedHexColor);
 
-            List<CommandInfo> commands = Utils.Service.Commands.ToList();
-            foreach (CommandInfo command in commands)
-            {
-                if (command.Summary != null)
-                {
-                    embed.AddField(command.Name, command.Summary);
-                }
-            }
+            //List<CommandInfo> commands = Utils.Service.Commands.ToList();
+            //foreach (CommandInfo command in commands)
+            //{
+            //    if (command.Summary != null)
+            //    {
+            //        embed.AddField(command.Name, command.Summary);
+            //    }
+            //}
 
             /*
             embed.AddField("stats", "View selfbot statistics");
@@ -738,7 +781,7 @@ namespace Migraine_v2.SelfbotClasses {
             embed.WithFooter("If you want to see more of Migraine's commands, look inside the program.");
             */
 
-            await Context.Channel.SendMessageAsync("", false, embed.Build());
+            //await Context.Channel.SendMessageAsync("", false, embed.Build());
         }
         [Command("online-test")]
         public async Task OnlineTest(string token)
@@ -1233,13 +1276,13 @@ namespace Migraine_v2.SelfbotClasses {
         //    await Context.Channel.SendMessageAsync("", false, embed.Build());
         //}
 
-        [Command("spam")]
-        public async Task spam([Remainder] string message, int amount) // fix
-        {
-            await Context.Message.DeleteAsync();
-            for (int j = amount; amount > 11111; j++)
-                await Context.Channel.SendMessageAsync(message);
-        }
+        //[Command("spam")]
+        //public async Task spam([Remainder] string message, int amount) // fix
+        //{
+        //    await Context.Message.DeleteAsync();
+        //    for (int j = amount; amount > 11111; j++)
+        //        await Context.Channel.SendMessageAsync(message);
+        //}
 
         [Command("stats")]
         public async Task stats()

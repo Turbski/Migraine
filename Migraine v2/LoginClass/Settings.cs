@@ -9,6 +9,7 @@ namespace Migraine_v2.LoginClass {
         public static string _Username;
         public static string _Password;
         public static string _Bitcoin;
+        public static string _PayPal;
         public static string _Token;
         public static string _RPC;
 
@@ -23,9 +24,11 @@ namespace Migraine_v2.LoginClass {
                 _Settings = JObject.Parse(Unparsed);
                 _Username = _Settings["userInfo"]["username"].ToString();
                 _Password = _Settings["userInfo"]["password"].ToString();
-                _Bitcoin = _Settings["misc"]["bitcoin"].ToString();
-                _Token = _Settings["misc"]["token"].ToString();
-                _RPC = _Settings["misc"]["defaultRPC"].ToString();
+                _Bitcoin  = _Settings["misc"]["bitcoin"].ToString();
+                _PayPal   = _Settings["misc"]["paypal"].ToString();
+                _Token    = _Settings["misc"]["token"].ToString();
+                //_RPC = _Settings["misc"]["defaultRPC"].ToString();
+                
             } catch {
                 File.Delete("Settings.json");
                 Thread.Sleep(200);
@@ -33,18 +36,20 @@ namespace Migraine_v2.LoginClass {
             }
         }
         public static string getDefaults() {
-            List<string> str = new List<string>();
-            str.Add("{");
-            str.Add("\"userInfo\":{");
-            str.Add("\"username\":\"\",");
-            str.Add("\"password\":\"\"");
-            str.Add("},");
-            str.Add("\"misc\":{");
-            str.Add("\"bitcoin\":\"\",");
-            str.Add("\"token\":\"\",");
-            str.Add("\"defaultRPC\":false");
-            str.Add("}");
-            str.Add("}");
+            var str = new List<string>
+            {
+                "{",
+                "\"userInfo\":{",
+                "\"username\":\"\",",
+                "\"password\":\"\"",
+                "},",
+                "\"misc\":{",
+                "\"bitcoin\":\"\",",
+                "\"paypal\":\"\",",
+                "\"token\":\"\"",
+                "}",
+                "}"
+            };
             return string.Join("\n", str.ToArray());
         }
     }
