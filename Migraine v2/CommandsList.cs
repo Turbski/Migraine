@@ -38,8 +38,8 @@ namespace Migraine_v2 {
                 "invis:Makes your name and profile picture blank",
                 "migraine:Edits your message to show how good migraine is",
                 "bye:Hits off like a dream <ip> <port> <time> <= 3600 max time per concurrent",
-                "bye restart:Restarts your conncurrent | Usage: bye restart <ID>",
-                "bye stop:Stops your concurrent | Usage: bye stop <ID>",
+                //"bye restart:Restarts your conncurrent | Usage: bye restart <ID>",
+                //"bye stop:Stops your concurrent | Usage: bye stop <ID>",
                 "iq:Returns mentioned user IQ | Usage: iq <user>",
                 "ip:Returns IP result with geo location | Usage: ip <IP>",
                 "price btc:Shows Bitcoin price",
@@ -62,7 +62,8 @@ namespace Migraine_v2 {
                 "choosewinnder:Selects a random user from giveaway",
                 "cleargiveaway:Deletes the giveaway",
                 "delemoji:Deletes all emojis in guilld",
-                "sizepp:Returns the penis size of a mentioned user | Usage: sizepp <user>"
+                "sizepp:Returns the penis size of a mentioned user | Usage: sizepp <user>",
+                "react:Reacts int amount of times with your choice of emoji | Usage: react <int> <emoji>"
             }; return Commands.ToArray();
         }
     }

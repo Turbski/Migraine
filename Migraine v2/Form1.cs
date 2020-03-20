@@ -19,6 +19,7 @@ using Migraine_v2.Discord_Spammer_Lib;
 using Migraine_v2;
 using DiscordRPC;
 using DiscordRPC.Logging;
+using Migraine_v2.DClient;
 
 namespace Migraine_v2 {
     public partial class Form1 : Form {
@@ -27,31 +28,31 @@ namespace Migraine_v2 {
         public bool Injected = false;
         public Form1() {
             InitializeComponent();
-            try
-            {
-                RPCClient = new DiscordRpcClient("685768251698970676");
-                RPCClient.Logger = new ConsoleLogger
-                {
-                    Level = LogLevel.Trace
-                };
-                RPCClient.SetPresence(new RichPresence
-                {
-                    Details = "",
-                    State = "Main Page",
-                    Assets = new Assets
-                    {
-                        LargeImageKey = "migraine_logo",
-                        LargeImageText = "Migraine FTW"
-                    }
-                });
-                RPCClient.Initialize();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
+            //try
+            //{
+            //    RPCClient = new DiscordRpcClient("685768251698970676");
+            //    RPCClient.Logger = new ConsoleLogger
+            //    {
+            //        Level = LogLevel.Trace
+            //    };
+            //    RPCClient.SetPresence(new RichPresence
+            //    {
+            //        Details = "",
+            //        State = "Main Page",
+            //        Assets = new Assets
+            //        {
+            //            LargeImageKey = "migraine_logo",
+            //            LargeImageText = "Migraine FTW"
+            //        }
+            //    });
+            //    RPCClient.Initialize();
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine(e);
+            //}
             LogConsole.Text = ConsoleLog.LogInfo;
-            //lblDiscordUser.Text = "" + doLogin._Username.ToString();
+            lblDiscordUser.Text = "" + doLogin._Username.ToString();
             DiscordUser.Text = DiscordUser.Text.Replace("Unknown", $"{Globals.SelfbotUser}");
             UserToken.Text = Token1;
             string[] array = Migraine_v2.CommandsList.Get();
@@ -114,18 +115,6 @@ namespace Migraine_v2 {
             this.ClearPages();
             home1.Visible = true;
             homeLabel.Visible = true;
-            //if (Settings._RPC.Contains("true"))
-            //{
-            //    clientRPC.SetPresence(new RichPresence()
-            //    {
-            //        Details = "Main Menu",
-            //        Timestamps = Timestamps.Now,
-            //        Assets = new Assets()
-            //        {
-            //            LargeImageKey = "main_icon",
-            //        }
-            //    });
-            //}
         }
         public void Exitbutton_Click_1(object sender, EventArgs e) {
             TimeElapsed.Stop();
@@ -137,174 +126,152 @@ namespace Migraine_v2 {
             this.ClearPages();
             home1.Visible = true;
             homeLabel.Visible = true;
-            try
-            {
-                RPCClient = new DiscordRpcClient("685768251698970676");
-                RPCClient.Logger = new ConsoleLogger
-                {
-                    Level = LogLevel.Trace
-                };
-                RPCClient.SetPresence(new RichPresence
-                {
-                    Details = "",
-                    State = "Main Page",
-                    Assets = new Assets
-                    {
-                        LargeImageKey = "migraine_logo",
-                        LargeImageText = "Migraine FTW"
-                    }
-                });
-                RPCClient.Initialize();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
+            //try
+            //{
+            //    RPCClient = new DiscordRpcClient("685768251698970676");
+            //    RPCClient.Logger = new ConsoleLogger
+            //    {
+            //        Level = LogLevel.Trace
+            //    };
+            //    RPCClient.SetPresence(new RichPresence
+            //    {
+            //        Details = "",
+            //        State = "Main Page",
+            //        Assets = new Assets
+            //        {
+            //            LargeImageKey = "migraine_logo",
+            //            LargeImageText = "Migraine FTW"
+            //        }
+            //    });
+            //    RPCClient.Initialize();
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex);
+            //}
         }
         public void BtnTknChecker_Click(object sender, EventArgs e) {
             this.ClearPages();
             token1.Visible = true;
             tkncheckerLabel.Visible = true;
             tknlabel.Visible = true;
-            try
-            {
-                RPCClient = new DiscordRpcClient("685768251698970676");
-                RPCClient.Logger = new ConsoleLogger
-                {
-                    Level = LogLevel.Trace
-                };
-                RPCClient.SetPresence(new RichPresence
-                {
-                    Details = "",
-                    State = "Token Checker",
-                    Assets = new Assets
-                    {
-                        LargeImageKey = "migraine_logo",
-                        LargeImageText = "Migraine FTW"
-                    }
-                });
-                RPCClient.Initialize();
-            }
-            catch (Exception exx)
-            {
-                Console.WriteLine(exx);
-            }
+            //try
+            //{
+            //    RPCClient = new DiscordRpcClient("685768251698970676");
+            //    RPCClient.Logger = new ConsoleLogger
+            //    {
+            //        Level = LogLevel.Trace
+            //    };
+            //    RPCClient.SetPresence(new RichPresence
+            //    {
+            //        Details = "",
+            //        State = "Token Checker",
+            //        Assets = new Assets
+            //        {
+            //            LargeImageKey = "migraine_logo",
+            //            LargeImageText = "Migraine FTW"
+            //        }
+            //    });
+            //    RPCClient.Initialize();
+            //}
+            //catch (Exception exx)
+            //{
+            //    Console.WriteLine(exx);
+            //}
         }
         public void BtnSpammer_Click(object sender, EventArgs e) {
             this.ClearPages();
             spammer1.Visible = true;
             spammerLabel.Visible = true;
             splabel.Visible = true;
-            try
-            {
-                RPCClient = new DiscordRpcClient("685768251698970676");
-                RPCClient.Logger = new ConsoleLogger
-                {
-                    Level = LogLevel.Trace
-                };
-                RPCClient.SetPresence(new RichPresence
-                {
-                    Details = "",
-                    State = "Discord Spammer",
-                    Assets = new Assets
-                    {
-                        LargeImageKey = "migraine_logo",
-                        LargeImageText = "Migraine FTW"
-                    }
-                });
-                RPCClient.Initialize();
-            }
-            catch (Exception eee)
-            {
-                Console.WriteLine(eee);
-            }
+            //try
+            //{
+            //    RPCClient = new DiscordRpcClient("685768251698970676");
+            //    RPCClient.Logger = new ConsoleLogger
+            //    {
+            //        Level = LogLevel.Trace
+            //    };
+            //    RPCClient.SetPresence(new RichPresence
+            //    {
+            //        Details = "",
+            //        State = "Discord Spammer",
+            //        Assets = new Assets
+            //        {
+            //            LargeImageKey = "migraine_logo",
+            //            LargeImageText = "Migraine FTW"
+            //        }
+            //    });
+            //    RPCClient.Initialize();
+            //}
+            //catch (Exception eee)
+            //{
+            //    Console.WriteLine(eee);
+            //}
         }
         public void BtnSelfbot_Click(object sender, EventArgs e) {
             this.ClearPages();
             selfbot1.Visible = true;
             selfbotLabel.Visible = true;
             sbLabel.Visible = true;
-            try
-            {
-                RPCClient = new DiscordRpcClient("685768251698970676");
-                RPCClient.Logger = new ConsoleLogger
-                {
-                    Level = LogLevel.Trace
-                };
-                RPCClient.SetPresence(new RichPresence
-                {
-                    Details = "",
-                    State = "Selfbot",
-                    Assets = new Assets
-                    {
-                        LargeImageKey = "migraine_logo",
-                        LargeImageText = "Migraine FTW"
-                    }
-                });
-                RPCClient.Initialize();
-            }
-            catch (Exception ee)
-            {
-                Console.WriteLine(ee);
-            }
+            //try
+            //{
+            //    RPCClient = new DiscordRpcClient("685768251698970676");
+            //    RPCClient.Logger = new ConsoleLogger
+            //    {
+            //        Level = LogLevel.Trace
+            //    };
+            //    RPCClient.SetPresence(new RichPresence
+            //    {
+            //        Details = "",
+            //        State = "Selfbot",
+            //        Assets = new Assets
+            //        {
+            //            LargeImageKey = "migraine_logo",
+            //            LargeImageText = "Migraine FTW"
+            //        }
+            //    });
+            //    RPCClient.Initialize();
+            //}
+            //catch (Exception ee)
+            //{
+            //    Console.WriteLine(ee);
+            //}
         }
         private void NitrosnprBtn_Click(object sender, EventArgs e) {
             this.ClearPages();
             nitrosnprPanel.Visible = true;
             nitroD.Visible = true;
             nitroT.Visible = true;
-            try
-            {
-                RPCClient = new DiscordRpcClient("685768251698970676");
-                RPCClient.Logger = new ConsoleLogger
-                {
-                    Level = LogLevel.Trace
-                };
-                RPCClient.SetPresence(new RichPresence
-                {
-                    Details = "",
-                    State = "Nitro Sniper",
-                    Assets = new Assets
-                    {
-                        LargeImageKey = "migraine_logo",
-                        LargeImageText = "Migraine FTW"
-                    }
-                });
-                RPCClient.Initialize();
-            }
-            catch (Exception eaa)
-            {
-                Console.WriteLine(eaa);
-            }
+            //try
+            //{
+            //    RPCClient = new DiscordRpcClient("685768251698970676");
+            //    RPCClient.Logger = new ConsoleLogger
+            //    {
+            //        Level = LogLevel.Trace
+            //    };
+            //    RPCClient.SetPresence(new RichPresence
+            //    {
+            //        Details = "",
+            //        State = "Nitro Sniper",
+            //        Assets = new Assets
+            //        {
+            //            LargeImageKey = "migraine_logo",
+            //            LargeImageText = "Migraine FTW"
+            //        }
+            //    });
+            //    RPCClient.Initialize();
+            //}
+            //catch (Exception eaa)
+            //{
+            //    Console.WriteLine(eaa);
+            //}
         }
         public void BtnDiscordRPC_Click(object sender, EventArgs e) {
             this.ClearPages();
             rpcdlabel.Visible = true;
             rpcLabel.Visible = true;
             discordRPC1.Visible = true;
-            try
-            {
-                RPCClient = new DiscordRpcClient("685768251698970676");
-                RPCClient.Logger = new ConsoleLogger
-                {
-                    Level = LogLevel.Trace
-                };
-                RPCClient.SetPresence(new RichPresence
-                {
-                    Details = "",
-                    State = "Discord Sniper",
-                    Assets = new Assets
-                    {
-                        LargeImageKey = "migraine_logo",
-                        LargeImageText = "Migraine FTW"
-                    }
-                });
-                RPCClient.Initialize();
-            }
-            catch (Exception eww)
-            {
-                Console.WriteLine(eww);
-            }
+
         }
         private void JoinDiscordButton_Click_1(object sender, EventArgs e) {
             Process.Start("https://discord.gg/JW5t7zV");
@@ -342,6 +309,18 @@ namespace Migraine_v2 {
             SpotifyPanel.Visible = false;
             DiscordPanel.Visible = false;
             EmbedPanel.Visible = false;
+            DiscordPanelInfo.Visible = false;
+            DiscordPanelInfoText.Visible = false;
+            Stream.Visible = false;
+            EmbedMenu.Visible = false;
+            ChangeAV.Visible = false;
+            LoadAvatar.Visible = false;
+            Revert.Visible = false;
+            AV.Visible = false;
+            VC.Visible = false;
+            JoinVoiceChannelButton.Visible = false;
+            LeaveVC.Visible = false;
+            voiceChannelID.Visible = false;
         }
 
         public void ClearAllTxt() {
@@ -524,7 +503,7 @@ namespace Migraine_v2 {
                 {
                     if (Settings._Username != this.UserToken.Text)
                     {
-                        //Settings._Settings["misc"]["token"] = this.UserToken.Text;
+                        Settings._Settings["misc"]["token"] = this.UserToken.Text;
                         string output = JsonConvert.SerializeObject(Settings._Settings, Formatting.Indented);
                         File.WriteAllText("Settings.json", output);
                     }
@@ -882,16 +861,21 @@ namespace Migraine_v2 {
         }
         private void ChangeStatus_Click_1(object sender, EventArgs e) {
             bool flag = this.ChangeStatusBtn.selectedIndex == 1;
-            if (flag) foreach (string token in Form1.ValidTokens) { rDiscord.SetStatusTokenOnline(Client.Create(false, null, token)); }
-            else {
+            if (flag) foreach (string token in Form1.ValidTokens)
+                {
+                    rDiscord.SetStatus(token, rStatus.Online);
+                }
+            else
+            {
                 bool flag2 = this.ChangeStatusBtn.selectedIndex == 2;
                 if (flag2)
                     foreach (string token in Form1.ValidTokens) { rDiscord.SetStatusTokenIdle(Client.Create(false, null, token)); }
-                else {
+                else
+                {
                     bool flag3 = this.ChangeStatusBtn.selectedIndex == 3;
                     if (flag3) foreach (string token in Form1.ValidTokens) { rDiscord.SetStatusTokendnd(Client.Create(false, null, token)); }
                     bool flag4 = this.ChangeStatusBtn.selectedIndex == 4;
-                    if (flag4)  foreach (string token in Form1.ValidTokens) {  rDiscord.SetStatusTokenOffline(Client.Create(false, null, token)); }
+                    if (flag4) foreach (string token in Form1.ValidTokens) { rDiscord.SetStatusTokenOffline(Client.Create(false, null, token)); }
                 }
             } ConsoleLog.Log("Status set to " + this.ChangeStatusBtn.Text);
         }
@@ -1859,8 +1843,7 @@ namespace Migraine_v2 {
             InjectionLabelText.Visible = true;
             InjectionCodeBox.Text = "";
         }
-
-        private void InjectLabel_Clicked(object sender, EventArgs e)
+        private void InjectButton_Click(object sender, EventArgs e)
         {
             if (Injected)
             {
@@ -1868,41 +1851,28 @@ namespace Migraine_v2 {
             }
             else
             {
-                //InjectThisShit();
+                InjectThisShit();
             }
         }
-
-        private void InjectButton_Clicked(object sender, EventArgs e)
+        private void InjectThisShit()
         {
-            if (Injected)
+            Injection inject = new Injection(true, InjectionCodeBox.Text.ToString(), true);
+            ClientInjector injector = new ClientInjector(inject, false);
+            if (injector.Inject())
             {
-                InjectionLabelText.Text = "Status: Already Injected.";
+                InjectionLabelText.Text = "Status: Injected and Executed Successfully.";
+                Injected = true;
             }
             else
             {
-                //InjectThisShit();
+                InjectionLabelText.Text = "Status: Failed to Inject and/or Execute. Contact Yaekith#1337 for more information.";
+                Injected = false;
             }
         }
 
-        private void InjectButton_Paint(object sender, PaintEventArgs e)
+        private void Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
-        //private void InjectThisShit()
-        //{
-        //    Injection inject = new Injection(true, InjectionCodeBox.Text.ToString(), true);
-        //    ClientInjector injector = new ClientInjector(inject, false);
-        //    if (injector.Inject())
-        //    {
-        //        InjectionLabelText.Text = "Status: Injected and Executed Successfully.";
-        //        Injected = true;
-        //    }
-        //    else
-        //    {
-        //        InjectionLabelText.Text = "Status: Failed to Inject and/or Execute. Contact Yaekith#1337 for more information.";
-        //        Injected = false;
-        //    }
-        //}
     }
 }

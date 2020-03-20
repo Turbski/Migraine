@@ -14,7 +14,7 @@ namespace Migraine_v2.SelfbotClasses {
         public async Task Install(DiscordSocketClient c) {
             this._client = c;
             this._cmds = new CommandService();
-            Utils.Service = _cmds;
+            //Utils.Service = _cmds;
             await this._cmds.AddModulesAsync(Assembly.GetEntryAssembly(), null);
             this._client.MessageReceived += this.HandleCommand;
         }

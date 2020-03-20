@@ -16,7 +16,6 @@ namespace Migraine_v2.DClient
         public ClientInjector(Injection properties, bool InjectOnCreation = false)
         {
             Settings = properties;
-
             if (InjectOnCreation)
             {
                 Inject();
@@ -45,7 +44,7 @@ namespace Migraine_v2.DClient
                 if (Restart) Process.Start(Branch == "discordcanary" ? DiscordCanaryPath : DiscordPath);
                 return true;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return false;
             }
@@ -73,7 +72,6 @@ namespace Migraine_v2.DClient
             }
             return result;
         }
-
     }
 
     public class Injection

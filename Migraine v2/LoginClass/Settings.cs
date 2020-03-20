@@ -11,7 +11,7 @@ namespace Migraine_v2.LoginClass {
         public static string _Bitcoin;
         public static string _PayPal;
         public static string _Token;
-        public static string _RPC;
+       //public static string _RPC;
 
         public static void getSettings() {
             //-------------Create Settings.json file in dir-----------//
@@ -28,7 +28,6 @@ namespace Migraine_v2.LoginClass {
                 _PayPal   = _Settings["misc"]["paypal"].ToString();
                 _Token    = _Settings["misc"]["token"].ToString();
                 //_RPC = _Settings["misc"]["defaultRPC"].ToString();
-                
             } catch {
                 File.Delete("Settings.json");
                 Thread.Sleep(200);
@@ -46,7 +45,7 @@ namespace Migraine_v2.LoginClass {
                 "\"misc\":{",
                 "\"bitcoin\":\"\",",
                 "\"paypal\":\"\",",
-                "\"token\":\"\"",
+                "\"token\":\"\",",
                 "}",
                 "}"
             };

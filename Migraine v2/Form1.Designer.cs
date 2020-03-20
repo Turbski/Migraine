@@ -59,6 +59,8 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.LogConsole = new System.Windows.Forms.RichTextBox();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.DiscordPanelInfoText = new System.Windows.Forms.Label();
+            this.DiscordPanelInfo = new System.Windows.Forms.Label();
             this.nitroD = new System.Windows.Forms.Label();
             this.nitroT = new System.Windows.Forms.Label();
             this.splabel = new System.Windows.Forms.Label();
@@ -86,6 +88,7 @@
             this.UpdateDate = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.token1 = new System.Windows.Forms.Panel();
+            this.gunaTextBox1 = new Guna.UI.WinForms.GunaTextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.SaveAllTkn = new Bunifu.Framework.UI.BunifuFlatButton();
             this.Retries = new System.Windows.Forms.Label();
@@ -107,6 +110,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.TokenLoad = new Bunifu.Framework.UI.BunifuFlatButton();
             this.selfbot1 = new System.Windows.Forms.Panel();
+            this.UserToken = new Guna.UI.WinForms.GunaTextBox();
             this.CommandsList = new Guna.UI.WinForms.GunaDataGridView();
             this.Commands = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CommandInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -208,12 +212,12 @@
             this.proxyButt = new Bunifu.Framework.UI.BunifuFlatButton();
             this.LoadTokens = new Bunifu.Framework.UI.BunifuFlatButton();
             this.DiscordPanel = new Guna.UI.WinForms.GunaPanel();
-            this.InjectButton = new Guna.UI.WinForms.GunaPanel();
-            this.InjectLabel = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
+            this.InjectButton = new Guna.UI.WinForms.GunaButton();
             this.InjectionCodeBox = new Guna.UI.WinForms.GunaTextBox();
             this.InjectionLabelText = new System.Windows.Forms.Label();
+            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.nitrosnprPanel = new System.Windows.Forms.Panel();
+            this.NitroToken = new Guna.UI.WinForms.GunaTextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.TimeSinceStart1 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
@@ -227,6 +231,13 @@
             this.label60 = new System.Windows.Forms.Label();
             this.StartNitro = new Bunifu.Framework.UI.BunifuFlatButton();
             this.discordRPC1 = new System.Windows.Forms.Panel();
+            this.Client_ID = new Guna.UI.WinForms.GunaTextBox();
+            this.State = new Guna.UI.WinForms.GunaTextBox();
+            this.Details = new Guna.UI.WinForms.GunaTextBox();
+            this.ImageText = new Guna.UI.WinForms.GunaTextBox();
+            this.ImageAsset = new Guna.UI.WinForms.GunaTextBox();
+            this.PartySize = new Guna.UI.WinForms.GunaTextBox();
+            this.PartyMax = new Guna.UI.WinForms.GunaTextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.stopp = new Bunifu.Framework.UI.BunifuFlatButton();
             this.startt = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -238,6 +249,8 @@
             this.label50 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
             this.SettingsPanel = new System.Windows.Forms.Panel();
+            this.Prefix = new Guna.UI.WinForms.GunaTextBox();
+            this.EmbedColor = new Guna.UI.WinForms.GunaTextBox();
             this.ChangePrefHex = new Bunifu.Framework.UI.BunifuFlatButton();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
@@ -249,18 +262,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.gunaElipse2 = new Guna.UI.WinForms.GunaElipse(this.components);
-            this.NitroToken = new Guna.UI.WinForms.GunaTextBox();
-            this.UserToken = new Guna.UI.WinForms.GunaTextBox();
-            this.PartyMax = new Guna.UI.WinForms.GunaTextBox();
-            this.PartySize = new Guna.UI.WinForms.GunaTextBox();
-            this.ImageAsset = new Guna.UI.WinForms.GunaTextBox();
-            this.ImageText = new Guna.UI.WinForms.GunaTextBox();
-            this.Details = new Guna.UI.WinForms.GunaTextBox();
-            this.State = new Guna.UI.WinForms.GunaTextBox();
-            this.Client_ID = new Guna.UI.WinForms.GunaTextBox();
-            this.gunaTextBox1 = new Guna.UI.WinForms.GunaTextBox();
-            this.EmbedColor = new Guna.UI.WinForms.GunaTextBox();
-            this.Prefix = new Guna.UI.WinForms.GunaTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
@@ -279,13 +280,10 @@
             this.EmbedPanel.SuspendLayout();
             this.SpotifyPanel.SuspendLayout();
             this.DiscordPanel.SuspendLayout();
-            this.InjectButton.SuspendLayout();
             this.nitrosnprPanel.SuspendLayout();
             this.discordRPC1.SuspendLayout();
             this.SettingsPanel.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.DiscordPanelTopWithConsole.SuspendLayout();
-            this.panel16.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -302,6 +300,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(199, 616);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
             // discordClientButton
             // 
@@ -325,7 +324,7 @@
             this.discordClientButton.IconVisible = true;
             this.discordClientButton.IconZoom = 90D;
             this.discordClientButton.IsTab = true;
-            this.discordClientButton.Location = new System.Drawing.Point(3, 230);
+            this.discordClientButton.Location = new System.Drawing.Point(3, 235);
             this.discordClientButton.Name = "discordClientButton";
             this.discordClientButton.Normalcolor = System.Drawing.Color.Transparent;
             this.discordClientButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
@@ -469,7 +468,7 @@
             this.btnSpammer.IconVisible = true;
             this.btnSpammer.IconZoom = 90D;
             this.btnSpammer.IsTab = true;
-            this.btnSpammer.Location = new System.Drawing.Point(3, 84);
+            this.btnSpammer.Location = new System.Drawing.Point(3, 83);
             this.btnSpammer.Name = "btnSpammer";
             this.btnSpammer.Normalcolor = System.Drawing.Color.Transparent;
             this.btnSpammer.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
@@ -595,7 +594,7 @@
             this.lblDiscordUser.AutoSize = true;
             this.lblDiscordUser.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDiscordUser.ForeColor = System.Drawing.Color.White;
-            this.lblDiscordUser.Location = new System.Drawing.Point(91, 11);
+            this.lblDiscordUser.Location = new System.Drawing.Point(84, 11);
             this.lblDiscordUser.Name = "lblDiscordUser";
             this.lblDiscordUser.Size = new System.Drawing.Size(86, 18);
             this.lblDiscordUser.TabIndex = 4;
@@ -814,7 +813,8 @@
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.panel9.Controls.Add(this.DiscordPanelTopWithConsole);
+            this.panel9.Controls.Add(this.DiscordPanelInfoText);
+            this.panel9.Controls.Add(this.DiscordPanelInfo);
             this.panel9.Controls.Add(this.nitroD);
             this.panel9.Controls.Add(this.nitroT);
             this.panel9.Controls.Add(this.splabel);
@@ -835,6 +835,28 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(975, 41);
             this.panel9.TabIndex = 8;
+            // 
+            // DiscordPanelInfoText
+            // 
+            this.DiscordPanelInfoText.AutoSize = true;
+            this.DiscordPanelInfoText.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DiscordPanelInfoText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(187)))), ((int)(((byte)(190)))));
+            this.DiscordPanelInfoText.Location = new System.Drawing.Point(183, 15);
+            this.DiscordPanelInfoText.Name = "DiscordPanelInfoText";
+            this.DiscordPanelInfoText.Size = new System.Drawing.Size(207, 15);
+            this.DiscordPanelInfoText.TabIndex = 23;
+            this.DiscordPanelInfoText.Text = "A injecting system for discord. [BETA]";
+            // 
+            // DiscordPanelInfo
+            // 
+            this.DiscordPanelInfo.AutoSize = true;
+            this.DiscordPanelInfo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DiscordPanelInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.DiscordPanelInfo.Location = new System.Drawing.Point(53, 12);
+            this.DiscordPanelInfo.Name = "DiscordPanelInfo";
+            this.DiscordPanelInfo.Size = new System.Drawing.Size(117, 19);
+            this.DiscordPanelInfo.TabIndex = 22;
+            this.DiscordPanelInfo.Text = "Discord Client";
             // 
             // nitroD
             // 
@@ -1125,10 +1147,29 @@
             this.token1.Controls.Add(this.LoadProxyt);
             this.token1.Controls.Add(this.label7);
             this.token1.Controls.Add(this.TokenLoad);
-            this.token1.Location = new System.Drawing.Point(271, 67);
+            this.token1.Location = new System.Drawing.Point(271, 69);
             this.token1.Name = "token1";
-            this.token1.Size = new System.Drawing.Size(741, 660);
+            this.token1.Size = new System.Drawing.Size(741, 658);
             this.token1.TabIndex = 10;
+            // 
+            // gunaTextBox1
+            // 
+            this.gunaTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.gunaTextBox1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.gunaTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.gunaTextBox1.BorderSize = 1;
+            this.gunaTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.gunaTextBox1.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.gunaTextBox1.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.gunaTextBox1.FocusedForeColor = System.Drawing.Color.White;
+            this.gunaTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaTextBox1.ForeColor = System.Drawing.Color.White;
+            this.gunaTextBox1.Location = new System.Drawing.Point(251, 30);
+            this.gunaTextBox1.MultiLine = true;
+            this.gunaTextBox1.Name = "gunaTextBox1";
+            this.gunaTextBox1.PasswordChar = '\0';
+            this.gunaTextBox1.Size = new System.Drawing.Size(478, 620);
+            this.gunaTextBox1.TabIndex = 182;
             // 
             // label15
             // 
@@ -1495,6 +1536,25 @@
             this.selfbot1.Name = "selfbot1";
             this.selfbot1.Size = new System.Drawing.Size(738, 660);
             this.selfbot1.TabIndex = 11;
+            // 
+            // UserToken
+            // 
+            this.UserToken.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.UserToken.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.UserToken.BorderSize = 1;
+            this.UserToken.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.UserToken.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.UserToken.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.UserToken.FocusedForeColor = System.Drawing.Color.White;
+            this.UserToken.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.UserToken.ForeColor = System.Drawing.Color.White;
+            this.UserToken.Location = new System.Drawing.Point(13, 34);
+            this.UserToken.Name = "UserToken";
+            this.UserToken.PasswordChar = '\0';
+            this.UserToken.Size = new System.Drawing.Size(194, 28);
+            this.UserToken.TabIndex = 174;
+            this.UserToken.Text = "Insert Token";
+            this.UserToken.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // CommandsList
             // 
@@ -3822,47 +3882,41 @@
             // 
             // DiscordPanel
             // 
+            this.DiscordPanel.Controls.Add(this.InjectButton);
             this.DiscordPanel.Controls.Add(this.InjectionCodeBox);
             this.DiscordPanel.Controls.Add(this.InjectionLabelText);
-            this.DiscordPanel.Controls.Add(this.InjectButton);
             this.DiscordPanel.Controls.Add(this.gunaLabel1);
-            this.DiscordPanel.Location = new System.Drawing.Point(271, 67);
+            this.DiscordPanel.Location = new System.Drawing.Point(271, 64);
             this.DiscordPanel.Name = "DiscordPanel";
-            this.DiscordPanel.Size = new System.Drawing.Size(744, 657);
+            this.DiscordPanel.Size = new System.Drawing.Size(744, 660);
             this.DiscordPanel.TabIndex = 196;
             // 
             // InjectButton
             // 
-            this.InjectButton.Controls.Add(this.InjectLabel);
-            this.InjectButton.Location = new System.Drawing.Point(276, 317);
+            this.InjectButton.AnimationHoverSpeed = 0.07F;
+            this.InjectButton.AnimationSpeed = 0.03F;
+            this.InjectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.InjectButton.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
+            this.InjectButton.BorderColor = System.Drawing.Color.Black;
+            this.InjectButton.BorderSize = -5;
+            this.InjectButton.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.InjectButton.FocusedColor = System.Drawing.Color.Empty;
+            this.InjectButton.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InjectButton.ForeColor = System.Drawing.Color.White;
+            this.InjectButton.Image = null;
+            this.InjectButton.ImageSize = new System.Drawing.Size(20, 20);
+            this.InjectButton.Location = new System.Drawing.Point(251, 324);
             this.InjectButton.Name = "InjectButton";
-            this.InjectButton.Size = new System.Drawing.Size(196, 37);
-            this.InjectButton.TabIndex = 1;
-            this.InjectButton.Click += new System.EventHandler(this.InjectButton_Clicked);
-            this.InjectButton.Paint += new System.Windows.Forms.PaintEventHandler(this.InjectButton_Paint);
-            // 
-            // InjectLabel
-            // 
-            this.InjectLabel.AutoSize = true;
-            this.InjectLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InjectLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.InjectLabel.Location = new System.Drawing.Point(64, 9);
-            this.InjectLabel.Name = "InjectLabel";
-            this.InjectLabel.Size = new System.Drawing.Size(62, 21);
-            this.InjectLabel.TabIndex = 0;
-            this.InjectLabel.Text = "Execute";
-            this.InjectLabel.Click += new System.EventHandler(this.InjectLabel_Clicked);
-            // 
-            // gunaLabel1
-            // 
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel1.ForeColor = System.Drawing.SystemColors.Control;
-            this.gunaLabel1.Location = new System.Drawing.Point(10, 9);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(56, 15);
-            this.gunaLabel1.TabIndex = 0;
-            this.gunaLabel1.Text = "Overview";
+            this.InjectButton.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(120)))), ((int)(((byte)(218)))));
+            this.InjectButton.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.InjectButton.OnHoverForeColor = System.Drawing.Color.White;
+            this.InjectButton.OnHoverImage = null;
+            this.InjectButton.OnPressedColor = System.Drawing.Color.Black;
+            this.InjectButton.Size = new System.Drawing.Size(232, 42);
+            this.InjectButton.TabIndex = 4;
+            this.InjectButton.Text = "Execute";
+            this.InjectButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.InjectButton.Click += new System.EventHandler(this.InjectButton_Click);
             // 
             // InjectionCodeBox
             // 
@@ -3891,6 +3945,17 @@
             this.InjectionLabelText.TabIndex = 2;
             this.InjectionLabelText.Text = "Status: Not Injected.";
             // 
+            // gunaLabel1
+            // 
+            this.gunaLabel1.AutoSize = true;
+            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
+            this.gunaLabel1.Location = new System.Drawing.Point(10, 9);
+            this.gunaLabel1.Name = "gunaLabel1";
+            this.gunaLabel1.Size = new System.Drawing.Size(56, 15);
+            this.gunaLabel1.TabIndex = 0;
+            this.gunaLabel1.Text = "Overview";
+            // 
             // nitrosnprPanel
             // 
             this.nitrosnprPanel.Controls.Add(this.NitroToken);
@@ -3906,10 +3971,29 @@
             this.nitrosnprPanel.Controls.Add(this.StopNitro);
             this.nitrosnprPanel.Controls.Add(this.label60);
             this.nitrosnprPanel.Controls.Add(this.StartNitro);
-            this.nitrosnprPanel.Location = new System.Drawing.Point(271, 69);
+            this.nitrosnprPanel.Location = new System.Drawing.Point(271, 67);
             this.nitrosnprPanel.Name = "nitrosnprPanel";
-            this.nitrosnprPanel.Size = new System.Drawing.Size(738, 659);
+            this.nitrosnprPanel.Size = new System.Drawing.Size(738, 661);
             this.nitrosnprPanel.TabIndex = 80;
+            // 
+            // NitroToken
+            // 
+            this.NitroToken.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.NitroToken.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.NitroToken.BorderSize = 1;
+            this.NitroToken.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.NitroToken.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.NitroToken.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.NitroToken.FocusedForeColor = System.Drawing.Color.White;
+            this.NitroToken.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.NitroToken.ForeColor = System.Drawing.Color.White;
+            this.NitroToken.Location = new System.Drawing.Point(15, 27);
+            this.NitroToken.Name = "NitroToken";
+            this.NitroToken.PasswordChar = '\0';
+            this.NitroToken.Size = new System.Drawing.Size(194, 28);
+            this.NitroToken.TabIndex = 173;
+            this.NitroToken.Text = "Insert Token";
+            this.NitroToken.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label19
             // 
@@ -4119,6 +4203,139 @@
             this.discordRPC1.Size = new System.Drawing.Size(741, 662);
             this.discordRPC1.TabIndex = 13;
             // 
+            // Client_ID
+            // 
+            this.Client_ID.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.Client_ID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.Client_ID.BorderSize = 1;
+            this.Client_ID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Client_ID.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.Client_ID.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.Client_ID.FocusedForeColor = System.Drawing.Color.White;
+            this.Client_ID.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Client_ID.ForeColor = System.Drawing.Color.White;
+            this.Client_ID.Location = new System.Drawing.Point(21, 32);
+            this.Client_ID.Name = "Client_ID";
+            this.Client_ID.PasswordChar = '\0';
+            this.Client_ID.Size = new System.Drawing.Size(248, 28);
+            this.Client_ID.TabIndex = 181;
+            this.Client_ID.Text = "Unknown";
+            this.Client_ID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // State
+            // 
+            this.State.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.State.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.State.BorderSize = 1;
+            this.State.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.State.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.State.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.State.FocusedForeColor = System.Drawing.Color.White;
+            this.State.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.State.ForeColor = System.Drawing.Color.White;
+            this.State.Location = new System.Drawing.Point(21, 92);
+            this.State.Name = "State";
+            this.State.PasswordChar = '\0';
+            this.State.Size = new System.Drawing.Size(248, 28);
+            this.State.TabIndex = 180;
+            this.State.Text = "Unknown";
+            this.State.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Details
+            // 
+            this.Details.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.Details.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.Details.BorderSize = 1;
+            this.Details.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Details.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.Details.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.Details.FocusedForeColor = System.Drawing.Color.White;
+            this.Details.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Details.ForeColor = System.Drawing.Color.White;
+            this.Details.Location = new System.Drawing.Point(20, 146);
+            this.Details.Name = "Details";
+            this.Details.PasswordChar = '\0';
+            this.Details.Size = new System.Drawing.Size(248, 28);
+            this.Details.TabIndex = 179;
+            this.Details.Text = "Unknown";
+            this.Details.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // ImageText
+            // 
+            this.ImageText.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.ImageText.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.ImageText.BorderSize = 1;
+            this.ImageText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ImageText.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.ImageText.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.ImageText.FocusedForeColor = System.Drawing.Color.White;
+            this.ImageText.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ImageText.ForeColor = System.Drawing.Color.White;
+            this.ImageText.Location = new System.Drawing.Point(20, 204);
+            this.ImageText.Name = "ImageText";
+            this.ImageText.PasswordChar = '\0';
+            this.ImageText.Size = new System.Drawing.Size(248, 28);
+            this.ImageText.TabIndex = 178;
+            this.ImageText.Text = "Unknown";
+            this.ImageText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // ImageAsset
+            // 
+            this.ImageAsset.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.ImageAsset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.ImageAsset.BorderSize = 1;
+            this.ImageAsset.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ImageAsset.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.ImageAsset.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.ImageAsset.FocusedForeColor = System.Drawing.Color.White;
+            this.ImageAsset.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ImageAsset.ForeColor = System.Drawing.Color.White;
+            this.ImageAsset.Location = new System.Drawing.Point(19, 258);
+            this.ImageAsset.Name = "ImageAsset";
+            this.ImageAsset.PasswordChar = '\0';
+            this.ImageAsset.Size = new System.Drawing.Size(248, 28);
+            this.ImageAsset.TabIndex = 177;
+            this.ImageAsset.Text = "Unknown";
+            this.ImageAsset.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // PartySize
+            // 
+            this.PartySize.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.PartySize.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.PartySize.BorderSize = 1;
+            this.PartySize.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.PartySize.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.PartySize.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.PartySize.FocusedForeColor = System.Drawing.Color.White;
+            this.PartySize.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.PartySize.ForeColor = System.Drawing.Color.White;
+            this.PartySize.Location = new System.Drawing.Point(20, 312);
+            this.PartySize.Name = "PartySize";
+            this.PartySize.PasswordChar = '\0';
+            this.PartySize.Size = new System.Drawing.Size(99, 28);
+            this.PartySize.TabIndex = 176;
+            this.PartySize.Text = "0";
+            this.PartySize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // PartyMax
+            // 
+            this.PartyMax.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.PartyMax.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.PartyMax.BorderSize = 1;
+            this.PartyMax.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.PartyMax.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.PartyMax.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.PartyMax.FocusedForeColor = System.Drawing.Color.White;
+            this.PartyMax.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.PartyMax.ForeColor = System.Drawing.Color.White;
+            this.PartyMax.Location = new System.Drawing.Point(165, 311);
+            this.PartyMax.Name = "PartyMax";
+            this.PartyMax.PasswordChar = '\0';
+            this.PartyMax.Size = new System.Drawing.Size(99, 28);
+            this.PartyMax.TabIndex = 175;
+            this.PartyMax.Text = "0";
+            this.PartyMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // richTextBox1
             // 
             this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
@@ -4295,6 +4512,44 @@
             this.SettingsPanel.Size = new System.Drawing.Size(738, 660);
             this.SettingsPanel.TabIndex = 79;
             // 
+            // Prefix
+            // 
+            this.Prefix.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.Prefix.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.Prefix.BorderSize = 1;
+            this.Prefix.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Prefix.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.Prefix.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.Prefix.FocusedForeColor = System.Drawing.Color.White;
+            this.Prefix.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Prefix.ForeColor = System.Drawing.Color.White;
+            this.Prefix.Location = new System.Drawing.Point(122, 27);
+            this.Prefix.Name = "Prefix";
+            this.Prefix.PasswordChar = '\0';
+            this.Prefix.Size = new System.Drawing.Size(78, 28);
+            this.Prefix.TabIndex = 183;
+            this.Prefix.Text = ";";
+            this.Prefix.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // EmbedColor
+            // 
+            this.EmbedColor.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.EmbedColor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.EmbedColor.BorderSize = 1;
+            this.EmbedColor.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.EmbedColor.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.EmbedColor.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.EmbedColor.FocusedForeColor = System.Drawing.Color.White;
+            this.EmbedColor.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.EmbedColor.ForeColor = System.Drawing.Color.White;
+            this.EmbedColor.Location = new System.Drawing.Point(122, 59);
+            this.EmbedColor.Name = "EmbedColor";
+            this.EmbedColor.PasswordChar = '\0';
+            this.EmbedColor.Size = new System.Drawing.Size(78, 28);
+            this.EmbedColor.TabIndex = 182;
+            this.EmbedColor.Text = "255,0,0";
+            this.EmbedColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // ChangePrefHex
             // 
             this.ChangePrefHex.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
@@ -4395,234 +4650,6 @@
             // 
             this.gunaElipse2.TargetControl = this.EmbedTitle;
             // 
-            // NitroToken
-            // 
-            this.NitroToken.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.NitroToken.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.NitroToken.BorderSize = 1;
-            this.NitroToken.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.NitroToken.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.NitroToken.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
-            this.NitroToken.FocusedForeColor = System.Drawing.Color.White;
-            this.NitroToken.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.NitroToken.ForeColor = System.Drawing.Color.White;
-            this.NitroToken.Location = new System.Drawing.Point(15, 27);
-            this.NitroToken.Name = "NitroToken";
-            this.NitroToken.PasswordChar = '\0';
-            this.NitroToken.Size = new System.Drawing.Size(194, 28);
-            this.NitroToken.TabIndex = 173;
-            this.NitroToken.Text = "Insert Token";
-            this.NitroToken.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // UserToken
-            // 
-            this.UserToken.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.UserToken.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.UserToken.BorderSize = 1;
-            this.UserToken.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.UserToken.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.UserToken.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
-            this.UserToken.FocusedForeColor = System.Drawing.Color.White;
-            this.UserToken.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.UserToken.ForeColor = System.Drawing.Color.White;
-            this.UserToken.Location = new System.Drawing.Point(13, 34);
-            this.UserToken.Name = "UserToken";
-            this.UserToken.PasswordChar = '\0';
-            this.UserToken.Size = new System.Drawing.Size(194, 28);
-            this.UserToken.TabIndex = 174;
-            this.UserToken.Text = "Insert Token";
-            this.UserToken.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // PartyMax
-            // 
-            this.PartyMax.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.PartyMax.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.PartyMax.BorderSize = 1;
-            this.PartyMax.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.PartyMax.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.PartyMax.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
-            this.PartyMax.FocusedForeColor = System.Drawing.Color.White;
-            this.PartyMax.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.PartyMax.ForeColor = System.Drawing.Color.White;
-            this.PartyMax.Location = new System.Drawing.Point(165, 311);
-            this.PartyMax.Name = "PartyMax";
-            this.PartyMax.PasswordChar = '\0';
-            this.PartyMax.Size = new System.Drawing.Size(99, 28);
-            this.PartyMax.TabIndex = 175;
-            this.PartyMax.Text = "0";
-            this.PartyMax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // PartySize
-            // 
-            this.PartySize.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.PartySize.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.PartySize.BorderSize = 1;
-            this.PartySize.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.PartySize.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.PartySize.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
-            this.PartySize.FocusedForeColor = System.Drawing.Color.White;
-            this.PartySize.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.PartySize.ForeColor = System.Drawing.Color.White;
-            this.PartySize.Location = new System.Drawing.Point(20, 312);
-            this.PartySize.Name = "PartySize";
-            this.PartySize.PasswordChar = '\0';
-            this.PartySize.Size = new System.Drawing.Size(99, 28);
-            this.PartySize.TabIndex = 176;
-            this.PartySize.Text = "0";
-            this.PartySize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // ImageAsset
-            // 
-            this.ImageAsset.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.ImageAsset.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.ImageAsset.BorderSize = 1;
-            this.ImageAsset.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.ImageAsset.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.ImageAsset.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
-            this.ImageAsset.FocusedForeColor = System.Drawing.Color.White;
-            this.ImageAsset.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ImageAsset.ForeColor = System.Drawing.Color.White;
-            this.ImageAsset.Location = new System.Drawing.Point(19, 258);
-            this.ImageAsset.Name = "ImageAsset";
-            this.ImageAsset.PasswordChar = '\0';
-            this.ImageAsset.Size = new System.Drawing.Size(248, 28);
-            this.ImageAsset.TabIndex = 177;
-            this.ImageAsset.Text = "Unknown";
-            this.ImageAsset.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // ImageText
-            // 
-            this.ImageText.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.ImageText.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.ImageText.BorderSize = 1;
-            this.ImageText.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.ImageText.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.ImageText.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
-            this.ImageText.FocusedForeColor = System.Drawing.Color.White;
-            this.ImageText.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ImageText.ForeColor = System.Drawing.Color.White;
-            this.ImageText.Location = new System.Drawing.Point(20, 204);
-            this.ImageText.Name = "ImageText";
-            this.ImageText.PasswordChar = '\0';
-            this.ImageText.Size = new System.Drawing.Size(248, 28);
-            this.ImageText.TabIndex = 178;
-            this.ImageText.Text = "Unknown";
-            this.ImageText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Details
-            // 
-            this.Details.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.Details.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.Details.BorderSize = 1;
-            this.Details.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Details.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.Details.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
-            this.Details.FocusedForeColor = System.Drawing.Color.White;
-            this.Details.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Details.ForeColor = System.Drawing.Color.White;
-            this.Details.Location = new System.Drawing.Point(20, 146);
-            this.Details.Name = "Details";
-            this.Details.PasswordChar = '\0';
-            this.Details.Size = new System.Drawing.Size(248, 28);
-            this.Details.TabIndex = 179;
-            this.Details.Text = "Unknown";
-            this.Details.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // State
-            // 
-            this.State.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.State.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.State.BorderSize = 1;
-            this.State.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.State.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.State.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
-            this.State.FocusedForeColor = System.Drawing.Color.White;
-            this.State.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.State.ForeColor = System.Drawing.Color.White;
-            this.State.Location = new System.Drawing.Point(21, 92);
-            this.State.Name = "State";
-            this.State.PasswordChar = '\0';
-            this.State.Size = new System.Drawing.Size(248, 28);
-            this.State.TabIndex = 180;
-            this.State.Text = "Unknown";
-            this.State.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Client_ID
-            // 
-            this.Client_ID.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.Client_ID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.Client_ID.BorderSize = 1;
-            this.Client_ID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Client_ID.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.Client_ID.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
-            this.Client_ID.FocusedForeColor = System.Drawing.Color.White;
-            this.Client_ID.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Client_ID.ForeColor = System.Drawing.Color.White;
-            this.Client_ID.Location = new System.Drawing.Point(21, 32);
-            this.Client_ID.Name = "Client_ID";
-            this.Client_ID.PasswordChar = '\0';
-            this.Client_ID.Size = new System.Drawing.Size(248, 28);
-            this.Client_ID.TabIndex = 181;
-            this.Client_ID.Text = "Unknown";
-            this.Client_ID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // gunaTextBox1
-            // 
-            this.gunaTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
-            this.gunaTextBox1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
-            this.gunaTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.gunaTextBox1.BorderSize = 1;
-            this.gunaTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaTextBox1.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
-            this.gunaTextBox1.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
-            this.gunaTextBox1.FocusedForeColor = System.Drawing.Color.White;
-            this.gunaTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaTextBox1.ForeColor = System.Drawing.Color.White;
-            this.gunaTextBox1.Location = new System.Drawing.Point(251, 30);
-            this.gunaTextBox1.MultiLine = true;
-            this.gunaTextBox1.Name = "gunaTextBox1";
-            this.gunaTextBox1.PasswordChar = '\0';
-            this.gunaTextBox1.Size = new System.Drawing.Size(478, 620);
-            this.gunaTextBox1.TabIndex = 182;
-            // 
-            // EmbedColor
-            // 
-            this.EmbedColor.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.EmbedColor.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.EmbedColor.BorderSize = 1;
-            this.EmbedColor.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.EmbedColor.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.EmbedColor.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
-            this.EmbedColor.FocusedForeColor = System.Drawing.Color.White;
-            this.EmbedColor.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.EmbedColor.ForeColor = System.Drawing.Color.White;
-            this.EmbedColor.Location = new System.Drawing.Point(122, 59);
-            this.EmbedColor.Name = "EmbedColor";
-            this.EmbedColor.PasswordChar = '\0';
-            this.EmbedColor.Size = new System.Drawing.Size(78, 28);
-            this.EmbedColor.TabIndex = 182;
-            this.EmbedColor.Text = "255,0,0";
-            this.EmbedColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Prefix
-            // 
-            this.Prefix.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.Prefix.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.Prefix.BorderSize = 1;
-            this.Prefix.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Prefix.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.Prefix.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
-            this.Prefix.FocusedForeColor = System.Drawing.Color.White;
-            this.Prefix.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Prefix.ForeColor = System.Drawing.Color.White;
-            this.Prefix.Location = new System.Drawing.Point(122, 27);
-            this.Prefix.Name = "Prefix";
-            this.Prefix.PasswordChar = '\0';
-            this.Prefix.Size = new System.Drawing.Size(78, 28);
-            this.Prefix.TabIndex = 183;
-            this.Prefix.Text = ";";
-            this.Prefix.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4682,8 +4709,6 @@
             this.SpotifyPanel.PerformLayout();
             this.DiscordPanel.ResumeLayout(false);
             this.DiscordPanel.PerformLayout();
-            this.InjectButton.ResumeLayout(false);
-            this.InjectButton.PerformLayout();
             this.nitrosnprPanel.ResumeLayout(false);
             this.nitrosnprPanel.PerformLayout();
             this.discordRPC1.ResumeLayout(false);
@@ -4692,10 +4717,6 @@
             this.SettingsPanel.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.DiscordPanelTopWithConsole.ResumeLayout(false);
-            this.DiscordPanelTopWithConsole.PerformLayout();
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -4919,8 +4940,6 @@
         public Bunifu.Framework.UI.BunifuFlatButton discordClientButton;
         private Guna.UI.WinForms.GunaPanel DiscordPanel;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
-        private Guna.UI.WinForms.GunaPanel InjectButton;
-        private Guna.UI.WinForms.GunaLabel InjectLabel;
         private System.Windows.Forms.Label InjectionLabelText;
         private Guna.UI.WinForms.GunaTextBox InjectionCodeBox;
         private Guna.UI.WinForms.GunaTextBox NitroToken;
@@ -4935,6 +4954,9 @@
         private Guna.UI.WinForms.GunaTextBox gunaTextBox1;
         private Guna.UI.WinForms.GunaTextBox Prefix;
         private Guna.UI.WinForms.GunaTextBox EmbedColor;
+        public System.Windows.Forms.Label DiscordPanelInfoText;
+        public System.Windows.Forms.Label DiscordPanelInfo;
+        private Guna.UI.WinForms.GunaButton InjectButton;
     }
 }
 

@@ -15,11 +15,11 @@ namespace Migraine_v2.Registration
         public const string ProgramId = "235";
         private const string Secret = "TOYEPUK47IR5";
         public static string _Username;
-        public DiscordRpcClient RPCClient;
         public doLogin() {
             InitializeComponent();
             Settings.getSettings();
-            if (Settings._Username != "") {
+            if (Settings._Username != "")
+            {
                 Username.Text = Settings._Username;
                 Password.Text = Settings._Password;
             }
@@ -36,13 +36,13 @@ namespace Migraine_v2.Registration
                 string Resp = new WebClient().DownloadString($"http://www.auth.how/API/User/Login?User={username}&Pass={password}&Hwid={HWID}&challenge={GetChallenge(username, password, HWID)}&ProgramId={ProgramId}");
                 if (!Resp.Contains("Missing A Parameter") || !Resp.Contains("Failed To Solve Challenge!") || !Resp.Contains("Failed To Resolve Data!"))
                     SolveChallenge(Resp, username, password, HWID);
-                if (Settings._Username != Username.Text || Settings._Password != Password.Text) {
+                if (Settings._Username != Username.Text || Settings._Password != Password.Text)
+                {
                     Settings._Settings["userInfo"]["username"] = Username.Text;
                     Settings._Settings["userInfo"]["password"] = Password.Text;
                     string output = JsonConvert.SerializeObject(Settings._Settings, Formatting.Indented);
                     File.WriteAllText("Settings.json", output);
                 }
-                Login.RPCClient.Deinitialize();
                 _Username = username;
                 Login.ActiveForm.Hide();
                 var frm = new Form1();

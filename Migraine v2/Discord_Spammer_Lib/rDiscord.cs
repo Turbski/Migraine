@@ -7,14 +7,14 @@ using System.Net.Http;
 using System.Net.WebSockets;
 using System.Text;
 using System.Threading;
-using System.Net.WebSockets;
 using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
-using Migraine_v2.API.Gateway;
+using Migraine_v2.API;
 using Migraine_v2.SelfbotClasses;
 using Newtonsoft.Json;
+using static Migraine_v2.API.API;
 
 namespace Migraine_v2.Discord_Spammer_Lib
 {
@@ -179,7 +179,7 @@ namespace Migraine_v2.Discord_Spammer_Lib
         }
 
         public static dynamic GetCurrentUser(HttpClient Client) => JsonConvert.DeserializeObject<object>(Client.GetStringAsync("https://discordapp.com/api/v6/users/@me").Result);
-        public static HttpResponseMessage JoinServer(HttpClient Client, string Invite) => Client.PostAsync("https://canary.discordapp.com/api/v6/invites/" + Invite, new StringContent("", Encoding.UTF8, "application/json")).Result;
+        public static HttpResponseMessage JoinServer(HttpClient Client, string Invite) => Client.PostAsync("https://discordapp.com/api/v6/invites/" + Invite, new StringContent("", Encoding.UTF8, "application/json")).Result;
         public static async void LeaveServer(HttpClient Client, string ServerID)
         {
             try
@@ -192,7 +192,6 @@ namespace Migraine_v2.Discord_Spammer_Lib
                 await Client.SendAsync(req);
                 req = null;
                 Thread.Sleep(-1);
-
             }
             catch { }
         }
@@ -212,7 +211,7 @@ namespace Migraine_v2.Discord_Spammer_Lib
             {
             }
         }
-        public static async void SetStatus(string token, rStatus Status)
+        public static void SetStatus(string token, rStatus Status)
         {
             WebSocketSharp.WebSocket socket = new WebSocketSharp.WebSocket("wss://gateway.discord.gg/?v=7&encoding=json");
 
@@ -295,7 +294,9 @@ namespace Migraine_v2.Discord_Spammer_Lib
                 };
                 await Client.SendAsync(req);
                 req = null;
-            } catch {
+            }
+            catch
+            {
             }
         }
 

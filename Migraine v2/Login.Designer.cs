@@ -42,8 +42,8 @@
             this.CreateAccount = new Bunifu.Framework.UI.BunifuFlatButton();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.doLogin1 = new Migraine_v2.Registration.doLogin();
             this.register1 = new Migraine_v2.Registration.Register();
+            this.doLogin2 = new Migraine_v2.Registration.doLogin();
             this.DragPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LinkButton)).BeginInit();
@@ -224,14 +224,6 @@
             this.pictureBox1.TabIndex = 38;
             this.pictureBox1.TabStop = false;
             // 
-            // doLogin1
-            // 
-            this.doLogin1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.doLogin1.Location = new System.Drawing.Point(111, 114);
-            this.doLogin1.Name = "doLogin1";
-            this.doLogin1.Size = new System.Drawing.Size(294, 213);
-            this.doLogin1.TabIndex = 8;
-            // 
             // register1
             // 
             this.register1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
@@ -240,16 +232,24 @@
             this.register1.Size = new System.Drawing.Size(246, 213);
             this.register1.TabIndex = 7;
             // 
+            // doLogin2
+            // 
+            this.doLogin2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.doLogin2.Location = new System.Drawing.Point(111, 117);
+            this.doLogin2.Name = "doLogin2";
+            this.doLogin2.Size = new System.Drawing.Size(281, 210);
+            this.doLogin2.TabIndex = 39;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.ClientSize = new System.Drawing.Size(451, 434);
+            this.Controls.Add(this.doLogin2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.gunaLabel1);
             this.Controls.Add(this.CreateAccount);
-            this.Controls.Add(this.doLogin1);
             this.Controls.Add(this.register1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.DragPanel);
@@ -284,5 +284,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         public Bunifu.Framework.UI.BunifuImageButton LinkButton;
         public System.Windows.Forms.Label label1;
+        private Registration.doLogin doLogin2;
     }
 }

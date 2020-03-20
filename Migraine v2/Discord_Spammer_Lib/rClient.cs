@@ -12,7 +12,6 @@ namespace Migraine_v2.Discord_Spammer_Lib {
                 HttpClientHandler handler = new HttpClientHandler {
                     Proxy = new WebProxy(Proxy),
                     UseProxy = true
-                    //UseCookies = true 
                 };
                 result = new HttpClient(handler, true) {
                     DefaultRequestHeaders =  {

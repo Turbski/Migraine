@@ -21,6 +21,13 @@ namespace Migraine_v2.API
                 public string image { get; set; }
             }
         }
+        public class GatewayResponse
+        {
+            public int Opcode { get; private set; }
+            public string Title { get; private set; }
+            public object Data { get; set; }
+            public uint? Sequence { get; set; }
+        }
         public class RandomHug
         {
             public class RootObject

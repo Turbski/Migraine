@@ -241,9 +241,6 @@
 [*] Modified the way how we inject code into discord's electron window, making it faster, cleaner (code-wise) and more reliable to use.
 
 [!] Discord Raider
- - Fixed Status Changer (online, idle, dnd, invisible)
- + Added Voice Channel Spammer - You can now play a video to this option
- - Fixed Mass DM
  + Added Random Message option
 
 [!] Selfbot
