@@ -117,7 +117,6 @@
     <Compile Include="CommandsList.cs" />
     <Compile Include="CustomSettings\CustomCommands.cs" />
     <Compile Include="Discord_Spammer_Lib\rClient.cs" />
-    <Compile Include="Discord_Spammer_Lib\rCommands.cs" />
     <Compile Include="Discord_Spammer_Lib\rHandler.cs" />
     <Compile Include="Discord_Spammer_Lib\rStart.cs" />
     <Compile Include="Discord_Spammer_Lib\rStatus.cs" />

@@ -1847,7 +1847,7 @@ namespace Migraine_v2 {
         {
             if (Injected)
             {
-                InjectionLabelText.Text = "Status: Already Injected.";
+                InjectThisShit();
             }
             else
             {

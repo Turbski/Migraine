@@ -196,6 +196,7 @@ namespace Migraine_v2.SelfbotClasses {
             }
         }
 
+
         [Command("8ball")]
         public async Task ball([Remainder] string message)
         {
@@ -282,6 +283,17 @@ namespace Migraine_v2.SelfbotClasses {
             string json = client.DownloadString("https://api.computerfreaker.cf/v1/anime");
             var result = JsonConvert.DeserializeObject<API.API.RootObject>(json);
 
+            var embed = new EmbedBuilder();
+            embed.WithImageUrl(result.url.ToString());
+            await Context.Channel.SendMessageAsync("", false, embed.Build());
+        }
+        [Command("shibe")]
+        public async Task Shibe()
+        {
+            await Context.Message.DeleteAsync();
+            var client = new WebClient();
+            string json = client.DownloadString("http://shibe.online/api/shibes?count=1");
+            var result = JsonConvert.DeserializeObject<API.API.RandomHug.RootObject>(json);
             var embed = new EmbedBuilder();
             embed.WithImageUrl(result.url.ToString());
             await Context.Channel.SendMessageAsync("", false, embed.Build());
@@ -638,10 +650,10 @@ namespace Migraine_v2.SelfbotClasses {
         }
 
         [Command("gay")]
-        public async Task Gay([Remainder] SocketGuildUser user = null)
+        public async Task Gay([Remainder] SocketUser user = null)
         {
             if (user == null)
-                user = Context.Message.Author as SocketGuildUser;
+                user = Context.Message.Author as SocketUser;
 
             await Context.Message.DeleteAsync();
 
@@ -661,7 +673,7 @@ namespace Migraine_v2.SelfbotClasses {
         public async Task IQ([Remainder] SocketUser user = null)
         {
             if (user == null)
-                user = Context.Message.Author as SocketGuildUser;
+                user = Context.Message.Author as SocketUser;
 
             await Context.Message.DeleteAsync();
 
@@ -1592,11 +1604,11 @@ namespace Migraine_v2.SelfbotClasses {
             }
         }
         [Command("sizepp")]
-        public async Task SizePenis([Remainder] SocketGuildUser user)
+        public async Task SizePenis([Remainder] SocketUser user)
         {
             await Context.Message.DeleteAsync();
             if (user == null)
-                user = (Context.Message.Author as SocketGuildUser);
+                user = (Context.Message.Author as SocketUser);
             var random = new Random();
             string[] rand = new string[]
             {

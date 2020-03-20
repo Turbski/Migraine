@@ -1111,7 +1111,7 @@
             this.UpdateDate.Name = "UpdateDate";
             this.UpdateDate.Size = new System.Drawing.Size(70, 13);
             this.UpdateDate.TabIndex = 15;
-            this.UpdateDate.Text = "Feb 15, 2020";
+            this.UpdateDate.Text = "Mar 21, 2020";
             // 
             // label2
             // 
@@ -1147,9 +1147,9 @@
             this.token1.Controls.Add(this.LoadProxyt);
             this.token1.Controls.Add(this.label7);
             this.token1.Controls.Add(this.TokenLoad);
-            this.token1.Location = new System.Drawing.Point(271, 69);
+            this.token1.Location = new System.Drawing.Point(271, 67);
             this.token1.Name = "token1";
-            this.token1.Size = new System.Drawing.Size(741, 658);
+            this.token1.Size = new System.Drawing.Size(741, 660);
             this.token1.TabIndex = 10;
             // 
             // gunaTextBox1
@@ -1168,6 +1168,7 @@
             this.gunaTextBox1.MultiLine = true;
             this.gunaTextBox1.Name = "gunaTextBox1";
             this.gunaTextBox1.PasswordChar = '\0';
+            this.gunaTextBox1.ReadOnly = true;
             this.gunaTextBox1.Size = new System.Drawing.Size(478, 620);
             this.gunaTextBox1.TabIndex = 182;
             // 
@@ -3886,9 +3887,9 @@
             this.DiscordPanel.Controls.Add(this.InjectionCodeBox);
             this.DiscordPanel.Controls.Add(this.InjectionLabelText);
             this.DiscordPanel.Controls.Add(this.gunaLabel1);
-            this.DiscordPanel.Location = new System.Drawing.Point(271, 64);
+            this.DiscordPanel.Location = new System.Drawing.Point(271, 67);
             this.DiscordPanel.Name = "DiscordPanel";
-            this.DiscordPanel.Size = new System.Drawing.Size(744, 660);
+            this.DiscordPanel.Size = new System.Drawing.Size(744, 657);
             this.DiscordPanel.TabIndex = 196;
             // 
             // InjectButton

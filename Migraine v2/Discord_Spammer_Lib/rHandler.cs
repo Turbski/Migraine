@@ -10,10 +10,10 @@ namespace Migraine_v2.Discord_Spammer_Lib {
         public CommandService _cmds;
         private DiscordSocketClient _client;
         public async Task Install(DiscordSocketClient c) {
-            this._client = c;
-            this._cmds = new CommandService();
-            await this._cmds.AddModulesAsync(Assembly.GetEntryAssembly(), null);
-            this._client.MessageReceived += this.HandleCommand;
+            _client = c;
+            _cmds = new CommandService();
+            await _cmds.AddModulesAsync(Assembly.GetEntryAssembly(), null);
+            _client.MessageReceived += HandleCommand;
         }
 
         public async Task HandleCommand(SocketMessage s) {
@@ -22,13 +22,13 @@ namespace Migraine_v2.Discord_Spammer_Lib {
             SocketUserMessage msg = s as SocketUserMessage;
             bool nonemess = msg == null;
             if (!nonemess) {
-                SocketCommandContext context = new SocketCommandContext(this._client, msg);
+                SocketCommandContext context = new SocketCommandContext(_client, msg);
                 int argPos = 0;
                 //string prefix = Globals.Prefix;
                 Globals.RecentGuildID = context.Channel.Id;
-                bool prefox = msg.HasStringPrefix(null, ref argPos, StringComparison.Ordinal) && msg.Author.Id == this._client.CurrentUser.Id;
+                bool prefox = msg.HasStringPrefix(null, ref argPos, StringComparison.Ordinal) && msg.Author.Id == _client.CurrentUser.Id;
                 if (prefox) {
-                    IResult result2 = await this._cmds.ExecuteAsync(context, argPos, null, MultiMatchHandling.Exception);
+                    IResult result2 = await _cmds.ExecuteAsync(context, argPos, null, MultiMatchHandling.Exception);
                     IResult result = result2;
                     result2 = null;
                 }

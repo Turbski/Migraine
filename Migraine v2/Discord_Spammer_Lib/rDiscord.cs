@@ -4,7 +4,6 @@ using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Net.Http;
-using System.Net.WebSockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,6 +13,7 @@ using Discord.WebSocket;
 using Migraine_v2.API;
 using Migraine_v2.SelfbotClasses;
 using Newtonsoft.Json;
+using WebSocketSharp;
 using static Migraine_v2.API.API;
 
 namespace Migraine_v2.Discord_Spammer_Lib
@@ -213,8 +213,8 @@ namespace Migraine_v2.Discord_Spammer_Lib
         }
         public static void SetStatus(string token, rStatus Status)
         {
-            WebSocketSharp.WebSocket socket = new WebSocketSharp.WebSocket("wss://gateway.discord.gg/?v=7&encoding=json");
-
+            var socket = new WebSocket("wss://gateway.discord.gg/?v=7&encoding=json");
+   
             socket.Connect();
 
             socket.OnClose += (sender, e) =>
@@ -234,7 +234,7 @@ namespace Migraine_v2.Discord_Spammer_Lib
 
             switch (payload.Opcode)
             {
-
+                
             }
         }
 
@@ -390,6 +390,7 @@ namespace Migraine_v2.Discord_Spammer_Lib
                 RequestUri = new Uri("https://discordapp.com/api/v6/users/@me/settings"),
                 Content = new StringContent("{\"status\":\"online\"}", Encoding.UTF8, "application/json")
             };
+            
             Task<HttpResponseMessage> task = client.SendAsync(request);
             return task.Result.StatusCode == HttpStatusCode.OK;
         }
