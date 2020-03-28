@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Migraine_v2.LoginClass;
 namespace Migraine_v2 {
     public class Globals {
         public static bool CustomRPC = false;
@@ -9,7 +8,6 @@ namespace Migraine_v2 {
 
         public static string DiscordURL = "https://discord.gg/T9BSYMp";
 
-        public static string bitcoin = Settings._Bitcoin;
 
         public static bool SelfbotRunning = false;
 
@@ -32,6 +30,8 @@ namespace Migraine_v2 {
         public static int ValidNitro;
 
         public static int InvalidNitro;
+
+        public static string ConnectedUsers;
 
         public static DateTime StartTime;
 

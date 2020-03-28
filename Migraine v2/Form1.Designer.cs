@@ -88,7 +88,7 @@
             this.UpdateDate = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.token1 = new System.Windows.Forms.Panel();
-            this.gunaTextBox1 = new Guna.UI.WinForms.GunaTextBox();
+            this.TokenBox = new Guna.UI.WinForms.GunaTextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.SaveAllTkn = new Bunifu.Framework.UI.BunifuFlatButton();
             this.Retries = new System.Windows.Forms.Label();
@@ -122,11 +122,14 @@
             this.stopSelfbot = new Bunifu.Framework.UI.BunifuFlatButton();
             this.startSelfbot = new Bunifu.Framework.UI.BunifuFlatButton();
             this.spammer1 = new System.Windows.Forms.Panel();
+            this.CustomStatusTxt = new Guna.UI.WinForms.GunaTextBox();
+            this.RemoveCustomStatus = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.ChangeCustomStatusButton = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.label17 = new System.Windows.Forms.Label();
+            this.StartBots = new Bunifu.Framework.UI.BunifuFlatButton();
             this.EmbedPanel = new Guna.UI.WinForms.GunaElipsePanel();
             this.EmbedPanelExit = new Guna.UI.WinForms.GunaCircleButton();
             this.StartEmbedSpam = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.EmbedImageURL = new Guna.UI.WinForms.GunaTextBox();
-            this.label47 = new System.Windows.Forms.Label();
             this.EmbedText = new Guna.UI.WinForms.GunaTextBox();
             this.label43 = new System.Windows.Forms.Label();
             this.EmbedTitle = new Guna.UI.WinForms.GunaTextBox();
@@ -139,9 +142,6 @@
             this.MultiChannelButt = new Bunifu.Framework.UI.BunifuFlatButton();
             this.label31 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
-            this.Stream = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.Revert = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.voiceChannelID = new Guna.UI.WinForms.GunaTextBox();
             this.UserId = new Guna.UI.WinForms.GunaTextBox();
             this.UserIdText = new Guna.UI.WinForms.GunaTextBox();
             this.Nickname = new Guna.UI.WinForms.GunaTextBox();
@@ -152,13 +152,6 @@
             this.InviteURL = new Guna.UI.WinForms.GunaTextBox();
             this.MessageToSend = new Guna.UI.WinForms.GunaTextBox();
             this.richTextBox = new Guna.UI.WinForms.GunaTextBox();
-            this.SpotifyPanel = new System.Windows.Forms.Panel();
-            this.PartyID = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.SessionID = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.Spotifybutt = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.SpotifyInviteButt = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.AuditSpam = new Bunifu.Framework.UI.BunifuFlatButton();
             this.label16 = new System.Windows.Forms.Label();
@@ -167,15 +160,11 @@
             this.TypingButt = new Bunifu.Framework.UI.BunifuFlatButton();
             this.AV = new System.Windows.Forms.Label();
             this.ChangeAV = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.MassPing = new Bunifu.Framework.UI.BunifuFlatButton();
             this.tmessagessent = new System.Windows.Forms.Label();
             this.ClearChat = new Bunifu.Framework.UI.BunifuFlatButton();
             this.ResetNick = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.LeaveVC = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.VC = new System.Windows.Forms.Label();
             this._UsersLeft = new System.Windows.Forms.Label();
             this.UsersJoinedInt = new System.Windows.Forms.Label();
-            this.JoinVoiceChannelButton = new Bunifu.Framework.UI.BunifuFlatButton();
             this.AddallButt = new Bunifu.Framework.UI.BunifuFlatButton();
             this.CustomPUTInvite = new Bunifu.Framework.UI.BunifuFlatButton();
             this.label56 = new System.Windows.Forms.Label();
@@ -261,7 +250,6 @@
             this.ConstantlyRun1 = new System.Windows.Forms.Timer(this.components);
             this.panel6 = new System.Windows.Forms.Panel();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
-            this.gunaElipse2 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSettings)).BeginInit();
@@ -278,7 +266,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.CommandsList)).BeginInit();
             this.spammer1.SuspendLayout();
             this.EmbedPanel.SuspendLayout();
-            this.SpotifyPanel.SuspendLayout();
             this.DiscordPanel.SuspendLayout();
             this.nitrosnprPanel.SuspendLayout();
             this.discordRPC1.SuspendLayout();
@@ -1111,7 +1098,7 @@
             this.UpdateDate.Name = "UpdateDate";
             this.UpdateDate.Size = new System.Drawing.Size(70, 13);
             this.UpdateDate.TabIndex = 15;
-            this.UpdateDate.Text = "Mar 21, 2020";
+            this.UpdateDate.Text = "Mar 28, 2020";
             // 
             // label2
             // 
@@ -1126,7 +1113,7 @@
             // 
             // token1
             // 
-            this.token1.Controls.Add(this.gunaTextBox1);
+            this.token1.Controls.Add(this.TokenBox);
             this.token1.Controls.Add(this.label15);
             this.token1.Controls.Add(this.SaveAllTkn);
             this.token1.Controls.Add(this.Retries);
@@ -1152,25 +1139,25 @@
             this.token1.Size = new System.Drawing.Size(741, 660);
             this.token1.TabIndex = 10;
             // 
-            // gunaTextBox1
+            // TokenBox
             // 
-            this.gunaTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
-            this.gunaTextBox1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
-            this.gunaTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.gunaTextBox1.BorderSize = 1;
-            this.gunaTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaTextBox1.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
-            this.gunaTextBox1.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
-            this.gunaTextBox1.FocusedForeColor = System.Drawing.Color.White;
-            this.gunaTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaTextBox1.ForeColor = System.Drawing.Color.White;
-            this.gunaTextBox1.Location = new System.Drawing.Point(251, 30);
-            this.gunaTextBox1.MultiLine = true;
-            this.gunaTextBox1.Name = "gunaTextBox1";
-            this.gunaTextBox1.PasswordChar = '\0';
-            this.gunaTextBox1.ReadOnly = true;
-            this.gunaTextBox1.Size = new System.Drawing.Size(478, 620);
-            this.gunaTextBox1.TabIndex = 182;
+            this.TokenBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.TokenBox.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.TokenBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.TokenBox.BorderSize = 1;
+            this.TokenBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TokenBox.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
+            this.TokenBox.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.TokenBox.FocusedForeColor = System.Drawing.Color.White;
+            this.TokenBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TokenBox.ForeColor = System.Drawing.Color.White;
+            this.TokenBox.Location = new System.Drawing.Point(251, 30);
+            this.TokenBox.MultiLine = true;
+            this.TokenBox.Name = "TokenBox";
+            this.TokenBox.PasswordChar = '\0';
+            this.TokenBox.ReadOnly = true;
+            this.TokenBox.Size = new System.Drawing.Size(478, 620);
+            this.TokenBox.TabIndex = 182;
             // 
             // label15
             // 
@@ -1783,6 +1770,11 @@
             // 
             // spammer1
             // 
+            this.spammer1.Controls.Add(this.CustomStatusTxt);
+            this.spammer1.Controls.Add(this.RemoveCustomStatus);
+            this.spammer1.Controls.Add(this.ChangeCustomStatusButton);
+            this.spammer1.Controls.Add(this.label17);
+            this.spammer1.Controls.Add(this.StartBots);
             this.spammer1.Controls.Add(this.EmbedPanel);
             this.spammer1.Controls.Add(this.EmbedMenu);
             this.spammer1.Controls.Add(this.RandomMessage);
@@ -1792,9 +1784,6 @@
             this.spammer1.Controls.Add(this.MultiChannelButt);
             this.spammer1.Controls.Add(this.label31);
             this.spammer1.Controls.Add(this.label42);
-            this.spammer1.Controls.Add(this.Stream);
-            this.spammer1.Controls.Add(this.Revert);
-            this.spammer1.Controls.Add(this.voiceChannelID);
             this.spammer1.Controls.Add(this.UserId);
             this.spammer1.Controls.Add(this.UserIdText);
             this.spammer1.Controls.Add(this.Nickname);
@@ -1805,9 +1794,6 @@
             this.spammer1.Controls.Add(this.InviteURL);
             this.spammer1.Controls.Add(this.MessageToSend);
             this.spammer1.Controls.Add(this.richTextBox);
-            this.spammer1.Controls.Add(this.SpotifyPanel);
-            this.spammer1.Controls.Add(this.Spotifybutt);
-            this.spammer1.Controls.Add(this.SpotifyInviteButt);
             this.spammer1.Controls.Add(this.bunifuFlatButton2);
             this.spammer1.Controls.Add(this.AuditSpam);
             this.spammer1.Controls.Add(this.label16);
@@ -1816,15 +1802,11 @@
             this.spammer1.Controls.Add(this.TypingButt);
             this.spammer1.Controls.Add(this.AV);
             this.spammer1.Controls.Add(this.ChangeAV);
-            this.spammer1.Controls.Add(this.MassPing);
             this.spammer1.Controls.Add(this.tmessagessent);
             this.spammer1.Controls.Add(this.ClearChat);
             this.spammer1.Controls.Add(this.ResetNick);
-            this.spammer1.Controls.Add(this.LeaveVC);
-            this.spammer1.Controls.Add(this.VC);
             this.spammer1.Controls.Add(this._UsersLeft);
             this.spammer1.Controls.Add(this.UsersJoinedInt);
-            this.spammer1.Controls.Add(this.JoinVoiceChannelButton);
             this.spammer1.Controls.Add(this.AddallButt);
             this.spammer1.Controls.Add(this.CustomPUTInvite);
             this.spammer1.Controls.Add(this.label56);
@@ -1865,22 +1847,161 @@
             this.spammer1.Size = new System.Drawing.Size(744, 660);
             this.spammer1.TabIndex = 12;
             // 
+            // CustomStatusTxt
+            // 
+            this.CustomStatusTxt.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.CustomStatusTxt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.CustomStatusTxt.BorderSize = 1;
+            this.CustomStatusTxt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.CustomStatusTxt.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
+            this.CustomStatusTxt.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
+            this.CustomStatusTxt.FocusedForeColor = System.Drawing.Color.White;
+            this.CustomStatusTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomStatusTxt.ForeColor = System.Drawing.Color.White;
+            this.CustomStatusTxt.Location = new System.Drawing.Point(347, 135);
+            this.CustomStatusTxt.Name = "CustomStatusTxt";
+            this.CustomStatusTxt.PasswordChar = '\0';
+            this.CustomStatusTxt.Size = new System.Drawing.Size(151, 28);
+            this.CustomStatusTxt.TabIndex = 200;
+            this.CustomStatusTxt.Text = "Custom Status";
+            this.CustomStatusTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // RemoveCustomStatus
+            // 
+            this.RemoveCustomStatus.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.RemoveCustomStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.RemoveCustomStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.RemoveCustomStatus.BorderRadius = -3;
+            this.RemoveCustomStatus.ButtonText = "Remove";
+            this.RemoveCustomStatus.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RemoveCustomStatus.DisabledColor = System.Drawing.Color.Gray;
+            this.RemoveCustomStatus.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RemoveCustomStatus.Iconcolor = System.Drawing.Color.Transparent;
+            this.RemoveCustomStatus.Iconimage = null;
+            this.RemoveCustomStatus.Iconimage_right = null;
+            this.RemoveCustomStatus.Iconimage_right_Selected = null;
+            this.RemoveCustomStatus.Iconimage_Selected = null;
+            this.RemoveCustomStatus.IconMarginLeft = 0;
+            this.RemoveCustomStatus.IconMarginRight = 0;
+            this.RemoveCustomStatus.IconRightVisible = true;
+            this.RemoveCustomStatus.IconRightZoom = 0D;
+            this.RemoveCustomStatus.IconVisible = true;
+            this.RemoveCustomStatus.IconZoom = 90D;
+            this.RemoveCustomStatus.IsTab = false;
+            this.RemoveCustomStatus.Location = new System.Drawing.Point(621, 133);
+            this.RemoveCustomStatus.Margin = new System.Windows.Forms.Padding(4);
+            this.RemoveCustomStatus.Name = "RemoveCustomStatus";
+            this.RemoveCustomStatus.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.RemoveCustomStatus.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
+            this.RemoveCustomStatus.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
+            this.RemoveCustomStatus.selected = false;
+            this.RemoveCustomStatus.Size = new System.Drawing.Size(108, 30);
+            this.RemoveCustomStatus.TabIndex = 199;
+            this.RemoveCustomStatus.Text = "Remove";
+            this.RemoveCustomStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.RemoveCustomStatus.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
+            this.RemoveCustomStatus.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RemoveCustomStatus.Click += new System.EventHandler(this.RemoveCustomStatus_Click);
+            // 
+            // ChangeCustomStatusButton
+            // 
+            this.ChangeCustomStatusButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.ChangeCustomStatusButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.ChangeCustomStatusButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ChangeCustomStatusButton.BorderRadius = -3;
+            this.ChangeCustomStatusButton.ButtonText = "Change";
+            this.ChangeCustomStatusButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ChangeCustomStatusButton.DisabledColor = System.Drawing.Color.Gray;
+            this.ChangeCustomStatusButton.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChangeCustomStatusButton.Iconcolor = System.Drawing.Color.Transparent;
+            this.ChangeCustomStatusButton.Iconimage = null;
+            this.ChangeCustomStatusButton.Iconimage_right = null;
+            this.ChangeCustomStatusButton.Iconimage_right_Selected = null;
+            this.ChangeCustomStatusButton.Iconimage_Selected = null;
+            this.ChangeCustomStatusButton.IconMarginLeft = 0;
+            this.ChangeCustomStatusButton.IconMarginRight = 0;
+            this.ChangeCustomStatusButton.IconRightVisible = true;
+            this.ChangeCustomStatusButton.IconRightZoom = 0D;
+            this.ChangeCustomStatusButton.IconVisible = true;
+            this.ChangeCustomStatusButton.IconZoom = 90D;
+            this.ChangeCustomStatusButton.IsTab = false;
+            this.ChangeCustomStatusButton.Location = new System.Drawing.Point(505, 134);
+            this.ChangeCustomStatusButton.Margin = new System.Windows.Forms.Padding(4);
+            this.ChangeCustomStatusButton.Name = "ChangeCustomStatusButton";
+            this.ChangeCustomStatusButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.ChangeCustomStatusButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
+            this.ChangeCustomStatusButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
+            this.ChangeCustomStatusButton.selected = false;
+            this.ChangeCustomStatusButton.Size = new System.Drawing.Size(108, 30);
+            this.ChangeCustomStatusButton.TabIndex = 198;
+            this.ChangeCustomStatusButton.Text = "Change";
+            this.ChangeCustomStatusButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ChangeCustomStatusButton.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
+            this.ChangeCustomStatusButton.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChangeCustomStatusButton.Click += new System.EventHandler(this.ChangeCustomStatusButton_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
+            this.label17.Location = new System.Drawing.Point(344, 114);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(132, 15);
+            this.label17.TabIndex = 197;
+            this.label17.Text = "Change Custom Status";
+            // 
+            // StartBots
+            // 
+            this.StartBots.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.StartBots.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.StartBots.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.StartBots.BorderRadius = -3;
+            this.StartBots.ButtonText = "Wake up Bots";
+            this.StartBots.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.StartBots.DisabledColor = System.Drawing.Color.Gray;
+            this.StartBots.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartBots.Iconcolor = System.Drawing.Color.Transparent;
+            this.StartBots.Iconimage = null;
+            this.StartBots.Iconimage_right = null;
+            this.StartBots.Iconimage_right_Selected = null;
+            this.StartBots.Iconimage_Selected = null;
+            this.StartBots.IconMarginLeft = 0;
+            this.StartBots.IconMarginRight = 0;
+            this.StartBots.IconRightVisible = true;
+            this.StartBots.IconRightZoom = 0D;
+            this.StartBots.IconVisible = true;
+            this.StartBots.IconZoom = 90D;
+            this.StartBots.IsTab = false;
+            this.StartBots.Location = new System.Drawing.Point(343, 368);
+            this.StartBots.Margin = new System.Windows.Forms.Padding(4);
+            this.StartBots.Name = "StartBots";
+            this.StartBots.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.StartBots.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
+            this.StartBots.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
+            this.StartBots.selected = true;
+            this.StartBots.Size = new System.Drawing.Size(125, 31);
+            this.StartBots.TabIndex = 196;
+            this.StartBots.Text = "Wake up Bots";
+            this.StartBots.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.StartBots.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
+            this.StartBots.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartBots.Click += new System.EventHandler(this.StartBots_Click);
+            // 
             // EmbedPanel
             // 
             this.EmbedPanel.BackColor = System.Drawing.Color.Transparent;
             this.EmbedPanel.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(50)))), ((int)(((byte)(55)))));
             this.EmbedPanel.Controls.Add(this.EmbedPanelExit);
             this.EmbedPanel.Controls.Add(this.StartEmbedSpam);
-            this.EmbedPanel.Controls.Add(this.EmbedImageURL);
-            this.EmbedPanel.Controls.Add(this.label47);
             this.EmbedPanel.Controls.Add(this.EmbedText);
             this.EmbedPanel.Controls.Add(this.label43);
             this.EmbedPanel.Controls.Add(this.EmbedTitle);
             this.EmbedPanel.Controls.Add(this.label32);
-            this.EmbedPanel.Location = new System.Drawing.Point(474, 313);
+            this.EmbedPanel.Location = new System.Drawing.Point(474, 321);
             this.EmbedPanel.Name = "EmbedPanel";
             this.EmbedPanel.Radius = 8;
-            this.EmbedPanel.Size = new System.Drawing.Size(210, 196);
+            this.EmbedPanel.Size = new System.Drawing.Size(210, 152);
             this.EmbedPanel.TabIndex = 195;
             // 
             // EmbedPanelExit
@@ -1895,7 +2016,7 @@
             this.EmbedPanelExit.ForeColor = System.Drawing.Color.White;
             this.EmbedPanelExit.Image = null;
             this.EmbedPanelExit.ImageSize = new System.Drawing.Size(52, 52);
-            this.EmbedPanelExit.Location = new System.Drawing.Point(187, -1);
+            this.EmbedPanelExit.Location = new System.Drawing.Point(185, 1);
             this.EmbedPanelExit.Name = "EmbedPanelExit";
             this.EmbedPanelExit.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(43)))), ((int)(((byte)(47)))));
             this.EmbedPanelExit.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -1909,8 +2030,8 @@
             // 
             // StartEmbedSpam
             // 
-            this.StartEmbedSpam.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.StartEmbedSpam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.StartEmbedSpam.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(43)))), ((int)(((byte)(47)))));
+            this.StartEmbedSpam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(43)))), ((int)(((byte)(47)))));
             this.StartEmbedSpam.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.StartEmbedSpam.BorderRadius = -3;
             this.StartEmbedSpam.ButtonText = "Start";
@@ -1929,10 +2050,10 @@
             this.StartEmbedSpam.IconVisible = true;
             this.StartEmbedSpam.IconZoom = 90D;
             this.StartEmbedSpam.IsTab = false;
-            this.StartEmbedSpam.Location = new System.Drawing.Point(11, 158);
+            this.StartEmbedSpam.Location = new System.Drawing.Point(11, 109);
             this.StartEmbedSpam.Margin = new System.Windows.Forms.Padding(4);
             this.StartEmbedSpam.Name = "StartEmbedSpam";
-            this.StartEmbedSpam.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
+            this.StartEmbedSpam.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(43)))), ((int)(((byte)(47)))));
             this.StartEmbedSpam.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
             this.StartEmbedSpam.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
             this.StartEmbedSpam.selected = true;
@@ -1944,39 +2065,9 @@
             this.StartEmbedSpam.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StartEmbedSpam.Click += new System.EventHandler(this.StartEmbedSpam_Click);
             // 
-            // EmbedImageURL
-            // 
-            this.EmbedImageURL.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(44)))));
-            this.EmbedImageURL.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.EmbedImageURL.BorderSize = 1;
-            this.EmbedImageURL.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.EmbedImageURL.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.EmbedImageURL.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
-            this.EmbedImageURL.FocusedForeColor = System.Drawing.Color.White;
-            this.EmbedImageURL.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmbedImageURL.ForeColor = System.Drawing.Color.White;
-            this.EmbedImageURL.Location = new System.Drawing.Point(11, 126);
-            this.EmbedImageURL.Name = "EmbedImageURL";
-            this.EmbedImageURL.PasswordChar = '\0';
-            this.EmbedImageURL.Size = new System.Drawing.Size(189, 26);
-            this.EmbedImageURL.TabIndex = 181;
-            this.EmbedImageURL.Text = "Insert URL";
-            this.EmbedImageURL.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.label47.Location = new System.Drawing.Point(8, 107);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(113, 15);
-            this.label47.TabIndex = 180;
-            this.label47.Text = "Embed Image URL";
-            // 
             // EmbedText
             // 
-            this.EmbedText.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(44)))));
+            this.EmbedText.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.EmbedText.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.EmbedText.BorderSize = 1;
             this.EmbedText.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -2006,7 +2097,7 @@
             // 
             // EmbedTitle
             // 
-            this.EmbedTitle.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(40)))), ((int)(((byte)(44)))));
+            this.EmbedTitle.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
             this.EmbedTitle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.EmbedTitle.BorderSize = 1;
             this.EmbedTitle.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -2056,7 +2147,7 @@
             this.EmbedMenu.IconVisible = true;
             this.EmbedMenu.IconZoom = 90D;
             this.EmbedMenu.IsTab = false;
-            this.EmbedMenu.Location = new System.Drawing.Point(342, 402);
+            this.EmbedMenu.Location = new System.Drawing.Point(343, 334);
             this.EmbedMenu.Margin = new System.Windows.Forms.Padding(4);
             this.EmbedMenu.Name = "EmbedMenu";
             this.EmbedMenu.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
@@ -2129,7 +2220,7 @@
             this.LoadAvatar.IconVisible = true;
             this.LoadAvatar.IconZoom = 90D;
             this.LoadAvatar.IsTab = false;
-            this.LoadAvatar.Location = new System.Drawing.Point(347, 278);
+            this.LoadAvatar.Location = new System.Drawing.Point(347, 283);
             this.LoadAvatar.Margin = new System.Windows.Forms.Padding(4);
             this.LoadAvatar.Name = "LoadAvatar";
             this.LoadAvatar.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
@@ -2233,98 +2324,6 @@
             this.label42.TabIndex = 186;
             this.label42.Text = "Mass DM\'d:";
             // 
-            // Stream
-            // 
-            this.Stream.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.Stream.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.Stream.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Stream.BorderRadius = -3;
-            this.Stream.ButtonText = "Steaming";
-            this.Stream.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Stream.DisabledColor = System.Drawing.Color.Gray;
-            this.Stream.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Stream.Iconcolor = System.Drawing.Color.Transparent;
-            this.Stream.Iconimage = null;
-            this.Stream.Iconimage_right = null;
-            this.Stream.Iconimage_right_Selected = null;
-            this.Stream.Iconimage_Selected = null;
-            this.Stream.IconMarginLeft = 0;
-            this.Stream.IconMarginRight = 0;
-            this.Stream.IconRightVisible = true;
-            this.Stream.IconRightZoom = 0D;
-            this.Stream.IconVisible = true;
-            this.Stream.IconZoom = 90D;
-            this.Stream.IsTab = false;
-            this.Stream.Location = new System.Drawing.Point(342, 333);
-            this.Stream.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Stream.Name = "Stream";
-            this.Stream.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.Stream.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.Stream.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.Stream.selected = true;
-            this.Stream.Size = new System.Drawing.Size(123, 31);
-            this.Stream.TabIndex = 185;
-            this.Stream.Text = "Steaming";
-            this.Stream.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Stream.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.Stream.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Stream.Click += new System.EventHandler(this.Stream_Click);
-            // 
-            // Revert
-            // 
-            this.Revert.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.Revert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.Revert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Revert.BorderRadius = -3;
-            this.Revert.ButtonText = "Noob";
-            this.Revert.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Revert.DisabledColor = System.Drawing.Color.Gray;
-            this.Revert.Iconcolor = System.Drawing.Color.Transparent;
-            this.Revert.Iconimage = null;
-            this.Revert.Iconimage_right = null;
-            this.Revert.Iconimage_right_Selected = null;
-            this.Revert.Iconimage_Selected = null;
-            this.Revert.IconMarginLeft = 0;
-            this.Revert.IconMarginRight = 0;
-            this.Revert.IconRightVisible = true;
-            this.Revert.IconRightZoom = 0D;
-            this.Revert.IconVisible = true;
-            this.Revert.IconZoom = 90D;
-            this.Revert.IsTab = false;
-            this.Revert.Location = new System.Drawing.Point(621, 278);
-            this.Revert.Margin = new System.Windows.Forms.Padding(4);
-            this.Revert.Name = "Revert";
-            this.Revert.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.Revert.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.Revert.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.Revert.selected = false;
-            this.Revert.Size = new System.Drawing.Size(108, 30);
-            this.Revert.TabIndex = 184;
-            this.Revert.Text = "Noob";
-            this.Revert.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Revert.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.Revert.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Revert.Click += new System.EventHandler(this.Revert_Click);
-            // 
-            // voiceChannelID
-            // 
-            this.voiceChannelID.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.voiceChannelID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.voiceChannelID.BorderSize = 1;
-            this.voiceChannelID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.voiceChannelID.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
-            this.voiceChannelID.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(135)))), ((int)(((byte)(0)))));
-            this.voiceChannelID.FocusedForeColor = System.Drawing.Color.White;
-            this.voiceChannelID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.voiceChannelID.ForeColor = System.Drawing.Color.White;
-            this.voiceChannelID.Location = new System.Drawing.Point(347, 230);
-            this.voiceChannelID.Name = "voiceChannelID";
-            this.voiceChannelID.PasswordChar = '\0';
-            this.voiceChannelID.Size = new System.Drawing.Size(151, 28);
-            this.voiceChannelID.TabIndex = 181;
-            this.voiceChannelID.Text = "Insert ID";
-            this.voiceChannelID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // UserId
             // 
             this.UserId.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(63)))));
@@ -2336,7 +2335,7 @@
             this.UserId.FocusedForeColor = System.Drawing.Color.White;
             this.UserId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserId.ForeColor = System.Drawing.Color.White;
-            this.UserId.Location = new System.Drawing.Point(347, 183);
+            this.UserId.Location = new System.Drawing.Point(347, 234);
             this.UserId.Name = "UserId";
             this.UserId.PasswordChar = '\0';
             this.UserId.Size = new System.Drawing.Size(151, 28);
@@ -2355,7 +2354,7 @@
             this.UserIdText.FocusedForeColor = System.Drawing.Color.White;
             this.UserIdText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserIdText.ForeColor = System.Drawing.Color.White;
-            this.UserIdText.Location = new System.Drawing.Point(347, 136);
+            this.UserIdText.Location = new System.Drawing.Point(347, 187);
             this.UserIdText.Name = "UserIdText";
             this.UserIdText.PasswordChar = '\0';
             this.UserIdText.Size = new System.Drawing.Size(151, 28);
@@ -2514,142 +2513,6 @@
             this.richTextBox.Size = new System.Drawing.Size(282, 90);
             this.richTextBox.TabIndex = 171;
             this.richTextBox.Text = "Enter a Message";
-            // 
-            // SpotifyPanel
-            // 
-            this.SpotifyPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(43)))), ((int)(((byte)(47)))));
-            this.SpotifyPanel.Controls.Add(this.PartyID);
-            this.SpotifyPanel.Controls.Add(this.label17);
-            this.SpotifyPanel.Controls.Add(this.SessionID);
-            this.SpotifyPanel.Controls.Add(this.label18);
-            this.SpotifyPanel.Location = new System.Drawing.Point(690, 406);
-            this.SpotifyPanel.Name = "SpotifyPanel";
-            this.SpotifyPanel.Size = new System.Drawing.Size(23, 100);
-            this.SpotifyPanel.TabIndex = 170;
-            // 
-            // PartyID
-            // 
-            this.PartyID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(43)))), ((int)(((byte)(47)))));
-            this.PartyID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PartyID.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PartyID.ForeColor = System.Drawing.Color.White;
-            this.PartyID.Location = new System.Drawing.Point(11, 71);
-            this.PartyID.Name = "PartyID";
-            this.PartyID.Size = new System.Drawing.Size(149, 22);
-            this.PartyID.TabIndex = 169;
-            this.PartyID.Text = "Insert ID";
-            this.PartyID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.PartyID.WordWrap = false;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.label17.Location = new System.Drawing.Point(8, 52);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(49, 15);
-            this.label17.TabIndex = 168;
-            this.label17.Text = "Party ID";
-            // 
-            // SessionID
-            // 
-            this.SessionID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(43)))), ((int)(((byte)(47)))));
-            this.SessionID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SessionID.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SessionID.ForeColor = System.Drawing.Color.White;
-            this.SessionID.Location = new System.Drawing.Point(11, 26);
-            this.SessionID.Name = "SessionID";
-            this.SessionID.Size = new System.Drawing.Size(149, 22);
-            this.SessionID.TabIndex = 167;
-            this.SessionID.Text = "Insert ID";
-            this.SessionID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.SessionID.WordWrap = false;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.label18.Location = new System.Drawing.Point(8, 6);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(66, 15);
-            this.label18.TabIndex = 166;
-            this.label18.Text = "Session ID";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Spotifybutt
-            // 
-            this.Spotifybutt.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.Spotifybutt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.Spotifybutt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Spotifybutt.BorderRadius = -3;
-            this.Spotifybutt.ButtonText = ">";
-            this.Spotifybutt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Spotifybutt.DisabledColor = System.Drawing.Color.Gray;
-            this.Spotifybutt.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Spotifybutt.Iconcolor = System.Drawing.Color.Transparent;
-            this.Spotifybutt.Iconimage = null;
-            this.Spotifybutt.Iconimage_right = null;
-            this.Spotifybutt.Iconimage_right_Selected = null;
-            this.Spotifybutt.Iconimage_Selected = null;
-            this.Spotifybutt.IconMarginLeft = 0;
-            this.Spotifybutt.IconMarginRight = 0;
-            this.Spotifybutt.IconRightVisible = true;
-            this.Spotifybutt.IconRightZoom = 0D;
-            this.Spotifybutt.IconVisible = true;
-            this.Spotifybutt.IconZoom = 90D;
-            this.Spotifybutt.IsTab = false;
-            this.Spotifybutt.Location = new System.Drawing.Point(664, 494);
-            this.Spotifybutt.Margin = new System.Windows.Forms.Padding(4);
-            this.Spotifybutt.Name = "Spotifybutt";
-            this.Spotifybutt.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.Spotifybutt.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.Spotifybutt.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.Spotifybutt.selected = true;
-            this.Spotifybutt.Size = new System.Drawing.Size(20, 20);
-            this.Spotifybutt.TabIndex = 169;
-            this.Spotifybutt.Text = ">";
-            this.Spotifybutt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Spotifybutt.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.Spotifybutt.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // SpotifyInviteButt
-            // 
-            this.SpotifyInviteButt.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.SpotifyInviteButt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.SpotifyInviteButt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.SpotifyInviteButt.BorderRadius = -3;
-            this.SpotifyInviteButt.ButtonText = "Spotify Invite";
-            this.SpotifyInviteButt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SpotifyInviteButt.DisabledColor = System.Drawing.Color.Gray;
-            this.SpotifyInviteButt.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SpotifyInviteButt.Iconcolor = System.Drawing.Color.Transparent;
-            this.SpotifyInviteButt.Iconimage = null;
-            this.SpotifyInviteButt.Iconimage_right = null;
-            this.SpotifyInviteButt.Iconimage_right_Selected = null;
-            this.SpotifyInviteButt.Iconimage_Selected = null;
-            this.SpotifyInviteButt.IconMarginLeft = 0;
-            this.SpotifyInviteButt.IconMarginRight = 0;
-            this.SpotifyInviteButt.IconRightVisible = true;
-            this.SpotifyInviteButt.IconRightZoom = 0D;
-            this.SpotifyInviteButt.IconVisible = true;
-            this.SpotifyInviteButt.IconZoom = 90D;
-            this.SpotifyInviteButt.IsTab = false;
-            this.SpotifyInviteButt.Location = new System.Drawing.Point(600, 595);
-            this.SpotifyInviteButt.Margin = new System.Windows.Forms.Padding(4);
-            this.SpotifyInviteButt.Name = "SpotifyInviteButt";
-            this.SpotifyInviteButt.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.SpotifyInviteButt.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.SpotifyInviteButt.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.SpotifyInviteButt.selected = true;
-            this.SpotifyInviteButt.Size = new System.Drawing.Size(129, 31);
-            this.SpotifyInviteButt.TabIndex = 168;
-            this.SpotifyInviteButt.Text = "Spotify Invite";
-            this.SpotifyInviteButt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.SpotifyInviteButt.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.SpotifyInviteButt.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SpotifyInviteButt.Click += new System.EventHandler(this.SpotifyInviteButt_Click);
             // 
             // bunifuFlatButton2
             // 
@@ -2826,7 +2689,7 @@
             this.AV.AutoSize = true;
             this.AV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.AV.Location = new System.Drawing.Point(344, 259);
+            this.AV.Location = new System.Drawing.Point(344, 264);
             this.AV.Name = "AV";
             this.AV.Size = new System.Drawing.Size(86, 15);
             this.AV.TabIndex = 158;
@@ -2853,7 +2716,7 @@
             this.ChangeAV.IconVisible = true;
             this.ChangeAV.IconZoom = 90D;
             this.ChangeAV.IsTab = false;
-            this.ChangeAV.Location = new System.Drawing.Point(505, 278);
+            this.ChangeAV.Location = new System.Drawing.Point(505, 283);
             this.ChangeAV.Margin = new System.Windows.Forms.Padding(4);
             this.ChangeAV.Name = "ChangeAV";
             this.ChangeAV.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
@@ -2867,43 +2730,6 @@
             this.ChangeAV.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
             this.ChangeAV.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChangeAV.Click += new System.EventHandler(this.ChangeAV_Click);
-            // 
-            // MassPing
-            // 
-            this.MassPing.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.MassPing.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.MassPing.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.MassPing.BorderRadius = -3;
-            this.MassPing.ButtonText = "Mass Ping";
-            this.MassPing.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MassPing.DisabledColor = System.Drawing.Color.Gray;
-            this.MassPing.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MassPing.Iconcolor = System.Drawing.Color.Transparent;
-            this.MassPing.Iconimage = null;
-            this.MassPing.Iconimage_right = null;
-            this.MassPing.Iconimage_right_Selected = null;
-            this.MassPing.Iconimage_Selected = null;
-            this.MassPing.IconMarginLeft = 0;
-            this.MassPing.IconMarginRight = 0;
-            this.MassPing.IconRightVisible = true;
-            this.MassPing.IconRightZoom = 0D;
-            this.MassPing.IconVisible = true;
-            this.MassPing.IconZoom = 90D;
-            this.MassPing.IsTab = false;
-            this.MassPing.Location = new System.Drawing.Point(342, 368);
-            this.MassPing.Margin = new System.Windows.Forms.Padding(4);
-            this.MassPing.Name = "MassPing";
-            this.MassPing.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.MassPing.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.MassPing.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.MassPing.selected = true;
-            this.MassPing.Size = new System.Drawing.Size(125, 31);
-            this.MassPing.TabIndex = 156;
-            this.MassPing.Text = "Mass Ping";
-            this.MassPing.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.MassPing.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.MassPing.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MassPing.Click += new System.EventHandler(this.MassPing_Click);
             // 
             // tmessagessent
             // 
@@ -2990,52 +2816,6 @@
             this.ResetNick.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ResetNick.Click += new System.EventHandler(this.ResetNick_Click);
             // 
-            // LeaveVC
-            // 
-            this.LeaveVC.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.LeaveVC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.LeaveVC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.LeaveVC.BorderRadius = -3;
-            this.LeaveVC.ButtonText = "Leave VC";
-            this.LeaveVC.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LeaveVC.DisabledColor = System.Drawing.Color.Gray;
-            this.LeaveVC.Iconcolor = System.Drawing.Color.Transparent;
-            this.LeaveVC.Iconimage = null;
-            this.LeaveVC.Iconimage_right = null;
-            this.LeaveVC.Iconimage_right_Selected = null;
-            this.LeaveVC.Iconimage_Selected = null;
-            this.LeaveVC.IconMarginLeft = 0;
-            this.LeaveVC.IconMarginRight = 0;
-            this.LeaveVC.IconRightVisible = true;
-            this.LeaveVC.IconRightZoom = 0D;
-            this.LeaveVC.IconVisible = true;
-            this.LeaveVC.IconZoom = 90D;
-            this.LeaveVC.IsTab = false;
-            this.LeaveVC.Location = new System.Drawing.Point(621, 229);
-            this.LeaveVC.Margin = new System.Windows.Forms.Padding(4);
-            this.LeaveVC.Name = "LeaveVC";
-            this.LeaveVC.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.LeaveVC.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.LeaveVC.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.LeaveVC.selected = false;
-            this.LeaveVC.Size = new System.Drawing.Size(108, 29);
-            this.LeaveVC.TabIndex = 152;
-            this.LeaveVC.Text = "Leave VC";
-            this.LeaveVC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LeaveVC.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.LeaveVC.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // VC
-            // 
-            this.VC.AutoSize = true;
-            this.VC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.VC.Location = new System.Drawing.Point(344, 213);
-            this.VC.Name = "VC";
-            this.VC.Size = new System.Drawing.Size(101, 15);
-            this.VC.TabIndex = 149;
-            this.VC.Text = "Voice Channel ID";
-            // 
             // _UsersLeft
             // 
             this._UsersLeft.AutoSize = true;
@@ -3057,42 +2837,6 @@
             this.UsersJoinedInt.Size = new System.Drawing.Size(16, 18);
             this.UsersJoinedInt.TabIndex = 146;
             this.UsersJoinedInt.Text = "0";
-            // 
-            // JoinVoiceChannelButton
-            // 
-            this.JoinVoiceChannelButton.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.JoinVoiceChannelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.JoinVoiceChannelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.JoinVoiceChannelButton.BorderRadius = -3;
-            this.JoinVoiceChannelButton.ButtonText = "Join VC";
-            this.JoinVoiceChannelButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.JoinVoiceChannelButton.DisabledColor = System.Drawing.Color.Gray;
-            this.JoinVoiceChannelButton.Iconcolor = System.Drawing.Color.Transparent;
-            this.JoinVoiceChannelButton.Iconimage = null;
-            this.JoinVoiceChannelButton.Iconimage_right = null;
-            this.JoinVoiceChannelButton.Iconimage_right_Selected = null;
-            this.JoinVoiceChannelButton.Iconimage_Selected = null;
-            this.JoinVoiceChannelButton.IconMarginLeft = 0;
-            this.JoinVoiceChannelButton.IconMarginRight = 0;
-            this.JoinVoiceChannelButton.IconRightVisible = true;
-            this.JoinVoiceChannelButton.IconRightZoom = 0D;
-            this.JoinVoiceChannelButton.IconVisible = true;
-            this.JoinVoiceChannelButton.IconZoom = 90D;
-            this.JoinVoiceChannelButton.IsTab = false;
-            this.JoinVoiceChannelButton.Location = new System.Drawing.Point(505, 229);
-            this.JoinVoiceChannelButton.Margin = new System.Windows.Forms.Padding(4);
-            this.JoinVoiceChannelButton.Name = "JoinVoiceChannelButton";
-            this.JoinVoiceChannelButton.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
-            this.JoinVoiceChannelButton.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(60)))), ((int)(((byte)(67)))));
-            this.JoinVoiceChannelButton.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.JoinVoiceChannelButton.selected = false;
-            this.JoinVoiceChannelButton.Size = new System.Drawing.Size(108, 30);
-            this.JoinVoiceChannelButton.TabIndex = 145;
-            this.JoinVoiceChannelButton.Text = "Join VC";
-            this.JoinVoiceChannelButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.JoinVoiceChannelButton.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.JoinVoiceChannelButton.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.JoinVoiceChannelButton.Click += new System.EventHandler(this.JoinVoiceChannelButton_Click);
             // 
             // AddallButt
             // 
@@ -3201,7 +2945,7 @@
             this.RemoveFR.IconVisible = true;
             this.RemoveFR.IconZoom = 90D;
             this.RemoveFR.IsTab = false;
-            this.RemoveFR.Location = new System.Drawing.Point(621, 134);
+            this.RemoveFR.Location = new System.Drawing.Point(621, 185);
             this.RemoveFR.Margin = new System.Windows.Forms.Padding(4);
             this.RemoveFR.Name = "RemoveFR";
             this.RemoveFR.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
@@ -3332,7 +3076,6 @@
             this.DmAllInGuild.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.DmAllInGuild.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
             this.DmAllInGuild.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DmAllInGuild.Click += new System.EventHandler(this.DmAllInGuild_Click_1);
             // 
             // SpamSIngleUser
             // 
@@ -3356,7 +3099,7 @@
             this.SpamSIngleUser.IconVisible = true;
             this.SpamSIngleUser.IconZoom = 90D;
             this.SpamSIngleUser.IsTab = false;
-            this.SpamSIngleUser.Location = new System.Drawing.Point(505, 181);
+            this.SpamSIngleUser.Location = new System.Drawing.Point(505, 232);
             this.SpamSIngleUser.Margin = new System.Windows.Forms.Padding(4);
             this.SpamSIngleUser.Name = "SpamSIngleUser";
             this.SpamSIngleUser.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
@@ -3376,7 +3119,7 @@
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.label41.Location = new System.Drawing.Point(344, 163);
+            this.label41.Location = new System.Drawing.Point(344, 214);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(60, 15);
             this.label41.TabIndex = 129;
@@ -3404,7 +3147,7 @@
             this.SpamRqSingleUser.IconVisible = true;
             this.SpamRqSingleUser.IconZoom = 90D;
             this.SpamRqSingleUser.IsTab = false;
-            this.SpamRqSingleUser.Location = new System.Drawing.Point(505, 135);
+            this.SpamRqSingleUser.Location = new System.Drawing.Point(505, 186);
             this.SpamRqSingleUser.Margin = new System.Windows.Forms.Padding(4);
             this.SpamRqSingleUser.Name = "SpamRqSingleUser";
             this.SpamRqSingleUser.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(57)))));
@@ -3424,7 +3167,7 @@
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
-            this.label40.Location = new System.Drawing.Point(344, 115);
+            this.label40.Location = new System.Drawing.Point(344, 166);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(127, 15);
             this.label40.TabIndex = 126;
@@ -3723,7 +3466,7 @@
             this.boostisThread.BorderRadius = 5;
             this.boostisThread.IndicatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(137)))), ((int)(((byte)(218)))));
             this.boostisThread.Location = new System.Drawing.Point(14, 527);
-            this.boostisThread.MaximumValue = 100;
+            this.boostisThread.MaximumValue = 150;
             this.boostisThread.Name = "boostisThread";
             this.boostisThread.Size = new System.Drawing.Size(406, 30);
             this.boostisThread.TabIndex = 113;
@@ -3887,9 +3630,9 @@
             this.DiscordPanel.Controls.Add(this.InjectionCodeBox);
             this.DiscordPanel.Controls.Add(this.InjectionLabelText);
             this.DiscordPanel.Controls.Add(this.gunaLabel1);
-            this.DiscordPanel.Location = new System.Drawing.Point(271, 67);
+            this.DiscordPanel.Location = new System.Drawing.Point(1000, 67);
             this.DiscordPanel.Name = "DiscordPanel";
-            this.DiscordPanel.Size = new System.Drawing.Size(744, 657);
+            this.DiscordPanel.Size = new System.Drawing.Size(15, 657);
             this.DiscordPanel.TabIndex = 196;
             // 
             // InjectButton
@@ -4003,9 +3746,9 @@
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(146)))), ((int)(((byte)(151)))));
             this.label19.Location = new System.Drawing.Point(239, 77);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(91, 15);
+            this.label19.Size = new System.Drawing.Size(118, 15);
             this.label19.TabIndex = 99;
-            this.label19.Text = "Selfbot Uptime:";
+            this.label19.Text = "Nitro Sniper Uptime:";
             // 
             // TimeSinceStart1
             // 
@@ -4199,9 +3942,9 @@
             this.discordRPC1.Controls.Add(this.label51);
             this.discordRPC1.Controls.Add(this.label50);
             this.discordRPC1.Controls.Add(this.label49);
-            this.discordRPC1.Location = new System.Drawing.Point(271, 67);
+            this.discordRPC1.Location = new System.Drawing.Point(837, 67);
             this.discordRPC1.Name = "discordRPC1";
-            this.discordRPC1.Size = new System.Drawing.Size(741, 662);
+            this.discordRPC1.Size = new System.Drawing.Size(175, 662);
             this.discordRPC1.TabIndex = 13;
             // 
             // Client_ID
@@ -4647,10 +4390,6 @@
             // 
             this.gunaElipse1.TargetControl = this;
             // 
-            // gunaElipse2
-            // 
-            this.gunaElipse2.TargetControl = this.EmbedTitle;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4706,8 +4445,6 @@
             this.spammer1.PerformLayout();
             this.EmbedPanel.ResumeLayout(false);
             this.EmbedPanel.PerformLayout();
-            this.SpotifyPanel.ResumeLayout(false);
-            this.SpotifyPanel.PerformLayout();
             this.DiscordPanel.ResumeLayout(false);
             this.DiscordPanel.PerformLayout();
             this.nitrosnprPanel.ResumeLayout(false);
@@ -4870,16 +4607,12 @@
         private Bunifu.Framework.UI.BunifuFlatButton AddallButt;
         private System.Windows.Forms.Timer LabelUpdate;
         private System.Windows.Forms.Label label15;
-        private Bunifu.Framework.UI.BunifuFlatButton JoinVoiceChannelButton;
         private System.Windows.Forms.Label _UsersLeft;
         private System.Windows.Forms.Label UsersJoinedInt;
-        private System.Windows.Forms.Label VC;
         public System.Windows.Forms.Label DiscordUser;
-        private Bunifu.Framework.UI.BunifuFlatButton LeaveVC;
         private Bunifu.Framework.UI.BunifuFlatButton ResetNick;
         private Bunifu.Framework.UI.BunifuFlatButton ClearChat;
         public System.Windows.Forms.Label tmessagessent;
-        private Bunifu.Framework.UI.BunifuFlatButton MassPing;
         private System.Windows.Forms.Label AV;
         private Bunifu.Framework.UI.BunifuFlatButton ChangeAV;
         private System.Windows.Forms.Timer NitroUpdate;
@@ -4899,15 +4632,7 @@
         public System.Windows.Forms.Label label35;
         public System.Windows.Forms.Label label36;
         public System.Windows.Forms.Label label37;
-        private Bunifu.Framework.UI.BunifuFlatButton SpotifyInviteButt;
-        private System.Windows.Forms.Panel SpotifyPanel;
-        private Bunifu.Framework.UI.BunifuFlatButton Spotifybutt;
-        private System.Windows.Forms.TextBox PartyID;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox SessionID;
-        private System.Windows.Forms.Label label18;
         private Guna.UI.WinForms.GunaTextBox richTextBox;
-        private Guna.UI.WinForms.GunaTextBox voiceChannelID;
         private Guna.UI.WinForms.GunaTextBox UserId;
         private Guna.UI.WinForms.GunaTextBox UserIdText;
         private Guna.UI.WinForms.GunaTextBox Nickname;
@@ -4917,8 +4642,6 @@
         private Guna.UI.WinForms.GunaTextBox ChannelID;
         private Guna.UI.WinForms.GunaTextBox InviteURL;
         private Guna.UI.WinForms.GunaTextBox MessageToSend;
-        private Bunifu.Framework.UI.BunifuFlatButton Revert;
-        private Bunifu.Framework.UI.BunifuFlatButton Stream;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label42;
         private Bunifu.Framework.UI.BunifuFlatButton MultiChannelButt;
@@ -4931,12 +4654,9 @@
         private System.Windows.Forms.Label label32;
         private Bunifu.Framework.UI.BunifuFlatButton EmbedMenu;
         private Bunifu.Framework.UI.BunifuFlatButton StartEmbedSpam;
-        private Guna.UI.WinForms.GunaTextBox EmbedImageURL;
-        private System.Windows.Forms.Label label47;
         private Guna.UI.WinForms.GunaTextBox EmbedText;
         private System.Windows.Forms.Label label43;
         private Guna.UI.WinForms.GunaTextBox EmbedTitle;
-        private Guna.UI.WinForms.GunaElipse gunaElipse2;
         private Guna.UI.WinForms.GunaCircleButton EmbedPanelExit;
         public Bunifu.Framework.UI.BunifuFlatButton discordClientButton;
         private Guna.UI.WinForms.GunaPanel DiscordPanel;
@@ -4952,12 +4672,17 @@
         private Guna.UI.WinForms.GunaTextBox ImageAsset;
         private Guna.UI.WinForms.GunaTextBox PartySize;
         private Guna.UI.WinForms.GunaTextBox PartyMax;
-        private Guna.UI.WinForms.GunaTextBox gunaTextBox1;
+        private Guna.UI.WinForms.GunaTextBox TokenBox;
         private Guna.UI.WinForms.GunaTextBox Prefix;
         private Guna.UI.WinForms.GunaTextBox EmbedColor;
         public System.Windows.Forms.Label DiscordPanelInfoText;
         public System.Windows.Forms.Label DiscordPanelInfo;
         private Guna.UI.WinForms.GunaButton InjectButton;
+        private Bunifu.Framework.UI.BunifuFlatButton StartBots;
+        private Guna.UI.WinForms.GunaTextBox CustomStatusTxt;
+        private Bunifu.Framework.UI.BunifuFlatButton RemoveCustomStatus;
+        private Bunifu.Framework.UI.BunifuFlatButton ChangeCustomStatusButton;
+        private System.Windows.Forms.Label label17;
     }
 }
 

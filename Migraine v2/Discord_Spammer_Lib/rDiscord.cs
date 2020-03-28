@@ -1,20 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using Discord;
-using Discord.Commands;
-using Discord.WebSocket;
-using Migraine_v2.API;
-using Migraine_v2.SelfbotClasses;
 using Newtonsoft.Json;
-using WebSocketSharp;
-using static Migraine_v2.API.API;
 
 namespace Migraine_v2.Discord_Spammer_Lib
 {
@@ -60,7 +51,7 @@ namespace Migraine_v2.Discord_Spammer_Lib
                     result = "invalid";
                 else
                 {
-                    HttpStatusCode statusCode = rDiscord.JoinServer(Client, "BAWBAWBAW").StatusCode;
+                    HttpStatusCode statusCode = rDiscord.CheckServer(Client, "BAWBAWBAW").StatusCode;
                     bool invalid1 = statusCode == HttpStatusCode.Forbidden || statusCode == HttpStatusCode.Unauthorized;
                     if (invalid1)
                         result = "invalid";
@@ -87,7 +78,7 @@ namespace Migraine_v2.Discord_Spammer_Lib
         public static bool IsValidInvite(HttpClient Client, string Invite)
         {
             string result = Client.GetStringAsync("https://discordapp.com/api/invites/" + Invite).Result;
-            return !result.ToLower().Contains("this invite may be expired");
+            return !result.ToLower().Contains("Unknown Invite");
         }
 
         public static int RandomMessage(HttpClient Client, string channelID)
@@ -126,20 +117,31 @@ namespace Migraine_v2.Discord_Spammer_Lib
             Task<HttpResponseMessage> task = Client.SendAsync(request);
             return task.Result.StatusCode == HttpStatusCode.OK;
         }
-        public static int SpawnEmbed(HttpClient client, string channelID, string title, string text, string color = "5880085", string img = null)
+        public static bool CustomStatus(HttpClient Client, string Description)
         {
-            var Color = color == "5880085" ? color : ParseColor(color);
-
+            var req = new HttpRequestMessage
+            {
+                Method = new HttpMethod("PATCH"),
+                RequestUri = new Uri("https://discordapp.com/api/v6/users/@me/settings"),
+                Content = new StringContent("{\"custom_status\":{\"text\":\"" + Description + "\"}}", Encoding.UTF8, "application/json")
+            };
+            Task<HttpResponseMessage> task = Client.SendAsync(req);
+            return task.Result.StatusCode == HttpStatusCode.OK;
+        }
+        public static int SpawnEmbed(HttpClient client, string channelID, string title, string description)
+        {
+            // var Color = color == "5880085" ? color : ParseColor(color);
             var req = new HttpRequestMessage
             {
                 Method = new HttpMethod("POST"),
                 RequestUri = new Uri($"https://discordapp.com/api/channels/{channelID}/messages"),
-                Content = new StringContent(JsonConvert.SerializeObject(new EmbedProperties(title, text, Color, img)), Encoding.UTF8, "application/json")
+                Content = new StringContent("{\"embed\":{\"title\":\"" + title + "\",\"color\":\"5880085\",\"description\":\"" + description + "\"}}", Encoding.UTF8, "application/json")
             };
             client.SendAsync(req);
             int result = 0;
             return result;
         }
+
         public static string ParseColor(string color)
         {
             switch (color.ToLower())
@@ -177,83 +179,37 @@ namespace Migraine_v2.Discord_Spammer_Lib
             }
             return list.ToArray();
         }
-
+        public static HttpResponseMessage CheckServer(HttpClient Client, string Invite) =>  Client.GetAsync($"https://discordapp.com/api/v6/invites/{Invite}").Result;
         public static dynamic GetCurrentUser(HttpClient Client) => JsonConvert.DeserializeObject<object>(Client.GetStringAsync("https://discordapp.com/api/v6/users/@me").Result);
-        public static HttpResponseMessage JoinServer(HttpClient Client, string Invite) => Client.PostAsync("https://discordapp.com/api/v6/invites/" + Invite, new StringContent("", Encoding.UTF8, "application/json")).Result;
+
         public static async void LeaveServer(HttpClient Client, string ServerID)
         {
-            try
+            var req = new HttpRequestMessage
             {
-                var req = new HttpRequestMessage
-                {
-                    Method = new HttpMethod("DELETE"),
-                    RequestUri = new Uri($"https://discordapp.com/api/v6/users/@me/guilds/{ServerID}")
-                };
-                await Client.SendAsync(req);
-                req = null;
-                Thread.Sleep(-1);
-            }
-            catch { }
+                Method = new HttpMethod("DELETE"),
+                RequestUri = new Uri($"https://discordapp.com/api/v6/users/@me/guilds/{ServerID}")
+            };
+            await Client.SendAsync(req);
         }
         public static async void AddFriend(HttpClient Client, string User)
         {
-            try
+            var req = new HttpRequestMessage
             {
-                var req = new HttpRequestMessage
-                {
-                    Method = new HttpMethod("PUT"),
-                    RequestUri = new Uri("https://discordapp.com/api/v6/users/@me/relationships/" + User),
-                    Content = new StringContent("{}", Encoding.UTF8, "application/json")
-                };
-                await Client.SendAsync(req);
-                req = null;
-            } catch
-            {
-            }
-        }
-        public static void SetStatus(string token, rStatus Status)
-        {
-            var socket = new WebSocket("wss://gateway.discord.gg/?v=7&encoding=json");
-   
-            socket.Connect();
-
-            socket.OnClose += (sender, e) =>
-            {
-                SetStatus(token, Status);
-
-                return;
+                Method = new HttpMethod("PUT"),
+                RequestUri = new Uri("https://discordapp.com/api/v6/users/@me/relationships/" + User),
+                Content = new StringContent("{}", Encoding.UTF8, "application/json")
             };
-
-            socket.OnMessage += Socket_OnMessage;
-            ConsoleLog.Log("Connected to Discord's websocket server.");
+            await Client.SendAsync(req);
         }
-
-        private static void Socket_OnMessage(object sender, WebSocketSharp.MessageEventArgs e)
-        {
-            GatewayResponse payload = JsonConvert.DeserializeObject<GatewayResponse>(e.Data);
-
-            switch (payload.Opcode)
-            {
-                
-            }
-        }
-
         public static async void AuditLogSpam(HttpClient Client, string ServerID)
         {
-            try
+            HttpRequestMessage req = new HttpRequestMessage
             {
-                HttpRequestMessage req = new HttpRequestMessage
-                {
-                    Method = new HttpMethod("PUT"),
-                    RequestUri = new Uri("https://discordapp.com/api/v6/channels/" + ServerID + "/invites"),
-                    Content = new StringContent("{\"max_age\":\"0\",\"max_uses\":\"0\",\"temporary\":false}", Encoding.UTF8, "application/json")
-                };
-                await Client.SendAsync(req);
-                req = null;
-            }
-            catch
-            {
-            }
+                Method = new HttpMethod("PUT"),
+                RequestUri = new Uri("https://discordapp.com/api/v6/channels/" + ServerID + "/invites"),
+                Content = new StringContent("{\"max_age\":\"0\",\"max_uses\":\"0\",\"temporary\":false}", Encoding.UTF8, "application/json")
+            };
+            await Client.SendAsync(req);
         }
         public static async void ChangeAV(HttpClient Client, List<byte> image)
         {
@@ -278,49 +234,24 @@ namespace Migraine_v2.Discord_Spammer_Lib
                 await Client.SendAsync(req);
                 req = null;
             }
-            catch {
+            catch (Exception e) {
+                Console.WriteLine(e);
             }
         }
-
-        public static async void JoinVC(HttpClient Client, string voiceChannelID, string guildID)
-        {
-            try
-            {
-                HttpRequestMessage req = new HttpRequestMessage
-                {
-                    Method = new HttpMethod("POST"),
-                    RequestUri = new Uri("https://discordapp.com/api/v6/science"),
-                    Content = new StringContent("{\"events\":[{\"type\":\"join_voice_channel\",\"properties\":{\"client_track_timestamp\":1580834270995,\"channel_id\":\"" + voiceChannelID + "\",\"channel_type\":2,\"guild_id\":\"" + guildID + "\",\"rtc_connection_id\":\"e7f43d0a-64ee-4649-b3ec-464c08a906d2\",\"game_name\":\"\",\"game_platform\":null,\"custom_status_count\":0,\"voice_state_count\":0,\"video_stream_count\":0,\"video_enabled\":false,\"client_performance_cpu\":27.387610881623594,\"client_performance_memory\":227128,\"accessibility_support_enabled\":false,\"client_uuid\":\"SAACpIIR6AjjGHmVrhsQEXABAAALAAAA\",\"client_send_timestamp\":1580834271024}}]}", Encoding.UTF8, "application/json")
-                };
-                await Client.SendAsync(req);
-                req = null;
-            }
-            catch
-            {
-            }
-        }
-
-        public static async void Status(CommandContext Context, string dis) => await (Context.Client as DiscordSocketClient).SetGameAsync(dis, "https://twitch.tv/ninja", ActivityType.Streaming);
-
         public static async void RemoveFriend(HttpClient Client, string User)
         {
-            try
+            var req = new HttpRequestMessage
             {
-                HttpRequestMessage req = new HttpRequestMessage
-                {
-                    Method = new HttpMethod("DELETE"),
-                    RequestUri = new Uri("https://discordapp.com/api/v6/users/@me/relationships/" + User),
-                    Content = new StringContent("{}", Encoding.UTF8, "application/json")
-                };
-                await Client.SendAsync(req);
-                req = null;
-            }
-            catch { }
+                Method = new HttpMethod("DELETE"),
+                RequestUri = new Uri("https://discordapp.com/api/v6/users/@me/relationships/" + User),
+                Content = new StringContent("{}", Encoding.UTF8, "application/json")
+            };
+            await Client.SendAsync(req);
         }
 
         public static async void SetName(HttpClient client, string serverID, string nick)
         {
-            HttpRequestMessage req = new HttpRequestMessage
+            var req = new HttpRequestMessage
             {
                 Method = new HttpMethod("PATCH"),
                 RequestUri = new Uri("https://discordapp.com/api/v6/guilds/" + serverID + "/members/@me/nick"),
@@ -330,7 +261,7 @@ namespace Migraine_v2.Discord_Spammer_Lib
         }
         public static async void ResetNick(HttpClient client, string serverID)
         {
-            HttpRequestMessage req = new HttpRequestMessage
+            var req = new HttpRequestMessage
             {
                 Method = new HttpMethod("PATCH"),
                 RequestUri = new Uri("https://discordapp.com/api/v6/guilds/" + serverID + "/members/@me/nick"),
@@ -342,17 +273,17 @@ namespace Migraine_v2.Discord_Spammer_Lib
         public static async void SetStatusTokenIdle(HttpClient client)
         {
             
-            HttpRequestMessage req = new HttpRequestMessage
+            var req = new HttpRequestMessage
             {
                 Method = new HttpMethod("PATCH"),
                 RequestUri = new Uri("https://discordapp.com/api/v6/users/@me/settings"),
-                Content = new StringContent("{\"status\":\"" + "idle" + "\"}", Encoding.UTF8, "application/json")
+                Content = new StringContent("{\"status\":\"idle\"}", Encoding.UTF8, "application/json")
             };
             await client.SendAsync(req);
         }
         public static async void SetStatusTokenOnline(HttpClient client)
         {
-            HttpRequestMessage req = new HttpRequestMessage
+            var req = new HttpRequestMessage
             {
                 Method = new HttpMethod("PATCH"),
                 RequestUri = new Uri("https://discordapp.com/api/v6/users/@me/settings"),
@@ -362,12 +293,11 @@ namespace Migraine_v2.Discord_Spammer_Lib
         }
         public static async void SetStatusTokendnd(HttpClient client)
         {
-            
             var req = new HttpRequestMessage
             {
                 Method = new HttpMethod("PATCH"),
                 RequestUri = new Uri("https://discordapp.com/api/v6/users/@me/settings"),
-                Content = new StringContent("{\"status\":\"" + "dnd" + "\"}", Encoding.UTF8, "application/json")
+                Content = new StringContent("{\"status\":\"dnd\"}", Encoding.UTF8, "application/json")
             };
             await client.SendAsync(req);
         }
@@ -378,26 +308,14 @@ namespace Migraine_v2.Discord_Spammer_Lib
             {
                 Method = new HttpMethod("PATCH"),
                 RequestUri = new Uri("https://discordapp.com/api/v6/users/@me/settings"),
-                Content = new StringContent("{\"status\":\"" + "invisible" + "\"}", Encoding.UTF8, "application/json")
+                Content = new StringContent("{\"status\":\"invisible\"}", Encoding.UTF8, "application/json")
             };
             await client.SendAsync(req);
-        }
-        public static bool SetStatus(HttpClient client, string Status)
-        {
-            var request = new HttpRequestMessage
-            {
-                Method = new HttpMethod("PATCH"),
-                RequestUri = new Uri("https://discordapp.com/api/v6/users/@me/settings"),
-                Content = new StringContent("{\"status\":\"online\"}", Encoding.UTF8, "application/json")
-            };
-            
-            Task<HttpResponseMessage> task = client.SendAsync(request);
-            return task.Result.StatusCode == HttpStatusCode.OK;
         }
 
         public static bool Typing(HttpClient client, string ChannelID)
         {
-            HttpRequestMessage req = new HttpRequestMessage
+            var req = new HttpRequestMessage
             {
                 Method = new HttpMethod("POST"),
                 RequestUri = new Uri("https://discordapp.com/api/v6/channels/" + ChannelID + "/typing")
@@ -407,7 +325,7 @@ namespace Migraine_v2.Discord_Spammer_Lib
         }
         public static bool React(HttpClient client, string ChannelID, string MessageID, string emoji)
         {
-            HttpRequestMessage req = new HttpRequestMessage
+            var req = new HttpRequestMessage
             {
                 Method = new HttpMethod("PUT"),
                 RequestUri = new Uri("https://discordapp.com/api/v6/channels/" + ChannelID + "/messages/" + MessageID + "/reactions/" + emoji + "/%40me")
@@ -415,20 +333,29 @@ namespace Migraine_v2.Discord_Spammer_Lib
             Task<HttpResponseMessage> task = client.SendAsync(req);
             return task.Result.StatusCode == HttpStatusCode.OK;
         }
-
+        public static bool JoinServer(HttpClient Client, string Invite)
+        {
+            var req = new HttpRequestMessage
+            {
+                Method = new HttpMethod("POST"),
+                RequestUri = new Uri("https://discordapp.com/api/v6/invite/" + Invite)
+            };
+            Task<HttpResponseMessage> task = Client.SendAsync(req);
+            return task.Result.StatusCode == HttpStatusCode.OK;
+        }
         public static bool CustomPUTInviteFucker(HttpClient Client, string Invite)
         {
-            HttpRequestMessage request = new HttpRequestMessage
+            var req = new HttpRequestMessage
             {
                 Method = new HttpMethod("PUT"),
                 RequestUri = new Uri("https://discordapp.com/api/v6/invite/" + Invite),
             };
-            Task<HttpResponseMessage> task = Client.SendAsync(request);
+            Task<HttpResponseMessage> task = Client.SendAsync(req);
             return task.Result.StatusCode == HttpStatusCode.OK;
         }
         public static async void AuditSpammer(HttpClient client, string ChannelID)
         {
-            HttpRequestMessage req = new HttpRequestMessage
+            var req = new HttpRequestMessage
             {
                 Method = new HttpMethod("POST"),
                 RequestUri = new Uri("https://discordapp.com/api/v6/channels/" + ChannelID + "/invites"),
@@ -483,27 +410,5 @@ namespace Migraine_v2.Discord_Spammer_Lib
             }
             return result2;
         }
-        //public static int SendDmMessage(HttpClient Client, string ChannelID, string Message)
-        //{
-        //    HttpResponseMessage result = Client.PostAsync("https://discordapp.com/api/v6/channels/" + ChannelID + "/messages", new StringContent("{\"content\":\"" + Message + "\",\"nonce\":\"\",\"tts\":\"false\"}", Encoding.UTF8, "application/json")).Result; bool flag = result == null;
-        //    int result2;
-        //    if (flag)
-        //        result2 = 0;
-        //    else
-        //    {
-        //        string a = result.StatusCode.ToString();
-        //        result2 = ((a == "429") ? 0 : 1);
-        //    }
-        //    return result2;
-        //}
-        //public static async bool DMSPam(HttpClient Client, string userid)
-        //{
-        //    HttpRequestMessage req = new HttpRequestMessage
-        //    {
-        //        //id: 680225977917374504
-        //        Method = new HttpMethod("POST"),
-        //        RequestUri = new Uri("https://discordapp.com/api/v6/users/" + userid + "/channels"),
-        //        Content = new StringContent("{\"recipients\":""460892852889845780""\"}"), Encoding.UTF8, "application/json")
-        //    };
     }
 }

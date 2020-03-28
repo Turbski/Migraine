@@ -117,6 +117,7 @@
     <Compile Include="CommandsList.cs" />
     <Compile Include="CustomSettings\CustomCommands.cs" />
     <Compile Include="Discord_Spammer_Lib\rClient.cs" />
+    <Compile Include="Discord_Spammer_Lib\rCommands.cs" />
     <Compile Include="Discord_Spammer_Lib\rHandler.cs" />
     <Compile Include="Discord_Spammer_Lib\rStart.cs" />
     <Compile Include="Discord_Spammer_Lib\rStatus.cs" />
@@ -144,9 +145,6 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginClass\CheckFiddler.cs" />
-    <Compile Include="LoginClass\HardwareID.cs" />
-    <Compile Include="LoginClass\Settings.cs" />
     <Compile Include="Nitro Sniper Lib\StartNitroSniper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -167,8 +165,6 @@
     <Compile Include="SelfbotClasses\ConsoleLog.cs" />
     <Compile Include="SelfbotClasses\DiscordUpdateFromGUi.cs" />
     <Compile Include="SelfbotClasses\StartBot.cs" />
-    <Compile Include="Temp\Auth.cs" />
-    <Compile Include="LoginClass\HWID.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>

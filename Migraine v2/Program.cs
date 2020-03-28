@@ -9,7 +9,7 @@ namespace Migraine_v2 {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Loading());
+            Application.Run(new Form1());
         }
     }
 }

@@ -59,7 +59,7 @@ namespace Migraine_v2 {
                 "invisboi:Adds Skype connections to your profile.",
                 "giveaway:Creates a giveaway | Usage: giveaway <infowithtime>",
                 "giveawayusers:Gets all users in giveaway",
-                "choosewinnder:Selects a random user from giveaway",
+                "choosewinner:Selects a random user from giveaway",
                 "cleargiveaway:Deletes the giveaway",
                 "delemoji:Deletes all emojis in guilld",
                 "sizepp:Returns the penis size of a mentioned user | Usage: sizepp <user>",

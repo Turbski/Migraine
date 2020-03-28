@@ -10,7 +10,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Discord.WebSocket;
 using Migraine_v2.Classes;
-using Migraine_v2.LoginClass;
 using Migraine_v2.DiscordRPC;
 using Migraine_v2.Registration;
 using Migraine_v2.SelfbotClasses;
@@ -20,6 +19,7 @@ using Migraine_v2;
 using DiscordRPC;
 using DiscordRPC.Logging;
 using Migraine_v2.DClient;
+using System.Threading.Tasks;
 
 namespace Migraine_v2 {
     public partial class Form1 : Form {
@@ -28,31 +28,8 @@ namespace Migraine_v2 {
         public bool Injected = false;
         public Form1() {
             InitializeComponent();
-            //try
-            //{
-            //    RPCClient = new DiscordRpcClient("685768251698970676");
-            //    RPCClient.Logger = new ConsoleLogger
-            //    {
-            //        Level = LogLevel.Trace
-            //    };
-            //    RPCClient.SetPresence(new RichPresence
-            //    {
-            //        Details = "",
-            //        State = "Main Page",
-            //        Assets = new Assets
-            //        {
-            //            LargeImageKey = "migraine_logo",
-            //            LargeImageText = "Migraine FTW"
-            //        }
-            //    });
-            //    RPCClient.Initialize();
-            //}
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine(e);
-            //}
             LogConsole.Text = ConsoleLog.LogInfo;
-            lblDiscordUser.Text = "" + doLogin._Username.ToString();
+            //lblDiscordUser.Text = "" + doLogin._Username.ToString();
             DiscordUser.Text = DiscordUser.Text.Replace("Unknown", $"{Globals.SelfbotUser}");
             UserToken.Text = Token1;
             string[] array = Migraine_v2.CommandsList.Get();
@@ -66,9 +43,6 @@ namespace Migraine_v2 {
                     })[1]
                 });
             }
-            if (Settings._Token != "")
-                this.UserToken.Text = Settings._Token;
-                this.NitroToken.Text = Settings._Token;
             bool flag = File.Exists("RPC.json");
             if (flag) {
                 string text = File.ReadAllText("RPC.json");
@@ -126,155 +100,39 @@ namespace Migraine_v2 {
             this.ClearPages();
             home1.Visible = true;
             homeLabel.Visible = true;
-            //try
-            //{
-            //    RPCClient = new DiscordRpcClient("685768251698970676");
-            //    RPCClient.Logger = new ConsoleLogger
-            //    {
-            //        Level = LogLevel.Trace
-            //    };
-            //    RPCClient.SetPresence(new RichPresence
-            //    {
-            //        Details = "",
-            //        State = "Main Page",
-            //        Assets = new Assets
-            //        {
-            //            LargeImageKey = "migraine_logo",
-            //            LargeImageText = "Migraine FTW"
-            //        }
-            //    });
-            //    RPCClient.Initialize();
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex);
-            //}
         }
         public void BtnTknChecker_Click(object sender, EventArgs e) {
             this.ClearPages();
             token1.Visible = true;
             tkncheckerLabel.Visible = true;
             tknlabel.Visible = true;
-            //try
-            //{
-            //    RPCClient = new DiscordRpcClient("685768251698970676");
-            //    RPCClient.Logger = new ConsoleLogger
-            //    {
-            //        Level = LogLevel.Trace
-            //    };
-            //    RPCClient.SetPresence(new RichPresence
-            //    {
-            //        Details = "",
-            //        State = "Token Checker",
-            //        Assets = new Assets
-            //        {
-            //            LargeImageKey = "migraine_logo",
-            //            LargeImageText = "Migraine FTW"
-            //        }
-            //    });
-            //    RPCClient.Initialize();
-            //}
-            //catch (Exception exx)
-            //{
-            //    Console.WriteLine(exx);
-            //}
         }
         public void BtnSpammer_Click(object sender, EventArgs e) {
             this.ClearPages();
             spammer1.Visible = true;
             spammerLabel.Visible = true;
             splabel.Visible = true;
-            //try
-            //{
-            //    RPCClient = new DiscordRpcClient("685768251698970676");
-            //    RPCClient.Logger = new ConsoleLogger
-            //    {
-            //        Level = LogLevel.Trace
-            //    };
-            //    RPCClient.SetPresence(new RichPresence
-            //    {
-            //        Details = "",
-            //        State = "Discord Spammer",
-            //        Assets = new Assets
-            //        {
-            //            LargeImageKey = "migraine_logo",
-            //            LargeImageText = "Migraine FTW"
-            //        }
-            //    });
-            //    RPCClient.Initialize();
-            //}
-            //catch (Exception eee)
-            //{
-            //    Console.WriteLine(eee);
-            //}
         }
         public void BtnSelfbot_Click(object sender, EventArgs e) {
             this.ClearPages();
             selfbot1.Visible = true;
             selfbotLabel.Visible = true;
             sbLabel.Visible = true;
-            //try
-            //{
-            //    RPCClient = new DiscordRpcClient("685768251698970676");
-            //    RPCClient.Logger = new ConsoleLogger
-            //    {
-            //        Level = LogLevel.Trace
-            //    };
-            //    RPCClient.SetPresence(new RichPresence
-            //    {
-            //        Details = "",
-            //        State = "Selfbot",
-            //        Assets = new Assets
-            //        {
-            //            LargeImageKey = "migraine_logo",
-            //            LargeImageText = "Migraine FTW"
-            //        }
-            //    });
-            //    RPCClient.Initialize();
-            //}
-            //catch (Exception ee)
-            //{
-            //    Console.WriteLine(ee);
-            //}
         }
         private void NitrosnprBtn_Click(object sender, EventArgs e) {
             this.ClearPages();
             nitrosnprPanel.Visible = true;
             nitroD.Visible = true;
             nitroT.Visible = true;
-            //try
-            //{
-            //    RPCClient = new DiscordRpcClient("685768251698970676");
-            //    RPCClient.Logger = new ConsoleLogger
-            //    {
-            //        Level = LogLevel.Trace
-            //    };
-            //    RPCClient.SetPresence(new RichPresence
-            //    {
-            //        Details = "",
-            //        State = "Nitro Sniper",
-            //        Assets = new Assets
-            //        {
-            //            LargeImageKey = "migraine_logo",
-            //            LargeImageText = "Migraine FTW"
-            //        }
-            //    });
-            //    RPCClient.Initialize();
-            //}
-            //catch (Exception eaa)
-            //{
-            //    Console.WriteLine(eaa);
-            //}
         }
         public void BtnDiscordRPC_Click(object sender, EventArgs e) {
             this.ClearPages();
             rpcdlabel.Visible = true;
             rpcLabel.Visible = true;
             discordRPC1.Visible = true;
-
         }
         private void JoinDiscordButton_Click_1(object sender, EventArgs e) {
-            Process.Start("https://discord.gg/JW5t7zV");
+            Process.Start("https://discord.gg/T9BSYMp");
             Process.Start("https://t.me/OfficialMigraine");
         }
         public void BtnSettings_Click(object sender, EventArgs e) {
@@ -302,25 +160,14 @@ namespace Migraine_v2 {
             nitrosnprPanel.Visible = false;
             nitroD.Visible = false;
             nitroT.Visible = false;
-            MassPing.Visible = false;
             SettingsPanel.Visible = false;
-            Spotifybutt.Visible = false;
-            SpotifyInviteButt.Visible = false;
-            SpotifyPanel.Visible = false;
             DiscordPanel.Visible = false;
-            EmbedPanel.Visible = false;
             DiscordPanelInfo.Visible = false;
             DiscordPanelInfoText.Visible = false;
-            Stream.Visible = false;
-            EmbedMenu.Visible = false;
-            ChangeAV.Visible = false;
-            LoadAvatar.Visible = false;
-            Revert.Visible = false;
-            AV.Visible = false;
-            VC.Visible = false;
-            JoinVoiceChannelButton.Visible = false;
-            LeaveVC.Visible = false;
-            voiceChannelID.Visible = false;
+            EmbedPanel.Visible = false;
+            label41.Visible = false;
+            UserId.Visible = false;
+            SpamSIngleUser.Visible = false;
         }
 
         public void ClearAllTxt() {
@@ -333,9 +180,10 @@ namespace Migraine_v2 {
             this.Nickname.Text = "";
             this.UserId.Text = "";
             this.UserIdText.Text = "";
-            this.voiceChannelID.Text = "";
+            this.CustomStatusTxt.Text = "";
         }
 
+        [Obsolete]
         public void Spammer1() {
             bool flag = !Form1.Running;
             if (flag)
@@ -352,6 +200,7 @@ namespace Migraine_v2 {
                     bool flag3 = text != null && text != "";
                     if (!flag3) { return; }
                     Form1.ValidTokens.Enqueue(text);
+
                     int num = rDiscord.SendChannelMessage(Client.Create(false, null, text), Form1._ChannelID, Form1.MessageText);
 
                     bool flag4 = num == 1;
@@ -366,61 +215,35 @@ namespace Migraine_v2 {
             }
             Thread.Sleep(1);
         }
-        //public void MassPingSpammer() {
-        //    bool flag = !Form1.Running;
-        //    if (flag)
-        //        Thread.CurrentThread.Abort();
-        //    bool flag2 = Form1._MsgsSent >= Form1._Msgstosend;
-        //    if (flag2)
-        //        Form1.Running = false;
-        //    bool running = Form1.Running;
-        //    if (running) {
-        //        try {
-        //            string text;
-        //            ConsoleLog.Log("[Console] Initializing...");
-        //            Form1.ValidTokens.TryDequeue(out text);
-        //            bool flag3 = text != null && text != "";
-        //            if (!flag3) { return; }
-        //            Form1.ValidTokens.Enqueue(text);
-        //            string[] Members = rDiscord.GetMembers(Client.Create(false, null, text), this.ServerID.Text);
-        //            //int num = rDiscord.SendMassPingMessage(Client.Create(false, null, text), Form1._ChannelID, Members);
-        //            ConsoleLog.Log("[Console] Started Task");
-        //            bool flag4 = num == 1;
-        //            if (flag4) {
-        //                this.tmessagessent.Text = Form1._MsgsSent.ToString();
-        //                Form1._MsgsSent++;
-        //            } else {  Thread.Sleep(1000); }
-        //        } catch { }
-        //    }
-        //    Thread.Sleep(1);
-        //}
         private void Stop_Click(object sender, EventArgs e) => Form1.Running = false;
         public void InviteThreaded() {
             try {
                 string text;
                 Form1.ValidTokens.TryDequeue(out text);
                 Form1.ValidTokens.Enqueue(text);
-                HttpResponseMessage httpResponseMessage = rDiscord.JoinServer(Client.Create(false, null, text), Form1._InviteURL);
-                bool flag = httpResponseMessage.ToString().Contains("StatusCode: 200, ReasonPhrase: 'OK'");
+                var resp = rDiscord.JoinServer(Client.Create(false, null, text), _InviteURL);
+                bool flag = resp.ToString().Contains("StatusCode: 200, ReasonPhrase: 'OK'");
                 if (flag)
+                {
                     Form1.AmountJoined++;
+                }
                 this.UsersJoinedInt.Text = Form1.AmountJoined.ToString();
             } catch { }
             Form1.Running = false;
             Thread.CurrentThread.Abort();
         }
-        private void LeaveThreaded()  {
+        private void LeaveThreaded() {
             string token;
             Form1.ValidTokens.TryDequeue(out token);
-            try {
-                new Thread(() =>
-                {
-
-                }).Start();
+            try
+            {
                 rDiscord.LeaveServer(Client.Create(false, null, token), this.ServerID.Text);
                 Form1.UsersLeft++;
                 this._UsersLeft.Text = Form1.UsersLeft.ToString();
-            } catch { }
+            }
+            catch
+            {
+            }
             Thread.CurrentThread.Abort();
         }
         private void DmAllInGuild_Click(object sender, EventArgs e) => MessageBox.Show("Didnt have time to do this feature!", "Sorry");
@@ -451,22 +274,7 @@ namespace Migraine_v2 {
             }
         }
         private void BoostisThread_ValueChanged(object sender, EventArgs e) => this.Boost.Text = "Threads: [" + this.boostisThread.Value.ToString() + "] (Recommend 20)";
-        public void JoinVC(string voicechannelID) {
-            int num = 0;
-            string server = this.ServerID.Text;
-            new Thread(() =>
-            {
-                foreach (string token in Form1.ValidTokens)
-                {
-                    try
-                    {
-                        rDiscord.JoinVC(Client.Create(false, null, token), voicechannelID, server);
-                    } catch { }
-                }
-                num++;
-            }).Start();
-            MessageBox.Show(string.Format("Joined Voice Channel on {0} accounts!", num), "Done!");
-        }
+
         public void ChangeNicknames(string ServerID, string nick) {
             int num = 0;
             new Thread(() =>
@@ -486,7 +294,8 @@ namespace Migraine_v2 {
             }).Start();
         }
         [Obsolete]
-        private void StartSelfbot_Click_1(object sender, EventArgs e) {
+        private void StartSelfbot_Click_1(object sender, EventArgs e)
+        {
 
             bool notoken = this.UserToken.Text == null || this.UserToken.Text == "Insert Token" || this.UserToken.Text == "";
             if (notoken)
@@ -499,26 +308,13 @@ namespace Migraine_v2 {
                 MessageBox.Show("Invalid Token Format");
             else
             {
-                try
-                {
-                    if (Settings._Username != this.UserToken.Text)
-                    {
-                        Settings._Settings["misc"]["token"] = this.UserToken.Text;
-                        string output = JsonConvert.SerializeObject(Settings._Settings, Formatting.Indented);
-                        File.WriteAllText("Settings.json", output);
-                    }
-                    StartBot.Token = this.UserToken.Text;
-                    this.ConstantlyRun.Start();
-                    TimeElapsed.Start();
-                    ConsoleLog.Log("[Console] Bot Starting...");
-                    Globals.SelfbotRunning = true;
-                    StartBot.Init();
-                    Globals.SelfbotUser = this.DiscordUser.Text;
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Invalid Token.", "Migraine - Error");
-                }
+                StartBot.Token = this.UserToken.Text;
+                this.ConstantlyRun.Start();
+                TimeElapsed.Start();
+                ConsoleLog.Log("[Console] Bot Starting...");
+                Globals.SelfbotRunning = true;
+                StartBot.Init();
+                Globals.SelfbotUser = this.DiscordUser.Text;
             }
         }
         private void StopSelfbot_Click_1(object sender, EventArgs e) {
@@ -628,6 +424,8 @@ namespace Migraine_v2 {
                         Form1.Running = true;
                         this.OnOffStatus.BaseColor = System.Drawing.Color.Lime;
                         this.MessagesSent.Start();
+
+                        ConsoleLog.Log("[Console] Bots Working...");
                         for (int i = 0; i < this.boostisThread.Value; i++) {
                             new Thread(delegate () {
                                 while (Form1.Running) { this.Spammer1(); }
@@ -698,33 +496,48 @@ namespace Migraine_v2 {
             bool running = Form1.Running;
             if (running)
                 MessageBox.Show("Stop current task first!", "Error!");
-            else {
+            else
+            {
+                bool withdiscordgg = InviteURL.Text.StartsWith("https://discord.gg");
+                if (withdiscordgg)
+                {
+                    MessageBox.Show("Invalid URL Format.", "Error");
+                }
                 bool nodata = InviteURL.Text == "Insert URL" || InviteURL.Text == "";
                 if (nodata)
                     MessageBox.Show("Invite URL hasn't been loaded.", "Error");
-                else {
+                else
+                {
                     Form1.Running = true;
                     this.OnOffStatus.BaseColor = System.Drawing.Color.Lime;
-                    try {
+                    try
+                    {
                         bool flag = this.InviteURL.Text == null || this.InviteURL.Text == "";
                         if (flag)
                             throw new Exception("Bad Invite URL");
                         Form1._InviteURL = this.InviteURL.Text.Replace("https://discord.gg/", "");
-                    } catch { MessageBox.Show("Please include a invite URL!", "Error!");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Please include a invite URL!", "Error!");
                         return;
                     }
                     string text;
                     Form1.ValidTokens.TryDequeue(out text);
                     Form1.ValidTokens.Enqueue(text);
-                    bool flag2 = !rDiscord.IsValidInvite(Client.Create(false, null, text), Form1._InviteURL);
-                    if (flag2)
-                        MessageBox.Show(this.InviteURL.Text + " Is Invalid!", "Errmmm");
-                    else {
-                        for (int i = 0; i < Form1.ValidTokens.Count; i++) {
-                            new Thread(delegate () {
-                                while (Form1.Running) {  this.InviteThreaded(); }
-                            }).Start();
-                        }
+                    //bool flag2 = !rDiscord.IsValidInvite(Client.Create(false, null, text), Form1._InviteURL);
+                    //if (flag2)
+                    //    MessageBox.Show(this.InviteURL.Text + " Is Invalid!", "Errmmm");
+
+                    for (int i = 0; i < Form1.ValidTokens.Count; i++)
+                    {
+                        new Thread(delegate ()
+                        {
+                            while (Form1.Running)
+                            {
+                                InviteThreaded();
+                            }
+                        }).Start();
                     }
                 }
             }
@@ -786,7 +599,6 @@ namespace Migraine_v2 {
                 }
             }
         }
-        private void DmAllInGuild_Click_1(object sender, EventArgs e) => MessageBox.Show("Didnt have time to do this feature!", "Sorry");
         private void LoadTokens_Click_1(object sender, EventArgs e) {
             try {
                 OpenFileDialog openFileDialog = new OpenFileDialog
@@ -863,7 +675,7 @@ namespace Migraine_v2 {
             bool flag = this.ChangeStatusBtn.selectedIndex == 1;
             if (flag) foreach (string token in Form1.ValidTokens)
                 {
-                    rDiscord.SetStatus(token, rStatus.Online);
+                    rDiscord.SetStatusTokenOnline(Client.Create(false, null, token));
                 }
             else
             {
@@ -879,15 +691,18 @@ namespace Migraine_v2 {
                 }
             } ConsoleLog.Log("Status set to " + this.ChangeStatusBtn.Text);
         }
-        private void SpamRqSingleUser_Click_1(object sender, EventArgs e) {
+        private void SpamRqSingleUser_Click_1(object sender, EventArgs e)
+        {
             bool running = Form1.Running;
             if (running)
                 MessageBox.Show("Stop current task first!", "Error!");
-            else {
+            else
+            {
                 bool flag = this.UserIdText.Text.Length < 5 || this.UserIdText.Text.ToLower() == "Unknown";
                 if (flag)
                     MessageBox.Show("Include a user to spam", "Error!");
-                else {
+                else
+                {
                     Form1.Running = true;
                     this.OnOffStatus.BaseColor = System.Drawing.Color.Lime;
                     foreach (string token in Form1.ValidTokens) { rDiscord.AddFriend(Client.Create(false, null, token), this.UserIdText.Text); }
@@ -973,15 +788,18 @@ namespace Migraine_v2 {
                 }
             }
         }
-        private void RemoveFR_Click_1(object sender, EventArgs e) {
+        private void RemoveFR_Click_1(object sender, EventArgs e)
+        {
             bool running = Form1.Running;
             if (running)
                 MessageBox.Show("Stop current task first!", "Error!");
-            else {
+            else
+            {
                 bool flag = this.UserIdText.Text.Length < 5 || this.UserIdText.Text.ToLower() == "Unknown";
                 if (flag)
                     MessageBox.Show("Include a user to remove", "Error!");
-                else {
+                else
+                {
                     Form1.Running = true;
                     this.OnOffStatus.BaseColor = System.Drawing.Color.Lime;
                     foreach (string token in Form1.ValidTokens) { rDiscord.RemoveFriend(Client.Create(false, null, token), this.UserIdText.Text); }
@@ -1079,15 +897,19 @@ namespace Migraine_v2 {
             File.AppendAllText(text + "Valid Tokens.txt", contents);
             MessageBox.Show(string.Format("Saved {0} Tokens to\n{1}Valid Tokens.txt", Form1._ValidTokens.Count, text), "Tokens Saved!");
         }
-        private void LabelUpdate_Tick(object sender, EventArgs e) {
+        private void LabelUpdate_Tick(object sender, EventArgs e)
+        {
             bool flag = !Form1.Running;
             if (flag) { this.LabelUpdate.Stop(); }
             this.CheckedTokens.Text = (Form1._Valids + Form1._Invalids).ToString();
             this.Valids.Text = Form1._Valids.ToString();
             this.Invalids.Text = Form1._Invalids.ToString();
             this.Retries.Text = Form1._Retries.ToString();
-            try { this.Valids.Text = string.Join("\n", Form1._ValidTokens); }
-            catch { }
+            try
+            {
+                this.TokenBox.Text = string.Join("\n", Form1._ValidTokens);
+            } catch {
+            }
         }
         private void Threading() {
             for (int i = 0; i < 20; i++) {
@@ -1110,26 +932,39 @@ namespace Migraine_v2 {
             string text;
             Form1.Token.TryDequeue(out text);
             bool flag2 = text == null || text == "";
-            if (flag2) { Form1._Retries++;
+            if (flag2)
+            {
+                Form1._Retries++;
                 Thread.Sleep(5000);
             }
-            else { try {
+            else
+            {
+                try
+                {
                     string a = rDiscord.IfValidAccount(Client.Create(false, null, text));
                     bool flag3 = a == "valid";
-                    if (flag3) { Form1._Valids++;
+                    if (flag3)
+                    {
+                        Form1._Valids++;
                         Form1._ValidTokens.Add(text);
-                    } else {
+                    }
+                    else
+                    {
                         bool flag4 = a == "invalid";
                         if (flag4) { Form1._Invalids++; }
-                        else {
+                        else
+                        {
                             bool flag5 = a == "throttled";
                             if (flag5) { Form1.Running = false; }
-                            else { Form1.Token.Enqueue(text);
+                            else
+                            {
+                                Form1.Token.Enqueue(text);
                                 Form1._Retries++;
                             }
                         }
                     }
-                } catch (Exception ex) { Console.WriteLine(ex.ToString() + "Exception on catch"); }
+                }
+                catch (Exception ex) { Console.WriteLine(ex.ToString() + "Exception on catch"); }
             }
         }
         private void CheckerProxy() {
@@ -1140,68 +975,48 @@ namespace Migraine_v2 {
             string text;
             Form1.Token.TryDequeue(out text);
             bool flag2 = text == null || text == "";
-            if (flag2) { Form1._Retries++;
+            if (flag2)
+            {
+                Form1._Retries++;
                 Thread.Sleep(5000);
-            } else { try {
+            }
+            else
+            {
+                try
+                {
                     string text2 = "";
-                    try {
+                    try
+                    {
                         Form1.Proxy.TryDequeue(out text2);
                         bool flag3 = text2 != null;
                         if (flag3)
                             Form1.Proxy.Enqueue(text2);
-                    } catch { return; }
+                    }
+                    catch { return; }
                     bool flag4 = text2 == null;
-                    if (!flag4) {
+                    if (!flag4)
+                    {
                         string a = rDiscord.IfValidAccount(Client.Create(true, text2, text));
                         bool flag5 = a == "valid";
-                        if (flag5) { Form1._Valids++;
+                        if (flag5)
+                        {
+                            Form1._Valids++;
                             Form1._ValidTokens.Add(text);
-                        } else {
+                        }
+                        else
+                        {
                             bool flag6 = a == "invalid";
                             if (flag6) { Form1._Invalids++; }
-                            else { Form1.Token.Enqueue(text);
+                            else
+                            {
+                                Form1.Token.Enqueue(text);
                                 Form1._Retries++;
                             }
                         }
                     }
-                } catch (Exception ex) { Console.WriteLine(ex.ToString() + "Exception on catch"); }
+                }
+                catch (Exception ex) { Console.WriteLine(ex.ToString() + "Exception on catch"); }
             }
-        }
-        private void JoinVoiceChannelButton_Click(object sender, EventArgs e) {
-            //bool running = Form1.Running;
-            //if (running)
-            //{
-            //    MessageBox.Show("Stop current task first!", "Error!");
-            //}
-            //else
-            //{
-            //    bool noid = this.voiceChannelID.Text == "Insert ID" || this.voiceChannelID.Text == "";
-            //    if (noid)
-            //    {
-            //        MessageBox.Show("Please include a \"Voice Channel ID\"!", "Error!");
-            //    }
-            //    bool noserver = this.ServerID.Text == "Insert ID" || this.ServerID.Text == "";
-            //    if (noserver)
-            //    {
-            //        MessageBox.Show("Please include a \"Server ID\"!", "Error!");
-            //    }
-            //    else
-            //    {
-
-            //        for (int j = 0; j < 10; j++)
-            //        {
-            //            new Thread(delegate ()
-            //            {
-            //                string message = this.richTextBox.Text;
-            //                Form1.Running = true;
-            //                foreach (string token in Form1.ValidTokens)
-            //                {
-            //                    rCommands.Streaming(message);/*(Client.Create(false, null, token)*/
-            //                }
-            //            }).Start();
-            //        }
-            //    }
-            //}
         }
 
         private void GetToken_Click_1(object sender, EventArgs e) {
@@ -1230,6 +1045,8 @@ namespace Migraine_v2 {
             Form1.Running = false;
             MessageBox.Show(string.Format("Changed nick back to Default on {0} accounts!", num), "Done!");
         }
+
+        [Obsolete]
         private void ClearChat_Click(object sender, EventArgs e) {
             bool running = Form1.Running;
             if (running)
@@ -1261,8 +1078,13 @@ namespace Migraine_v2 {
                         Form1.Running = true;
                         this.MessagesSent.Start();
                         for (int i = 0; i < this.boostisThread.Value; i++) {
-                            new Thread(delegate () {
-                                while (Form1.Running) { this.Spammer1(); } }).Start();
+                            new Thread(delegate ()
+                            {
+                                while (Form1.Running)
+                                {
+                                    Spammer1();
+                                }
+                            }).Start();
                         }
                     }
                 }
@@ -1276,21 +1098,13 @@ namespace Migraine_v2 {
             }
             else
             {
-                bool flag = this.ChannelID.Text == null;
-                if (flag)
+                Form1.Running = true;
+                foreach (string token in Form1.ValidTokens)
                 {
-                    MessageBox.Show("Include a Avatar Link to Change Avatars", "Error!");
+                    rDiscord.ChangeAV(Client.Create(false, null, token), image);
                 }
-                else
-                {
-                    Form1.Running = true;
-                    foreach (string token in Form1.ValidTokens)
-                    {
-                        rDiscord.ChangeAV(Client.Create(false, null, token), image);
-                    }
-                    Form1.Running = false;
-                    MessageBox.Show("Changed Avatars on each account!", "Finished");
-                }
+                Form1.Running = false;
+                MessageBox.Show("Changed Avatars on each account!", "Finished");
             }
         }
         private void MassPing_Click(object sender, EventArgs e) {
@@ -1442,30 +1256,6 @@ namespace Migraine_v2 {
             Form1.Running = false;
             MessageBox.Show(string.Format("Started Audit Log Spamming"), "Done!");
         }
-        private void SpotifyInviteButt_Click(object sender, EventArgs e) {
-            bool running = Form1.Running;
-            foreach (string token in Form1.ValidTokens) {
-                if (running)
-                    MessageBox.Show("Stop current task first!", "Error!");
-                else {
-                    string channelid = this.ChannelID.Text;
-                    string partyid = this.PartyID.Text;
-                    string session = this.SessionID.Text;
-                    Form1.Running = true;
-                    new Thread(delegate () { this.Spotify(); }).Start();
-                }
-            }
-        }
-        public void Spotify() {
-            int num = 0;
-            foreach (string token in Form1.ValidTokens) {
-                try {
-                    rDiscord.SpotifyInviteSpam(Client.Create(false, null, token));
-                    num++;
-                } catch { }
-            }
-            Form1.Running = false;
-        }
         private void MultiChannelButt_Click(object sender, EventArgs e) {
             bool running = Form1.Running;
             if (running) { MessageBox.Show("Stop current task first!", "Error!"); }
@@ -1559,36 +1349,22 @@ namespace Migraine_v2 {
                 }
             }
         }
-        public void BASBypass(string Invite) {
-            try {
-                string text;
-                Form1.ValidTokens.TryDequeue(out text);
-                Form1.ValidTokens.Enqueue(text);
-                HttpResponseMessage httpResponseMessage = rDiscord.JoinServer(Client.Create(false, null, text), Form1._InviteURL);
-                bool flag = httpResponseMessage.ToString().Contains("StatusCode: 200, ReasonPhrase: 'OK'");
-                if (flag) { Form1.AmountJoined++; }
-                this.UsersJoinedInt.Text = Form1.AmountJoined.ToString();
-            } catch { }
-            Form1.Running = false;
-            Thread.CurrentThread.Abort();
-        }
+        //public void BASBypass(string Invite) {
+        //    try {
+        //        string text;
+        //        Form1.ValidTokens.TryDequeue(out text);
+        //        Form1.ValidTokens.Enqueue(text);
+        //        HttpResponseMessage httpResponseMessage = rDiscord.JoinServer(Client.Create(false, null, text), Form1._InviteURL);
+        //        bool flag = httpResponseMessage.ToString().Contains("StatusCode: 200, ReasonPhrase: 'OK'");
+        //        if (flag) { Form1.AmountJoined++; }
+        //        this.UsersJoinedInt.Text = Form1.AmountJoined.ToString();
+        //    } catch { }
+        //    Form1.Running = false;
+        //    Thread.CurrentThread.Abort();
+        //}
         private void BunifuFlatButton2_Click(object sender, EventArgs e) => this.ClearAllTxt();
         private void MaximizeButt_Click(object sender, EventArgs e) => this.WindowState = FormWindowState.Maximized;
-        private void Stream_Click(object sender, EventArgs e)
-        {
-            //bool running = Form1.Running;
-            //if (running)
-            //    MessageBox.Show("Stop current task first!", "Error!");
-            //else
-            //{
-            //    string Message = this.richTextBox.Text;
-            //    Form1.Running = true;
-            //    new Thread(delegate () {
-            //        rCommands.ASCII(rStart.Token), Message;
-            //    }).Start();
-            //    // ConsoleLog.Log("[Console] Started reacting on all Tokens");
-            //}
-        }
+
         public void Embed1(string ChannelID) {
             //int num = 0;
             //foreach (string token in Form1.ValidTokens)
@@ -1643,7 +1419,7 @@ namespace Migraine_v2 {
                 RestoreDirectory = true,
                 Multiselect = false,
                 Title = "Select an Image...",
-                Filter = "*.png|*.*"
+                Filter = "All|*.*"
             };
             openFileDialog.ShowDialog();
             byte[] img = File.ReadAllBytes(openFileDialog.FileName);
@@ -1810,7 +1586,7 @@ namespace Migraine_v2 {
                     bool flag3 = text != null && text != "";
                     if (!flag3) { return; }
                     Form1.ValidTokens.Enqueue(text);
-                    int num = rDiscord.SpawnEmbed(Client.Create(false, null, text), Form1._ChannelID, EmbedTitle.Text, this.EmbedText.Text, null);
+                    int num = rDiscord.SpawnEmbed(Client.Create(false, null, text), Form1._ChannelID, EmbedTitle.Text, this.EmbedText.Text);
                     bool flag4 = num == 1;
                     if (flag4)
                     {
@@ -1873,6 +1649,60 @@ namespace Migraine_v2 {
         private void Panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        [Obsolete]
+        private void StartBots_Click(object sender, EventArgs e)
+        {
+            string text;
+            Form1.ValidTokens.TryDequeue(out text);
+            Form1.ValidTokens.Enqueue(text);
+            try
+            {
+                rStart.Token = text;
+                rStart.Init();
+
+            }
+            catch
+            {
+                ConsoleLog.Log("Failed...");
+                MessageBox.Show("failed...");
+            }
+        }
+
+        private void ChangeCustomStatusButton_Click(object sender, EventArgs e)
+        {
+            bool running = Form1.Running;
+            if (running)
+                MessageBox.Show("Stop current task first!", "Error!");
+            else
+            {
+                Form1.Running = true;
+                this.OnOffStatus.BaseColor = System.Drawing.Color.Lime;
+                foreach (string token in Form1.ValidTokens)
+                {
+                    rDiscord.CustomStatus(Client.Create(false, null, token), this.CustomStatusTxt.Text);
+                }
+                Form1.Running = false;
+                MessageBox.Show($"Changed status on {ValidTokens.Count} accounts", "Success");
+                this.OnOffStatus.BaseColor = System.Drawing.Color.Red;
+            }
+        }
+
+        private void RemoveCustomStatus_Click(object sender, EventArgs e)
+        {
+            bool running = Form1.Running;
+            if (running)
+                MessageBox.Show("Stop current task first!", "Error!");
+            else
+            {
+                Form1.Running = true;
+                this.OnOffStatus.BaseColor = System.Drawing.Color.Lime;
+                foreach (string token in Form1.ValidTokens) { rDiscord.CustomStatus(Client.Create(false, null, token), " "); }
+                Form1.Running = false;
+                MessageBox.Show($"Reverted status on {ValidTokens.Count} accounts.", "Success!");
+                this.OnOffStatus.BaseColor = System.Drawing.Color.Red;
+            }
         }
     }
 }

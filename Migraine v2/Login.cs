@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using DiscordRPC;
 using DiscordRPC.Logging;
-using Migraine_v2.LoginClass;
 
 namespace Migraine_v2 {
     public partial class Login : Form {

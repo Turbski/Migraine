@@ -234,28 +234,17 @@
     <value>585, 17</value>
   </metadata>
   <data name="UpdateLog.Text" xml:space="preserve">
-    <value>[+] Added the feature of discord client code injection (Making way for a discord client itself, thanks to the Mist Team; VoDKa, Dunk, trial and Yaekith)
-
-[-] Removed certain unnecessary features, such as testing payloads to inject into the discord client.
-
-[*] Modified the way how we inject code into discord's electron window, making it faster, cleaner (code-wise) and more reliable to use.
-
-[!] Discord Raider
- + Added Random Message option
+    <value>UPDATE v1.4
+[!] Discord Spammer
+ + Fixed Online Status but kinda broken
+ + Increased threading limit to 150 from 100
+ + Added Embed Spam
+ + Fixed Invite
 
 [!] Selfbot
- - Fixed all broken commands
- + Added saveservers to Selfbot. What this does is once command is executed, it saves all the servers with your account to a textfile. This is used for if you get banned and you don't know what other server you were in, you can use this to find it.
- + Added Sizepp command 
- + Added Giveaway command 
- + Added Goodbye. With this you can fully rape a server with a simple command. This does delete all channels, emojis and replaces the server icon to a baby.
- + Added Loopinsult. What this does is send a message every 15 seconds with a insult messsage
+ + Bug fixes and cleanup
 
-[!] Custom Commands
- + You can now add your own custom commands for your Selfbot in Migraine (Usage: ;ccommad command response)
- 
-[!] Nitro Sniper
- + Perminatly added a feature that once detected a nitro code it checks it before trying to claim and if code is working then it'll claim. This prevents rate limits and bans.</value>
++ Exception Handling</value>
   </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2684,7 +2673,7 @@ https://discordapp.com/developers/applications/
     <value>963, 17</value>
   </metadata>
   <metadata name="ConstantlyRun1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
+    <value>16, 13</value>
   </metadata>
   <metadata name="gunaElipse1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 56</value>
@@ -3150,7 +3139,4 @@ https://discordapp.com/developers/applications/
         AAD///////8AAP///////wAA
 </value>
   </data>
-  <metadata name="gunaElipse2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
 </root>
