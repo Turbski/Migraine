@@ -1,4 +1,4 @@
-# Migraine-Dev
+# Migraine
 Source code released due to mistakes that happen.
 
 Migraine will be getting a full rewrite in a whole new different language.
